@@ -1,0 +1,22 @@
+/* Title and title slide */
+.series {
+  font-size: .6em;
+  color: #666666;
+}
+.shower>section.title h2 {
+  line-height: 41pt;
+  font-size: 42pt;
+  margin: 171px 0 48px;
+}
+.ugent {
+  position: absolute;
+  bottom: 55px;
+  right: 340px;
+  height: 111px;
+}
+.iminds {
+  position: absolute;
+  bottom: 80px;
+  right: 60px;
+  height: 76px;
+}
