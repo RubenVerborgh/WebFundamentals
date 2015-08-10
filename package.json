@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "shower-core": "shower/core#dev",
+    "shower-clear": "RubenVerborgh/Shower-Clear"
+  }
+}
