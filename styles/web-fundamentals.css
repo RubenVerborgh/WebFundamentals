@@ -20,3 +20,13 @@
   right: 60px;
   height: 76px;
 }
+
+/* Images */
+.shower .label {
+  position: absolute;
+  display: block;
+  background-color: rgba(255,255,255,.8);
+  border-radius: 15px;
+  color: black;
+  padding: 10px;
+}
