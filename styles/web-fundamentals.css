@@ -33,6 +33,18 @@
 }
 
 /* Images */
+figure img {
+  display: block;
+  max-width: 100%;
+  max-height: 400px;
+  margin: 0 auto;
+}
+figcaption {
+  display: block;
+  font-size: 10pt;
+  text-align: right;
+}
+
 .shower .label {
   position: absolute;
   display: block;
