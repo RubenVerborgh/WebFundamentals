@@ -21,6 +21,17 @@
   height: 76px;
 }
 
+.toc.slide {
+  padding-left: 200px;
+  font-style: italic;
+}
+.toc.slide li {
+  font-weight: normal;
+}
+.toc.slide li.active {
+  font-weight: bold;
+}
+
 /* Images */
 .shower .label {
   position: absolute;
