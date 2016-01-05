@@ -53,3 +53,9 @@ figcaption {
   color: black;
   padding: 10px;
 }
+
+.slide > :first-child:not(h2):before {
+  content: " ";
+  display: block;
+  height: 62px;
+}
