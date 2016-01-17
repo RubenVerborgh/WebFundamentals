@@ -412,15 +412,77 @@
     </figure>
   </div>
 
-  <div class="slide" id="operating-systems">
+  <div class="slide">
     <h2>
-      Operation-system independence<br>
-      was the first step to take.
+      With the Web's client–server architecture,
+      nobody needs to know about others.
+    </h2>
+    <ul>
+      <li class="next">
+        Servers don't need to know about clients.
+        <ul>
+          <li>Servers do not keep application state.</li>
+        </ul>
+      </li>
+      <li class="next">
+        Clients don't need to know about other servers.
+        <ul>
+          <li>Clients follow links from one server to another.</li>
+        </ul>
+      </li>
+      <li class="next">
+        Servers don't need to know about other servers.
+        <ul>
+          <li>Servers only maintain their own outgoing links.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      Web linking is decentralized
+      because of one-way links inside documents.
     </h2>
     <ul>
       <li>
-        HTTP and HTML were independent,<br>
-        the server and browser were NeXT-specific.
+        essentials inside of HTML documents (not shared)
+        <ul>
+          <li>text</li>
+          <li>hyperlinks</li>
+        </ul>
+      </li>
+      <li>
+        the rest outside of HTML documents (shareable)
+        <ul>
+          <li>styling <em>(fonts, colors, …)</em></li>
+          <li>media <em>(images, video, …)</em></li>
+          <li>scripts</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      The Web was a hypertext system<br>
+      simple enough to scale to the world.
+    </h2>
+    <blockquote class="tight">
+      <p>Individual links are allowed to break<br>so the entire Web does not.</p>
+      <cite><a href="http://www.wired.co.uk/magazine/archive/2014/03/web-at-25/tim-berners-lee">Tim Berners-Lee</a></cite>
+    </blockquote>
+  </div>
+
+  <div class="slide" id="operating-systems">
+    <h2>
+      The Web's operation-system independence<br>
+      helped accelerate its growth.
+    </h2>
+    <ul>
+      <li>
+        HTTP and HTML were OS-independent,<br>
+        yet the server and browser were NeXT-specific.
       </li>
       <li>
         Support for other systems followed in 1992,<br>
