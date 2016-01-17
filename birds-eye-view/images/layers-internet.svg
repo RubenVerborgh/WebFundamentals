@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="900px" height="400px">
+<style>
+@font-face{
+ font-weight: 700;
+ font-family: 'Open Sans';
+ src: url(../fonts/OpenSans.Bold.woff) format('woff')
+}
+
+text {
+  font: 32px 'Open Sans';
+  font-weight: bold;
+  stroke-width: 0 !important;
+}
+
+line, path {
+  stroke-width: 4;
+}
+path, rect {
+  fill: none !important;
+}
+
+.internet {
+  fill:   #979A9E;
+  stroke: #979A9E;
+}
+</style>
+<circle class="internet" cx="40"  cy="315" r="18"/>
+<circle class="internet" cx="164" cy="368" r="18"/>
+<circle class="internet" cx="313" cy="315" r="18"/>
+<circle class="internet" cx="454" cy="362" r="18"/>
+<circle class="internet" cx="570" cy="308" r="18"/>
+
+<path class="internet" d="M64,306c70-18,144-18,219,0"/>
+<path class="internet" d="M188,376c77,26,157,25,238-4"/>
+<path class="internet" d="M341,307c66-24,134-25,201-4"/>
+<path class="internet" d="M39,341c25,26,58,36,98,31"/>
+<path class="internet" d="M190,355c43,1,76-7,98-27"/>
+<path class="internet" d="M479,362c38,1,67-8,84-28"/>
+
+<text class="internet" x="640" y="320">Internet</text>
+</svg>

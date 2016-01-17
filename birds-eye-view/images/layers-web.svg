@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="900px" height="400px">
+<style>
+@font-face{
+ font-weight: 700;
+ font-family: 'Open Sans';
+ src: url(../fonts/OpenSans.Bold.woff) format('woff')
+}
+
+text {
+  font: 32px 'Open Sans';
+  font-weight: bold;
+  stroke-width: 0 !important;
+}
+
+line, path {
+  stroke-width: 4;
+}
+path, rect {
+  fill: none !important;
+}
+
+.internet {
+  fill:   #979A9E;
+  stroke: #979A9E;
+}
+
+.web {
+  stroke: #4B86C4;
+  fill:   #4B86C4;
+  stroke-width: 5;
+}
+line.web {
+  stroke-dasharray: 5,5;
+}
+</style>
+<circle class="internet" cx="40"  cy="315" r="18"/>
+<circle class="internet" cx="164" cy="368" r="18"/>
+<circle class="internet" cx="313" cy="315" r="18"/>
+<circle class="internet" cx="454" cy="362" r="18"/>
+<circle class="internet" cx="570" cy="308" r="18"/>
+
+<g id="web" class="web" transform="translate(13,151)">
+	<rect  x="0" y="0" width="50" height="67"/>
+	<line x1="8" y1="15" x2="37" y2="15"/>
+	<line x1="8" y1="23" x2="37" y2="23"/>
+	<line x1="8" y1="38" x2="37" y2="38"/>
+	<line x1="8" y1="46" x2="37" y2="46"/>
+</g>
+<g transform="translate(278,23)"><use xlink:href="#web"/></g>
+<g transform="translate(533,20)"><use xlink:href="#web"/></g>
+
+<path class="internet" d="M64,306c70-18,144-18,219,0"/>
+<path class="internet" d="M188,376c77,26,157,25,238-4"/>
+<path class="internet" d="M341,307c66-24,134-25,201-4"/>
+<path class="internet" d="M39,341c25,26,58,36,98,31"/>
+<path class="internet" d="M190,355c43,1,76-7,98-27"/>
+<path class="internet" d="M479,362c38,1,67-8,84-28"/>
+<line class="web" x1="39"  y1="295" x2="39"  y2="219"/>
+<line class="web" x1="313" y1="295" x2="313" y2="242"/>
+<line class="web" x1="570" y1="287" x2="570" y2="238"/>
+
+<text class="internet" x="640" y="320">Internet</text>
+<text class="web"      x="640" y="216">Web</text>
+</svg>
