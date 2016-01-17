@@ -54,10 +54,8 @@ figcaption {
   padding: 10px;
 }
 
-.slide:not(.full) > :first-child:not(h2):before {
-  content: " ";
-  display: block;
-  height: 62px;
+.slide:not(.full) > blockquote:first-child {
+  padding-top: 145px;
 }
 
 .twitter-tweet-rendered {
