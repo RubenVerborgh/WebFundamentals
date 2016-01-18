@@ -1,7 +1,10 @@
 /* Title and title slide */
 .series {
   font-size: .6em;
-  color: #666666;
+  color: #666666 !important;
+}
+.series:not(:hover) {
+  background-position: 0 2em !important;
 }
 .title.slide h2 {
   line-height: 41pt;
