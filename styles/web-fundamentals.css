@@ -35,6 +35,14 @@
   font-weight: bold;
 }
 
+ul.inline, ol.inline, .inline > li {
+  margin-left: 0;
+  display: inline;
+}
+.inline > li:not(:last-child):after {
+  content: ',';
+}
+
 /* Images */
 figure img {
   display: block;

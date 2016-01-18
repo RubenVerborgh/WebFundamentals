@@ -106,14 +106,29 @@
         the Internet
         <ul class="next">
           <li>a global communication network interconnecting devices</li>
-          <li><em>technologies: <abbr>TPC</abbr>, <abbr>IP</abbr></em></li>
+          <li>
+            technologies:
+            <ul class="inline">
+              <li><abbr>TPC</abbr></li>
+              <li><abbr>IP</abbr></li>
+              <li>…</li>
+            </ul>
+          </li>
         </ul>
       </li>
       <li>
         the Web
         <ul class="next">
           <li>an information space on top of the Internet</li>
-          <li><em>technologies: <abbr>HTTP</abbr>, <abbr>HTML</abbr>, <abbr>URL</abbr></em></li>
+          <li>
+            technologies:
+            <ul class="inline">
+              <li><abbr>HTTP</abbr></li>
+              <li><abbr>HTML</abbr></li>
+              <li><abbr>URL</abbr></li>
+              <li>…</li>
+            </ul>
+          </li>
         </ul>
       </li>
     </ul>
@@ -148,7 +163,11 @@
       <li class="next">
         on the Internet but not on the Web
         <ul>
-          <li>e-mail, Skype, BitTorrent, VPN, …</li>
+          <li>e-mail</li>
+          <li>Skype</li>
+          <li>BitTorrent</li>
+          <li>VPN</li>
+          <li>…</li>
         </ul>
       </li>
       <li class="next">
@@ -317,7 +336,15 @@
       <li>
         brought the revolutionary <em>Mother of All Demos</em>
         <ul>
-          <li><em class="next">in 1968:</em> graphical interface, networking, hypertext…</li>
+          <li>
+            <em class="next">in 1968:</em>
+            <ul class="inline">
+              <li>graphical interface</li>
+              <li>networking</li>
+              <li>hypertext</li>
+              <li>…</li>
+            </ul>
+          </li>
         </ul>
       </li>
     </ul>
@@ -629,16 +656,26 @@
     </h2>
     <ul>
       <li>
-        broad:
-        <a href="http://twitter.com/">Twitter</a>,
-        <a href="http://www.facebook.com/">Facebook</a>,
-        <a href="https://www.instagram.com/">Instagram</a>,
-        …
-        <br>
-        specific:
-        <a href="http://github.com/">GitHub</a>,
-        <a href="http://www.mendeley.com/">Mendeley</a>,
-        …
+        Plenty of social networks exist.
+        <ul>
+          <li>
+            broad:
+            <ul class="inline">
+              <li><a href="http://twitter.com/">Twitter</a></li>
+              <li><a href="http://www.facebook.com/">Facebook</a></li>
+              <li><a href="https://www.instagram.com/">Instagram</a></li>
+              <li>…</li>
+            </ul>
+          </li>
+          <li>
+            specific:
+            <ul class="inline">
+              <li><a href="http://github.com/">GitHub</a></li>
+              <li><a href="http://www.mendeley.com/">Mendeley</a></li>
+              <li>…</li>
+            </ul>
+          </li>
+        </ul>
       </li>
       <li class="next">
         If you're not paying, you're not the customer;<br>
@@ -687,11 +724,225 @@
       <li class="active">
         <a href="#machines">The Web for machines</a>
         <ul>
-          <li class="active"><a href="#machines">Web services</a></li>
+          <li class="active"><a href="#machines">Web crawlers</a></li>
+          <li><a href="#apis">Web APIs</a></li>
           <li><a href="#semantic-web">The Semantic Web</a></li>
         </ul>
       </li>
     </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      The Web's architecture makes it hard<br>
+      to locate specific content.
+    </h2>
+    <ul>
+      <li>
+        Since the Web is decentralized,<br>
+        we cannot possibly know where everything is.
+      </li>
+      <li>
+        <em>Crawlers</em> from <em>search engines</em> traverse the Web<br>
+        and create a centralized <em>index</em> of content.
+        <ul>
+          <li>
+            search engines:
+            <ul class="inline">
+              <li><a href="http://www.google.com/">Google</a></li>
+              <li><a href="http://www.bing.com/">Bing</a></li>
+              <li><a href="http://www.baidu.com/">Baidu</a></li>
+              <li>…</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      Search engines select and rank content<br>
+      in an increasingly personalized way.
+    </h2>
+    <ul>
+      <li>
+        Precision and recall are not as relevant<br>
+        as result <em>ranking</em>,
+        yielding a strong first page.
+        <ul>
+          <li>This gave rise to an entirely new business: <a href="https://support.google.com/webmasters/answer/35291?hl=en"><abbr title="Search Engine Optimization">SEO</abbr></a>.</li>
+        </ul>
+      </li>
+      <li class="next">Is search result personalization a filter bubble?</li>
+      <li class="next">
+        Even search <em>queries</em> are a valuable data source.
+        <ul>
+          <li>Individually, they are a privacy hazard…</li>
+          <li>At large, they help spot important <a href="https://www.google.com/trends/">trends</a>.</li>
+          <li>
+            Google helped predict <a href="http://static.googleusercontent.com/external_content/untrusted_dlcp/research.google.com/en/us/archive/papers/detecting-influenza-epidemics.pdf">flu outbreaks</a>
+            <em>(<a href="http://www.wired.com/2015/10/can-learn-epic-failure-google-flu-trends/">sometimes</a>)</em>.
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      <em>Feeds</em> let you discover new content<br>
+      on websites you already know.
+    </h2>
+    <ul>
+      <li>
+        An <a href="http://web.resource.org/rss/1.0/spec">RSS feed</a> contains the title and summary<br>
+        of the last entries on a (part of a) website.
+        <ul>
+          <li>specification co-authored by Aaron Swartz</li>
+        </ul>
+      </li>
+      <li>
+        By regularly polling such a feed,<br>
+        your computer can tell you if there's news.
+        <ul>
+          <li>no need to search/monitor the entire Web</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="toc slide" id="apis">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">A Bird's-Eye View of the Web</a>
+    </h2>
+    <ul>
+      <li><a href="#www">The World Wide Web</a></li>
+      <li><a href="#humans">The Web for humans</a></li>
+      <li class="active">
+        <a href="#machines">The Web for machines</a>
+        <ul>
+          <li><a href="#machines">Web crawlers</a></li>
+          <li class="active"><a href="#apis">Web APIs</a></li>
+          <li><a href="#semantic-web">The Semantic Web</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      Machines have only limited possibilities
+      on the “human” Web.
+    </h2>
+    <ul>
+      <li>
+        Indexes can be searched for related content.
+        <ul>
+          <li>Finding a substring doesn't imply an understanding.</li>
+        </ul>
+      </li>
+      <li>
+        How to find specific information repeatedly?
+        <ul>
+          <li>“What are the latest tweets tagged <a href="https://twitter.com/search?q=%23WebWeWant">#WebWeWant</a>?”</li>
+        </ul>
+      </li>
+      <li>
+        How to perform actions reliably?
+        <ul>
+          <li>“Click the button to <a href="https://twitter.com/intent/tweet">send a tweet</a>.”</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      <em>Web APIs</em> expose machine-accessible methods
+      from a server to a client.
+    </h2>
+    <ul>
+      <li class="next">
+        “Web API” is typically used as a label<br>
+        for the new generation of “Web services”.
+      </li>
+      <li class="next">
+        A <a href="https://www.w3.org/TR/2004/NOTE-ws-gloss-20040211/#webservice">Web service</a>
+        is a software system designed
+        to support interoperable machine-to-machine interaction
+        over a network.
+      </li>
+      <li class="next">
+        Web APIs can be implemented in different ways<br>
+        and with different technologies.
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      Web APIs with <em>Remote Procedure Calling</em>
+      have few to do with the Web.
+    </h2>
+    <ul>
+      <li class="next">
+        The client sends a structured request.
+        <ul>
+          <li><code>&lt;request method="retweet" id="22896"/&gt;</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        The server replies with a structured response.
+        <ul>
+          <li><code>&lt;response status="success"/&gt;</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        There's nothing intrinsically “Web” about this.
+        <ul>
+          <li>The Web acts as a convenient tunnel.</li>
+          <li><em>(Which firewall would block TCP port 80?)</em></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      <em>Representational State Transfer</em> Web APIs
+      expose functionality like a website.
+    </h2>
+    <ul>
+      <li class="next">
+        The client requests a resource.
+        <ul>
+          <li><code>/tweets/22896</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        The server sends a representation.
+        <ul>
+          <li>The resource represented in XML, JSON, …</li>
+        </ul>
+      </li>
+      <li class="next">
+        The client follows a link to another resource.
+        <ul>
+          <li><code>/people/3435</code></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      The number of Web APIs<br>
+      has grown tremendously since 2000.
+    </h2>
+    <p class="label">number of Web APIs<br>indexed in <a href="http://www.programmableweb.com/">ProgrammableWeb</a></p>
+    <img src="images/web-api-growth.svg" alt="[Graph showing a strong growth of APIs]" />
   </div>
 
   <div class="toc slide" id="semantic-web">
@@ -705,7 +956,8 @@
       <li class="active">
         <a href="#machines">The Web for machines</a>
         <ul>
-          <li><a href="#machines">Web services</a></li>
+          <li><a href="#machines">Web crawlers</a></li>
+          <li><a href="#apis">Web APIs</a></li>
           <li class="active"><a href="#semantic-web">The Semantic Web</a></li>
         </ul>
       </li>
