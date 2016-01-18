@@ -3,13 +3,13 @@
   font-size: .6em;
   color: #666666 !important;
 }
-.series:not(:hover) {
-  background-position: 0 2em !important;
-}
 .title.slide h2 {
   line-height: 41pt;
   font-size: 42pt;
   margin: 171px 0 48px;
+}
+.module:not(:hover),.series:not(:hover) {
+  background-position: 0 2em !important;
 }
 .ugent {
   position: absolute;
