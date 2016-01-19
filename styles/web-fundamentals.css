@@ -35,10 +35,15 @@
   font-weight: bold;
 }
 
-ul.inline, ol.inline, .inline > li {
+ul.inline > li, ol.inline > li {
   margin-left: 0;
   display: inline;
 }
+li li ul.inline, li li ol.inline {
+  margin-left: 0;
+  display: inline;
+}
+
 .inline > li:not(:last-child):after {
   content: ',';
 }
