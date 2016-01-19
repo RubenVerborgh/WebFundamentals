@@ -48,6 +48,19 @@ li li ul.inline, li li ol.inline {
   content: ',';
 }
 
+.opinion:before {
+  content: " ";
+  display: block;
+  position: absolute;
+  width: 1.3em;
+  margin-left: -1.5em;
+  background: url(../images/opinion.svg) no-repeat center bottom / 100% 100%;
+}
+h2.opinion:before {
+  width: 1em;
+  margin: 0 0 0 -1.15em;
+}
+
 /* Images */
 figure img {
   display: block;
