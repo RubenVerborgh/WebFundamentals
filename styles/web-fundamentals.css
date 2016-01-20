@@ -25,17 +25,7 @@
   height: 74px;
 }
 
-.toc.slide {
-  padding-left: 200px;
-  font-style: italic;
-}
-.toc.slide li {
-  font-weight: normal;
-}
-.toc.slide li.active {
-  font-weight: bold;
-}
-
+/* License information */
 .slide p.license {
   font-size: .3em;
   line-height: 1.5em;
@@ -48,19 +38,23 @@
   height: 42px;
   margin-bottom: 7px;
 }
-footer {
-  width: 100%;
-  padding: 0 50px .5em;
-}
-footer p.license {
-  font-size: .3em;
-  line-height: 1.5em;
-  text-align: center;
-}
 footer p.license img {
-  margin: 0 .5em -.4em;
+  margin: 0 .5em -.15em 0;
 }
 
+/* Content table slides */
+.toc.slide {
+  padding-left: 200px;
+  font-style: italic;
+}
+.toc.slide li {
+  font-weight: normal;
+}
+.toc.slide li.active {
+  font-weight: bold;
+}
+
+/* Inline lists */
 ul.inline > li, ol.inline > li {
   margin-left: 0;
   display: inline;
@@ -73,6 +67,7 @@ li li ul.inline, li li ol.inline {
   content: ',';
 }
 
+/* Opinion symbols */
 .opinion:before {
   content: " ";
   display: block;
@@ -86,7 +81,7 @@ h2.opinion:before {
   margin: 0 0 0 -1.15em;
 }
 
-/* images */
+/* Images */
 figure img {
   display: block;
   max-width: 100%;
@@ -98,12 +93,12 @@ figcaption {
   font-size: 10pt;
   text-align: right;
 }
-
 img.center {
   display: block;
   margin: 0 auto;
 }
 
+/* Labels on images */
 .shower .label {
   position: absolute;
   display: block;
@@ -113,15 +108,16 @@ img.center {
   padding: 10px;
 }
 
+/* Full-slide quotes */
 .slide:not(.full) > blockquote:first-child {
   padding-top: 145px;
 }
+blockquote.tight p {
+  margin-bottom: 21px;
+}
 
+/* Tweets */
 .twitter-tweet-rendered {
   margin: 3em auto !important;
   transform: scale(1.5);
-}
-
-blockquote.tight p {
-  margin-bottom: 21px;
 }
