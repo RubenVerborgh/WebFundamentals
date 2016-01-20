@@ -13,15 +13,15 @@
 }
 .ugent {
   position: absolute;
-  bottom: 55px;
+  bottom: 41px;
   right: 340px;
   height: 111px;
 }
 .iminds {
   position: absolute;
-  bottom: 80px;
+  bottom: 62px;
   right: 60px;
-  height: 76px;
+  height: 74px;
 }
 
 .toc.slide {
@@ -33,6 +33,31 @@
 }
 .toc.slide li.active {
   font-weight: bold;
+}
+
+.slide p.license {
+  font-size: .3em;
+  line-height: 1.5em;
+  width: 320px;
+  position: absolute;
+  bottom: 60px;
+}
+.slide p.license img {
+  display: block;
+  height: 42px;
+  margin-bottom: 7px;
+}
+footer {
+  width: 100%;
+  padding: 0 50px .5em;
+}
+footer p.license {
+  font-size: .3em;
+  line-height: 1.5em;
+  text-align: center;
+}
+footer p.license img {
+  margin: 0 .5em -.4em;
 }
 
 ul.inline > li, ol.inline > li {
@@ -61,7 +86,7 @@ h2.opinion:before {
   margin: 0 0 0 -1.15em;
 }
 
-/* Images */
+/* images */
 figure img {
   display: block;
   max-width: 100%;
