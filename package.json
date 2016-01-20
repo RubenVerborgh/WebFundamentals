@@ -1,8 +1,4 @@
 {
-  "dependencies": {
-    "shower-core": "shower/core#dev",
-    "shower-clear": "RubenVerborgh/Shower-Clear"
-  },
   "devDependencies": {
     "browser-sync": "^2.11.0",
     "gulp": "^3.9.0"
