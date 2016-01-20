@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="440" height="400">
+<style>
+@font-face{
+ font-weight: 700;
+ font-family: 'Open Sans';
+ src: url(../fonts/OpenSans.Bold.woff) format('woff')
+}
+
+text {
+  font: 36px 'Open Sans';
+  font-weight: bold;
+  fill: white;
+}
+circle {
+  fill: #4B86C4;
+  r: 75;
+}
+path {
+  stroke: #979A9E;
+  fill: none;
+  stroke-width: 8;
+}
+polygon {
+  fill: #979A9E;
+}
+</style>
+<circle cx="220" cy="76"/>
+<circle cx="364" cy="324"/>
+<circle cx="76"  cy="324"/>
+<text x="184" y="88" >URL</text>
+<text x="318" y="338">HTTP</text>
+<text x="24"  y="338">HTML</text>
+<path d="M299.4,114.1c0,0,53.8,30.3,72.6,99.3"/>
+<polygon points="351.1,211.6 377.4,241.6 390.2,203.8"/>
+<path d="M283.8,356.9c0,0-46,27.3-106.5,12.6"/>
+<polygon points="189.1,352 150.1,360.3 176.8,389.9"/>
+<path d="M63.3,240.3c0,0-0.7-63.5,51.3-115.6"/>
+<polygon points="123.5,143.8 136.4,106 97.3,113.8"/>
+</svg>

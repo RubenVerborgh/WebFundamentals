@@ -69,7 +69,6 @@ li li ul.inline, li li ol.inline {
   margin-left: 0;
   display: inline;
 }
-
 .inline > li:not(:last-child):after {
   content: ',';
 }
@@ -98,6 +97,11 @@ figcaption {
   display: block;
   font-size: 10pt;
   text-align: right;
+}
+
+img.center {
+  display: block;
+  margin: 0 auto;
 }
 
 .shower .label {
