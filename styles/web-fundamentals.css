@@ -6,6 +6,7 @@
 .title.slide h2 {
   line-height: 41pt;
   font-size: 42pt;
+  letter-spacing: -1px;
   margin: 171px 0 48px;
 }
 .module:not(:hover),.series:not(:hover) {
