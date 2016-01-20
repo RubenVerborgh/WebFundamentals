@@ -6,5 +6,5 @@ gulp.task('default', function () {
 		notify: false,
 		server: { baseDir: './', },
 	});
-	gulp.watch('*-*/*').on('change', sync.reload);
+	gulp.watch(['*/*', '*/*/*', '!node_modules/']).on('change', sync.reload);
 });
