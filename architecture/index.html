@@ -344,6 +344,72 @@
     </ol>
   </div>
 
+  <div class="slide">
+    <h2>
+      The URL became part of a family<br>
+      of technologies related to identification.
+    </h2>
+    <ul>
+      <li>
+        URL – Uniform Resource Locator (<a href="https://tools.ietf.org/html/rfc1738">RFC1738</a>)
+        <ul>
+          <li>unique identification and location of resources</li>
+          <li><em>mailto:ruben.verborgh@ugent.be</em></li>
+        </ul>
+      </li>
+      <li>
+        URN – Uniform Resource Name (<a href="https://tools.ietf.org/html/rfc2141">RFC2141</a>)
+        <ul>
+          <li>location-independent resource identifier</li>
+          <li><em>urn:isbn:0-83891251-6</em></li>
+        </ul>
+      </li>
+      <li>
+        URI – Uniform Resource Identifier (<a href="https://tools.ietf.org/html/rfc3986">RFC3986</a>)
+        <ul>
+          <li>union of URLs and URNs</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      The broadest family is IRI,<br>
+      which supports non-ASCII characters.
+    </h2>
+    <ul>
+      <li>
+        Not all characters are allowed in a URI.
+        <ul>
+          <li>
+            <a href="https://tools.ietf.org/html/rfc3986#section-2.1">percent-encode</a> non-ASCII chars
+            <ul>
+              <li><em><code>é</code> becomes <code>%C3%A9</code></em></li>
+            </ul>
+          </li>
+          <li>
+            <a href="https://tools.ietf.org/html/rfc3986#section-2.1">percent-encode</a> <a href="https://tools.ietf.org/html/rfc3986#section-2.2">chars with other meaning</a>
+            <ul>
+              <li><em><code>?</code> becomes <code>%3F</code></em></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        IRI – Internationalized Resource Identifier (<a href="https://tools.ietf.org/html/rfc3987">RFC3987</a>)
+        <ul>
+          <li>non-ASCII chars don't need to be encoded</li>
+          <li>chars with other meaning still need encoding</li>
+          <li><a href="http://🛀🌰🐊🎩🍓🐒🐝👊.🍕💩.ws">http://🛀🌰🐊🎩🍓🐒🐝👊.🍕💩.ws</a></li>
+        </ul>
+      </li>
+    </ul>
+    <footer>
+      <p>When typically use “URI” and “IRI” interchangeably.</p>
+    </footer>
+  </div>
+
   <div class="toc slide" id="http">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
