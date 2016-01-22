@@ -75,12 +75,12 @@
     <img src="../birds-eye-view/images/layers-web.svg" alt="">
   </div>
 
-  <div class="slide">
+  <div class="slide" id="flyer">
     <h2>
       This flyer predates the Web's boom.<br>
       <em>What is missing?</em>
     </h2>
-    <img src="images/before-web.png" alt="[A flyer with instructions on how to obtain files through a mailserver and FTP server.]" height="400">
+    <img src="images/before-web.png" alt="[A flyer with instructions on how to obtain files through a mailserver and FTP server.]" height="400" class="narrow">
   </div>
 
   <div class="slide">
@@ -141,6 +141,207 @@
       <li><a href="#architecture">Web Architecture</a></li>
       <li><a href="#supporting-technologies">Supporting Technologies</a></li>
     </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      An URL uniquely <em>identifies</em> and <em>locates</em>
+      a resource anywhere in the universe.
+    </h2>
+    <ul>
+      <li>
+        A string is a unique identifier if<br>
+        <em>at most one</em> entity corresponds to it.
+        <ul>
+          <li>
+            A national number uniquely identifies a person,<br>
+            but does not allow locating him or her.
+          </li>
+        </ul>
+      </li>
+      <li>
+        A string is a unique locator if<br>
+        <em>at most one</em> location corresponds to it.
+        <ul>
+          <li>
+            A street address uniquely identifies a location,<br>
+            but does not allow to identify a specific person.
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      A (well-chosen) URL <em>combines</em><br>
+      unique identification and location.
+    </h2>
+    <p><a href="http://en.wikipedia.org/wiki/Marissa_Mayer">http://en.wikipedia.org/wiki/Marissa_Mayer</a></p>
+    <ul>
+      <li>
+        This URL identifies the current Wikipedia article
+        about Marissa Mayer.
+        <ul>
+          <li>It does <em>not</em> (also) identify Marissa herself.</li>
+          <li>Otherwise, it wouldn't be unique anymore.</li>
+        </ul>
+      </li>
+      <li>
+        At the same time, this URL allows us to locate
+        the Wikipedia article about Marissa Mayer.
+        <ul>
+          <li>Again, not Marissa herself—nor anything else.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2 class="opinion">
+      Deceptively simple, the URL is probably
+      the most revolutionary part of the Web.
+    </h2>
+    <ul>
+      <li>
+        The <a href="#flyer">flyer</a> we saw earlier shows<br>
+        what a lack of unique location means.
+        <ul>
+          <li>publisher-specific download instructions</li>
+          <li>machine-dependent execution</li>
+        </ul>
+      </li>
+      <li>
+        Unique identification partially existed,<br>
+        but not yet globally for documents.
+        <ul>
+          <li>e-mail address and server names are global</li>
+          <li>document names are server-specific</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      The generic URL syntax<br>
+      extends beyond the Web.
+    </h2>
+    <p><code>&lt;scheme&gt;:&lt;scheme-specific-part&gt;</code></p>
+    <ul>
+      <li>
+        different possible schemes
+        <ul class="inline">
+          <li><code>ftp</code></li>
+          <li><code>http</code></li>
+          <li><code>mailto</code></li>
+          <li><code>file</code></li>
+          <li>…</li>
+        </ul>
+      </li>
+      <li>
+        different scheme-specific parts
+        <ul>
+          <li><code>//&lt;user&gt;:&lt;password&gt;@&lt;host&gt;:&lt;port&gt;/&lt;url-path&gt;</code></li>
+        </ul>
+      </li>
+      <li>
+        specified by the <a href="https://www.ietf.org/">Internet Engineering Task Force</a>
+        in <a href="https://tools.ietf.org/html/rfc1738">Request For Comments 1738</a>.
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      A typical HTTP URL<br>
+      contains the following parts.
+    </h2>
+    <p><code>http://&lt;host&gt;/&lt;path&gt;?&lt;search&gt;#&lt;fragment&gt;</code></p>
+    <dl>
+      <dt>hostname</dt>
+      <dd>identifies the machine</dd>
+      <dt>path</dt>
+      <dd>identifies the resource within the machine</dd>
+      <dt>search</dt>
+      <dd>optionally refines the resource</dd>
+      <dt>fragment</dt>
+      <dd>optionally identifies a part of the resource</dd>
+    </dl>
+  </div>
+
+  <div class="slide">
+    <h2>
+      A typical HTTP URL<br>
+      contains the following parts.
+    </h2>
+    <p><a href="http://en.wikipedia.org/wiki/Marissa_Mayer#Career">http://en.wikipedia.org/wiki/Marissa_Mayer#Career</a></p>
+    <dl>
+      <dt>hostname</dt>
+      <dd>the machine is <em>en.wikipedia.org</em></dd>
+      <dt>path</dt>
+      <dd>the resource is <em>/wiki/Marissa_Mayer</em></dd>
+      <dt>search</dt>
+      <dd><em>not present</em></dd>
+      <dt>fragment</dt>
+      <dd>the part of the resource is <em>Career</em></dd>
+    </dl>
+  </div>
+
+  <div class="slide">
+    <h2>
+      An HTTP URL provides the instructions<br>
+      to obtain a representation of the resource.
+    </h2>
+    <p><code>http://&lt;host&gt;/&lt;path&gt;?&lt;search&gt;#&lt;fragment&gt;</code></p>
+    <ol>
+      <li>
+        The client looks up the host's IP address.
+        <ul>
+          <li>The client uses DNS for this.</li>
+        </ul>
+      </li>
+      <li>
+        The client requests <code>/&lt;path&gt;?&lt;search&gt;</code>.
+        <ul>
+          <li>The server generates it in a server-specific way.</li>
+        </ul>
+      </li>
+      <li>
+        The client finds <code>#&lt;fragment&gt;</code>.
+        <ul>
+          <li>Fragments are defined by the representation format.</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+
+  <div class="slide">
+    <h2>
+      An HTTP URL provides the instructions<br>
+      to obtain a representation of the resource.
+    </h2>
+    <p><a href="http://en.wikipedia.org/wiki/Marissa_Mayer#Career">http://en.wikipedia.org/wiki/Marissa_Mayer#Career</a></p>
+    <ol>
+      <li>
+        The client looks up the IP address of <em>en.wikipedia.org</em>.
+        <ul>
+          <li>This address is <em>91.198.174.192</em>.</li>
+        </ul>
+      </li>
+      <li>
+        The client requests <em>/wiki/Marissa_Mayer</em>.
+        <ul>
+          <li>The server generates the corresponding Wikipedia article.</li>
+        </ul>
+      </li>
+      <li>
+        The client finds <em>#Career</em>.
+        <ul>
+          <li>This corresponds to a header in the HTML document.</li>
+        </ul>
+      </li>
+    </ol>
   </div>
 
   <div class="toc slide" id="http">
