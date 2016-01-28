@@ -596,6 +596,37 @@ Accept: text/html</span></code></pre>
     </ul>
   </div>
 
+  <div class="slide" id="hostname">
+    <h2>
+      Clients send the hostname,<br>
+      <span class="next">so one server can host multiple websites.</span>
+    </h2>
+    <ul>
+      <li>
+        Although the client resolves it to an IP address,<br>
+        the hostname is still sent to the server.
+      </li>
+      <li class="next">
+        There is <em>no</em> one-to-one mapping<br>
+        between server IP addresses and domains.
+        <ul>
+          <li>
+            One website can be hosted by multiple servers.
+            <ul>
+              <li>multiple DNS entries for a hostname</li>
+            </ul>
+          </li>
+          <li>
+            One server can host multiple websites.
+            <ul>
+              <li><code>Host</code> header tells the server which one to pick</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
   <div class="slide">
     <h2>
       When a server receives a request,<br>
