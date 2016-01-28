@@ -87,6 +87,11 @@ dd {
   margin-bottom: 42px;
 }
 
+/* code */
+.slide pre {
+  margin-left: 60px;
+}
+
 /* Opinion symbols */
 .opinion:before {
   content: " ";

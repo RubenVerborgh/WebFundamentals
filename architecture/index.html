@@ -429,6 +429,262 @@
     </ul>
   </div>
 
+  <div class="slide">
+    <h2>
+      HTTP is a protocol to transfer representations
+      from a client to a server.
+    </h2>
+    <ul>
+      <li class="next">
+        HTTP standardizes how clients send a <em>request</em><br>
+        for a <a href="https://tools.ietf.org/html/rfc7231#section-3">representation</a>
+        of a <a href="https://tools.ietf.org/html/rfc7231#section-2">resource</a> through its URL.
+      </li>
+      <li class="next">
+        HTTP standardizes how servers reply with a <em>response</em>
+        that can contain a representation.
+      </li>
+      <li class="next">
+        The most widely used version is <a href="https://tools.ietf.org/html/rfc2616">HTTP 1.1</a>
+        (<a href="https://tools.ietf.org/html/rfc2616">RFC2616</a>).
+        <ul>
+          <li>
+            split later into
+            <ul class="inline">
+              <li><a href="https://tools.ietf.org/html/rfc7230">RFC7230</a></li>
+              <li><a href="https://tools.ietf.org/html/rfc7231">RFC7231</a></li>
+              <li><a href="https://tools.ietf.org/html/rfc7232">RFC7232</a></li>
+              <li><a href="https://tools.ietf.org/html/rfc7233">RFC7233</a></li>
+              <li><a href="https://tools.ietf.org/html/rfc7234">RFC7234</a></li>
+              <li><a href="https://tools.ietf.org/html/rfc7235">RFC7235</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      After resolving the server's IP address,<br>
+      the client can send an HTTP request.
+    </h2>
+    <ul>
+      <li class="next">
+        The request starts with a <a href="https://tools.ietf.org/html/rfc7230#section-3.1.1">request line</a>.
+        <ul>
+          <li>
+            indicates
+            <ul class="inline">
+              <li><a href="https://tools.ietf.org/html/rfc7231#section-4">method</a></li>
+              <li><a href="https://tools.ietf.org/html/rfc7230#section-5.5">request URL path</a></li>
+              <li><a href="https://tools.ietf.org/html/rfc7230#section-2.6">HTTP version</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        The request can contain <a href="https://tools.ietf.org/html/rfc7231#section-5">header fields</a>.
+        <ul>
+          <li>
+            including
+            <ul class="inline">
+              <li><a href="https://tools.ietf.org/html/rfc7230#section-5.4"><code>Host</code></a></li>
+              <li><a href="https://tools.ietf.org/html/rfc7231#section-5.3.2"><code>Accept</code></a></li>
+              <li><a href="https://tools.ietf.org/html/rfc7231#section-5.5.3"><code>User-Agent</code></a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        The request can optionally contain a <a href="https://tools.ietf.org/html/rfc7230#section-3.3">body</a>.
+        <ul>
+          <li>if the method allows it</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="example-request">
+    <h2>
+      After resolving the server's IP address,<br>
+      the client can send an HTTP request.
+    </h2>
+    <p>
+      To obtain <a href="http://en.wikipedia.org/wiki/Marissa_Mayer">http://en.wikipedia.org/wiki/Marissa_Mayer</a>,
+      the client connects to 91.198.174.192 on TPC port 80,
+      and sends this request:
+    </p>
+    <pre><code><span class="next">GET /wiki/Marissa_Mayer HTTP/1.1</span>
+<span class="next">Host: en.wikipedia.org
+User-Agent: MyBrowser/1.0
+Accept: text/html</span></code></pre>
+  </div>
+
+  <div class="slide">
+    <h2>
+      HTTP has a limited number of methods.<br>
+      The following 5 are widely known.
+    </h2>
+    <dl>
+      <dt><a href="https://tools.ietf.org/html/rfc7231#section-4.3.1"><code>GET</code></a></dt>
+      <dd>transfer a representation</dd>
+      <dt><a href="https://tools.ietf.org/html/rfc7231#section-4.3.2"><code>HEAD</code></a></dt>
+      <dd>transfer only status and headers</dd>
+      <dt><a href="https://tools.ietf.org/html/rfc7231#section-4.3.3"><code>POST</code></a></dt>
+      <dd>perform a resource-specific operation</dd>
+      <dt><a href="https://tools.ietf.org/html/rfc7231#section-4.3.4"><code>PUT</code></a></dt>
+      <dd>replace all representations</dd>
+      <dt><a href="https://tools.ietf.org/html/rfc7231#section-4.3.5"><code>DELETE</code></a></dt>
+      <dd>remove all representations</dd>
+    </dl>
+  </div>
+
+  <div class="slide" id="safe-methods">
+    <h2>
+      An HTTP method is <a href="https://tools.ietf.org/html/rfc7231#section-4.2.1">safe</a><br>
+      if it is read-only.
+    </h2>
+    <ul>
+      <li class="next">
+        The client does not request<br>
+        a state change of the resource.
+        <ul>
+          <li>If the server still changes something,<br>
+              the client is not “accountable”.</li>
+        </ul>
+      </li>
+      <li class="next">
+        Safe methods include <code>GET</code> and <code>HEAD</code>.
+        <ul>
+          <li>Automated clients cannot cause harm with these.</li>
+        </ul>
+      </li>
+      <li class="next">
+        Servers not respecting this contract act dangerously.
+        <ul>
+          <li>Example: <a href="http://ruben.verborgh.org/blog/2012/07/19/get-doesnt-change-the-world/">make people like a paper you wrote</a>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="idempotent-methods">
+    <h2>
+      An HTTP method is <a href="https://tools.ietf.org/html/rfc7231#section-4.2.2">idempotent</a><br>
+      if repetitions don't alter the outcome.
+    </h2>
+    <ul>
+      <li class="next">
+        The client can execute an idempotent request<br>
+        1 or more times; the result remains the same.
+        <ul>
+          <li>If a request (maybe) failed, just try it again.</li>
+        </ul>
+      </li>
+      <li class="next">
+        Idempotent methods include all safe methods,<br>
+        as well as <code>PUT</code> and <code>DELETE</code>.
+        <ul>
+          <li>Deleting something multiple times<br>
+              is the same as deleting it once.</li>
+        </ul>
+      </li>
+      <li class="next">
+        Repeating other methods might be undesired.
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      When a server receives a request,<br>
+      it generates a response.
+    </h2>
+    <ul>
+      <li class="next">
+        The response starts with a <a href="https://tools.ietf.org/html/rfc7230#section-3.1.2">status line</a>.
+        <ul>
+          <li>
+            indicates
+            <ul class="inline">
+              <li><a href="https://tools.ietf.org/html/rfc7230#section-2.6">HTTP version</a></li>
+              <li><a href="https://tools.ietf.org/html/rfc7231#section-6">status code</a></li>
+              <li><a href="https://tools.ietf.org/html/rfc7230#section-3.1.2">reason phrase</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        The response can contain <a href="https://tools.ietf.org/html/rfc7231#section-7">header fields</a>.
+        <ul>
+          <li>
+            including
+            <ul class="inline">
+              <li><a href="https://tools.ietf.org/html/rfc7231#section-3.1.1.5"><code>Content-Type</code></a></li>
+              <li><a href="https://tools.ietf.org/html/rfc7230#section-3.3.2"><code>Content-Length</code></a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        The response can optionally contain a <a href="https://tools.ietf.org/html/rfc7230#section-3.3">body</a>.
+        <ul>
+          <li>depending on status code</li>
+          <li>contains the actual document contents</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="example-response">
+    <h2>
+      When a server receives a request,<br>
+      it generates a response.
+    </h2>
+    <p>
+      In response to our <a href="#example-request">previous request</a>:
+    </p>
+    <pre><code><span class="next">HTTP/1.1 200 OK</span>
+<span class="next">Date: Wed, 18 Feb 2016 09:30:46 GMT
+Content-Type: text/html; charset=UTF-8
+Last-Modified: Sun, 24 Jan 2016 18:26:27 GMT</span>
+
+<span class="next">&lt;!DOCTYPE html&gt;
+&lt;html lang="en" dir="ltr" class="client-nojs"&gt;
+…</span></code></pre>
+  </div>
+
+  <div class="slide" id="status-codes">
+    <h2>
+      HTTP has 5 categories of status codes<br>
+      to indicate how the request was handled.
+    </h2>
+    <dl>
+      <dt><a href="https://tools.ietf.org/html/rfc7231#section-6.2">100–199</a></dt>
+      <dd><em>info</em> – the client may continue</dd>
+      <dt><a href="https://tools.ietf.org/html/rfc7231#section-6.3">200–299</a></dt>
+      <dd><em>success</em> – request understood &amp; accepted</dd>
+      <dt><a href="https://tools.ietf.org/html/rfc7231#section-6.4">300–399</a></dt>
+      <dd><em>redirection</em> – further action is needed</dd>
+      <dt><a href="https://tools.ietf.org/html/rfc7231#section-6.5">400–499</a></dt>
+      <dd><em>client error</em> – the request cannot be fulfilled</dd>
+      <dt><a href="https://tools.ietf.org/html/rfc7231#section-6.6">500–599</a></dt>
+      <dd><em>server error</em> – the server failed to fulfill</dd>
+    </dl>
+  </div>
+
+  <div class="slide">
+    <h2>
+      HTTP has 5 categories of status codes<br>
+      to indicate how the request was handled.
+    </h2>
+    <blockquote class="twitter-tweet">
+      <p>HTTP status ranges in a nutshell:&#10;&#10;1xx: hold on&#10;2xx: here you go&#10;3xx: go away&#10;4xx: you fucked up&#10;5xx: I fucked up</p>
+      <cite>Steve Losh</cite>
+      <a href="https://twitter.com/stevelosh/status/372740571749572610">August 28, 2013</a></blockquote>
+</div>
+
   <div class="toc slide" id="html">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
@@ -495,5 +751,6 @@
   </footer>
   <script src="../scripts/shower.min.js"></script>
   <script src="../scripts/enhancements.js"></script>
+  <script async src="//platform.twitter.com/widgets.js"></script>
 </body>
 </html>
