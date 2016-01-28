@@ -704,6 +704,163 @@ Last-Modified: Sun, 24 Jan 2016 18:26:27 GMT</span>
     </ul>
   </div>
 
+  <div class="slide">
+    <h2>
+      <a href="https://www.w3.org/TR/html5/">HTML</a> is a markup language that<br>
+      captures the <em>structure</em> of documents.
+    </h2>
+    <ul>
+      <li>
+        HTML divides a document into <em>elements</em>,<br>
+        which are indicated by opening and closing <em>tags</em>.
+        <ul>
+          <li>Tags begin with “<code>&lt;</code>” and end with “<code>&gt;</code>”.</li>
+          <li>(Regular) closing tags begin with “<code>&lt;/</code>”.</li>
+          <li>Self-closing tags end with “<code>/&gt;</code>”.</li>
+        </ul>
+      </li>
+      <li>
+        Opening tags can have key/value attributes.
+        <ul>
+          <li>The key name is followed by “<code>=</code>” and its value.</li>
+          <li>The value is usually surrounded by (single/double) quotes.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      An element consists of its tags, attributes,
+      and child nodes (elements and/or text).
+    </h2>
+    <p>This is a fragment of an HTML document.</p>
+    <pre><code class="element"><span class="tag">&lt;main&gt;</span>
+  <span class="element"><span class="tag">&lt;h1&gt;</span>This is a title.<span class="tag">&lt;&#47;h1&gt;</span></span>
+  <span class="element"><span class="tag">&lt;p id&#61;&#34;introduction&#34; class&#61;&#34;summary&#34;&gt;</span>
+    This is a&#160;paragraph<span class="element"><span class="tag">&lt;br/&gt;</span></span>
+    with <span class="element"><span class="tag">&lt;em&gt;</span>emphasized<span class="tag">&lt;&#47;em&gt;</span></span> words.
+  <span class="tag">&lt;&#47;p&gt;</span></span>
+  <span class="element"><span class="tag">&lt;img src="image.jpg" alt="an image" /&gt;</span></span>
+<span class="tag">&lt;&#47;main&gt;</span></code></pre>
+  </div>
+
+  <div class="slide">
+    <h2>
+      The HTML specification restricts<br>
+      what elements can be used and where.
+    </h2>
+    <ul>
+      <li>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element">A few dozen tags</a>
+        exist for different element types.
+      </li>
+      <li>
+        They have rules for what attributes they can have,
+        and what child elements they can/should have.
+      </li>
+      <li>
+        There are three main parts:
+        <ul>
+          <li><code>&lt;html&gt;</code> for the entire document</li>
+          <li><code>&lt;head&gt;</code> for document metadata</li>
+          <li><code>&lt;body&gt;</code> for document contents</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      HTML documents can contain hyperlinks<br>
+      and other <em>hypermedia controls</em>.
+    </h2>
+    <ul>
+      <li class="next">
+        The <code>&lt;a&gt;</code> tag starts a link toward another resource.
+        <ul>
+          <li><code>&lt;a href="http://perdu.com/"&gt;Lost?&lt;/a&gt;</code></li>
+          <li>results in the link “<a href="http://perdu.com/">Lost?</a>”</li>
+        </ul>
+      </li>
+      <li class="next">
+        A <code>&lt;form&gt;</code> element creates requests
+        from user input.
+        <form action="https://www.google.com/search">
+          <ul>
+            <li>
+              <label for="google-keywords">Keywords</label>
+              <input type="text" id="google-keywords" name="q" value="HTML5 specification" />
+            </li>
+          </ul>
+          <p><input type="submit" value="Search on Google" /></p>
+        </form>
+      </li>
+      <li class="next">
+        This results in an URL for a resource,
+        whose representation can be retrieved through HTTP.
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      HTML documents can embed or use<br>
+      other media documents.
+    </h2>
+    <ul>
+      <li>
+        Embed images, audio, and video.
+        <ul class="inline">
+          <li><code>&lt;img&gt;</code></li>
+          <li><code>&lt;audio&gt;</code></li>
+          <li><code>&lt;video&gt;</code></li>
+        </ul>
+      </li>
+      <li>
+        Use style sheets, fonts, and scripts.
+        <ul class="inline">
+          <li><code>&lt;link rel="stylesheet"&gt;</code></li>
+          <li><code>&lt;script&gt;</code></li>
+        </ul>
+      </li>
+      <li>
+        Embed other pages (instead of linking to them).
+        <ul class="inline">
+          <li><code>&lt;iframe&gt;</code></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      HTML is intended for <em>markup</em>,<br>
+      not for <em>makeup</em>.
+    </h2>
+    <ul>
+      <li>
+        HTML elements focus on structure…
+        <ul>
+          <li><code>&lt;h2&gt;The &lt;em&gt;new&lt;/em&gt; section&lt;/h2&gt;</code></li>
+        </ul>
+      </li>
+      <li>
+        …not on aesthetics.
+        <ul>
+          <li>
+            <code>&lt;font size="5"&gt;<br>
+                  &lt;b&gt;The &lt;i&gt;new&lt;/i&gt; section&lt;/b&gt;<br>
+                  &lt;/font&gt;&lt;br/&gt;</code>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <em>Makeup</em>-only elements were removed from HTML5.
+      </li>
+    </ul>
+  </div>
+
   <div class="toc slide" id="architecture">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>

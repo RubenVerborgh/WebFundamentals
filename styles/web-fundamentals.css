@@ -92,6 +92,64 @@ dd {
   margin-left: 60px;
 }
 
+.element {
+  cursor: pointer;
+}
+.element:hover {
+  color: #4B86C2;
+}
+.element .element:hover {
+  color: #CC4320;
+}
+.element .element .element:hover {
+  color: #979A9E;
+}
+.element:hover:before {
+  content: 'element';
+  position: absolute;
+  left: 20px;
+  font-family: 'Open Sans';
+  font-style: italic;
+  line-height: 1.6;
+}
+.element .element:before {
+  left: 40px;
+}
+.element .element .element:before {
+  left: 60px;
+}
+.tag {
+  font-weight: bold;
+}
+.tag:hover:before {
+  content: 'tag';
+  position: absolute;
+  font-family: 'Open Sans';
+  font-weight: normal;
+  font-style: italic;
+  line-height: 1;
+  background: rgba(255,255,255,.8);
+  border: 1px solid;
+  padding: 2px 4px 6px;
+  border-radius: 25%;
+  margin: 4px 0 0 14px;
+  box-shadow: 2px 2px currentColor;
+}
+
+/* Forms */
+label:after {
+  content: ": ";
+}
+input {
+  font-family: 'Open Sans';
+  font-size: 28px;
+}
+input[type=text] {
+  border: 1px solid;
+  padding: 0 .5em;
+  border: 1px solid #979A9E;
+}
+
 /* Opinion symbols */
 .opinion:before {
   content: " ";
