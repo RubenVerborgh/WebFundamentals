@@ -1287,6 +1287,148 @@ Last-Modified: Sun, 24 Jan 2016 18:26:27 GMT</span>
     </ul>
   </div>
 
+  <div class="slide">
+    <h2>
+      Several intermediaries may exist<br>
+      between a client and a server.
+    </h2>
+  </div>
+
+  <div class="slide">
+    <h2>
+      In contrast to many other protocols,<br>
+      HTTP enables transparent intermediaries.
+    </h2>
+    <p class="next">
+      This is not as easy with other protocols.<br>
+      For example, let's assume Java RMI.
+    </p>
+    <pre class="next"><code>removeObject.getMessage(234);
+removeObject.getMessage(234);
+removeObject.deleteMessage(234);</code></pre>
+    <p class="next">
+      If a proxy server is inserted before the remote server,<br>
+      may it cache the result of <code>getMessage</code>?
+      If so, how long?
+    </p>
+  </div>
+
+  <div class="slide">
+    <h2>
+      HTTP can be transparent because of<br>
+      its standardized uniform interface.
+    </h2>
+    <ul>
+      <li class="next">
+        <a href="https://tools.ietf.org/html/rfc7234">Caching</a>
+        is possible with headers<br>such as
+        <a href="https://tools.ietf.org/html/rfc7234#section-5.2"><code>Cache-Control</code></a>
+        and
+        <a href="https://tools.ietf.org/html/rfc7232#section-2.3"><code>ETag</code></a>.
+        <ul>
+          <li><code>Cache-Control: max-age=3600</code></li>
+          <li><code>ETag: UniqueHash456</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        The intermediary fetches the requested item<br>
+        and keeps it in cache until it expires.
+      </li>
+      <li class="next">
+        Repeated requests for the item<br>
+        are served from cache.
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      The standardized method semantics<br>
+      are crucial to make caching work.
+    </h2>
+    <ul>
+      <li class="next">
+        Repeated <code>GET</code> requests can be cached,<br>
+        because <code>GET</code> is safe.
+        <ul>
+          <li>
+            The client did not ask for changes,<br>
+            so the server should perform none.
+          </li>
+          <li>
+            Since nothing changes, we can bypass the server.
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        If <code>POST</code> or <code>PUT</code> are used on a resource,<br>
+        a subsequent <code>GET</code> must not be read from cache.
+        <ul>
+          <li><code>POST</code> or <code>PUT</code> are not safe and may change things.</li>
+          <li>(Repeated identical <code>PUT</code> requests can be ignored though.)</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      Intermediaries can play different roles<br>
+      in an HTTP interaction.
+    </h2>
+    <dl>
+      <dt>caching</dt>
+      <dd>to improve performance and availability</dd>
+      <dt>security</dt>
+      <dd>to handle authorization and authentication</dd>
+      <dt>routing</dt>
+      <dd>to redirect toward the right server</dd>
+      <dt>load balancing</dt>
+      <dd>to distribute load over servers</dd>
+      <dt>anonymizing</dt>
+      <dd>to bypass identification or logging</dd>
+    </dl>
+  </div>
+
+  <div class="slide">
+    <h2>
+      Depending on their position the network,<br>
+      proxies are <em>forward</em> or <em>reverse</em>.
+    </h2>
+    <ul>
+      <li>
+        (forward) proxy
+        <ul class="next">
+          <li>in the network of the client</li>
+          <li>typically used for caching</li>
+          <li>possibly for security/anonymity purposes</li>
+        </ul>
+      </li>
+      <li>
+        reverse proxy
+        <ul class="next">
+          <li>in the network of the server</li>
+          <li>typically used for caching</li>
+          <li>also for routing, hiding/abstracting remote architecture</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      Caching can happen virtually anywhere—<br>
+      and we don't always know.
+    </h2>
+  </div>
+
+  <div class="slide">
+    <h2>
+      The notion of “client” and “server”<br>
+      is relative to the interaction.
+    </h2>
+  </div>
+
   <div class="toc slide" id="supporting-technologies">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
