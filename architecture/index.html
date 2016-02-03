@@ -902,9 +902,215 @@ Last-Modified: Sun, 24 Jan 2016 18:26:27 GMT</span>
       <li class="active">
         <a href="#architecture">Web Architecture</a>
         <ul>
-          <li class="active"><a href="#architecture">Servers</a></li>
-          <li><a href="#clients">Clients</a></li>
+          <li class="active"><a href="#architecture">Clients</a></li>
+          <li><a href="#servers">Servers</a></li>
           <li><a href="#intermediaries">Intermediaries</a></li>
+        </ul>
+      </li>
+      <li><a href="#supporting-technologies">Supporting Technologies</a></li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      The Web supports an immense variety<br>
+      of different clients.
+    </h2>
+    <ul>
+      <li>
+        interactive (graphical) browsers
+        <ul class="inline">
+          <li><a href="https://www.mozilla.org/firefox/products/">Firefox</a></li>
+          <li><a href="https://www.google.com/chrome/">Chrome</a></li>
+          <li><a href="http://windows.microsoft.com/internet-explorer">Internet Explorer</a></li>
+          <li><a href="http://www.opera.com/">Opera</a></li>
+        </ul>
+      </li>
+      <li>
+        applications
+        <ul class="inline">
+          <li>Web applications</li>
+          <li>(native) desktop &amp; mobile applications</li>
+        </ul>
+      </li>
+      <li>
+        crawlers
+      </li>
+      <li>
+        embedded devices and sensors
+        <ul>
+          <li><em>Web of things</em></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      All clients require support<br>
+      for a couple of core technologies.
+    </h2>
+    <ul>
+      <li>
+        networking technologies
+        <ul class="inline">
+          <li>TCP/IP</li>
+          <li>DNS</li>
+        </ul>
+      </li>
+      <li>
+        the HTTP protocol
+        <ul>
+          <li>many libraries exist</li>
+          <li>often combined with networking support</li>
+        </ul>
+      </li>
+      <li>
+        one or more representation formats
+        <ul>
+          <li>not necessarily (only) HTML</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      Browsers offer an interactive environment<br>
+      for general-purpose website consumption.
+    </h2>
+    <ul>
+      <li class="next">They render HTML elements as interactive controls.</li>
+      <li class="next">They typically support styles, media, and scripts.</li>
+      <li class="next">Standards ensure consistency <em>(mostly)</em>.</li>
+      <li class="next">
+        The main differences are features and preferences.
+        <ul>
+          <li>operating system</li>
+          <li>performance</li>
+          <li>extensions</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      Web applications perform HTTP requests<br>
+      using browser scripting functionality.
+    </h2>
+    <ul>
+      <li class="next">
+        A script on a webpage can make HTTP requests.
+      </li>
+      <li class="next">
+        The server typically returns JSON or XML responses,<br>
+        which the script then transforms.
+        <ul>
+          <li>
+            Alternatively, the server could return HTML,<br>
+            for instance, to update parts of the page.
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        Scripts can be triggered automatically<br>
+        or through user actions.
+        <ul class="inline">
+          <li>clicking a button or link</li>
+          <li>pressing a key <em>(autocompletion)</em></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      Desktop and mobile applications behave<br>
+      in similar ways as Web applications.
+    </h2>
+    <ul>
+      <li class="next">
+        They use their own infrastructure,<br>
+        as they don't have the browser's.
+      </li>
+      <li class="next">
+        They typically request JSON (or XML),<br>
+        but HTML is not uncommon.
+        <ul class="next">
+          <li>HTML can be used to render partial views.</li>
+          <li class="opinion">Is there a real need then for a native app?</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      Crawlers process and/or index webpages,<br>
+      and follow links to others.
+    </h2>
+    <ul>
+      <li class="next">
+        Crawlers extract, process, and index text contents.
+      </li>
+      <li class="next">
+        They also analyze (some) structured annotations.
+        <ul>
+          <li>
+            to improve search results
+            (<a href="https://developers.google.com/structured-data/rich-snippets/">Google's Rich Snippets</a>)
+          </li>
+          <li>
+            for social interactions
+            (<a href="https://developers.facebook.com/docs/sharing/best-practices#crawl">Facebook's Open Graph</a>)
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        Using links, they discover other pages.
+        <ul>
+          <li>Content behind forms etc. is called the <a href="http://dx.doi.org/10.3998/3336451.0007.104">deep Web</a>.</li>
+          <li>Crawlers <a href="https://googlewebmastercentral.blogspot.be/2008/04/crawling-through-html-forms.html">make</a>
+              <a href="https://googlewebmastercentral.blogspot.be/2011/11/get-post-and-safely-surfacing-more-of.html">progress</a>
+              using forms.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="toc slide" id="servers">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Architecture &amp; Technologies</a>
+    </h2>
+    <ul>
+      <li><a href="#core">Core Web Standards</a></li>
+      <li class="active">
+        <a href="#architecture">Web Architecture</a>
+        <ul>
+          <li><a href="#architecture">Clients</a></li>
+          <li class="active"><a href="#servers">Servers</a></li>
+          <li><a href="#intermediaries">Intermediaries</a></li>
+        </ul>
+      </li>
+      <li><a href="#supporting-technologies">Supporting Technologies</a></li>
+    </ul>
+  </div>
+
+  <div class="toc slide" id="intermediaries">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Architecture &amp; Technologies</a>
+    </h2>
+    <ul>
+      <li><a href="#core">Core Web Standards</a></li>
+      <li class="active">
+        <a href="#architecture">Web Architecture</a>
+        <ul>
+          <li><a href="#architecture">Clients</a></li>
+          <li><a href="#servers">Servers</a></li>
+          <li class="active"><a href="#intermediaries">Intermediaries</a></li>
         </ul>
       </li>
       <li><a href="#supporting-technologies">Supporting Technologies</a></li>
