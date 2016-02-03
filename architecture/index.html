@@ -1098,6 +1098,176 @@ Last-Modified: Sun, 24 Jan 2016 18:26:27 GMT</span>
     </ul>
   </div>
 
+  <div class="slide">
+    <h2>
+      The HTTP protocol does <em>not</em> attach<br>
+      meaning to URL paths and query strings.
+    </h2>
+    <p class="next">
+      Even though <em>you</em> might attach meaning to an URL like<br>
+      <em>http://example.org/products/guitars.html?brand=gibson</em>,<br>
+      such an interpretation is not specified.
+    </p>
+    <p class="next">
+      In particular, slashes do not necessarily indicate folders;<br>
+      a dot does not necessarily signal an extension.
+    </p>
+    <p class="next">
+      The server might just have used this URL instead:<br>
+      <em>http://example.org/products-guitars?html%2Fbrand.gibson</em><br>
+      and it might very well point to an image.
+    </p>
+  </div>
+
+  <div class="slide">
+    <h2>
+      Web servers exist in many kinds and<br>
+      have many possible implementations.
+    </h2>
+    <ul>
+      <li>
+        file servers
+        <ul>
+          <li>for static files</li>
+        </ul>
+      </li>
+      <li>
+        application servers
+        <ul>
+          <li>for interactive sites</li>
+          <li>for editable content (Content Management Systems)</li>
+        </ul>
+      </li>
+      <li>
+        reverse proxy
+        <ul>
+          <li>delegates requests to other Web servers</li>
+        </ul>
+      </li>
+    </ul>
+    <footer>
+      <p>Some servers can combine different roles.</p>
+    </footer>
+  </div>
+
+  <div class="slide">
+    <h2>
+      A static file server maps HTTP URLs<br>
+      to internal file URLs.
+    </h2>
+    <ul>
+      <li>
+        A config file usually assigns a <em>root folder</em> per domain.
+        <ul>
+          <li>
+            <em>http://example.org/images/products/guitar.jpg</em>
+            could map to <em>/var/www/example.org/images/products/guitar.jpg</em>
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        Folders map to possible <em>index</em> files.
+        <ul>
+          <li>
+            <em>http://example.org/images/products/</em>
+            could map to <em>/var/www/example.org/images/products/index.html</em>
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        Custom permissions and rules can be set.
+        <ul class="inline">
+          <li>
+            <a href="http://nginx.org/en/docs/http/ngx_http_core_module.html#location"><code>location</code></a> for
+            <a href="http://nginx.org/">NGINX</a>
+          </li>
+          <li>
+            <a href="https://httpd.apache.org/docs/2.4/howto/htaccess.html">.htaccess</a> for
+            <a href="http://httpd.apache.org/">Apache</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      An application server uses server-side code<br>
+      to generate pages on demand.
+    </h2>
+    <ul>
+      <li>
+        The request is parsed by an application framework,<br>
+        which exposes the URL, method, and headers.
+      </li>
+      <li class="next">
+        Implementors can react to specific URLs or patterns,
+        typically generating responses using templates.
+      </li>
+      <li class="next">
+        Different languages and frameworks exist.
+        <ul>
+          <li>
+            languages:
+            <ul class="inline">
+              <li>Java</li>
+              <li>PHP</li>
+              <li>JavaScript</li>
+              <li>Ruby</li>
+              <li>C#</li>
+              <li>…</li>
+            </ul>
+          </li>
+        </ul>
+        <ul>
+          <li>
+            frameworks:
+            <ul class="inline">
+              <li>Spring MVC</li>
+              <li>Laravel</li>
+              <li>Ruby on Rails</li>
+              <li>ASP.Net</li>
+              <li>…</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      Each machine can open <em>one</em> TCP port 80.<br>
+      A reverse proxy lets it run many servers.
+    </h2>
+    <ul>
+      <li>
+        What if we need to serve static <em>and</em> dynamic files?<br>
+        What if we want to combine application servers?
+        <ul>
+          <li>
+            Only one application can listen to a given TCP port.
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        Configure your servers to run on internal ports<br>
+        (such as 3000, 4000, 5000) instead of port 80.
+      </li>
+      <li class="next">
+        Run a reverse proxy
+        <em>(<a href="http://nginx.org/">NGINX</a>,
+             <a href="http://httpd.apache.org/">Apache</a>,
+             …)</em>
+        on port 80,<br>
+        which dispatches requests to the other servers.
+        <ul>
+          <li>Switch based on domain name and/or URL.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
   <div class="toc slide" id="intermediaries">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
