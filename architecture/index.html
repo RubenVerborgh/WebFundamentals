@@ -1226,7 +1226,7 @@ Last-Modified: Sun, 24 Jan 2016 18:26:27 GMT</span>
               <li>Spring MVC</li>
               <li>Laravel</li>
               <li>Ruby on Rails</li>
-              <li>ASP.Net</li>
+              <li>ASP.NET</li>
               <li>…</li>
             </ul>
           </li>
@@ -1766,6 +1766,26 @@ input.onkeyup = function () {
       A server can react to HTTP requests<br>
       by executing a program or script.
     </h2>
+    <ul>
+      <li>
+        Web frameworks abstract HTTP functionality,<br>
+        in different kinds of ways.
+        <ul>
+          <li class="next">event-based access to request object <em>(Node.js)</em></li>
+          <li class="next">classes handling specific requests <em>(Java servlets)</em></li>
+          <li class="next">model-view-controller pattern <em>(Ruby on Rails)</em></li>
+        </ul>
+      </li>
+      <li class="next">
+        In older frameworks, the URL identifies a script.
+        <ul>
+          <li><em>http://example.org/app/executeOrder<strong>.php</strong>?id=35</em></li>
+        </ul>
+      </li>
+      <li class="next">
+        Newer frameworks provide independent URLs.
+      </li>
+    </ul>
   </div>
 
   <div class="slide">
@@ -1773,6 +1793,25 @@ input.onkeyup = function () {
       PHP is a scripting language<br>
       used to create dynamic pages.
     </h2>
+    <ul>
+      <li>
+        Special tag-like structures indicate<br>
+        where PHP code begins.
+      </li>
+      <li>
+        Several frameworks allow higher-level development.
+        <ul class="inline">
+          <li><a href="https://laravel.com/">Laravel</a></li>
+          <li><a href="http://cakephp.org/">CakePHP</a></li>
+          <li><a href="https://symfony.com/">Symphony</a></li>
+          <li>…</li>
+        </ul>
+      </li>
+    </ul>
+    <pre><code>&lt;tr&gt;
+  &lt;th&gt;Order total (VAT included):&lt;/th&gt;
+  &lt;td&gt;EUR <strong>&lt;?php echo 1.21 * $price; ?&gt;</strong>&lt;/td&gt;
+&lt;/tr&gt;</code></pre>
   </div>
 
   <div class="slide">
@@ -1780,13 +1819,48 @@ input.onkeyup = function () {
       Ruby on Rails is a framework<br>
       to create Web applications.
     </h2>
+    <ul>
+      <li>
+        Rails follows the model-view-controller pattern.
+        <ul>
+          <li>Model instances are stored in a database.</li>
+          <li>A view represents model instances as HTML, JSON, …</li>
+          <li>A controller performs model actions and instantiates views.</li>
+        </ul>
+      </li>
+      <li>
+        Views are typically based on templates,<br>
+        which can contain Ruby expressions.
+      </li>
+      <li>
+        Routers tie URL patterns to controllers.
+      </li>
+    </ul>
   </div>
 
   <div class="slide">
     <h2>
-      ASP.Net combines compiled code<br>
+      ASP.NET combines compiled code<br>
       with declarative annotations.
     </h2>
+    <ul>
+      <li>
+        Any of the .NET languages can be used.
+        <ul>
+          <li>compiled into <a href="https://msdn.microsoft.com/en-us/library/k3677y81(v=vs.90).aspx">.NET assemblies</a></li>
+        </ul>
+      </li>
+      <li>
+        The original ASP.NET defined <a href="http://www.asp.net/web-forms">Web Forms</a>,<br>
+        treating a page's elements as <em>server-side</em> objects.
+        <ul>
+          <li>very tight client-server coupling</li>
+        </ul>
+      </li>
+      <li>
+        ASP.NET MVC adopts model-view-controller.
+      </li>
+    </ul>
   </div>
 
   <div class="slide">
@@ -1794,6 +1868,55 @@ input.onkeyup = function () {
       Node.js brings the JavaScript language<br>
       also to the server side.
     </h2>
+    <ul>
+      <li>
+        Node.js bundles the V8 engine with <a href="https://nodejs.org/api/">low-level APIs</a>.
+        <ul>
+          <li>Google's V8 engine made JavaScript fast in browsers.</li>
+        </ul>
+      </li>
+      <li>
+        It adopts the model of an event machine:<br>
+        a single thread reacting to events.
+        <ul>
+          <li>never actively wait: IO operations happen asynchronously</li>
+          <li>encouraged by JavaScript's first-class functions</li>
+        </ul>
+      </li>
+      <li>
+        Other applications can also be developed.
+        <ul>
+          <li>not necessarily HTTP servers</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      <a href="http://isomorphic.net/">Isomorphic JavaScript</a> applications use<br>
+      the same language on clients &amp; servers.
+    </h2>
+    <ul>
+      <li>
+        If the client and server speak the same language,<br>
+        we only need to develop code once.
+        <ul>
+          <li>
+            PHP sites need another language on the server,<br>
+            so sometimes code is implemented twice.
+          </li>
+        </ul>
+      </li>
+      <li>
+        The code to render pages runs on the server<br>
+        when creating the initial page.
+      </li>
+      <li>
+        The <em>same</em> code can update the page on the client,<br>
+        instead of fetching a complete page again.
+      </li>
+    </ul>
   </div>
 
   <div class="toc slide" id="security">
