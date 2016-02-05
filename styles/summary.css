@@ -1,0 +1,60 @@
+.slide.title {
+  display: none;
+}
+
+.slide h2 {
+  display: block;
+  font-size: 1em;
+  margin: .5em 0 0;
+  page-break-after: avoid;
+}
+.slide br {
+  display: none;
+}
+
+.toc {
+  padding: 0 !important;
+}
+.toc ul {
+  display: block;
+  padding: 0;
+  list-style: none;
+  font-style: normal !important;
+}
+.toc a {
+  text-decoration: none;
+  color: inherit;
+}
+.toc li {
+  font-size: 1.6em;
+}
+.toc li li {
+  font-size: 0.9em;
+}
+.toc li:not(.active) {
+  display: none;
+}
+.toc h2 {
+  display: none;
+}
+
+img {
+  max-width: 300px;
+  max-height: 200px;
+  margin: .5em 0 !important;
+  display: block;
+  width: auto;
+  height: auto;
+}
+blockquote {
+  padding: 0 !important;
+}
+dd {
+  margin: 0 !important;
+}
+.opinion {
+  display: inline !important;
+}
+iframe, input {
+  display: none !important;
+}
