@@ -207,3 +207,12 @@ blockquote.tight p {
   margin: 3em auto !important;
   transform: scale(1.5);
 }
+
+/* CSS examples */
+#css-test {
+  font-style: italic;
+  text-align: center;
+  border: 3px solid #4B86C2;
+}
+#css-test span { border: 3px solid #CC4320; }
+#css-test span:last-child { background-color: #979A9E; }

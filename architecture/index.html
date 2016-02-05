@@ -1453,6 +1453,74 @@ removeObject.deleteMessage(234);</code></pre>
       Cascading Style Sheets state declaratively<br>
       what elements should look like.
     </h2>
+    <ul>
+      <li>
+        A CSS document consists of <em>rules</em>,<br>
+        which can be grouped in scopes.
+      </li>
+      <li>
+        A rule starts with a <a href="https://www.w3.org/TR/selectors/">selector</a> indicating<br>
+        to which element(s) the rule applies.
+      </li>
+      <li>
+        The rule body consists of key/value pairs<br>
+        of a <a href="https://www.w3.org/Style/CSS/all-properties.en.html">property</a> name and its desired setting.
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      CSS selectors pinpoint elements<br>
+      based on characteristics and hierarchy.
+    </h2>
+    <dl>
+      <dt><a href="https://www.w3.org/TR/selectors/#type-selectors">h1</a></dt>
+      <dd>tag name</dd>
+      <dt><a href="https://www.w3.org/TR/selectors/#class-selectors">.person</a></dt>
+      <dd>identifier (<code>id</code> attribute value)</dd>
+      <dt><a href="https://www.w3.org/TR/selectors/#pseudo-classes">:visited</a></dt>
+      <dd>class name (<code>class</code> attribute value)</dd>
+      <dt><a href="https://www.w3.org/TR/selectors/#id-selectors">#index</a></dt>
+      <dd>state, position, …</dd>
+      <dt><a href="https://www.w3.org/TR/selectors/#attribute-selectors">[type=submit]</a></dt>
+      <dd>attribute value</dd>
+    </dl>
+  </div>
+
+  <div class="slide">
+    <h2>
+      CSS selectors can be arranged<br>
+      into combinations.
+    </h2>
+    <dl>
+      <dt><a href="https://www.w3.org/TR/selectors/#descendant-combinators">header a</a></dt>
+      <dd>descendants (children, grandchildren, …)</dd>
+      <dt><a href="https://www.w3.org/TR/selectors/#descendant-combinators">ul > li</a></dt>
+      <dd>direct children</dd>
+      <dt><a href="https://www.w3.org/TR/selectors/#grouping">p, td, th</a></dt>
+      <dd>multiple selectors <em>(OR)</em></dd>
+      <dt><a href="https://www.w3.org/TR/selectors/#selectors">a.info:visited</a></dt>
+      <dd>multiple conditions <em>(AND)</em></dd>
+    </dl>
+  </div>
+
+  <div class="slide">
+    <h2>
+      Elements inherit (some) properties<br>
+      from parent elements and other rules.
+    </h2>
+    <pre><code><strong>#css-test</strong> {
+  font-style: italic;
+  text-align: center;
+  border: 3px solid #4B86C2;
+}
+<strong>#css-test span</strong> { border: 3px solid #CC4320; }
+<strong>#css-test span:last-child</strong> { background-color: #979A9E; }</code></pre>
+    <div id="css-test">
+      <span>first</span>
+      <span>second</span>
+    </div>
   </div>
 
   <div class="slide">
