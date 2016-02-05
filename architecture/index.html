@@ -1655,6 +1655,38 @@ input.onkeyup = function () {
       XML is a popular data model and format<br>
       that uses an element-based hierarchy.
     </h2>
+    <ul>
+      <li>
+        The structure of HTML is similar to XML.
+        <ul>
+          <li>In fact, <a href="https://www.w3.org/TR/html5/the-xhtml-syntax.html">some HTML documents</a> are XML documents.</li>
+        </ul>
+      </li>
+      <li>
+        XML has stricter structural constraints than HTML.
+        <ul>
+          <li>valid nesting</li>
+          <li>all tags must be closed</li>
+          <li>attributes must be quoted and have a value</li>
+          <li>…</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2 class="opinion">
+      Because of the strong form requirements,<br>
+      XML documents tend to be verbose.
+    </h2>
+    <pre><code><em>&lt;?xml version="1.0" encoding="UTF-8"?&gt;</em>
+&lt;list&gt;
+  &lt;title&gt;Hall of fame&lt;/title&gt;
+  &lt;people&gt;
+    &lt;person name="Douglas" /&gt;
+    &lt;person name="Brendan" /&gt;
+  &lt;/people&gt;
+&lt;/list&gt;</code></pre>
   </div>
 
   <div class="slide">
@@ -1662,6 +1694,52 @@ input.onkeyup = function () {
       Web feeds are documents that<br>
       signal when new content is available.
     </h2>
+    <ul>
+      <li>
+        They contain a list of (summarized) items.
+        <ul>
+          <li>
+            Typically with attributes such as
+            <ul class="inline">
+              <li>title</li>
+              <li>link</li>
+              <li>summary</li>
+              <li>…</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        The client <em>polls</em> regularly to check for new items.
+      </li>
+      <li>
+        Two variants exist:
+        <a href="http://cyber.law.harvard.edu/rss/rss.html">RSS</a>
+        and
+        <a href="https://tools.ietf.org/html/rfc4287">Atom</a>.
+      </li>
+      <li class="opinion">
+        Social media streams pushed seem to<br>
+        have pushed feeds to the background.
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      Web feeds are documents that<br>
+      signal when new content is available.
+    </h2>
+
+    <pre><code>&lt;feed xmlns="http://www.w3.org/2005/Atom"&gt;
+  &lt;title&gt;Ruben Verborgh's blog&lt;/title&gt;
+  &lt;link rel="self" href="<a href="http://ruben.verborgh.org/blog/latest.xml">http://ruben.verborgh.org/blog/latest.xml</a>"/&gt;
+  &lt;entry&gt;
+    &lt;title&gt;Turtles all the way down&lt;/title&gt;
+    &lt;published&gt;2015-10-06T12:00:00Z&lt;/published&gt;
+    &lt;link rel="alternate" href="<a href="http://ruben.verborgh.org/blog/latest.xml">http://ruben.verborgh.org/blog/2015/10/06/turtles-all-the-way-down/</a>"/&gt;
+  &lt;/entry&gt;
+&lt;/feed&gt;</code></pre>
   </div>
 
   <div class="toc slide" id="server-side">
