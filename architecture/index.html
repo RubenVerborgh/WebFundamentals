@@ -1549,6 +1549,82 @@ removeObject.deleteMessage(234);</code></pre>
       JavaScript is a programming language<br>
       supported by many browsers.
     </h2>
+    <ul>
+      <li>
+        very expressive, dynamic, multi-paradigm language
+        <ul class="inline">
+          <li>prototypal inheritance</li>
+          <li>functions as first-class citizens</li>
+          <li>…</li>
+        </ul>
+      </li>
+      <li>
+        supported by several highly optimized engines
+        <ul class="inline">
+          <li>Google's <a href="https://developers.google.com/v8/">V8</a></li>
+          <li>Mozilla's <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey">SpiderMonkey</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="http://javascript.crockford.com/javascript.html">“most misunderstood programming language”</a>
+        <ul>
+          <li>nothing to do with Java</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      In the browser, JavaScript is often<br>
+      used in an event-driven manner.
+    </h2>
+    <pre><code>var input = document.getElementById('text'),
+    display = document.getElementById('length');
+input.onkeyup = function () {
+  display.innerText = input.value.length;
+}</code></pre>
+    <p>
+      <input id="text" />
+      <span id="length"></span>
+    </p>
+  </div>
+  <script>
+    var input = document.getElementById('text'),
+        display = document.getElementById('length');
+    input.onkeyup = function () {
+      display.innerText = input.value.length;
+    }
+  </script>
+
+  <div class="slide">
+    <h2>
+      The <a href="https://www.w3.org/TR/html5/">HTML5 specification</a> includes<br>
+      several APIs for JavaScript.
+    </h2>
+    <ul>
+      <li>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model">Document Object Model</a>
+        <ul>
+          <li>Traverse, observe, and manipulate elements.</li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">Canvas</a>
+        <ul>
+          <li>Draw graphics using bitmap operations.</li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API">Web Storage</a>
+        <ul>
+          <li>Save key/value pairs per website.</li>
+        </ul>
+      </li>
+      <li>
+        …
+      </li>
+    </ul>
   </div>
 
   <div class="slide">
@@ -1556,6 +1632,22 @@ removeObject.deleteMessage(234);</code></pre>
       JSON is a lightweight representation<br>
       for data on (and beyond) the Web.
     </h2>
+    <ul>
+      <li>
+        JSON serializes a subset of JavaScript values.
+        <ul class="inline">
+          <li>key/value objects, strings, booleans, numbers, arrays</li>
+        </ul>
+      </li>
+      <li>
+        JSON documents can be read natively in JavaScript,<br>
+        but libraries for many other languages exist.
+      </li>
+    </ul>
+    <pre><code>{
+  "title": "Hall of fame",
+  "people": [{ "name": "Douglas" }, { "name": "Brendan" }]
+}</code></pre>
   </div>
 
   <div class="slide">
