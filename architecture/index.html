@@ -2029,27 +2029,128 @@ input.onkeyup = function () {
       Browser scripts can only request<br>
       resources from the same origin.
     </h2>
+    <ul>
+      <li class="next">
+        Browsers send a <code>Cookie</code> header with requests,<br>
+        yielding a possibly personalized version of a page.
+        <ul>
+          <li>
+            In your browser, <em>facebook.com</em>
+            reveals more than with cURL.
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        If any site could request any URL,<br>
+        your personal data would not be safe.
+      </li>
+      <li class="next">
+        By default, scripts can only access resources<br>
+        with URLs from the same domain <em>(“origin”)</em>.
+        <ul>
+          <li>Merely <em>embedding</em> files from other domains is fine though.</li>
+        </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="slide">
     <h2>
-      Cross-site scripting allows<br>
+      Servers can bypass origin restrictions with<br>
+      <a href="http://enable-cors.org/">Cross-Origin Resource Sharing (CORS)</a>.
+    </h2>
+    <ul>
+      <li class="next">
+        Servers add an <a href="https://www.w3.org/TR/cors/#access-control-allow-origin-response-header"><code>Access-Control-Allow-Origin</code></a><br>
+        header to responses.
+        <ul>
+          <li><code>Access-Control-Allow-Origin: *</code></li>
+          <li><code>Access-Control-Allow-Origin: http://perdu.com</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        Browsers add an <a href="https://www.w3.org/TR/cors/#origin-request-header"><code>Origin</code></a> header to requests.
+        <ul>
+          <li><code>Origin: http://perdu.com</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        Scripts can access responses with matching headers.
+        <ul>
+          <li>With non-safe methods,
+              the browser <a href="https://www.w3.org/TR/cors/#cross-origin-request-with-preflight-0">tries <code>OPTIONS</code> first</a>.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      <em>Cross-site scripting</em> allows<br>
       attackers to inject code.
     </h2>
+    <ul>
+      <li class="next">
+        A site could trick users into submitting a form<br>
+        that directs it output to another site.
+        <ul class="inline">
+          <li>modify an item</li>
+          <li>delete an item</li>
+          <li>…</li>
+        </ul>
+      </li>
+      <li class="next">
+        Code can be injected into sites<br>
+        that don't properly escape HTML tags.
+        <ul>
+          <li><em>http://example.org/hello-world?name=Ruben+&lt;script&gt;alert('hello');&lt;/script&gt;</em></li>
+        </ul>
+      </li>
+      <li class="next">
+        Origin protection does not help with such cases.
+      </li>
+    </ul>
   </div>
 
   <div class="slide">
     <h2>
-      Not even style sheets are safe<br>
-      from well-designed attack vectors.
-    </h2>
-  </div>
-
-  <div class="slide">
-    <h2>
-      SQL injection can occur when<br>
+      <em>Code injection</em> can occur when<br>
       user inputs are not sanitized.
     </h2>
+    <ul>
+      <li>
+        <em>Never</em> trust input from clients.
+        <ul>
+          <li class="next">Apply strict validation rules.</li>
+          <li class="next">Escape special characters for specific languages.</li>
+        </ul>
+      </li>
+      <li class="next">
+        Unescaped input can lead to execution<br>
+        of code chosen by the client on the server.
+        <ul>
+          <li>With <em>SQL injection</em>, users can modify queries and/or data.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      SQL injection was a popular mechanism<br>
+      to gain unauthorized access to websites.
+    </h2>
+    <p>
+      If a server created this query without escaping
+    </p>
+    <pre><code>query = 'SELECT id FROM User WHERE name="' + name + '"' +
+        ' AND password="' + password + '"'</code></pre>
+    <p class="next">
+      then you can log in with any username using<br>
+      <code>" OR ""="</code> as password, because the query becomes
+    </p>
+    <pre class="next"><code>SELECT id FROM User WHERE name="admin"
+                      AND <strong>password="" OR ""=""</strong></code></pre>
   </div>
 
   <div class="toc slide">
