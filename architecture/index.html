@@ -1626,6 +1626,33 @@ input.onkeyup = function () {
 
   <div class="slide">
     <h2>
+      Practice <a href="https://www.w3.org/wiki/The_principles_of_unobtrusive_JavaScript">unobtrusive JavaScript</a><br>
+      to ensure sites also work without scripts.
+    </h2>
+    <ul>
+      <li>
+        Client-side scripts should provide enhancements,<br>
+        not essential functionality, whenever possible.
+        <ul>
+          <li>Not all browsers support JavaScript.</li>
+          <li>Not all browsers support JavaScript consistently.</li>
+          <li>Trust default interactions over your own.</li>
+        </ul>
+      </li>
+      <li>
+        This is a <a href="http://alistapart.com/article/understandingprogressiveenhancement">progressive enhancement</a> technique.
+        <ul>
+          <li>
+            Its goals are similar to <em>graceful degradation</em>,<br>
+            but progressive enhancement starts from simple clients.
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
       The <a href="https://www.w3.org/TR/html5/">HTML5 specification</a> includes<br>
       several APIs for JavaScript.
     </h2>
