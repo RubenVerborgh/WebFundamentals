@@ -1294,7 +1294,7 @@ Last-Modified: Sun, 24 Jan 2016 18:26:27 GMT</span>
     </h2>
   </div>
 
-  <div class="slide">
+  <div class="slide" id="transparency">
     <h2>
       In contrast to many other protocols,<br>
       HTTP enables transparent intermediaries.
@@ -1443,6 +1443,38 @@ removeObject.deleteMessage(234);</code></pre>
           <li class="active"><a href="#supporting-technologies">Client-side Technologies</a></li>
           <li><a href="#server-side">Server-side Technologies</a></li>
           <li><a href="#security">Security Considerations</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide">
+    <h2>
+      <a href="https://tools.ietf.org/html/rfc6265">Cookies</a> allow preserving information<br>
+      across different HTTP requests.
+    </h2>
+    <ul>
+      <li>
+        By design, HTTP is a stateless protocol.
+        <ul>
+          <li>This leads to <a href="#transparency">scalability benefits</a>.</li>
+        </ul>
+      </li>
+      <li class="next">
+        A cookie is a key/value string set by the server and<br>
+        transmitted by the client on subsequent requests.
+        <ul>
+          <li>The server adds a <a href="https://tools.ietf.org/html/rfc6265#section-4.1"><code>Set-Cookie</code></a> header to responses.</li>
+          <li>The client mirrors its value in a <a href="https://tools.ietf.org/html/rfc6265#section-4.1"><code>Cookie</code></a> request header.</li>
+        </ul>
+      </li>
+      <li class="next">
+        Servers can identify clients and store preferences.
+        <ul>
+          <li class="opinion">
+            The <a href="http://ec.europa.eu/ipg/basics/legal/cookies/index_en.htm">EU “cookie law”</a>:
+            a cure worse than the disease?
+          </li>
         </ul>
       </li>
     </ul>
