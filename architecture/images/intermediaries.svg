@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="400">
+<style>
+@font-face{
+ font-weight: 700;
+ font-family: 'Open Sans';
+ src: url(../../fonts/OpenSans.Bold.woff) format('woff')
+}
+
+text {
+  font: 24px 'Open Sans';
+  font-weight: bold;
+  fill: white;
+}
+circle {
+  fill: #4B86C4;
+  r: 65;
+}
+path {
+  stroke: #979A9E;
+  fill: none;
+  stroke-width: 7;
+  stroke-linecap: round;
+}
+</style>
+<path d="M130,65 c55-17,122-19,224,22"/>
+<path d="M735,162 C652,229,134,145,96,231"/>
+<path d="M484,87 c55-17,126-15,228,26"/>
+<path d="M161,296 c55-17,128-23,230,18"/>
+<path d="M521,314 c55-17,147-21,249,20"/>
+<circle cx="65"  cy="65"/>
+<text transform="translate( 14  73)">browser</text>
+<circle cx="419" cy="87"/>
+<text transform="translate(370  80)">browser<tspan x="14" y="28">cache</tspan></text>
+<circle cx="777" cy="113"/>
+<text transform="translate(726 106)">provider<tspan x="16" y="28">proxy</tspan></text>
+<circle cx="96"  cy="296"/>
+<text transform="translate( 62 288)">cloud<tspan x="-1" y="28">cache</tspan></text>
+<circle cx="456" cy="314"/>
+<text transform="translate(412 307)">reverse<tspan x="10" y="28">proxy</tspan></text>
+<circle cx="835" cy="335"/>
+<text transform="translate(813 328)">app<tspan x="-15" y="28">server</tspan></text>
+</svg>

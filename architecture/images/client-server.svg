@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="400">
+<style>
+@font-face{
+ font-weight: 700;
+ font-family: 'Open Sans';
+ src: url(../../fonts/OpenSans.Bold.woff) format('woff')
+}
+
+text {
+  font: 24px 'Open Sans';
+  font-weight: bold;
+  fill: white;
+}
+circle {
+  r: 65;
+}
+path {
+  stroke: #979A9E;
+  fill: none;
+  stroke-width: 7;
+  stroke-linecap: round;
+}
+.client {
+  fill: #4B86C4;
+}
+.server {
+  fill: #CC4420;
+}
+</style>
+<defs>
+  <linearGradient id="gradient">
+  <stop stop-color="#4B86C4" offset="20%"/>
+  <stop stop-color="#CC4420" offset="80%"/>
+  </linearGradient>
+</defs>
+<path d="M161,176 c55-17,128-23,230,18"/>
+<path d="M521,194 c55-17,147-21,249,20"/>
+<circle cx="96"  cy="176" class="client"/>
+<text transform="translate( 62 168)">cloud<tspan x="-1" y="28">cache</tspan></text>
+<circle cx="456" cy="194" fill="url(#gradient)"/>
+<text transform="translate(412 187)">reverse<tspan x="10" y="28">proxy</tspan></text>
+<circle cx="835" cy="215" class="server"/>
+<text transform="translate(813 208)">app<tspan x="-15" y="28">server</tspan></text>
+<text class="client" x="60"  y="95" >client</text>
+<text class="client" x="420" y="115">server</text>
+<text class="server" x="420" y="290">client</text>
+<text class="server" x="800" y="310">server</text>
+</svg>
