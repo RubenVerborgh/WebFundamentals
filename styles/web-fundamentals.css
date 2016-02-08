@@ -54,11 +54,6 @@ footer p.license img {
   font-weight: bold;
 }
 
-/* Code */
-.slide code {
-  padding: 0;
-}
-
 /* Inline lists */
 ul.inline > li, ol.inline > li {
   margin-left: 0;
@@ -72,7 +67,7 @@ li li ul.inline, li li ol.inline {
   content: ',';
 }
 
-/* definition lists */
+/* Definition lists */
 dl {
   margin-left: 60px;
 }
@@ -87,7 +82,10 @@ dd {
   margin-bottom: 42px;
 }
 
-/* code */
+/* Code */
+.slide code {
+  padding: 0;
+}
 .slide pre {
   margin-left: 60px;
 }
@@ -200,6 +198,18 @@ img.narrow {
 }
 blockquote.tight p {
   margin-bottom: 21px;
+}
+
+/* Full-screen navigation for touch */
+.handle::before {
+  display: block;
+  content: " ";
+  position: absolute;
+  background: rgba(255, 255, 255, 0);
+  width: 100%;
+  height: 25%;
+  left: 0;
+  bottom: 10%;
 }
 
 /* Tweets */
