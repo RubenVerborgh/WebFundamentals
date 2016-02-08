@@ -196,7 +196,7 @@ img.narrow {
 .slide:not(.full) > blockquote:first-child {
   padding-top: 145px;
 }
-blockquote.tight p {
+blockquote.long p {
   margin-bottom: 21px;
 }
 

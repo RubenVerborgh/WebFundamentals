@@ -125,6 +125,7 @@
             <ul class="inline">
               <li><abbr>TPC</abbr></li>
               <li><abbr>IP</abbr></li>
+              <li><abbr>DNS</abbr></li>
               <li>…</li>
             </ul>
           </li>
@@ -174,9 +175,9 @@
       than just the Web.
     </h2>
     <ul>
-      <li class="next">
+      <li>
         on the Internet but not on the Web
-        <ul>
+        <ul class="inline next">
           <li>e-mail</li>
           <li>Skype</li>
           <li>BitTorrent</li>
@@ -184,9 +185,9 @@
           <li>…</li>
         </ul>
       </li>
-      <li class="next">
+      <li>
         on the Web but not on the Internet
-        <ul>
+        <ul class="inline next">
           <li>nothing—by definition</li>
         </ul>
       </li>
@@ -208,7 +209,7 @@
         </ul>
       </li>
       <li class="next">
-        Surfing the Internet or surfing the Web?
+        Are we surfing the Internet or surfing the Web?
         <ul>
           <li class="next opinion">
             The difference is difficult to explain when<br>
@@ -270,14 +271,14 @@
       and technology philosopher.
     </h2>
     <ul>
-      <li>
+      <li class="next">
         book “Computer Lib”
         <ul>
           <li>collection of texts, notes, drawings published in 1974</li>
           <li>teaches computer tinkering and programming</li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         flip side: “Dream Machines”
         <ul>
           <li>visions on future computer applications</li>
@@ -290,12 +291,11 @@
   <div class="slide">
     <blockquote>
       <p>
-        By <em>hypertext</em> I mean non-sequential writing—text
-        that branches and allows choices to the reader,
-        best read at an interactive screen.
-        As popularly conceived,
-        this is a series of text chunks
-        connected by links which offer the reader different pathways.
+        By <em>hypertext</em> I mean non-sequential writing—text that
+        branches and allows choices to the reader,
+        best read at an interactive screen.
+        <span class="next">As popularly conceived, this is a series of text chunks
+        connected by links which offer the reader different pathways.</span>
       </p>
       <cite>Ted Nelson, <a href="http://books.google.com/books?vid=ISBN0-89347-062-7">Literary Machines</a> (1980)</cite>
     </blockquote>
@@ -374,7 +374,7 @@
       directly reached the real world.
     </h2>
     <ul>
-      <li>The invention of the mouse got sold to Apple.</li>
+      <li>The invention of the mouse was sold to Apple.</li>
       <li>His group disbanded in the 1970s.</li>
       <li>The world might have never heard of hypertext…</li>
     </ul>
@@ -413,7 +413,18 @@
     <ul>
       <li>Berners-Lee was working at CERN.</li>
       <li>He drafted “<a href="http://www.w3.org/History/1989/proposal.html">Information Management: A Proposal</a>”.</li>
-      <li>The <a href="http://info.cern.ch/hypertext/WWW/TheProject.html">first Web page</a> came online in 1990.</li>
+      <li>
+        The <a href="http://info.cern.ch/hypertext/WWW/TheProject.html">first Web page</a> came online in 1990.
+        <ul>
+          <li class="next">
+            The major revolution was that
+            <ul>
+              <li>it was accessible from anywhere in the world and</li>
+              <li>it could link to pages anywhere in the world.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
     </ul>
   </div>
 
@@ -462,7 +473,7 @@
 
   <div class="slide">
     <h2>
-      With the Web's client–server architecture,
+      With the Web's client–server architecture,<br>
       nobody needs to know about others.
     </h2>
     <ul>
@@ -489,18 +500,18 @@
 
   <div class="slide">
     <h2>
-      Web linking is decentralized
-      because of one-way links inside documents.
+      Web linking is <em>decentralized</em> because of <br>
+      one-way links inside documents.
     </h2>
     <ul>
-      <li>
+      <li class="next">
         essentials inside of HTML documents (not shared)
         <ul>
           <li>text</li>
           <li>hyperlinks</li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         the rest outside of HTML documents (shareable)
         <ul>
           <li>styling <em>(fonts, colors, …)</em></li>
@@ -516,7 +527,7 @@
       The Web was the only hypertext system<br>
       simple enough to scale to the world.
     </h2>
-    <blockquote class="tight">
+    <blockquote class="next">
       <p>Individual links are allowed to break<br>so the entire Web does not.</p>
       <cite><a href="http://www.wired.co.uk/magazine/archive/2014/03/web-at-25/tim-berners-lee">Tim Berners-Lee</a></cite>
     </blockquote>
@@ -533,17 +544,23 @@
     </h2>
     <ul>
       <li>
-        HTTP and HTML were OS-independent,<br>
-        yet the server and browser were NeXT-specific.
+        HTTP and HTML were OS-independent.
+        <ul>
+          <li>Yet the server and browser were NeXT-specific.</li>
+        </ul>
       </li>
       <li>
-        Support for other systems followed in 1992,<br>
-        notably <a href="http://www.ncsa.illinois.edu/enabling/mosaic">Mosaic</a>
-        gave the Web a broader audience.
+        Support for other systems followed in 1992.
+        <ul>
+          <li>Notably <a href="http://www.ncsa.illinois.edu/enabling/mosaic">Mosaic</a>
+              gave the Web a broader audience.</li>
+        </ul>
       </li>
       <li>
-        The text-based browser <a href="http://lynx.invisible-island.net/">Lynx</a>
-        still exists.
+        It provides compatibility at an unprecedented scale.
+        <ul>
+          <li>The text-based browser <a href="http://lynx.invisible-island.net/">Lynx</a> is still developed and used.</li>
+        </ul>
       </li>
     </ul>
     <footer>
@@ -559,21 +576,21 @@
     <table>
       <thead>
         <tr>
-          <th scope=col>year</th>
-          <th scope=col><a href="http://www.internetlivestats.com/total-number-of-websites/">number of websites</a></th>
+          <th scope="col">year</th>
+          <th scope="col"><a href="http://www.internetlivestats.com/total-number-of-websites/">number of websites</a></th>
         </tr>
       </thead>
       <tbody>
-        <tr><th scope=row>1991</th><td>1</td></tr>
-        <tr><th scope=row>1992</th><td>10</td></tr>
-        <tr><th scope=row>1993</th><td>130</td></tr>
-        <tr><th scope=row>1994</th><td>2,738</td></tr>
-        <tr><th scope=row>1995</th><td>23,500</td></tr>
-        <tr><th scope=row>2000</th><td>17,087,182</td></tr>
-        <tr><th scope=row>2010</th><td>206,956,723</td></tr>
+        <tr><th scope="row">1991</th><td>1</td></tr>
+        <tr class="next"><th scope="row">1992</th><td>10</td></tr>
+        <tr class="next"><th scope=row>1993</th><td>130</td></tr>
+        <tr class="next"><th scope="row">1994</th><td>2,738</td></tr>
+        <tr class="next"><th scope="row">1995</th><td>23,500</td></tr>
+        <tr class="next"><th scope="row">2000</th><td>17,087,182</td></tr>
+        <tr class="next"><th scope="row">2010</th><td>206,956,723</td></tr>
       </tbody>
     </table>
-    <p><a href="https://en.wikipedia.org/wiki/List_of_websites_founded_before_1995">websites founded before 1995</a></p>
+    <p class="next"><a href="https://en.wikipedia.org/wiki/List_of_websites_founded_before_1995">websites founded before 1995</a></p>
   </div>
 
   <div class="slide">
@@ -581,12 +598,12 @@
       The Web evolved together<br>
       with technology (and bandwidth).
     </h2>
-    <ul>
-      <li>1991: text (and links) only</li>
-      <li>1993: <a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0182.html">proposal</a> for the <code>&lt;img&gt;</code> element</li>
-      <li>2002: video through the Flash player</li>
-      <li>2009: HTML5 <code>&lt;video&gt;</code> element in Firefox</li>
-    </ul>
+    <dl>
+      <dt>1991</dt> <dd>text (and links) only</dd>
+      <dt>1993</dt> <dd class="next"><a href="http://1997.webhistory.org/www.lists/www-talk.1993q1/0182.html">proposal</a> for the <code>&lt;img&gt;</code> element</dd>
+      <dt>2002</dt> <dd class="next">video through the Flash player</dd>
+      <dt>2009</dt> <dd class="next">HTML5 <code>&lt;video&gt;</code> element</dd>
+    </dl>
   </div>
 
   <div class="slide">
@@ -641,7 +658,7 @@
       with the Web.
     </h2>
     <ul>
-      <li>Pizza Hut allows to order online already in 1994.</li>
+      <li>Pizza Hut accepted online orders already in 1994.</li>
       <li>
         Amazon and many others exploit <em>the long tail</em>.
         <ul>
@@ -667,9 +684,9 @@
         </ul>
       </li>
       <li>
-        Massive Open Online Courses
+        Massive Open Online Courses soon followed.
         <ul>
-          <li>learn from top teachers and universities in the world</li>
+          <li>learning from top teachers and universities in the world</li>
           <li>
             examples:
             <a href="https://www.khanacademy.org/">Khan Academy</a>,
@@ -806,16 +823,11 @@
       <li>
         <em>Crawlers</em> from <em>search engines</em> traverse the Web<br>
         and create a centralized <em>index</em> of content.
-        <ul>
-          <li>
-            search engines:
-            <ul class="inline">
-              <li><a href="http://www.google.com/">Google</a></li>
-              <li><a href="http://www.bing.com/">Bing</a></li>
-              <li><a href="http://www.baidu.com/">Baidu</a></li>
-              <li>…</li>
-            </ul>
-          </li>
+        <ul class="inline">
+          <li><a href="http://www.google.com/">Google</a></li>
+          <li><a href="http://www.bing.com/">Bing</a></li>
+          <li><a href="http://www.baidu.com/">Baidu</a></li>
+          <li>…</li>
         </ul>
       </li>
     </ul>
@@ -835,7 +847,7 @@
           <li>This gave rise to an entirely new business: <a href="https://support.google.com/webmasters/answer/35291?hl=en"><abbr title="Search Engine Optimization">SEO</abbr></a>.</li>
         </ul>
       </li>
-      <li class="next">Is search result personalization a filter bubble?</li>
+      <li class="next opinion">Is search result personalization a filter bubble?</li>
       <li class="next">
         Even search <em>queries</em> are a valuable data source.
         <ul>
@@ -1021,7 +1033,7 @@
           <li><em>“Don't you want to use our app instead?”</em></li>
         </ul>
       </li>
-      <li class="next">
+      <li class="next opinion">
         Motivated by technology or business?
         <ul>
           <li>Mark Zuckerberg: <em>“<a href="https://lists.w3.org/Archives/Public/public-coremob/2012Sep/0015.html">[we've been] betting too much on HTML5</a>”</em></li>
@@ -1112,7 +1124,7 @@
       </li>
       <li class="next">
         Our personal devices will combine<br>
-        data and services in our place.
+        data and services on our behalf.
       </li>
     </ul>
   </div>
@@ -1139,14 +1151,14 @@
       the Semantic Web vision.
     </h2>
     <ul>
-      <li>
+      <li class="next">
         The early Semantic Web suffered<br>from a chicken-and-egg problem.
         <ul>
           <li>Nobody built applications, because there was no data.</li>
           <li>Nobody published data, because there were no apps.</li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         Tim Berners-Lee proposed <a href="https://www.w3.org/DesignIssues/LinkedData.html"><em>Linked Data</em></a>:<br>
         principles to follow to publish data semantically.
         <ul>
@@ -1166,7 +1178,7 @@
         Google, Facebook, and others<br>
         endorse usage of semantic annotations.
       </li>
-      <li class="opinion">
+      <li class="next opinion">
         However, the Semantic Web's <em>killer app</em><br>
         seems still in the making…
         <ul>
@@ -1182,12 +1194,11 @@
   </div>
 
   <div class="slide">
-    <h2>
+    <h2 class="next">
       Who needs the Semantic Web when<br>
       we have a smartphone in our pockets?
     </h2>
-    <img src="images/siri.png" alt="[an iPhone running Siri]"
-         class="next" style="float: right; height: 430px;">
+    <img src="images/siri.png" alt="[an iPhone running Siri]" style="float: right; height: 430px;">
     <ul>
       <li class="next">
         Apple's Siri and Google Now<br>
@@ -1251,7 +1262,7 @@
   </div>
 
   <div class="full slide">
-    <blockquote class="tight">
+    <blockquote class="long">
       <p>Aaron is dead.</p>
 
       <p>Wanderers in this crazy world,<br>
