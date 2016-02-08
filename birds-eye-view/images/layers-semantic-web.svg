@@ -5,7 +5,7 @@
 @font-face{
  font-weight: 700;
  font-family: 'Open Sans';
- src: url(../fonts/OpenSans.Bold.woff) format('woff')
+ src: url(../../fonts/OpenSans.Bold.woff) format('woff')
 }
 
 text {
