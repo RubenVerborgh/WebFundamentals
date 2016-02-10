@@ -12,6 +12,10 @@
 .module:not(:hover),.series:not(:hover) {
   background-position: 0 2em !important;
 }
+.tweets {
+  float: right;
+  font-style: italic;
+}
 .ugent {
   position: absolute;
   bottom: 41px;
@@ -52,6 +56,14 @@ footer p.license img {
 }
 .toc.slide li.active {
   font-weight: bold;
+}
+.toc .series {
+  line-height: 1;
+}
+.toc .tweets {
+  position: absolute;
+  bottom: 1px;
+  right: 60px;
 }
 
 /* Inline lists */
