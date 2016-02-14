@@ -75,23 +75,32 @@ li li ul.inline, li li ol.inline {
   margin-left: 0;
   display: inline;
 }
-.inline > li:not(:last-child):after {
+ul.inline > li:not(:last-child):after {
   content: ',';
+}
+ol.inline li:before {
+  content: '';
+}
+ol.inline > li:not(:last-child):after {
+  content: ' – ';
 }
 
 /* Definition lists */
 dl {
-  margin-left: 60px;
+  margin: 0 0 42px 60px;
 }
 dt {
   float: left;
   clear: left;
   min-width: 160px;
-  margin-right: 1em;
   font-weight: bold;
+  margin: 42px .5em 0 0;
 }
 dd {
-  margin-bottom: 42px;
+  margin: 42px 0 0 192px;
+}
+dt:first-of-type, dd:first-of-type, dd + dd {
+  margin-top: 0;
 }
 
 /* Code */

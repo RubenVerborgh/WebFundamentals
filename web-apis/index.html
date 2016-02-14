@@ -125,12 +125,12 @@
   <div class="slide" id="client-server">
     <h2>
       REST architectures inherit<br>
-      the <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/net_arch_styles.htm#sec_3_4_1">client-server constraints</a>.
+      the <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm#sec_5_1_2">client-server constraints</a>.
     </h2>
     <ul>
       <li>
-        server listens for requests,<br>
-        clients send requests via a connector
+        The server listens for requests,<br>
+        clients send requests via a connector.
         <ul>
           <li>typical for network-based applications</li>
           <li>
@@ -143,7 +143,7 @@
         </ul>
       </li>
       <li>
-        realizes <em>separation of concerns</em>
+        This realizes a <em>separation of concerns</em>.
         <ul>
           <li>
             separating <em>user interface</em> from <em>data storage</em>
@@ -156,6 +156,124 @@
         </ul>
       </li>
     </ul>
+  </div>
+
+  <div class="slide" id="stateless">
+    <h2>
+      REST architectures constrain<br>
+      communication to be <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm#sec_5_1_3">stateless</a>.
+    </h2>
+    <ul>
+      <li>
+        Each client request must contain all information<br>
+        necessary for the server to understand it.
+        <ul>
+          <li>The server does not remember the client.</li>
+          <li>The server does not remember previous requests.</li>
+        </ul>
+      </li>
+      <li class="next">
+        Stateless requests can be interpreted<br>independently of each other.
+        <ul>
+          <li class="next">
+            <em>stateful:</em>
+            <ol class="inline">
+              <li>“show laptops”</li>
+              <li>“show page 2”</li>
+            </ol>
+          </li>
+          <li class="next">
+            <em>stateless:</em>
+            <ol class="inline">
+              <li>“show laptops”</li>
+              <li>“show page 2 of laptops”</li>
+            </ol>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="application-resource-state">
+    <h2>
+      Statelessness applies to <em>application</em> state.<br>
+      <span class="next">Servers still maintain <em>resource</em> state.</span>
+    </h2>
+    <ul>
+      <li class="next">
+        <em>Application state</em> captures the position of a client<br>
+        in the interaction, and differs per client.
+        <ul class="next">
+          <li><em>This client is currently looking at page 2 of laptops.</em></li>
+        </ul>
+      </li>
+      <li class="next">
+        <em>Resource state</em> captures properties of data entities<br>
+        on the server, and are the same for all clients.
+        <ul class="next">
+          <li><em>There are currently 230 laptop models for sale.</em></li>
+        </ul>
+      </li>
+    </ul>
+    <p class="next">
+      This <a href="http://ruben.verborgh.org/blog/2012/08/24/rest-wheres-my-state/" title="REST where's my state">blog post</a>
+      and this <a href="http://restfulwebapis.com/RESTful_Web_Services/#calibre_link-1645" title="RESTful Web Services">book</a>
+      elaborate on the difference.
+    </p>
+  </div>
+
+  <div class="slide" id="statelessness-benefits">
+    <h2>
+      Statelessness improves <em>visibility</em>,<br>
+      <em>reliability</em>, and <em>scalability</em>.
+    </h2>
+    <dl>
+      <dt>visibility</dt>
+      <dd class="next">
+        Intermediaries understand each request<br>
+        without having to know any others.
+      </dd>
+      <dt>reliability</dt>
+      <dd class="next">
+        Recovery from partial failures is easier<br>
+        because no request history is needed.
+      </dd>
+      <dt>scalability</dt>
+      <dd class="next">
+        No data must be kept between requests.
+      </dd>
+      <dd class="next">
+        Each request can be handled by a different,<br>
+        independent server.
+      </dd>
+    </dl>
+  </div>
+
+  <div class="slide" id="statelessness-drawbacks">
+    <h2>
+      Statelessness has increased <em>bandwidth</em> and<br>
+      reduced <em>server-side control</em> as trade-offs.
+    </h2>
+    <dl>
+      <dt>bandwidth</dt>
+      <dd class="next">
+        Requests might need to repeat information<br>
+        that was sent previously but not kept.
+      </dd>
+      <dt>control</dt>
+      <dd class="next">
+        Clients become responsible to transition<br>
+        consistently from one state into another.
+      </dd>
+      <dd class="next">
+        They cannot necessarily be trusted<br>
+        to make correct and allowed transitions.
+      </dd>
+    </dl>
+    <p class="next">
+      The server does not know any client's previous state.<br>
+      Clients might jump to unpermitted states by “guessing”.
+    </p>
   </div>
 
   <div class="toc slide" id="sustainability">
