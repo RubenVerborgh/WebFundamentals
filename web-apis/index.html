@@ -322,13 +322,13 @@
       The <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm#sec_5_1_5">uniform interface</a> constraints<br>
       are unique to the REST architectural style.
     </h2>
-    <p>REST has 4 uniform interface constraints:</p>
-    <ul>
+    <p>REST introduces 4 uniform interface constraints:</p>
+    <ol>
       <li><a href="#resources">identification of resources</a></li>
       <li><a href="#representations">resource manipulation through representations</a></li>
       <li><a href="#self-descriptive-messages">self-descriptive messages</a></li>
       <li><a href="#hateoas">hypermedia as the engine of application state</a></li>
-    </ul>
+    </ol>
   </div>
 
   <div class="slide" id="resources">
@@ -555,6 +555,23 @@
       The <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm#sec_5_1_6">layered system</a> constraints<br>
       allow for flexible hierarchical layers.
     </h2>
+    <ul>
+      <li>
+        Intermediaries can be inserted transparently,<br>
+        shielding off complexity and inner details.
+        <ul>
+          <li>proxies</li>
+          <li>caches</li>
+          <li>load balancers</li>
+          <li>firewalls</li>
+          <li>…</li>
+        </ul>
+      </li>
+      <li>
+        Layering increases flexibility<br>
+        but can introduce overhead and latency.
+      </li>
+    </ul>
   </div>
 
   <div class="toc slide" id="sustainability">
