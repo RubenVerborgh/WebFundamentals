@@ -152,21 +152,21 @@
       a resource anywhere in the universe.
     </h2>
     <ul>
-      <li>
+      <li class="next">
         A string is a unique identifier if<br>
         <em>at most one</em> entity corresponds to it.
         <ul>
-          <li>
+          <li class="next">
             A national number uniquely identifies a person,<br>
             but does not allow locating him or her.
           </li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         A string is a unique locator if<br>
         <em>at most one</em> location corresponds to it.
         <ul>
-          <li>
+          <li class="next">
             A street address uniquely identifies a location,<br>
             but does not allow to identify a specific person.
           </li>
@@ -182,18 +182,18 @@
     </h2>
     <p><a href="http://en.wikipedia.org/wiki/Marissa_Mayer">http://en.wikipedia.org/wiki/Marissa_Mayer</a></p>
     <ul>
-      <li>
+      <li class="next">
         This URL identifies the current Wikipedia article
         about Marissa Mayer.
-        <ul>
+        <ul class="next">
           <li>It does <em>not</em> (also) identify Marissa herself.</li>
           <li>Otherwise, it wouldn't be unique anymore.</li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         At the same time, this URL allows us to locate
         the Wikipedia article about Marissa Mayer.
-        <ul>
+        <ul class="next">
           <li>Again, not Marissa herself—nor anything else.</li>
         </ul>
       </li>
@@ -206,7 +206,7 @@
       the most revolutionary part of the Web.
     </h2>
     <ul>
-      <li>
+      <li class="next">
         The <a href="#flyer">flyer</a> we saw earlier shows<br>
         what a lack of unique location means.
         <ul>
@@ -214,7 +214,7 @@
           <li>machine-dependent execution</li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         Unique identification partially existed,<br>
         but not yet globally for documents.
         <ul>
@@ -298,19 +298,19 @@
     </h2>
     <p><code>http://&lt;host&gt;/&lt;path&gt;?&lt;search&gt;#&lt;fragment&gt;</code></p>
     <ol>
-      <li>
+      <li class="next">
         The client looks up the host's IP address.
         <ul>
           <li>The client uses DNS for this.</li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         The client requests <code>/&lt;path&gt;?&lt;search&gt;</code>.
         <ul>
           <li>The server generates a response in a server-specific way.</li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         The client finds <code>#&lt;fragment&gt;</code>.
         <ul>
           <li>Fragments are defined by the representation format.</li>
@@ -353,21 +353,21 @@
       of technologies related to identification.
     </h2>
     <ul>
-      <li>
+      <li class="next">
         URL – Uniform Resource Locator (<a href="https://tools.ietf.org/html/rfc1738">RFC1738</a>)
         <ul>
           <li>unique identification and location of resources</li>
           <li><em>mailto:ruben.verborgh@ugent.be</em></li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         URN – Uniform Resource Name (<a href="https://tools.ietf.org/html/rfc2141">RFC2141</a>)
         <ul>
           <li>location-independent resource identifier</li>
           <li><em>urn:isbn:0-83891251-6</em></li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         URI – Uniform Resource Identifier (<a href="https://tools.ietf.org/html/rfc3986">RFC3986</a>)
         <ul>
           <li>union of URLs and URNs</li>
@@ -386,13 +386,13 @@
         Not all characters are allowed in a URI.
         <ul>
           <li>
-            <a href="https://tools.ietf.org/html/rfc3986#section-2.1">percent-encode</a> non-ASCII chars
+            <a href="https://tools.ietf.org/html/rfc3986#section-2.1">Percent-encode</a> non-ASCII chars.
             <ul>
               <li><em><code>é</code> becomes <code>%C3%A9</code></em></li>
             </ul>
           </li>
           <li>
-            <a href="https://tools.ietf.org/html/rfc3986#section-2.1">percent-encode</a> <a href="https://tools.ietf.org/html/rfc3986#section-2.2">chars with other meaning</a>
+            <a href="https://tools.ietf.org/html/rfc3986#section-2.1">Percent-encode</a> <a href="https://tools.ietf.org/html/rfc3986#section-2.2">chars with other meaning</a>.
             <ul>
               <li><em><code>?</code> becomes <code>%3F</code></em></li>
             </ul>
@@ -402,9 +402,9 @@
       <li class="next">
         IRI – Internationalized Resource Identifier (<a href="https://tools.ietf.org/html/rfc3987">RFC3987</a>)
         <ul>
-          <li>non-ASCII chars don't need to be encoded</li>
-          <li>chars with other meaning still need encoding</li>
-          <li><a href="http://🛀🌰🐊🎩🍓🐒🐝👊.🍕💩.ws">http://🛀🌰🐊🎩🍓🐒🐝👊.🍕💩.ws</a></li>
+          <li>Non-ASCII chars don't need to be encoded.</li>
+          <li>Chars with other meaning still need encoding.</li>
+          <li class="next"><a href="http://🛀🌰🐊🎩🍓🐒🐝👊.🍕💩.ws">http://🛀🌰🐊🎩🍓🐒🐝👊.🍕💩.ws</a></li>
         </ul>
       </li>
     </ul>
@@ -551,11 +551,11 @@ Accept: text/html</span></code></pre>
     </h2>
     <ul>
       <li class="next">
-        The client does not request<br>
+        The client does not <em>request</em><br>
         a state change of the resource.
         <ul>
-          <li>If the server still changes something,<br>
-              the client is not “accountable”.</li>
+          <li>The server can still change something,<br>
+              but the client is not “accountable”.</li>
         </ul>
       </li>
       <li class="next">
@@ -945,7 +945,7 @@ Last-Modified: Sun, 24 Jan 2016 18:26:27 GMT</span>
       <li>
         embedded devices and sensors
         <ul>
-          <li><em>Web of things</em></li>
+          <li><em>Web of Things</em></li>
         </ul>
       </li>
     </ul>
@@ -953,8 +953,8 @@ Last-Modified: Sun, 24 Jan 2016 18:26:27 GMT</span>
 
   <div class="slide">
     <h2>
-      All clients require support<br>
-      for a couple of core technologies.
+      All clients need to support<br>
+      a couple of core technologies.
     </h2>
     <ul>
       <li>
@@ -1032,13 +1032,16 @@ Last-Modified: Sun, 24 Jan 2016 18:26:27 GMT</span>
 
   <div class="slide">
     <h2>
-      Desktop and mobile applications behave<br>
-      in similar ways as Web applications.
+      Desktop and mobile applications<br>
+      can similarly create HTTP requests.
     </h2>
     <ul>
       <li class="next">
         They use their own infrastructure,<br>
         as they don't have the browser's.
+        <ul>
+          <li class="next">In particular, they usually don't set cookies.</li>
+        </ul>
       </li>
       <li class="next">
         They typically request JSON (or XML),<br>
@@ -1518,11 +1521,11 @@ removeObject.deleteMessage(234);</code></pre>
     <dl>
       <dt><a href="https://www.w3.org/TR/selectors/#type-selectors">h1</a></dt>
       <dd>tag name</dd>
-      <dt><a href="https://www.w3.org/TR/selectors/#class-selectors">.person</a></dt>
-      <dd>identifier (<code>id</code> attribute value)</dd>
-      <dt><a href="https://www.w3.org/TR/selectors/#pseudo-classes">:visited</a></dt>
-      <dd>class name (<code>class</code> attribute value)</dd>
       <dt><a href="https://www.w3.org/TR/selectors/#id-selectors">#index</a></dt>
+      <dd>identifier (<code>id</code> attribute value)</dd>
+      <dt><a href="https://www.w3.org/TR/selectors/#class-selectors">.person</a></dt>
+      <dd>class name (<code>class</code> attribute value)</dd>
+      <dt><a href="https://www.w3.org/TR/selectors/#pseudo-classes">:visited</a></dt>
       <dd>state, position, …</dd>
       <dt><a href="https://www.w3.org/TR/selectors/#attribute-selectors">[type=submit]</a></dt>
       <dd>attribute value</dd>
@@ -1548,7 +1551,7 @@ removeObject.deleteMessage(234);</code></pre>
 
   <div class="slide">
     <h2>
-      Elements inherit (some) properties<br>
+      Elements <em>inherit</em> (some) properties<br>
       from parent elements and other rules.
     </h2>
     <pre><code><strong>#css-test</strong> {
@@ -1675,15 +1678,15 @@ input.onkeyup = function () {
         Client-side scripts should provide enhancements,<br>
         not essential functionality, whenever possible.
         <ul>
-          <li>Not all browsers support JavaScript.</li>
-          <li>Not all browsers support JavaScript consistently.</li>
-          <li>Trust default interactions over your own.</li>
+          <li class="next">Not all browsers support JavaScript.</li>
+          <li class="next">Not all browsers support JavaScript consistently.</li>
+          <li class="next">Trust default interactions over your own.</li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         This is a <a href="http://alistapart.com/article/understandingprogressiveenhancement">progressive enhancement</a> technique.
         <ul>
-          <li>
+          <li class="next">
             Its goals are similar to <em>graceful degradation</em>,<br>
             but progressive enhancement starts from simple clients.
           </li>
@@ -1813,7 +1816,7 @@ input.onkeyup = function () {
         and
         <a href="https://tools.ietf.org/html/rfc4287">Atom</a>.
       </li>
-      <li class="opinion">
+      <li class="next opinion">
         Social media streams pushed seem to<br>
         have pushed feeds to the background.
       </li>
@@ -2005,11 +2008,11 @@ input.onkeyup = function () {
           </li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         The code to render pages runs on the server<br>
         when creating the initial page.
       </li>
-      <li>
+      <li class="next">
         The <em>same</em> code can update the page on the client,<br>
         instead of fetching a complete page again.
       </li>
@@ -2104,7 +2107,7 @@ input.onkeyup = function () {
     <ul>
       <li class="next">
         A site could trick users into submitting a form<br>
-        that directs it output to another site.
+        that directs its output to another site.
         <ul class="inline">
           <li>modify an item</li>
           <li>delete an item</li>
