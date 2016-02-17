@@ -15,7 +15,6 @@ text {
 }
 circle {
   fill: #4B86C4;
-  r: 75;
 }
 path {
   stroke: #979A9E;
@@ -26,9 +25,9 @@ polygon {
   fill: #979A9E;
 }
 </style>
-<circle cx="220" cy="76"/>
-<circle cx="364" cy="324"/>
-<circle cx="76"  cy="324"/>
+<circle cx="220" cy="76"  r="75"/>
+<circle cx="364" cy="324" r="75"/>
+<circle cx="76"  cy="324" r="75"/>
 <text x="184" y="88" >URL</text>
 <text x="318" y="338">HTTP</text>
 <text x="24"  y="338">HTML</text>

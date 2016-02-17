@@ -22,7 +22,6 @@
   }
   circle {
     fill: #4B86C4;
-    r: 8;
   }
 </style>
 
@@ -42,21 +41,21 @@
   c13.43-11.48,34.92-35.43,48.29-47.62c13.37-12.19,34.66-30.73,48.06-40.25c13.4-9.53,28.39-17.58,48.52-28.41
   c20.13-10.83,96.58-49.67,96.58-49.67"/>
 
-<circle cx="73"  cy="353"/>
-<circle cx="134" cy="349"/>
-<circle cx="183" cy="347"/>
-<circle cx="231" cy="344"/>
-<circle cx="280" cy="340"/>
-<circle cx="328" cy="335"/>
-<circle cx="377" cy="326"/>
-<circle cx="425" cy="309"/>
-<circle cx="521" cy="300"/>
-<circle cx="569" cy="278"/>
-<circle cx="618" cy="243"/>
-<circle cx="666" cy="195"/>
-<circle cx="714" cy="155"/>
-<circle cx="763" cy="127"/>
-<circle cx="859" cy="77"/>
+<circle cx="73"  cy="353" r="8"/>
+<circle cx="134" cy="349" r="8"/>
+<circle cx="183" cy="347" r="8"/>
+<circle cx="231" cy="344" r="8"/>
+<circle cx="280" cy="340" r="8"/>
+<circle cx="328" cy="335" r="8"/>
+<circle cx="377" cy="326" r="8"/>
+<circle cx="425" cy="309" r="8"/>
+<circle cx="521" cy="300" r="8"/>
+<circle cx="569" cy="278" r="8"/>
+<circle cx="618" cy="243" r="8"/>
+<circle cx="666" cy="195" r="8"/>
+<circle cx="714" cy="155" r="8"/>
+<circle cx="763" cy="127" r="8"/>
+<circle cx="859" cy="77"  r="8"/>
 
 <text x="86"  y="341">186</text>
 <text x="307" y="314">1,263</text>

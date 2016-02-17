@@ -15,7 +15,6 @@ text {
 }
 circle {
   fill: #4B86C4;
-  r: 65;
 }
 path {
   stroke: #979A9E;
@@ -29,16 +28,16 @@ path {
 <path d="M484,87 c55-17,126-15,228,26"/>
 <path d="M161,296 c55-17,128-23,230,18"/>
 <path d="M521,314 c55-17,147-21,249,20"/>
-<circle cx="65"  cy="65"/>
+<circle cx="65"  cy="65"  r="65"/>
 <text transform="translate( 14  73)">browser</text>
-<circle cx="419" cy="87"/>
+<circle cx="419" cy="87"  r="65"/>
 <text transform="translate(370  80)">browser<tspan x="14" y="28">cache</tspan></text>
-<circle cx="777" cy="113"/>
+<circle cx="777" cy="113" r="65"/>
 <text transform="translate(726 106)">provider<tspan x="16" y="28">proxy</tspan></text>
-<circle cx="96"  cy="296"/>
+<circle cx="96"  cy="296" r="65"/>
 <text transform="translate( 62 288)">cloud<tspan x="-1" y="28">cache</tspan></text>
-<circle cx="456" cy="314"/>
+<circle cx="456" cy="314" r="65"/>
 <text transform="translate(412 307)">reverse<tspan x="10" y="28">proxy</tspan></text>
-<circle cx="835" cy="335"/>
+<circle cx="835" cy="335" r="65"/>
 <text transform="translate(813 328)">app<tspan x="-15" y="28">server</tspan></text>
 </svg>
