@@ -1,3 +1,8 @@
+body {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 .slide.title {
   display: none;
 }
@@ -49,12 +54,17 @@ img {
 blockquote {
   padding: 0 !important;
 }
-dd {
-  margin: 0 !important;
+dl, dt, dd {
+  margin: 0 1em 0 0 !important;
+  min-width: 0 !important;
 }
 .opinion {
   display: inline !important;
 }
 iframe, input {
   display: none !important;
+}
+
+.tweets {
+  display: none;
 }
