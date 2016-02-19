@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="900" height="400">
+<style>
+@font-face{
+ font-family: 'Open Sans';
+ src: url(../../fonts/OpenSans.woff) format('woff')
+}
+@font-face{
+ font-style: italic;
+ font-family: 'Open Sans';
+ src: url(../../fonts/OpenSans.Italic.woff) format('woff')
+}
+@font-face{
+ font-weight: 700;
+ font-family: 'Open Sans';
+ src: url(../../fonts/OpenSans.Bold.woff) format('woff')
+}
+
+rect {
+  fill: #4B86C4;
+}
+.resource {
+  fill: #CC4420;
+}
+
+text {
+  font: 22px 'Open Sans';
+  fill: white;
+}
+.type, .label {
+  font-weight: bold;
+}
+.url {
+  fill: black;
+  font-style: italic;
+}
+.label {
+  fill: black;
+  fill: #979A9E;
+}
+
+line {
+  stroke: black;
+  stroke-width: 3px;
+  marker-end: url(#triangle);
+}
+.dashed {
+  stroke-dasharray: 5, 5;
+}
+</style>
+
+  <marker id="triangle" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="6" orient="auto">
+    <path d="M 0 0 L 10 5 L 0 10 z" />
+  </marker>
+
+  <rect x="155" y="0" width="280" height="130" rx="30"/>
+  <text x="268" y="48" class="type">Song</text>
+  <text x="209" y="83">“Khaled – Aïcha”</text>
+  <rect x="465" y="0" width="280" height="130" rx="30"/>
+  <text x="578" y="48" class="type">Song</text>
+  <text x="473" y="83">“The Who – Baba O&apos;Riley”</text>
+
+  <rect class="resource" x="0"   y="230" width="280" height="130"/>
+  <text x="113" y="282" class="type">Song</text>
+  <text x="54"  y="317">“Khaled – Aïcha”</text>
+  <text x="0"   y="386" class="url">/songs/1663464/</text>
+  <rect class="resource" x="310" y="230" width="280" height="130"/>
+  <text x="422" y="282" class="type">Song</text>
+  <text x="373" y="317">latest addition</text>
+  <text x="310" y="386" class="url">/songs/latest/</text>
+  <rect class="resource" x="620" y="230" width="280" height="130"/>
+  <text x="733" y="282" class="type">Song</text>
+  <text x="628" y="317">“The Who – Baba O&apos;Riley”</text>
+  <text x="619" y="386" class="url">/songs/1663467/</text>
+
+  <line x1="760" y1="230" x2="700" y2="130"/>
+  <line x1="140" y1="230" x2="200" y2="130"/>
+  <line x1="450" y1="230" x2="390" y2="130" class="dashed"/>
+  <line x1="450" y1="230" x2="510" y2="130" class="dashed"/>
+
+  <text x="815" y="60"  class="label">entities</text>
+  <text x="790" y="210" class="label">resources</text>
+</svg>
