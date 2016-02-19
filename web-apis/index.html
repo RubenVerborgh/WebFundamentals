@@ -770,8 +770,35 @@
 
   <div class="slide" id="web-resources">
     <h2>
-      Web resources are conceptual relations<br>
-      uniquely identified by URLs.
+      Web <a href="#resources">resources</a> are conceptual relations<br>
+      uniquely identified by HTTP URLs.
+    </h2>
+    <ul>
+      <li>
+        An HTTP URL points to at most one resource.
+        <ul>
+          <li>The URL <a href="../architecture/#identification-location">identifies</a> the resource.</li>
+          <li>If it is an in <a href="resources">information resource</a>,<br>
+              HTTP allows clients to retrieve a representation of it.</li>
+        </ul>
+      </li>
+      <li>
+        The concept pointed to by an URL shouldn't change.
+        <ul>
+          <li>Tim Berners-Lee calls such identifiers <a href="https://www.w3.org/Provider/Style/URI.html">“Cool URIs”</a>.</li>
+        </ul>
+      </li>
+      <li>
+        The value and representations retrieved<br>
+        when looking up an URL might change over time.
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="web-resources-image">
+    <h2>
+      Web <a href="#resources">resources</a> are conceptual relations<br>
+      uniquely identified by HTTP URLs.
     </h2>
     <img src="images/resources.svg" alt="[Schema visualizing REST resources on the Web]">
   </div>

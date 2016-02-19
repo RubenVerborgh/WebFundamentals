@@ -18,10 +18,10 @@
 }
 
 rect {
-  fill: #4B86C4;
+  fill: #979A9E;
 }
 .resource {
-  fill: #CC4420;
+  fill: #CC4420 !important;
 }
 
 text {
@@ -56,29 +56,31 @@ line {
 
   <rect x="155" y="0" width="280" height="130" rx="30"/>
   <text x="268" y="48" class="type">Song</text>
-  <text x="209" y="83">“Khaled – Aïcha”</text>
+  <text x="214" y="83">“Khaled – Aïcha”</text>
   <rect x="465" y="0" width="280" height="130" rx="30"/>
   <text x="578" y="48" class="type">Song</text>
-  <text x="473" y="83">“The Who – Baba O&apos;Riley”</text>
+  <text x="478" y="83">“The Who – Baba O&apos;Riley”</text>
 
   <rect class="resource" x="0"   y="230" width="280" height="130"/>
   <text x="113" y="282" class="type">Song</text>
-  <text x="54"  y="317">“Khaled – Aïcha”</text>
+  <text x="60"  y="317">“Khaled – Aïcha”</text>
   <text x="0"   y="386" class="url">/songs/1663464/</text>
   <rect class="resource" x="310" y="230" width="280" height="130"/>
   <text x="422" y="282" class="type">Song</text>
-  <text x="373" y="317">latest addition</text>
-  <text x="310" y="386" class="url">/songs/latest/</text>
+  <text x="385" y="317">most played</text>
+  <text x="310" y="386" class="url">/songs/top/</text>
   <rect class="resource" x="620" y="230" width="280" height="130"/>
   <text x="733" y="282" class="type">Song</text>
-  <text x="628" y="317">“The Who – Baba O&apos;Riley”</text>
-  <text x="619" y="386" class="url">/songs/1663467/</text>
+  <text x="632" y="317">“The Who – Baba O&apos;Riley”</text>
+  <text x="619" y="386" class="url">/songs/6357881/</text>
 
   <line x1="760" y1="230" x2="700" y2="130"/>
   <line x1="140" y1="230" x2="200" y2="130"/>
+  <line x1="450" y1="230" x2="350" y2="190" class="dashed"/>
   <line x1="450" y1="230" x2="390" y2="130" class="dashed"/>
   <line x1="450" y1="230" x2="510" y2="130" class="dashed"/>
+  <line x1="450" y1="230" x2="550" y2="190" class="dashed"/>
 
   <text x="815" y="60"  class="label">entities</text>
-  <text x="790" y="210" class="label">resources</text>
+  <text x="790" y="210" class="resource label">resources</text>
 </svg>
