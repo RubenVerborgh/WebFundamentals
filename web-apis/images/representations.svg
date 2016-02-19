@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="900" height="400">
+<style>
+@font-face{
+ font-family: 'Open Sans';
+ src: url(../../fonts/OpenSans.woff) format('woff')
+}
+@font-face{
+ font-style: italic;
+ font-family: 'Open Sans';
+ src: url(../../fonts/OpenSans.Italic.woff) format('woff')
+}
+@font-face{
+ font-weight: 700;
+ font-family: 'Open Sans';
+ src: url(../../fonts/OpenSans.Bold.woff) format('woff')
+}
+
+rect, .resource {
+  fill: #CC4420 !important;
+}
+circle {
+  fill: #4B86C4;
+}
+
+text {
+  font: 22px 'Open Sans';
+  fill: white;
+}
+.type, .label {
+  font-weight: bold;
+}
+.url {
+  fill: black;
+  font-style: italic;
+}
+.label {
+  fill: #4B86C4;
+}
+
+line {
+  stroke: black;
+  stroke-width: 3px;
+  marker-end: url(#triangle);
+}
+</style>
+
+  <marker id="triangle" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="6" orient="auto">
+    <path d="M 0 0 L 10 5 L 0 10 z" />
+  </marker>
+
+  <rect x="120" y="230" width="280" height="130"/>
+  <text x="178" y="282" class="type">Song metadata</text>
+  <text x="179" y="317">“Khaled – Aïcha”</text>
+  <text x="120" y="386" class="url">/songs/1663464/about/</text>
+
+  <circle cx="160" cy="120" r="40" />
+  <text    x="130"  y="128" class="type">HTML</text>
+  <line   x1="160" y1="160" x2="160" y2="229"/>
+  <circle cx="260" cy="120" r="40" />
+  <text    x="234"  y="128" class="type">JSON</text>
+  <line   x1="260" y1="160" x2="260" y2="229"/>
+  <circle cx="360" cy="120" r="40" />
+  <text    x="338"  y="128" class="type">RDF</text>
+  <line   x1="360" y1="160" x2="360" y2="229"/>
+
+  <rect x="500" y="230" width="280" height="130"/>
+  <text x="573" y="282" class="type">Cover image</text>
+  <text x="550" y="317">most played song</text>
+  <text x="500" y="386" class="url">/songs/top/cover/</text>
+
+  <circle cx="540" cy="120" r="40" />
+  <text    x="518"  y="128" class="type">JPEG</text>
+  <line   x1="540" y1="160" x2="540" y2="229"/>
+  <circle cx="640" cy="120" r="40" />
+  <text    x="617"  y="128" class="type">PNG</text>
+  <line   x1="640" y1="160" x2="640" y2="229"/>
+  <circle cx="740" cy="120" r="40" />
+  <text    x="721"  y="128" class="type">GIF</text>
+  <line   x1="740" y1="160" x2="740" y2="229"/>
+
+  <text x="720" y="60"  class="label">representations</text>
+  <text x="790" y="300" class="resource label">resources</text>
+</svg>
