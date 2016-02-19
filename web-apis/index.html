@@ -805,7 +805,34 @@
 
   <div class="slide" id="web-representations">
     <h2>
-      Clients obtain different representations<br>
+      Clients obtain different <a href="#representations">representations</a><br>
+      through HTTP <em>content negotiation</em>.
+    </h2>
+    <ul>
+      <li>
+        If a URL identifies a resource, clients need<br>
+        a mechanism to obtain a representation.
+      </li>
+      <li>
+        With <a href="https://tools.ietf.org/html/rfc7231#section-3.4">content negotiation</a>,
+        a client and server agree<br>
+        on the best mutually understandable media type.
+      </li>
+      <li>
+        The client indicates its preferences with <a href="https://tools.ietf.org/html/rfc7231#section-5.3.2"><code>Accept</code></a>,<br>
+        the server advertises its choice with
+        <a href="https://tools.ietf.org/html/rfc7231#section-3.1.1.5"><code>Content-Type</code></a>.
+        <ul>
+          <li><code>Accept: application/json,text/html;q=0.6</code></li>
+          <li>Maybe the HTML version is better, or there is no JSON.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="web-representations-image">
+    <h2>
+      Clients obtain different <a href="#representations">representations</a><br>
       through HTTP <em>content negotiation</em>.
     </h2>
     <img src="images/representations.svg" alt="[Schema visualizing REST representations on the Web]">

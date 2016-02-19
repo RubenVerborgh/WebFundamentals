@@ -41,16 +41,19 @@ text {
 }
 
 line {
-  stroke: black;
+  stroke: #CC4420;
   stroke-width: 3px;
   marker-end: url(#triangle);
+}
+path {
+  fill: #CC4420;
 }
 .dashed {
   stroke-dasharray: 5, 5;
 }
 </style>
 
-  <marker id="triangle" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="6" orient="auto">
+  <marker id="triangle" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="6" orient="auto">
     <path d="M 0 0 L 10 5 L 0 10 z" />
   </marker>
 
@@ -74,12 +77,12 @@ line {
   <text x="632" y="317">“The Who – Baba O&apos;Riley”</text>
   <text x="619" y="386" class="url">/songs/6357881/</text>
 
-  <line x1="760" y1="230" x2="700" y2="130"/>
-  <line x1="140" y1="230" x2="200" y2="130"/>
-  <line x1="450" y1="230" x2="350" y2="190" class="dashed"/>
-  <line x1="450" y1="230" x2="390" y2="130" class="dashed"/>
-  <line x1="450" y1="230" x2="510" y2="130" class="dashed"/>
-  <line x1="450" y1="230" x2="550" y2="190" class="dashed"/>
+  <line x1="760" y1="230" x2="700" y2="132"/>
+  <line x1="140" y1="230" x2="200" y2="132"/>
+  <line x1="450" y1="230" x2="350" y2="192" class="dashed"/>
+  <line x1="450" y1="230" x2="390" y2="132" class="dashed"/>
+  <line x1="450" y1="230" x2="510" y2="132" class="dashed"/>
+  <line x1="450" y1="230" x2="550" y2="192" class="dashed"/>
 
   <text x="815" y="60"  class="label">entities</text>
   <text x="790" y="210" class="resource label">resources</text>

@@ -40,9 +40,12 @@ text {
 }
 
 line {
-  stroke: black;
+  stroke: #4B86C4;
   stroke-width: 3px;
   marker-end: url(#triangle);
+}
+path {
+  fill: #4B86C4;
 }
 </style>
 
@@ -66,20 +69,20 @@ line {
   <line   x1="360" y1="160" x2="360" y2="229"/>
 
   <rect x="500" y="230" width="280" height="130"/>
-  <text x="573" y="282" class="type">Cover image</text>
-  <text x="550" y="317">most played song</text>
-  <text x="500" y="386" class="url">/songs/top/cover/</text>
+  <text x="612" y="282" class="type">Song</text>
+  <text x="575" y="317">most played</text>
+  <text x="500" y="386" class="url">/songs/top/</text>
 
   <circle cx="540" cy="120" r="40" />
-  <text    x="518"  y="128" class="type">JPEG</text>
+  <text    x="515"  y="128" class="type">MP3</text>
   <line   x1="540" y1="160" x2="540" y2="229"/>
   <circle cx="640" cy="120" r="40" />
-  <text    x="617"  y="128" class="type">PNG</text>
+  <text    x="612"  y="128" class="type">FLAC</text>
   <line   x1="640" y1="160" x2="640" y2="229"/>
   <circle cx="740" cy="120" r="40" />
-  <text    x="721"  y="128" class="type">GIF</text>
+  <text    x="715"  y="128" class="type">OGG</text>
   <line   x1="740" y1="160" x2="740" y2="229"/>
 
-  <text x="720" y="60"  class="label">representations</text>
+  <text x="720" y="65"  class="label">representations</text>
   <text x="790" y="300" class="resource label">resources</text>
 </svg>
