@@ -497,7 +497,7 @@
         Intermediaries can interpret messages.
         <ol>
           <li><a href="#stateless">statelessness</a> and explicit <a href="#cache">cacheablity</a></li>
-          <li>restricted set of <em>standardized operations</em></li>
+          <li>limited number of <em>standardized operations</em></li>
         </ol>
       </li>
       <li>
@@ -843,6 +843,46 @@
       Well-defined HTTP methods &amp; headers<br>
       and media types enable self-description.
     </h2>
+    <ul>
+      <li>
+        HTTP provides a <a href="../architecture/#http-methods">limited number of methods</a>.
+        <ul>
+          <li>
+            Intermediaries can know the semantics of <em>all</em> methods<br>
+            (which would be hard if a server could choose its own).
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        HTTP provides an extensible set of headers.
+        <ul>
+          <li>Intermediaries forward headers they do not understand.</li>
+        </ul>
+      </li>
+      <li class="next">
+        The <a href="https://tools.ietf.org/html/rfc7231#section-3.1.1.5"><code>Content-Type</code></a> header
+        details the media type.
+        <ul>
+          <li>
+            <em>generic:</em>
+            <ul class="inline">
+              <li>text/html</li>
+              <li>application/json</li>
+              <li>application/xml</li>
+              <li>…</li>
+            </ul>
+          </li>
+          <li>
+            <em>specific:</em>
+            <ul class="inline">
+              <li>application/atom+xml</li>
+              <li>application/rss+xml</li>
+              <li>…</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="slide" id="web-hateoas">
