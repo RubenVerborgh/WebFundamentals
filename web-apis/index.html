@@ -887,9 +887,49 @@
 
   <div class="slide" id="web-hateoas">
     <h2>
-      HTML (and other hypermedia types)<br>
-      provide hypermedia controls.
+      HTML (and other hypermedia) documents<br>
+      can contain hypermedia controls.
     </h2>
+    <ul>
+      <li>
+        In HTML documents, links can be marked up.
+        <ul>
+          <li class="next">
+            <code>&lt;em&gt;http://perdu.com/&lt;/em&gt;</code> is not a link.
+            <ul>
+              <li><em>http://perdu.com/</em> is not a link.</li>
+            </ul>
+          </li>
+          <li class="next">
+            But <code>&lt;a href="http://perdu.com/"&gt;Perdu?&lt;/a&gt;</code> is.
+            <ul>
+              <li>But <a href="http://perdu.com/">Perdu?</a> is.</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        As a consequence, users almost never<br>
+        have to touch the address bar.
+        <ul>
+          <li>If they do, the action is not afforded by hypermedia.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="hypertext-definition">
+    <blockquote>
+      <p>
+        When I say <em>hypertext</em>,<br>
+        <span class="next">I mean the simultaneous presentation
+        of information and controls</span>
+        <span class="next">such that the information becomes the affordance</span>
+        <span class="next">through which the user <span class="next">(or automaton)</span>
+        obtains choices and selects actions.</span>
+      </p>
+      <cite><a href="http://roy.gbiv.com/untangled/2008/rest-apis-must-be-hypertext-driven#comment-718">Roy Fielding</a></cite>
+    </blockquote>
   </div>
 
   <div class="toc slide" id="sustainability">
