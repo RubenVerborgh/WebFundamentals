@@ -110,6 +110,10 @@ dt:first-of-type, dd:first-of-type, dd + dd {
 .slide pre {
   margin-left: 60px;
 }
+.slide pre.scroll {
+  max-height: 420px;
+  overflow: scroll;
+}
 
 .element {
   cursor: pointer;
