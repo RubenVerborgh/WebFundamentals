@@ -146,7 +146,7 @@
     <p class="tweets"><a href="https://twitter.com/search?f=tweets&amp;q=%23ITech16">#ITech16</a></p>
   </div>
 
-  <div class="slide" id="why-rest">
+  <div class="slide" id="web-architectural-style">
     <h2>
       Why does the Web scale the way it does?<br>
       How should we build for the Web?
@@ -1178,6 +1178,68 @@
       <li><a href="#technologies">Web API technologies</a></li>
     </ul>
     <p class="tweets"><a href="https://twitter.com/search?f=tweets&amp;q=%23ITech16">#ITech16</a></p>
+  </div>
+
+  <div class="slide" id="web-api-growth">
+    <h2>
+      There exists a large number of Web APIs,<br>
+      growing at an increasing rate.
+    </h2>
+    <p class="label">number of Web APIs<br>indexed in <a href="http://www.programmableweb.com/">ProgrammableWeb</a></p>
+    <img src="../birds-eye-view/images/web-api-growth.svg" alt="[Graph showing a strong growth of APIs]" />
+  </div>
+
+  <div class="slide" id="why-rest">
+    <h2>
+      Most Web APIs do not follow REST.<br>
+      They do not focus on the long term.
+    </h2>
+    <ul>
+      <li class="next">
+        REST architectures aim for sustainability,<br>
+        offering constants in a changing world.
+        <ul>
+          <li>Resources maintain their URL as technologies change.</li>
+        </ul>
+      </li>
+      <li class="next">
+        “Why design for the long term<br>
+        when my API might not be around for long?”
+      </li>
+      <li class="next">
+        Even in scenarios where the long term matters,<br>
+        REST is not always applied.
+        <ul>
+          <li>Both publishers and consumers need to invest more.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="europeana">
+    <h2>
+      Exposing cultural heritage metadata<br>
+      requires a long-term architectural vision.
+    </h2>
+    <ul>
+      <li>
+        <a href="http://europeana.eu//">Europeana</a> is a Web portal for<br>
+        cultural heritage metadata of Europe.
+      </li>
+      <li>
+        It aggregates metadata from 2,000+ institutions.
+        <ul class="inline">
+          <li>British Library</li>
+          <li>Louvre</li>
+          <li>Ghent University Library</li>
+          <li>…</li>
+        </ul>
+      </li>
+      <li>
+        Europeana publishes its content on a website<br>
+        and as a separate Web API.
+      </li>
+    </ul>
   </div>
 
   <div class="toc slide" id="technologies">
