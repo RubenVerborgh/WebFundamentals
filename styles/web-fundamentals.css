@@ -247,3 +247,36 @@ blockquote.long p {
 }
 #css-test span { border: 3px solid #CC4320; }
 #css-test span:last-child { background-color: #979A9E; }
+
+/* Do and dont's */
+.do, .dont {
+  width: 48%;
+  float: left;
+}
+.dont {
+  margin-right: 4%;
+}
+.do h3, .dont h3 {
+  font-weight: bold;
+  color: #4B86C2;
+}
+.dont h3 {
+  color: #CC4320;
+}
+.do *, .dont * {
+  margin-left:  0 !important;
+  padding-left: 0 !important;
+}
+.do code {
+  width: auto !important;
+  text-align: left;
+}
+.do .example, .dont .example {
+  min-height: 210px;
+}
+.do ul li, .dont ul li {
+  margin: 0;
+  font-weight: normal;
+  font-style: italic;
+  color: #979A9E;
+}
