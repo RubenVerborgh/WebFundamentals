@@ -1487,7 +1487,7 @@
 }</code></pre>
   </div>
 
-  <div class="slide" id="consequences">
+  <div class="slide" id="europeana-consequences">
     <h2>
       Europeana's Web API design choices<br>
       have consequences for sustainability.
@@ -1498,6 +1498,33 @@
       <li>You cannot share nor cache a response.</li>
       <li>You cannot use the API without documentation.</li>
       <li>You cannot use the API in the future.</li>
+    </ul>
+  </div>
+
+  <div class="slide" id="api-keys">
+    <h2>
+      API keys for representations<br>
+      (not resources) are a fallacy.
+    </h2>
+    <ul>
+      <li class="next">
+        There are many excuses to have API keys.
+        <ul>
+          <li class="next"><em>We need to rate limit machine access.</em></li>
+          <li class="next"><em>We need to track automated access.</em></li>
+          <li class="next"><em>We need to protect our data.</em></li>
+        </ul>
+      </li>
+      <li class="next">
+        Yet API keys do not help with any of these.
+        <ul>
+          <li class="next">The HTML version contains the <em>same</em> data <em>without</em> key.</li>
+          <li class="next">We can write a crawler and extract the data from HTML.</li>
+        </ul>
+      </li>
+      <li class="next">
+        Protect your resources, not your representations.
+      </li>
     </ul>
   </div>
 
