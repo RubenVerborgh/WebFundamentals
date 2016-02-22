@@ -102,6 +102,21 @@ dd {
 dt:first-of-type, dd:first-of-type, dd + dd {
   margin-top: 0;
 }
+li dl, li dt {
+  font-size: 28px;
+  font-weight: normal;
+}
+li dt {
+  display: inline;
+  min-width: 0;
+  margin: 0;
+}
+li dt:after {
+  content: ": ";
+}
+li dd {
+  margin: 0;
+}
 
 /* Code */
 .slide code {

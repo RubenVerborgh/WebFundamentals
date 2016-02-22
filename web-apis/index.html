@@ -1573,7 +1573,7 @@
 
   <div class="slide" id="rpc-not-web">
     <h2 class="opinion">
-      Web services with <em>Remote Procedure Calling</em>
+      Web services with <em>Remote Procedure Calling</em><br>
       have surprisingly few to do with the Web.
     </h2>
     <ul>
@@ -1595,6 +1595,91 @@
           <li>The Web acts as a convenient tunnel.</li>
           <li><em>(Which firewall would block TCP port 80?)</em></li>
         </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="soap-message">
+    <h2>
+      The <a href"https://www.w3.org/TR/soap12/">Simple Object Access Protocol (SOAP)</a><br>
+      transfers XML messages on top of HTTP.
+    </h2>
+    <p>
+      A SOAP message consists of 3 main XML elements.
+    </p>
+    <dl>
+      <dt>envelope</dt>
+      <dd>root with (optional) header and body.</dd>
+      <dt>header</dt>
+      <dd>modular extension mechanism</dd>
+      <dt>body</dt>
+      <dd>details of a method invocation</dd>
+    </dl>
+    <p>
+      The client sends such an XML document with HTTP <code>POST</code><br>
+      to a single specific URL that identifies the service.
+    </p>
+  </div>
+
+  <div class="slide" id="soap-request">
+  <h2>
+    This SOAP request calls a method<br>
+    with one input parameter.
+  </h2>
+<pre class="scroll"><code>&lt;env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope"&gt;
+  &lt;env:Header&gt;
+  &lt;/env:Header&gt;
+  &lt;env:Body&gt;
+    &lt;s:getSongDetails xmlns:m="http://example.org/song-service"&gt;
+      &lt;s:id&gt;22896&lt;/s:id&gt;
+    &lt;/s:getSongDetails&gt;
+  &lt;/env:Body&gt;
+&lt;/env:Envelope&gt;</code></pre>
+  </div>
+
+  <div class="slide" id="soap-response">
+  <h2>
+    This SOAP response contains<br>
+    one output parameter.
+  </h2>
+<pre class="scroll"><code>&lt;env:Envelope xmlns:env="http://www.w3.org/2003/05/soap-envelope"&gt;
+  &lt;env:Header&gt;
+  &lt;/env:Header&gt;
+  &lt;env:Body&gt;
+    &lt;s:songDetails xmlns:m="http://example.org/song-service"&gt;
+      &lt;s:title&gt;Baba O'Riley&lt;/s:title&gt;
+      &lt;s:artistId&gt;5521&lt;/s:artistId&gt;
+    &lt;/s:songDetails&gt;
+  &lt;/env:Body&gt;
+&lt;/env:Envelope&gt;</code></pre>
+  </div>
+
+  <div class="slide" id="soap-generation">
+    <h2>
+      SOAP provides language-independent<br>
+      programming over a network.
+    </h2>
+    <ul>
+      <li>
+        SOAP enables fast cross-language development.
+        <ul>
+          <li>notion of networking (and HTTP) is hidden</li>
+          <li>much tooling available</li>
+        </ul>
+      </li>
+      <li class="next">
+        SOAP does not inherit the Web's benefits.
+        <dl>
+          <dt>no caching</dt>
+          <dd>all requests use <code>POST</code></dd>
+          <dt>no visibility</dt>
+          <dd>intermediaries can't understand requests</dd>
+          <dt>no evolvability</dt>
+          <dd>the contract is hard-coded</dd>
+        </dl>
+      </li>
+      <li class="next">
+        SOAP even works without the Web <a href="https://www.w3.org/TR/soap12-email">through e-mail</a>.
       </li>
     </ul>
   </div>
