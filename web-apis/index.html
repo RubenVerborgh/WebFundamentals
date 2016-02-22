@@ -1726,7 +1726,7 @@
 
   <div class="slide" id="wsdl">
     <h2>
-      The Web Services Description Language<br>
+      The <a href="https://www.w3.org/TR/wsdl">Web Services Description Language</a><br>
       (WSDL) describes SOAP service structure.
     </h2>
     <ul>
@@ -1747,6 +1747,33 @@
         <ul>
           <li>hard-coded—change requires recompilation/recoding</li>
         </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="owl-s">
+    <h2>
+      <a href="https://www.w3.org/Submission/OWL-S/">OWL-S (Semantic Markup for Web Services)</a><br>
+      enriches WSDL with functional aspects.
+    </h2>
+    <ul>
+      <li>
+        An OWL-S description captures the semantics<br>
+        of a single SOAP operations using RDF.
+      </li>
+      <li>
+        An OWL-S description consist of three parts.
+        <dl>
+          <dt>profile</dt>
+          <dd>high-level functionality for discovery</dd>
+          <dt>grounding</dt>
+          <dd>connection to SOAP parameters</dd>
+          <dt>model</dt>
+          <dd>in-depth functional relations and constraints</dd>
+        </dl>
+      </li>
+      <li>
+        OWL-S is very powerful for RPC, but remains unused.
       </li>
     </ul>
   </div>

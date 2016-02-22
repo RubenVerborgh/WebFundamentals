@@ -110,6 +110,7 @@ li dt {
   display: inline;
   min-width: 0;
   margin: 0;
+  font-style: italic;
 }
 li dt:after {
   content: ": ";
