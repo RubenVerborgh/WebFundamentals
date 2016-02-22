@@ -4,7 +4,7 @@
 <style>
   @font-face{
    font-family: 'Open Sans';
-   src: url(../../fonts/OpenSans.woff) format('woff')
+   src: url(../../_shared/fonts/OpenSans.woff) format('woff')
   }
 
   text {
