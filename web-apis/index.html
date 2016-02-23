@@ -1804,6 +1804,32 @@
     </ul>
   </div>
 
+  <div class="slide" id="developer-descriptions">
+    <h2>
+      Most recent Web API description formats<br>
+      focus purely on developer support.
+    </h2>
+    <ul>
+      <li class="next">
+        An <a href="http://swagger.io/">OpenAPI (formerly Swagger)</a> specification<br>
+        documents a Web API's methods in JSON.
+        <ul>
+          <li>documentation for developers <em>(<a href="http://petstore.swagger.io/">example</a>)</em></li>
+          <li>automatic client code generation</li>
+        </ul>
+      </li>
+      <li class="next">
+        <a href="https://apiblueprint.org/">API Blueprint</a> focuses on data modeling first.
+      </li>
+      <li class="next opinion">
+        Most formats are not fundamentally different.
+        <ul>
+          <li>They are tools. Pick the one you like most.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
   <div class="slide" id="description-utility">
     <h2 class="opinion">
       Structural descriptions boost development<br>
@@ -1821,6 +1847,7 @@
         They promote tight coupling.
         <ul>
           <li>Hard-code against a description.</li>
+          <li>If code can be generated anyway… is it necessary?</li>
         </ul>
       </li>
       <li class="next opinion">
