@@ -94,8 +94,7 @@
       <li class="next">
         The handle <em>affords</em> opening the door.
         <ul>
-          <li class="next">It (sometimes) hints at the opening direction.</li>
-          <li class="next">It facilitates opening the door.</li>
+          <li class="next">It <em>hints</em> at the opening direction and <em>facilitates</em> opening.</li>
           <li class="next">However, you <em>can</em> open the door without the handle.</li>
         </ul>
       </li>
@@ -106,9 +105,10 @@
         </ul>
       </li>
       <li class="next">
-        Even in software, affordances affect usage.
+        Even in software, affordances strongly affect usage.
         <ul>
           <li>Many people use Word, few can use Vim.</li>
+          <li class="next"><a href="#hypertext-definition">Affordances on the Web</a>  are of  crucial importance.</li>
         </ul>
       </li>
     </ul>
@@ -164,7 +164,7 @@
         REST has guided protocol decisions<br>
         and can guide Web applications.
         <ul>
-          <li>Just being “on the Web” does not mean following REST.</li>
+          <li>Being <a href="#web-rest">on the Web</a> doesn't imply following REST.</li>
         </ul>
       </li>
     </ul>
@@ -204,15 +204,15 @@
           </li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         This realizes a <em>separation of concerns</em>.
         <ul>
           <li>
-            separating <em>user interface</em> from <em>data storage</em>
+            separating user interface from data storage
             <ul>
-              <li>increases scalability by simplifying the server</li>
-              <li>improves portability of the interface across platforms</li>
-              <li>enables independent evolution of client and server</li>
+              <li class="next">increases <em>scalability</em> by simplifying the server</li>
+              <li class="next">improves <em>portability</em> of the interface across platforms</li>
+              <li class="next">enables <em>independent evolution</em> of client and server</li>
             </ul>
           </li>
         </ul>
@@ -263,15 +263,15 @@
     </h2>
     <ul>
       <li class="next">
-        <em>Application state</em> captures the position of a client<br>
+        <strong>Application state</strong> captures the position of a <em>client</em><br>
         in the interaction, and differs per client.
         <ul class="next">
           <li><em>This client is currently looking at page 2 of laptops.</em></li>
         </ul>
       </li>
       <li class="next">
-        <em>Resource state</em> captures properties of data entities<br>
-        on the server, and are the same for all clients.
+        <strong>Resource state</strong> captures properties of data entities<br>
+        on the <em>server</em>, and are the same for all clients.
         <ul class="next">
           <li><em>There are currently 230 laptop models for sale.</em></li>
         </ul>
@@ -344,7 +344,7 @@
       imposes <a href="https://www.ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm#sec_5_1_4">cache constraints</a>.
     </h2>
     <ul>
-      <li>
+      <li class="next">
         A server responses indicates explicitly<br>
         whether or not it is cacheable.
         <ul>
@@ -352,14 +352,14 @@
               by clients and/or intermediaries.</li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         Caching improves network <em>efficiency</em>, <em>scalability</em>,<br>
         and <em>user-perceived performance</em>.
         <ul>
           <li>The server needs to perform less work.</li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         Reliability can be reduced if cached data is stale.
       </li>
     </ul>
@@ -371,7 +371,7 @@
       allow for flexible hierarchical layers.
     </h2>
     <ul>
-      <li>
+      <li class="next">
         Intermediaries can be inserted transparently,<br>
         shielding off complexity and inner details.
         <ul>
@@ -382,7 +382,7 @@
           <li>…</li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         Layering increases flexibility<br>
         but can introduce overhead and latency.
       </li>
@@ -455,14 +455,14 @@
         that associates a definition with a value.
         <ul>
           <li class="next">
-            “today's weather in Ghent”
+            <em>“today's most played song in Ghent”</em>
             <ul>
-              <li>currently: “the weather on <time datetime="2016-02-15" class="today">15 February 2016</time>”</li>
-              <li>tomorrow:  “the weather on <time datetime="2016-02-16" class="tomorrow">16 February 2016</time>”</li>
+              <li>current value: <em>“the top song on <time datetime="2016-02-15" class="today">15 February 2016</time>”</em></li>
+              <li>tomorrow's value: <em>“the top song on <time datetime="2016-02-16" class="tomorrow">16 February 2016</time>”</em></li>
             </ul>
           </li>
           <li class="next">
-            “the weather in Ghent on <time datetime="2016-02-15" class="today">15 February 2016</time>”
+            <em>“the most played song in Ghent on <time datetime="2016-02-15" class="today">15 February 2016</time>”</em>
             <ul>
               <li>remains constant, even tomorrow</li>
             </ul>
@@ -508,9 +508,9 @@
         a resource can be represented differently.
         <ul>
           <li class="next">
-            “today's weather in Ghent”
+            <em>“metadata about today's most played song in Ghent”</em>
             <ul>
-              <li class="next">…in English or French?</li>
+              <li class="next">…in English or Dutch?</li>
               <li class="next">…in HTML or JSON?</li>
             </ul>
           </li>
@@ -519,7 +519,7 @@
       <li class="next">
         Representations can also have an identifier.
         <ul>
-          <li class="next">“English HTML document about today's weather in Ghent”</li>
+          <li class="next"><em>“English HTML document about today's top song in Ghent”</em></li>
           <li class="next opinion">
             The notion of resource/representation is <em>relative</em>:<br>
             representations become resources when identified.
@@ -535,14 +535,14 @@
       should be self-descriptive.
     </h2>
     <ol>
-      <li>
+      <li class="next">
         Intermediaries can interpret messages.
         <ol>
           <li><a href="#stateless">statelessness</a> and explicit <a href="#cache">cacheablity</a></li>
           <li>limited number of <em>standardized operations</em></li>
         </ol>
       </li>
-      <li>
+      <li class="next">
         Response (and request) bodies are expressed<br>
         in explicit, agreed-upon <em>media types</em>.
         <ul>
@@ -612,7 +612,7 @@
         </ul>
       </li>
 
-      <li class="next">
+      <li class="next opinion">
         The server must afford the actions clients need.
         <ul>
           <li class="next">How can the server know what the client wants to do?</li>
@@ -643,8 +643,8 @@
 
   <div class="slide" id="web-rest">
     <h2>
-      The Web is one implementation of REST,<br>
-      and not every website follows the style.
+      The Web is <em>one</em> implementation of REST—<br>and
+      not every website follows the style.
     </h2>
     <ul>
       <li class="next">
@@ -652,8 +652,8 @@
         but other platforms can implement the style.
         <ul>
           <li>
-            Constrained devices on the Internet of Things<br>
-            can use the <a href="https://tools.ietf.org/html/rfc7252">Constrained Application Protocol (CoAP)</a>.
+            The <a href="https://tools.ietf.org/html/rfc7252">Constrained Application Protocol (CoAP)</a><br>
+            is used by devices on the Internet of Things.
           </li>
         </ul>
       </li>
@@ -799,7 +799,7 @@
   <div class="slide" id="web-uniform-interface">
     <h2>
       The <a href="#uniform-interface">uniform interface</a> is implemented<br>
-      by <em>combining</em> URLs, HTTP, and HTML.
+      by a combination of URL, HTTP, and HTML.
     </h2>
     <p>The Web supports all 4 constraints:</p>
     <ol>
@@ -824,13 +824,13 @@
               HTTP allows clients to retrieve a representation of it.</li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         The concept pointed to by an URL shouldn't change.
         <ul>
           <li>Tim Berners-Lee calls such identifiers <a href="https://www.w3.org/Provider/Style/URI.html">“Cool URIs”</a>.</li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         The value and representations retrieved<br>
         when looking up an URL might change over time.
       </li>
@@ -855,18 +855,18 @@
         If a URL identifies a resource, clients need<br>
         a mechanism to obtain a representation.
       </li>
-      <li>
+      <li class="next">
         With <a href="https://tools.ietf.org/html/rfc7231#section-3.4">content negotiation</a>,
         a client and server agree<br>
         on the best mutually understandable media type.
       </li>
-      <li>
+      <li class="next">
         The client indicates its preferences with <a href="https://tools.ietf.org/html/rfc7231#section-5.3.2"><code>Accept</code></a>,<br>
         the server advertises its choice with
         <a href="https://tools.ietf.org/html/rfc7231#section-3.1.1.5"><code>Content-Type</code></a>.
         <ul>
-          <li><code>Accept: application/json,text/html;q=0.6</code></li>
-          <li>Maybe the HTML version is better, or there is no JSON.</li>
+          <li class="next"><code>Accept: application/json,text/html;q=0.6</code></li>
+          <li class="next">Maybe the server likes its HTML better, or has no JSON.</li>
         </ul>
       </li>
     </ul>
@@ -999,7 +999,7 @@
       Any regular website is in fact a REST API.
     </h2>
     <ul>
-      <li>
+      <li class="next">
         Most websites follow the REST principles.
         <ul>
           <li>
@@ -1007,7 +1007,7 @@
           </li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         Some websites invent proprietary interactions.
         <ul>
           <li>
@@ -1018,7 +1018,7 @@
           </li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         A REST API means having <em>no</em>—additional—API.
         <ul>
           <li class="opinion">
@@ -1060,6 +1060,12 @@
         <li>Can I share this?</li>
       </ul>
     </div>
+    <footer>
+      <p>
+        You cannot tell by a URL whether the underlying Web API follows the REST principles.
+        The way in which those URLs are <em>used</em> matters.
+      </p>
+    </footer>
   </div>
 
   <div class="slide" id="representations-do-dont">
@@ -1193,6 +1199,13 @@
         </p>
       </div>
     </div>
+    <footer>
+      <p>
+        This is essentially what you ask from a machine
+        when you do not provide hypermedia controls
+        in machine-targeted representations.
+      </p>
+    </footer>
   </div>
 
   <div class="toc slide" id="longterm">
@@ -1256,11 +1269,11 @@
       requires a long-term architectural vision.
     </h2>
     <ul>
-      <li>
+      <li class="next">
         <a href="http://europeana.eu/">Europeana</a> is a Web portal for<br>
         cultural heritage metadata of Europe.
       </li>
-      <li>
+      <li class="next">
         It aggregates metadata from 2,000+ institutions.
         <ul class="inline">
           <li>British Library</li>
@@ -1269,7 +1282,7 @@
           <li>…</li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         Europeana publishes its content on a website<br>
         and as a separate Web API.
       </li>
@@ -1282,7 +1295,7 @@
       as a human is straightforward.
     </h2>
     <ul>
-      <li>You can browser items.</li>
+      <li>You can browse items.</li>
       <li>You can search for items by keyword.</li>
       <li>
         You can link to items.
@@ -1299,7 +1312,7 @@
       as a machine is more difficult.
     </h2>
     <ul>
-      <li>
+      <li class="next">
         In fact, machines can't use it.
         <ul>
           <li>They need to access the API.</li>
@@ -1323,10 +1336,10 @@
         </ul>
       </li>
       <li>
-        You'll need to get an API key.
+        You'll need to get an <a href="#api-keys">API key</a>.
       </li>
       <li>
-        You must follow a specific order of requests.
+        You must follow a <a href="https://gist.github.com/RubenVerborgh/7684361/#gistcomment-959892">specific order of requests</a>.
       </li>
     </ul>
     <p>
@@ -1369,15 +1382,15 @@
         Fill out the template to construct the URL.
       </li>
       <li class="next">
-        Open this URL.
+        Retrieve a representation using this URL.
       </li>
     </ol>
   </div>
 
   <div class="slide" id="europeana-result">
     <h2>
-      After those steps,<br>
-      you obtain a highly custom URL.
+      The URL you obtain from those steps<br>
+      is personalized and thus volatile.
     </h2>
     <p>
       <em>http://europeana.eu/api/v2/record/9200229/&#8203;BibliographicResource_3000135601313.json?wskey=xxxxxxxxx</em>
@@ -1522,7 +1535,7 @@
   </div>
 
   <div class="slide" id="api-keys">
-    <h2>
+    <h2 class="opinion">
       API keys for representations<br>
       (not resources) are a fallacy.
     </h2>
@@ -1542,7 +1555,7 @@
           <li class="next">We can write a crawler and extract the data from HTML.</li>
         </ul>
       </li>
-      <li class="next">
+      <li class="next opinion">
         Protect your resources, not your representations.
       </li>
     </ul>
@@ -1902,11 +1915,11 @@
 
   <div class="slide" id="hypermedia-formats">
     <h2>
-      Hypermedia-based formats put<br>
+      Hypermedia-based formats place<br>
       description <em>inside</em> of the message.
     </h2>
     <ul>
-      <li>
+      <li class="next">
         JSON itself does not support links or forms.
         <ul>
           <li>
@@ -1915,7 +1928,7 @@
           </li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         The <a href="http://stateless.co/hal_specification.html">Hypertext Application Language (HAL)</a><br>
         defines links on top of JSON.
         <ul>
@@ -1933,7 +1946,7 @@
       hypermedia controls and API structure.
     </h2>
     <ul>
-      <li>
+      <li class="next">
         Hydra contains hypermedia building blocks<br>
         to enhance representations with links and forms.
         <ul>
@@ -1941,9 +1954,9 @@
           <li>RDF has several serializations, including JSON and XML.</li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         In addition to the structure of a REST Web API,<br>
-        Hydra can also describe the semantics of resources.
+        Hydra can also describe the <em>semantics</em> of resources.
         <ul>
           <li>Clients can figure out the effect of a hypermedia control.</li>
         </ul>
@@ -2041,7 +2054,7 @@
       <li class="next">Additional representations for the existing API?</li>
     </ul>
     <p class="next">
-      And—most importantly—what do you bill for? 😉
+      And—most importantly—what do you bill them for? 😉
     </p>
   </div>
 
