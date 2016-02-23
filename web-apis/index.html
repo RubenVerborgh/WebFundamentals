@@ -1859,6 +1859,32 @@
     </ul>
   </div>
 
+  <div class="slide" id="hypermedia-formats">
+    <h2>
+      Hypermedia-based formats put<br>
+      description <em>inside</em> of the message.
+    </h2>
+    <ul>
+      <li>
+        JSON itself does not support links or forms.
+        <ul>
+          <li>
+            Representations of type <code>application/json</code><br>
+            cannot fulfill the <a href="#hateoas">hypermedia constraint</a>.
+          </li>
+        </ul>
+      </li>
+      <li>
+        The <a href="http://stateless.co/hal_specification.html">Hypertext Application Language (HAL)</a><br>
+        defines links on top of JSON.
+        <ul>
+          <li>Representations have type <code>application/hal+json</code>.</li>
+          <li>They contain a <code>_links</code> key with named links.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
   <div class="toc slide" id="recap">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
