@@ -259,6 +259,30 @@ blockquote.long p {
   transform: scale(1.5);
 }
 
+/* Browser window */
+.browser {
+  background: url(../images/browser.jpg) top center / 100% no-repeat;
+  height: 500px;
+  border-radius: 12px;
+  box-shadow:  5px  5px 10px rgba(0, 0, 0, .4),
+              -2px  5px 10px rgba(0, 0, 0, .4);
+}
+.browser .address-bar {
+  position: relative;
+  top: 59px;
+  left: 116px;
+  font-size: 26px;
+}
+.browser .body {
+  position: relative;
+  top: 83px;
+  height: 400px;
+  text-align: center;
+}
+.browser .body * {
+  margin-left: 0;
+}
+
 /* CSS examples */
 #css-test {
   font-style: italic;
