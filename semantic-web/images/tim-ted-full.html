@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>The Semantic Web &amp; Linked Data</title>
+  <link rel="stylesheet" href="../../_shared/styles/vis.css">
+  <script src="../../_shared/scripts/vis.custom.min.js"></script>
+</head>
+<body>
+<script>
+var graph = new vis.Network(
+  document.body,
+  {
+    nodes: [
+      { id: 'tim', label: 'dbp:Tim_Berners-Lee', title: 'http://dbpedia.org/resource/Tim_Berners-Lee' },
+      { id: 'ted', label: 'dbp:Ted_Nelson', title: 'http://dbpedia.org/resource/Ted_Nelson' },
+      { id: 'tim-name', label: '"Tim"', shape: 'box' },
+      { id: 'ted-name', label: '"Ted"', shape: 'box' },
+      { id: 'london', label: 'dbp:London', title: 'http://dbpedia.org/resource/London' },
+      { id: 'bush', label: 'dbp:Vannevar_Bush', title: 'http://dbpedia.org/resource/Vannevar_Bush' },
+    ],
+    edges: [
+      { from: 'tim', to: 'ted', label: 'foaf:knows', title: 'http://xmlns.com/foaf/0.1/knows' },
+      { from: 'tim', to: 'tim-name', label: 'foaf:givenName', title: 'http://xmlns.com/foaf/0.1/givenName' },
+      { from: 'ted', to: 'ted-name', label: 'foaf:givenName', title: 'http://xmlns.com/foaf/0.1/givenName' },
+      { from: 'tim', to: 'london', label: 'dbo:birthPlace', title: 'http://dbpedia.org/ontology/birthPlace' },
+      { from: 'tim', to: 'bush', label: 'dbo:influencedBy', title: 'http://dbpedia.org/ontology/influencedBy' },
+      { from: 'ted', to: 'bush', label: 'dbo:influencedBy', title: 'http://dbpedia.org/ontology/influencedBy' },
+    ],
+  },
+  {
+    nodes: {
+      color: '#4B86C2',
+      font: { color: 'white', face: 'Open Sans' },
+      borderWidth: 0,
+    },
+    edges: {
+      color: '#4B86C2',
+      font: { face: 'Open Sans' },
+      arrows: { to: { scaleFactor: 0.5 }, },
+      length: 150,
+    },
+    interaction: { tooltipDelay: 0 },
+    layout: { randomSeed: 476908 },
+  });
+graph.once('stabilized', function () { graph.moveTo({ scale: 1.5 }); });
+</script>
+</body>
+</html>

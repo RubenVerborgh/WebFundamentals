@@ -222,6 +222,12 @@ img.center {
 img.narrow {
   margin-left: 60px;
 }
+iframe.graph {
+  width: 1024px;
+  height: 492px;
+  margin: -30px -60px;
+  overflow: hidden;
+}
 
 /* Labels on images */
 .shower .label {

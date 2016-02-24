@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>The Semantic Web &amp; Linked Data</title>
+  <link rel="stylesheet" href="../../_shared/styles/vis.css">
+  <script src="../../_shared/scripts/vis.custom.min.js"></script>
+</head>
+<body>
+<script>
+var graph = new vis.Network(
+  document.body,
+  {
+    nodes: [
+      { id: 'knows', label: 'foaf:knows', title: 'http://xmlns.com/foaf/0.1/knows', x: 10, y: 1 },
+      { id: 'property', label: 'rdf:Property', title: 'http://www.w3.org/1999/02/22-rdf-syntax-ns#Property', x: 40, y: 30 },
+    ],
+    edges: [
+      { from: 'knows', to: 'property', label: 'rdf:type', title: 'http://www.w3.org/1999/02/22-rdf-syntax-ns#type' },
+    ],
+  },
+  {
+    nodes: {
+      color: '#4B86C2',
+      font: { color: 'white', face: 'Open Sans' },
+      borderWidth: 0,
+    },
+    edges: {
+      color: '#4B86C2',
+      font: { align: 'middle', face: 'Open Sans' },
+      arrows: { to: { scaleFactor: 0.5 }, },
+    },
+    interaction: { tooltipDelay: 0 },
+  });
+graph.once('stabilized', function () { graph.moveTo({ scale: 3 }); });
+</script>
+</body>
+</html>
