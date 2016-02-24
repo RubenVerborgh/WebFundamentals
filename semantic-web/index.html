@@ -101,17 +101,17 @@
       4 principles to publish <a href="https://www.w3.org/DesignIssues/LinkedData.html">Linked Data</a>.
     </h2>
     <ol>
-      <li>Use <a href="../architecture/#url-family">URIs</a> as names for things.</li>
-      <li>Use <a href="../architecture/#url-parts">HTTP URIs</a> so people<br> can look up those names.</li>
-      <li>When someone looks up a URI,<br> provide useful information using the standards.</li>
-      <li>Include links to other URIs,<br> so people can discover more things.</li>
+      <li>Use <a href="#uris-as-names">URIs as names</a> for things.</li>
+      <li>Use <a href="#http-uris">HTTP URIs</a> so people<br> can look up those names.</li>
+      <li>When someone looks up a URI,<br> <a href="#useful-information">provide useful information</a> using the standards.</li>
+      <li>Include <a href="#discover-more">links to other things</a>,<br> so people can discover more.</li>
     </ol>
   </div>
 
   <div class="slide" id="linked-data-rest">
     <h2 class="opinion">
       The Linked Data principles <a href="http://ruben.verborgh.org/phd/semantics/#the-hypermedia-connection">resemble</a><br>
-      the <a href="http://localhost:3000/web-apis/#uniform-interface">REST uniform interface constraints</a>.
+      the REST <a href="http://localhost:3000/web-apis/#uniform-interface">uniform interface constraints</a>.
     </h2>
     <ol>
       <li>Uniquely identify resources.</li>
@@ -119,6 +119,119 @@
       <li>Each message you send<br> should be self-describing.</li>
       <li>Hypermedia controls<br> must afford next steps.</li>
     </ol>
+  </div>
+
+  <div class="slide" id="uris-as-names">
+    <h2>
+      Information &amp; non-information resources<br>
+      should be uniquely identifiable.
+    </h2>
+    <ul>
+      <li>
+        Pointing to resources with a common name<br>
+        or description is often ambiguous.
+        <ul class="inline">
+          <li><em>“the” protocol of the Web (which?)</em></li>
+          <li><em>Dan Connolly (<a href="https://en.wikipedia.org/wiki/Dan_Connolly">who?</a>)</em></li>
+          <li>…</li>
+        </ul>
+      </li>
+      <li class="next">
+        Reuse or mint an <a href="../architecture/#iri">IRI</a> for them.
+        <ul class="inline">
+          <li><em>urn:ietf:rfc:7230</em></li>
+          <li><em><a href="https://en.wikipedia.org/wiki/Dan_Connolly_(computer_scientist)">https://en.wikipedia.org/wiki/Dan_Connolly_(computer_scientist)</a></em></li>
+          <li>…</li>
+        </ul>
+      </li>
+      <li class="next">
+        Especially machines need unambiguous identifiers.
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="http-uris">
+    <h2>
+      Using <a href="../architecture/#url-parts">HTTP URIs</a> ensures that<br>
+      anybody can look up the resource.
+    </h2>
+    <ul>
+      <li>
+        An HTTP URI of a resource can be <a href="https://www.w3.org/2001/tag/doc/httpRange-14/2007-05-31/HttpRange-14.html">dereferenced</a>:<br>
+        use an HTTP client to retrieve a <a href="../web-apis/#representations">representation</a>.
+        <ul>
+          <li><a href="../web-apis/#resources">Information resources</a> result in a representation.</li>
+          <li><a href="../web-apis/#resources">Non-information resources</a> result in a <a href="https://tools.ietf.org/html/rfc7231#section-6.4.4">303 redirect</a>.</li>
+        </ul>
+      </li>
+      <li class="next">
+        This relies on the double role of an HTTP URI<br>
+        as <a href="http://localhost:3000/architecture/#identification-location">identificator and locator</a>.
+      </li>
+      <li class="next">
+        Dereferencing is a core principle of Linked Data.
+        <ul>
+          <li>
+            If you don't know something, look it up.
+            <a href="../web-apis/#follow-your-nose">Follow your nose.</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="useful-information">
+    <h2>
+      Dereferencing a URI should lead to<br>
+      useful information about that resource.
+    </h2>
+    <ul>
+      <li>
+        “Useful” means the information is available<br>
+        using standard technologies.
+        <ul>
+          <li>Tim Berners-Lee <a href="https://www.w3.org/DesignIssues/LinkedData.html">mentions</a> <a href="#rdf">RDF</a> and <a href="#sparql">SPARQL</a>.</li>
+        </ul>
+      </li>
+      <li class="next">
+        “Useful” also means the information provides<br>
+        explanations and/or context for the resource.
+      </li>
+      <li class="next">
+        Define the resource in terms of concepts<br>
+        the client already knows or can <a href="#discover-more">look up</a>.
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="discover-more">
+    <h2>
+      By including links to other resources,<br>
+      we create a Web of Data.
+    </h2>
+    <ul>
+      <li class="next">
+        Links connect a resource to known concepts.
+        <ul>
+          <li><em><a href="http://dbpedia.org/resource/Marissa_Mayer">Marissa</a>
+              is a <a href="http://dbpedia.org/ontology/keyPerson">key person</a>
+              within <a href="http://dbpedia.org/resource/Yahoo!">Yahoo Inc.</a></em>
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        Links give meaning to data.
+        <ul>
+          <li><em>These temperatures are measured in <a href="http://dbpedia.org/page/Celsius">degrees Celsius</a>.</em></li>
+        </ul>
+      </li>
+      <li class="next">
+        Links allow exploration of related data.
+        <ul>
+          <li><em>Find more by the same author.</em></li>
+        </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="toc slide" id="linked-data-web">
