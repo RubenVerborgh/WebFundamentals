@@ -585,11 +585,11 @@ dbp:Tim_Berners-Lee a foaf:Person;
     </h2>
     <pre class="scroll"><code>PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
 <span class="comment"># The following lines all state something is named Tim.</span>
-_:x235 foaf:name "Tim"@en.  <span class="comment"># blank node label</span>
-[] foaf:name "Tim"@en.      <span class="comment"># empty blank node</span>
-[ foaf:name "Tim"@en ].     <span class="comment"># blank node with properties</span>
+<strong>_:x235</strong> foaf:name "Tim"@en.  <span class="comment"># blank node label</span>
+<strong>[]</strong> foaf:name "Tim"@en.      <span class="comment"># empty blank node</span>
+<strong>[</strong> foaf:name "Tim"@en <strong>]</strong>.     <span class="comment"># blank node with properties</span>
 <span class="comment"># Something named Tim knows something named Wendy.</span>
-[ foaf:name "Tim"@en ] foaf:knows [ foaf:name "Wendy"@en ].
+<strong>[</strong> foaf:name "Tim"@en <strong>]</strong> foaf:knows <strong>[</strong> foaf:name "Wendy"@en <strong>]</strong>.
 
 <span class="comment"># The label-based syntax allows cross-references within</span>
 <span class="comment"># the same document, and is also supported in <a href="#ntriples">N-Triples</a>.</span>
@@ -610,7 +610,7 @@ dbp:Tim_Berners-Lee a foaf:Person;
     </h2>
     <pre class="scroll"><code>PREFIX ex: &lt;http://example.org/&gt;
 <span class="comment"># Note also a shorthand for writing numbers.</span>
-ex:MyLottery ex:luckyNumbers (5 14 15).
+ex:MyLottery ex:luckyNumbers <strong>(5 14 15)</strong>.
 <span class="comment"># This corresponds to:</span>
 PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
 PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
@@ -621,6 +621,40 @@ _:list2 rdf:first "14"^^xsd:integer
 _:list2 rdf:next  _:list3.
 _:list3 rdf:first "15"^^xsd:integer
 _:list3 rdf:next  rdf:nil.</code></pre>
+  </div>
+
+  <div class="slide" id="nquads">
+    <h2>
+      <a href="https://www.w3.org/TR/n-quads/">N-Quads</a> is a superset of <a href="#ntriples">N-Triples</a><br>
+      with support for named graphs.
+    </h2>
+    <pre class="scroll"><code><span class="comment"># Triples in the default graph look like N-Triples.</span>
+&lt;urn:ex:s1&gt; &lt;urn:ex:p1&gt; &lt;urn:ex:o1&gt;.
+&lt;urn:ex:s1&gt; &lt;urn:ex:p2&gt; "abc".
+
+<span class="comment"># Triples in named graphs have a fourth element.</span>
+&lt;urn:ex:s2&gt; &lt;urn:ex:p1&gt; &lt;urn:ex:o2&gt; <strong>&lt;urn:ex:GraphA&gt;</strong>.
+&lt;urn:ex:s2&gt; &lt;urn:ex:p2&gt; "xyz" <strong>&lt;urn:ex:GraphB&gt;</strong>.
+</code></pre>
+  </div>
+
+  <div class="slide" id="trig">
+    <h2>
+      <a href="https://www.w3.org/TR/trig/">TriG</a> is a superset of <a href="#turtle">Turtle</a>
+      (<em>not</em> <a href="#nquads">N-Quads</a>)<br>
+      with support for named graphs.
+    </h2>
+    <pre class="scroll"><code>PREFIX dbp: &lt;http://dbpedia.org/resource/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+<span class="comment"># Triples in the default graph look like Turtle.</span>
+dbp:Tim_Berners-Lee a foaf:Person;
+                    foaf:knows dbp:Ted_Nelson.
+<span class="comment"># Named graphs are indicated by a <a href="https://www.w3.org/TR/trig/#sec-graph-statements">graph statement</a>.</span>
+<strong>&lt;http://example.org/graphs/Fiction&gt; {</strong>
+    dbp:Clark_Kent a foaf:Person;
+                     foaf:nick "Superman"@en.
+<strong>}</strong>
+</code></pre>
   </div>
 
   <div class="toc slide" id="rdfs">
