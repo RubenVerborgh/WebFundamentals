@@ -356,7 +356,7 @@
     <p class="tweets"><a href="https://twitter.com/search?f=tweets&amp;q=%23ITech16">#ITech16</a></p>
   </div>
 
-  <div class="slide" id="rdf-model">
+  <div class="slide" id="model">
     <h2>
       The <a href="https://www.w3.org/RDF/">Resource Description Framework</a> is<br>
       a model for data interchange on the Web.
@@ -370,15 +370,15 @@
         defines RDF datasets.
         <ul>
           <li class="next">
-            An <a href="https://www.w3.org/TR/rdf11-concepts/#section-dataset">RDF dataset</a>
+            An <a href="#dataset">RDF dataset</a>
             has a <em>default graph</em> and ≤ 0 <em>named graphs</em>.
           </li>
           <li class="next">
-            An <a href="https://www.w3.org/TR/rdf11-concepts/#dfn-rdf-graph">RDF graph</a>
+            An <a href="#graph">RDF graph</a>
             is a set of RDF triples.
           </li>
           <li class="next">
-            An <a href="https://www.w3.org/TR/rdf11-concepts/#dfn-rdf-triple">RDF triple</a>
+            An <a href="#triple">RDF triple</a>
             consists of a subject, predicate, and object.
           </li>
         </ul>
@@ -394,18 +394,18 @@
     </ul>
   </div>
 
-  <div class="slide" id="model-triple">
+  <div class="slide" id="triple">
     <h2>
       This Linked Data fact can be<br>
-      represented as an RDF triple.
+      represented as an <a href="https://www.w3.org/TR/rdf11-concepts/#dfn-rdf-triple">RDF triple</a>.
     </h2>
     <iframe class="graph" src="images/tim-ted-property.html"></iframe>
   </div>
 
-  <div class="slide" id="model-triple-rdf">
+  <div class="slide" id="triple-components">
     <h2>
       This Linked Data fact can be<br>
-      represented as an RDF triple.
+      represented as an <a href="https://www.w3.org/TR/rdf11-concepts/#dfn-rdf-triple">RDF triple</a>.
     </h2>
     <p>
       We define the triple by its components:
@@ -420,7 +420,7 @@
     </dl>
   </div>
 
-  <div class="slide" id="rdf-terms">
+  <div class="slide" id="terms">
     <h2>
       There are 3 types of <a href="https://www.w3.org/TR/rdf11-concepts/#dfn-rdf-term">RDF terms</a>:<br>
       <a href="https://www.w3.org/TR/rdf11-concepts/#dfn-iri">named nodes</a>,
@@ -432,7 +432,7 @@
     </p>
     <dl>
       <dt>named node</dt>
-      <dd>a resource, represented by an IRI</dd>
+      <dd>a resource, identified by an IRI</dd>
       <dd><em>for subjects, predicates, objects</em></dd>
       <dt>blank node</dt>
       <dd>an unnamed resource</dd>
@@ -443,7 +443,7 @@
     </dl>
   </div>
 
-  <div class="slide" id="model-triple-literal">
+  <div class="slide" id="triple-literal">
     <h2>
       This RDF triple has<br>
       a literal as an object.
@@ -451,7 +451,7 @@
     <iframe class="graph" src="images/tim-name.html"></iframe>
   </div>
 
-  <div class="slide" id="model-triple-literal-rdf">
+  <div class="slide" id="triple-literal-components">
     <h2>
       This RDF triple has<br>
       a literal as an object.
@@ -469,7 +469,7 @@
     </dl>
   </div>
 
-  <div class="slide" id="model-triple-literal-datatype-rdf">
+  <div class="slide" id="triple-literal-datatype-components">
     <h2>
       This RDF triple has<br>
       a literal as an object.
@@ -486,6 +486,43 @@
       <dd>literal – <code>1955-06-08</code><br>
           with datatype <code><abbr title="http://www.w3.org/2001/XMLSchema#date">xsd:date</abbr></code></dd>
     </dl>
+  </div>
+
+  <div class="slide" id="graph">
+    <h2>
+      This is an <a href="https://www.w3.org/TR/rdf11-concepts/#dfn-rdf-graph">RDF graph</a><br>
+      consisting of a set of triples.
+    </h2>
+    <iframe class="graph" src="images/tim-ted-full.html"></iframe>
+  </div>
+
+  <div class="slide" id="dataset">
+    <h2>
+      An <a href="https://www.w3.org/TR/rdf11-concepts/#section-dataset">RDF dataset</a>
+      has one default graph<br>
+      and zero or more named graphs.
+    </h2>
+    <ul>
+      <li>
+        The default graph is an <a href="#graph">RDF graph</a>.
+        <ul>
+          <li>It can be empty.</li>
+        </ul>
+      </li>
+      <li>
+        A named graph is an <a href="#graph">RDF graph</a> identified by an IRI.
+        <ul>
+          <li>A triple belongs to one or more graphs.</li>
+          <li>A triple with graph is sometimes called a <em>quad</em>.</li>
+        </ul>
+      </li>
+      <li>
+        Not all concrete syntaxes support named graphs.
+        <ul>
+          <li>All syntaxes support the default graph.</li>
+        </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="toc slide" id="rdfs">
