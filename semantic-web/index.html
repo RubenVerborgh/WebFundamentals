@@ -463,7 +463,7 @@
       <dt>subject</dt>
       <dd>IRI – <code><a href="http://dbpedia.org/resource/Tim_Berners-Lee">dbp:Tim_Berners-Lee</a></code></dd>
       <dt>predicate</dt>
-      <dd>IRI – <code><a href="http://xmlns.com/foaf/0.1/knows">foaf:knows</a></code></dd>
+      <dd>IRI – <code><a href="http://xmlns.com/foaf/0.1/givenName">foaf:givenName</a></code></dd>
       <dt>object</dt>
       <dd>literal – <code>Tim</code> with language <code>en</code></dd>
     </dl>
@@ -544,6 +544,83 @@
       <dt>XML-based</dt>
       <dd><a href="#rdfxml">RDF/XML</a></dd>
     </dl>
+  </div>
+
+  <div class="slide" id="ntriples">
+    <h2>
+      <a href="https://www.w3.org/TR/n-triples/">N-Triples</a> is a line-based syntax<br>
+      supporting only a default graph.
+    </h2>
+    <pre class="scroll"><code><span class="comment"># Every non-empty line represents a triple or comment.</span>
+<span class="comment"># IRIs are enclosed in angular brackets (&lt; and &gt;).</span>
+&lt;http://dbpedia.org/resource/Tim_Berners-Lee&gt; &lt;http://xmlns.com/foaf/0.1/knows&gt; &lt;http://dbpedia.org/resource/Ted_Nelson&gt;.
+<span class="comment"># Literals are enclosed in double quotation marks (")</span>
+<span class="comment"># and optionally end with @ and a <a href="http://tools.ietf.org/html/bcp47">language tag</a>.</span>
+&lt;http://dbpedia.org/resource/Tim_Berners-Lee&gt; &lt;http://xmlns.com/foaf/0.1/givenName&gt; "Tim"@en.
+<span class="comment"># Alternatively, they end with ^^ and a datatype IRI.</span>
+&lt;http://dbpedia.org/resource/Tim_Berners-Lee&gt; &lt;http://dbpedia.org/ontology/birthDate&gt; "1955-06-08"^^&lt;http://www.w3.org/2001/XMLSchema#date&gt;.</code></pre>
+  </div>
+
+  <div class="slide" id="turtle">
+    <h2>
+      <a href="https://www.w3.org/TR/turtle/">Turtle</a> is a superset of N-Triples<br>
+      with prefixes and abbreviations.
+    </h2>
+    <pre class="scroll"><code><span class="comment"># Declare prefixes before use (hint: <a href="http://prefix.cc/">prefix.cc</a>).</span>
+PREFIX dbp: &lt;http://dbpedia.org/resource/&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+<span class="comment"># The predicate a abbreviates <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a>.</span>
+<span class="comment"># A semi-colon ; reuses the subject.</span>
+<span class="comment"># A comma , reuses the subject and predicate.</span>
+dbp:Tim_Berners-Lee a foaf:Person;
+                    foaf:knows dbp:Ted_Nelson,
+                               dbp:Wendy_Hall.
+<span class="comment"># There are 3 triples above.</span></code></pre>
+  </div>
+
+  <div class="slide" id="turtle-blank-nodes">
+    <h2>
+      <a href="#turtle">Turtle</a> includes syntactic sugar<br>
+      to write blank nodes.
+    </h2>
+    <pre class="scroll"><code>PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+<span class="comment"># The following lines all state something is named Tim.</span>
+_:x235 foaf:name "Tim"@en.  <span class="comment"># blank node label</span>
+[] foaf:name "Tim"@en.      <span class="comment"># empty blank node</span>
+[ foaf:name "Tim"@en ].     <span class="comment"># blank node with properties</span>
+<span class="comment"># Something named Tim knows something named Wendy.</span>
+[ foaf:name "Tim"@en ] foaf:knows [ foaf:name "Wendy"@en ].
+
+<span class="comment"># The label-based syntax allows cross-references within</span>
+<span class="comment"># the same document, and is also supported in <a href="#ntriples">N-Triples</a>.</span>
+
+
+<span class="comment"># A semi-colon ; reuses the subject.</span>
+<span class="comment"># A comma , reuses the subject and predicate.</span>
+dbp:Tim_Berners-Lee a foaf:Person;
+                    foaf:knows dbp:Ted_Nelson,
+                               dbp:Wendy_Hall.
+<span class="comment"># There are 3 triples above.</span></code></pre>
+  </div>
+
+  <div class="slide" id="turtle-lists">
+    <h2>
+      <a href="#turtle">Turtle</a> includes syntactic sugar<br>
+      to write (head/tail) lists.
+    </h2>
+    <pre class="scroll"><code>PREFIX ex: &lt;http://example.org/&gt;
+<span class="comment"># Note also a shorthand for writing numbers.</span>
+ex:MyLottery ex:luckyNumbers (5 14 15).
+<span class="comment"># This corresponds to:</span>
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+ex:MyLottery ex:luckyNumbers _:list1.
+_:list1 rdf:first "5"^^xsd:integer
+_:list1 rdf:next  _:list2.
+_:list2 rdf:first "14"^^xsd:integer
+_:list2 rdf:next  _:list3.
+_:list3 rdf:first "15"^^xsd:integer
+_:list3 rdf:next  rdf:nil.</code></pre>
   </div>
 
   <div class="toc slide" id="rdfs">

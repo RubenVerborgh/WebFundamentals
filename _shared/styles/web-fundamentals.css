@@ -130,6 +130,9 @@ li dd {
   max-height: 420px;
   overflow: scroll;
 }
+code .comment {
+  color: #979A9E;
+}
 
 .element {
   cursor: pointer;
