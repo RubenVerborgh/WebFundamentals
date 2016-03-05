@@ -54,7 +54,7 @@ footer p.license img {
 .toc.slide li {
   font-weight: normal;
 }
-.toc.slide li.active {
+.toc.slide li.current {
   font-weight: bold;
 }
 .toc .series {
