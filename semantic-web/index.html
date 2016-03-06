@@ -111,7 +111,7 @@
   <div class="slide" id="linked-data-rest">
     <h2 class="opinion">
       The Linked Data principles <a href="http://ruben.verborgh.org/phd/semantics/#the-hypermedia-connection">resemble</a><br>
-      the REST <a href="http://localhost:3000/web-apis/#uniform-interface">uniform interface constraints</a>.
+      the REST <a href="../web-apis/#uniform-interface">uniform interface constraints</a>.
     </h2>
     <ol>
       <li>Uniquely identify resources.</li>
@@ -166,7 +166,7 @@
       </li>
       <li class="next">
         This relies on the double role of an HTTP URI<br>
-        as <a href="http://localhost:3000/architecture/#identification-location">identificator and locator</a>.
+        as <a href="../architecture/#identification-location">identificator and locator</a>.
       </li>
       <li class="next">
         Dereferencing is a core principle of Linked Data.
@@ -190,7 +190,7 @@
         “Useful” means the information is available<br>
         using standard technologies.
         <ul>
-          <li>Tim Berners-Lee <a href="https://www.w3.org/DesignIssues/LinkedData.html">mentions</a> <a href="#rdf">RDF</a> and <a href="#sparql">SPARQL</a>.</li>
+          <li>Tim Berners-Lee <a href="https://www.w3.org/DesignIssues/LinkedData.html">mentions</a> <a href="#semantic-web">RDF</a> and <a href="#querying-reasoning">SPARQL</a>.</li>
         </ul>
       </li>
       <li class="next">
@@ -884,7 +884,7 @@ dbp:Tim_Berners-Lee schema:givenName "Tim";
           <li><a href="#rdfs-class"><code>rdfs:Class</code></a></li>
           <li><a href="#rdfs-literal"><code>rdfs:Literal</code></a></li>
           <li><a href="#rdf-property"><code>rdf:Property</code></a></li>
-          <li><a href="#rdfs-subClassOf"><code>rdf:subClassOf</code></a></li>
+          <li><a href="#rdfs-subclassof"><code>rdf:subClassOf</code></a></li>
           <li>…</li>
         </ul>
       </li>
@@ -893,7 +893,7 @@ dbp:Tim_Berners-Lee schema:givenName "Tim";
         <ul class="inline">
           <li><a href="#rdfs-range"><code>rdfs:range</code></a></li>
           <li><a href="#rdfs-domain"><code>rdfs:domain</code></a></li>
-          <li><a href="#rdfs-subPropertyOf"><code>rdf:subPropertyOf</code></a></li>
+          <li><a href="#rdfs-subpropertyof"><code>rdf:subPropertyOf</code></a></li>
           <li>…</li>
         </ul>
       </li>
@@ -1003,7 +1003,7 @@ rdf:type a rdfs:Resource.
 
   <div class="slide" id="rdfs-class">
     <h2>
-      <a href="https://www.w3.org/TR/rdf-schema/#ch_class"><code>rdfs:Class</code></a> is a <a href="#rdfs-Class">class</a> for resources<br>
+      <a href="https://www.w3.org/TR/rdf-schema/#ch_class"><code>rdfs:Class</code></a> is a <a href="#rdfs-class">class</a> for resources<br>
       that conceptually define a set of things.
     </h2>
     <pre><code><span class="comment"># <a href="#rdfs-label">rdf, rdfs, and foaf prefixes</a> omitted for brevity</span>
@@ -1021,7 +1021,7 @@ rdfs:Class a rdfs:Class.
 
   <div class="slide" id="rdf-property">
     <h2>
-      <a href="https://www.w3.org/TR/rdf-schema/#ch_property"><code>rdf:Property</code></a> is a <a href="#rdfs-Class">class</a> for resources<br>
+      <a href="https://www.w3.org/TR/rdf-schema/#ch_property"><code>rdf:Property</code></a> is a <a href="#rdfs-class">class</a> for resources<br>
       that can be used as triple predicates.
     </h2>
     <pre><code><span class="comment"># <a href="#rdfs-label">rdf, rdfs, and foaf prefixes</a> omitted for brevity</span>
@@ -1039,7 +1039,7 @@ rdf:Property a rdfs:Class.
 
   <div class="slide" id="rdfs-literal">
     <h2>
-      <a href="https://www.w3.org/TR/rdf-schema/#ch_literal"><code>rdfs:Literal</code></a> is a <a href="#rdfs-Class">class</a> for resources<br>
+      <a href="https://www.w3.org/TR/rdf-schema/#ch_literal"><code>rdfs:Literal</code></a> is a <a href="#rdfs-class">class</a> for resources<br>
       that have a <a href="#triple-literal">literal value</a>.
     </h2>
     <pre><code><span class="comment"># <a href="#rdfs-label">rdf, rdfs, and foaf prefixes</a> omitted for brevity</span>
