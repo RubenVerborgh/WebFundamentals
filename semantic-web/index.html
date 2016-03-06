@@ -569,7 +569,7 @@
     <pre class="scroll"><code><span class="comment"># Declare prefixes before use (hint: <a href="http://prefix.cc/">prefix.cc</a>).</span>
 PREFIX dbp: &lt;http://dbpedia.org/resource/&gt;
 PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
-<span class="comment"># The predicate a abbreviates <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#type">rdf:type</a>.</span>
+<span class="comment"># The predicate a abbreviates <a href="#rdf-type">rdf:type</a>.</span>
 <span class="comment"># A semi-colon ; reuses the subject.</span>
 <span class="comment"># A comma , reuses the subject and predicate.</span>
 dbp:Tim_Berners-Lee a foaf:Person;
@@ -877,14 +877,14 @@ dbp:Tim_Berners-Lee schema:givenName "Tim";
         </ul>
       </li>
       <li>
-        describing classes and instances
+        describing classes
         <ul class="inline">
-          <li><a href="#rdfs-resource"><code>rdfs:Resource</code></a></li>
           <li><a href="#rdf-type"><code>rdf:type</code></a></li>
+          <li><a href="#rdfs-resource"><code>rdfs:Resource</code></a></li>
           <li><a href="#rdfs-class"><code>rdfs:Class</code></a></li>
-          <li><a href="#rdfs-subClassOf"><code>rdf:subClassOf</code></a></li>
           <li><a href="#rdfs-literal"><code>rdfs:Literal</code></a></li>
-          <li><a href="#rdfs-property"><code>rdfs:Property</code></a></li>
+          <li><a href="#rdf-property"><code>rdf:Property</code></a></li>
+          <li><a href="#rdfs-subClassOf"><code>rdf:subClassOf</code></a></li>
           <li>…</li>
         </ul>
       </li>
@@ -902,7 +902,7 @@ dbp:Tim_Berners-Lee schema:givenName "Tim";
 
   <div class="slide" id="rdfs-label">
     <h2>
-      <a href="https://www.w3.org/TR/rdf-schema/#ch_label"><code>rdfs:label</code></a> is a <a href="#rdfs-property">property</a> that gives<br>
+      <a href="https://www.w3.org/TR/rdf-schema/#ch_label"><code>rdfs:label</code></a> is a <a href="#rdf-property">property</a> that gives<br>
       a human-readable name to a resource.
     </h2>
     <ul>
@@ -924,7 +924,7 @@ rdfs:label rdfs:label "label"@en.</code></pre>
 
   <div class="slide" id="rdfs-comment">
     <h2>
-      <a href="https://www.w3.org/TR/rdf-schema/#ch_comment"><code>rdfs:comment</code></a> is a <a href="#rdfs-property">property</a> that clarifies<br>
+      <a href="https://www.w3.org/TR/rdf-schema/#ch_comment"><code>rdfs:comment</code></a> is a <a href="#rdf-property">property</a> that clarifies<br>
       human-readable meaning and usage.
     </h2>
     <ul>
@@ -945,7 +945,7 @@ rdfs:comment rdfs:label "comment"@en;
 
   <div class="slide" id="rdfs-seealso">
     <h2>
-      <a href="https://www.w3.org/TR/rdf-schema/#ch_seealso"><code>rdfs:seeAlso</code></a> is a <a href="#rdfs-property">property</a> to express<br>
+      <a href="https://www.w3.org/TR/rdf-schema/#ch_seealso"><code>rdfs:seeAlso</code></a> is a <a href="#rdf-property">property</a> to express<br>
       <em>some</em> link between two resources.
     </h2>
     <ul>
@@ -958,6 +958,118 @@ rdfs:comment rdfs:label "comment"@en;
     </ul>
     <pre><code><span class="comment"># <a href="#rdfs-label">rdf, rdfs, and foaf prefixes</a> omitted for brevity</span>
 foaf:givenName rdfs:seeAlso foaf:familyName.</code></pre>
+  </div>
+
+  <div class="slide" id="rdf-type">
+    <h2>
+      <a href="https://www.w3.org/TR/rdf-schema/#ch_type"><code>rdf:type</code></a> is a <a href="#rdf-property">property</a> stating that<br>
+      a <a href="#rdfs-resource">resource</a> is an instance of a <a href="#rdfs-class">class</a>.
+    </h2>
+    <ul>
+      <li>
+        Resources can (and do) have multiple classes.
+        <ul>
+          <li>Just because a class is <a href="#open-world">not mentioned</a> in a context<br>
+              does not mean a resource isn't an instance of it.</li>
+        </ul>
+      </li>
+    </ul>
+    <pre><code><span class="comment"># <a href="#rdfs-label">rdf, rdfs, and foaf prefixes</a> omitted for brevity</span>
+&lt;#me&gt; rdf:type foaf:Person.
+rdf:type rdf:type rdf:Property.
+<span class="comment"># <a href="#turtle">Turtle</a> and <a href="#trig">TriG</a> allow <em>a</em> in predicate position.</span>
+&lt;#me&gt; a foaf:Person.
+rdf:type a rdf:Property.</code></pre>
+  </div>
+
+  <div class="slide" id="rdfs-resource">
+    <h2>
+      <a href="https://www.w3.org/TR/rdf-schema/#ch_resource"><code>rdfs:Resource</code></a> is a <a href="#rdfs-class">class</a><br>
+      of which everything is an instance.
+    </h2>
+    <ul>
+      <li>“<code>_:x a rdfs:Resource</code>” holds for <em>all</em> <code>_:x</code>.</li>
+    </ul>
+    <pre><code><span class="comment"># <a href="#rdfs-label">rdf, rdfs, and foaf prefixes</a> omitted for brevity</span>
+&lt;#me&gt; a rdfs:Resource.
+foaf:Person a rdfs:Resource.
+rdfs:Resource a rdfs:Resource.
+rdf:type a rdfs:Resource.
+
+<span class="comment"># Even literals are resources (Turtle cannot express this).</span>
+<span class="comment"># <del>"Tim"@en a rdfs:Resource.</del></span>
+</code></pre>
+  </div>
+
+  <div class="slide" id="rdfs-class">
+    <h2>
+      <a href="https://www.w3.org/TR/rdf-schema/#ch_class"><code>rdfs:Class</code></a> is a <a href="#rdfs-Class">class</a> for resources<br>
+      that conceptually define a set of things.
+    </h2>
+    <pre><code><span class="comment"># <a href="#rdfs-label">rdf, rdfs, and foaf prefixes</a> omitted for brevity</span>
+foaf:Person a rdfs:Class.
+rdfs:Resource a rdfs:Class.
+rdfs:Class a rdfs:Class.
+<span class="comment"># Classes can serve as objects of rdf:type triples.</span>
+&lt;#me&gt; a foaf:Person.
+
+<span class="comment"># The following triples are false.</span>
+<span class="comment"># <del>rdf:seeAlso a rdfs:Class.</del></span>
+<span class="comment"># <del>&lt;#me&gt; a rdfs:Class.</del></span>
+</code></pre>
+  </div>
+
+  <div class="slide" id="rdf-property">
+    <h2>
+      <a href="https://www.w3.org/TR/rdf-schema/#ch_property"><code>rdf:Property</code></a> is a <a href="#rdfs-Class">class</a> for resources<br>
+      that can be used as triple predicates.
+    </h2>
+    <pre><code><span class="comment"># <a href="#rdfs-label">rdf, rdfs, and foaf prefixes</a> omitted for brevity</span>
+foaf:knows a rdf:Property.
+rdf:type a rdf:Property.
+rdf:Property a rdfs:Class.
+<span class="comment"># Properties can serve as predicates of triples.</span>
+&lt;#tim&gt; foaf:knows &lt;#ted&gt;.
+
+<span class="comment"># The following triples are false.</span>
+<span class="comment"># <del>rdf:seeAlso a rdf:Property.</del></span>
+<span class="comment"># <del>rdf:Property a rdf:Property.</del></span>
+</code></pre>
+  </div>
+
+  <div class="slide" id="rdfs-literal">
+    <h2>
+      <a href="https://www.w3.org/TR/rdf-schema/#ch_literal"><code>rdfs:Literal</code></a> is a <a href="#rdfs-Class">class</a> for resources<br>
+      that have a <a href="#triple-literal">literal value</a>.
+    </h2>
+    <pre><code><span class="comment"># <a href="#rdfs-label">rdf, rdfs, and foaf prefixes</a> omitted for brevity</span>
+
+<span class="comment"># Unfortunately, we cannot express this in Turtle.</span>
+<span class="comment"># <del>"Tim"@en a rdfs:Literal.</del></span>
+<span class="comment"># <del>5 a rdfs:Literal.</del></span>
+<span class="comment"># <del>2.7 a rdfs:Literal.</del></span>
+
+<span class="comment"># The following triples are false.</span>
+<span class="comment"># <del>foaf:Person a rdfs:Literal.</del></span>
+<span class="comment"># <del>rdfs:Literal a rdfs:Literal.</del></span>
+</code></pre>
+  </div>
+
+  <div class="slide" id="rdfs-subclassof">
+    <h2>
+      <a href="https://www.w3.org/TR/rdf-schema/#ch_subclassof"><code>rdfs:subClassOf</code></a> is a <a href="#rdf-property">property</a> stating<br>
+      all members of a class belong to another.
+    </h2>
+    <pre><code><span class="comment"># <a href="#rdfs-label">rdf, rdfs, and foaf prefixes</a> omitted for brevity</span>
+&lt;#ComputerScientist&gt; a rdfs:Class.
+foaf:Person a rdfs:Class.
+rdfs:Resource a rdfs:Class.
+rdfs:Class a rdfs:Class.
+
+&lt;#ComputerScientist&gt; rdfs:subClassOf foaf:Person.
+foaf:Person rdfs:subClassOf rdfs:Resource.
+rdfs:Class rdfs:subClassOf rdfs:Resource.
+</code></pre>
   </div>
 
   <div class="toc slide" id="owl">
