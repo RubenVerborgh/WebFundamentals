@@ -268,8 +268,8 @@
 
   <div class="slide" id="linked-data-property-resource">
     <h2>
-      This means that link types themselves<br>
-      are <em>also</em> resources we can describe.
+      This means that a link type <em>(“property”)</em><br>
+      is <em>also</em> a resource we can describe.
     </h2>
     <iframe class="graph" src="images/property.html"></iframe>
   </div>
@@ -826,7 +826,7 @@ dbp:Tim_Berners-Lee schema:givenName "Tim";
         </ul>
       </li>
       <li>
-        RDFS defines properties in two namespaces.
+        RDFS defines concepts in two namespaces.
         <ul>
           <li><code>rdf</code>: <a href="https://www.w3.org/1999/02/22-rdf-syntax-ns#"><em>https://www.w3.org/1999/02/22-rdf-syntax-ns#</em></a></li>
           <li><code>rdfs</code>: <a href="https://www.w3.org/2000/01/rdf-schema#"><em>https://www.w3.org/2000/01/rdf-schema#</em></a></li>
@@ -872,7 +872,7 @@ dbp:Tim_Berners-Lee schema:givenName "Tim";
         <ul class="inline">
           <li><a href="#rdfs-label"><code>rdfs:label</code></a></li>
           <li><a href="#rdfs-comment"><code>rdfs:comment</code></a></li>
-          <li><a href="#rdfs-seeAlso"><code>rdfs:seeAlso</code></a></li>
+          <li><a href="#rdfs-seealso"><code>rdfs:seeAlso</code></a></li>
           <li>…</li>
         </ul>
       </li>
@@ -898,6 +898,66 @@ dbp:Tim_Berners-Lee schema:givenName "Tim";
         </ul>
       </li>
     </ul>
+  </div>
+
+  <div class="slide" id="rdfs-label">
+    <h2>
+      <a href="https://www.w3.org/TR/rdf-schema/#ch_label"><code>rdfs:label</code></a> is a <a href="#rdfs-property">property</a> that gives<br>
+      a human-readable name to a resource.
+    </h2>
+    <ul>
+      <li>
+        Resources typically have ≤ 1 label per language.
+        <ul>
+          <li>However, <code>rdfs:label</code> is <em>not</em> a functional property.</li>
+        </ul>
+      </li>
+    </ul>
+    <pre><code>PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+
+foaf:knows rdfs:label "knows"@en, "kent"@nl", "connaît"@fr.
+
+rdfs:label rdfs:label "label"@en.</code></pre>
+  </div>
+
+  <div class="slide" id="rdfs-comment">
+    <h2>
+      <a href="https://www.w3.org/TR/rdf-schema/#ch_comment"><code>rdfs:comment</code></a> is a <a href="#rdfs-property">property</a> that clarifies<br>
+      human-readable meaning and usage.
+    </h2>
+    <ul>
+      <li>
+        Resources typically have ≤ 1 comment per language.
+        <ul>
+          <li>However, <code>rdfs:comment</code> is <em>not</em> a functional property.</li>
+        </ul>
+      </li>
+    </ul>
+    <pre class="scroll"><code><span class="comment"># <a href="#rdfs-label">rdf, rdfs, and foaf prefixes</a> omitted for brevity</span>
+foaf:knows rdfs:label "knows"@en;
+           rfds:comment "A person known by this person (indicating some level of reciprocated interaction between the parties)."@en.
+
+rdfs:comment rdfs:label "comment"@en;
+             rdfs:comment "A description of the subject resource."</code></pre>
+  </div>
+
+  <div class="slide" id="rdfs-seealso">
+    <h2>
+      <a href="https://www.w3.org/TR/rdf-schema/#ch_seealso"><code>rdfs:seeAlso</code></a> is a <a href="#rdfs-property">property</a> to express<br>
+      <em>some</em> link between two resources.
+    </h2>
+    <ul>
+      <li>
+        The meaning of this property is rather vague.
+        <ul>
+          <li class="opinion">Essentially, all <a href="../architecture/#hypermedia-controls">regular Web links</a> have type <code>rdfs:seeAlso</code>.</li>
+        </ul>
+      </li>
+    </ul>
+    <pre><code><span class="comment"># <a href="#rdfs-label">rdf, rdfs, and foaf prefixes</a> omitted for brevity</span>
+foaf:givenName rdfs:seeAlso foaf:familyName.</code></pre>
   </div>
 
   <div class="toc slide" id="owl">
