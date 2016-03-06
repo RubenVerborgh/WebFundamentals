@@ -657,6 +657,110 @@ dbp:Tim_Berners-Lee a foaf:Person;
 </code></pre>
   </div>
 
+  <div class="slide" id="jsonld">
+    <h2>
+      <a href="https://www.w3.org/TR/json-ld/">JSON-LD</a> is a <a href="../architecture/#json">JSON</a> syntax to represent<br>
+       an RDF dataset, supporting named graphs.
+    </h2>
+    <ul>
+      <li>
+        Each document points to a JSON-LD <a href="https://www.w3.org/TR/json-ld/#the-context">context</a>,<br>
+        creating meaning by mapping <a href="https://www.w3.org/TR/json-ld/#dfn-term">JSON terms</a> to <a href="https://www.w3.org/TR/json-ld/#dfn-iri">IRIs</a>.
+        <ul>
+          <li class="next">
+            It is linked either from the JSON document with <code><a href="https://www.w3.org/TR/json-ld/#the-context">@context</a></code>
+          </li>
+          <li class="next">
+            or outside of the document through an <a href="https://www.w3.org/TR/json-ld/#interpreting-json-as-json-ld">HTTP <code>Link</code> header</a>.
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        The <code><a href="https://www.w3.org/TR/json-ld/#iris">@id</a></code> keyword
+        points to an identifier<br>
+        for a resource (represented by a JSON object).
+        <ul>
+          <li>
+            This explicitly identifies resources with an IRI<br>
+            (for cases where none was provided by the context).
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="jsonld-interpretation">
+    <h2>
+      <a href="#jsonld">JSON-LD</a> provides additional interpretation<br>
+      on top of the <a href="https://tools.ietf.org/html/rfc7159">JSON specification</a>.
+    </h2>
+    <ul>
+      <li>
+        A JSON-LD document can be interpreted as<br>
+        a plain JSON document or as RDF graphs &amp; triples.
+        <ul>
+          <li class="next">easy for developers: no RDF awareness needed</li>
+          <li class="next">easy for machines: data has well-defined semantics</li>
+        </ul>
+      </li>
+      <li class="next">
+        To allow for this interpretation,<br>
+        the document must be served correctly.
+        <ul>
+          <li class="next"><code>application/json</code> with HTTP <code>Link</code> context: JSON-LD</li>
+          <li class="next"><code>application/ld+json</code> with <code>@context</code> key: JSON-LD</li>
+          <li class="next">all other JSON documents: <em>not</em> JSON-LD</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="jsonld-example">
+    <h2>
+      JSON-LD documents look almost<br>
+      like regular JSON documents.
+    </h2>
+    <pre class="scroll"><code>{
+  "@context": "http://schema.org/",
+  "@id": "http://dbpedia.org/resource/Tim_Berners-Lee",
+  "givenName": "Tim",
+  "knows": [{
+    "@id": "http://dbpedia.org/resource/Ted_Nelson",
+    "givenName": "Ted"
+  }]
+}</code></pre>
+  </div>
+
+  <div class="slide" id="jsonld-example-json">
+    <h2>
+      JSON-LD documents can be approached<br>
+      like regular JSON documents.
+    </h2>
+    <pre class="scroll"><code>{
+  <span class="comment">"@context": "http://schema.org/",</span>
+  <span class="comment">"@id": "http://dbpedia.org/resource/Tim_Berners-Lee",</span>
+  "givenName": "Tim",
+  "knows": [{
+    <span class="comment">"@id": "http://dbpedia.org/resource/Ted_Nelson",</span>
+    "givenName": "Ted"
+  }]
+}</code></pre>
+  </div>
+
+  <div class="slide" id="jsonld-example-trig">
+    <h2>
+      JSON-LD documents can be approached<br>
+      as RDF triples (or quads).
+    </h2>
+    <pre class="scroll"><code><span class="comment"># These triples are equivalent to the <a href="#jsonld-example">JSON-LD example</a>.</span>
+PREFIX dbp: &lt;http://dbpedia.org/resource/&gt;
+PREFIX schema: &lt;http://schema.org&gt;
+
+dbp:Ted_Nelson schema:givenName "Ted".
+dbp:Tim_Berners-Lee schema:givenName "Tim";
+                    schema:knows dbp:Ted_Nelson.</code></pre>
+  </div>
+
   <div class="toc slide" id="rdfs">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
