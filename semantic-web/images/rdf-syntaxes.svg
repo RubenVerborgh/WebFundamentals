@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="900" height="400">
+<style>
+@font-face{
+ font-family: 'Open Sans';
+ font-weight: 700;
+ src: url(../../_shared/fonts/OpenSans.Bold.woff) format('woff')
+}
+text {
+  font-family: 'Open Sans';
+  font-weight: bold;
+  font-size: 26px;
+}
+#formats text {
+  fill: white;
+  font-size: 20px;
+}
+#graphs * { fill: #F29100; }
+#families *, #formats *, path { fill: #1D70B7; }
+line {
+  stroke: #1D70B7;
+  stroke-width: 2px;
+  marker-end: url(#triangle);
+}
+</style>
+  <marker id="triangle" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="6" orient="auto">
+    <path d="M 0 0 L 10 5 L 0 10 z" />
+  </marker>
+
+  <g id="families">
+    <rect x="180" width="360" height="400" fill-opacity="0.1"/>
+    <rect x="540" width="180" height="400" fill-opacity="0.2"/>
+    <rect x="720" width="180" height="400" fill-opacity="0.3"/>
+    <text x="282" y="64">triple-based</text>
+    <text x="556" y="64">JSON-based</text>
+    <text x="739" y="64">XML-based</text>
+    <text transform="translate(46.6543 194.459)">default <tspan x="6.33" y="31.2">graph</tspan></text>
+  </g>
+
+  <g id="graphs">
+    <rect y="266.66" width="900" height="133.33" fill-opacity="0.15"/>
+    <text transform="translate(39.1289 325.459)">multiple<tspan x="7.29" y="31.2">graphs</tspan></text>
+  </g>
+
+  <g id="formats">
+    <rect x="210"    y="166" width="120" height="66.5"/>
+    <text x="225.01" y="208">N-Triples</text>
+    <rect x="210"    y="300" width="120" height="66.5"/>
+    <text x="226.78" y="339">N-Quads</text>
+    <rect x="390.5"  y="166" width="120" height="66.5"/>
+    <text x="420.29" y="208">Turtle</text>
+    <rect x="390.5"  y="300" width="120" height="66.5"/>
+    <text x="429.38" y="339">TriG</text>
+    <rect x="570"    y="300" width="120" height="66.5"/>
+    <text x="588.82" y="339">JSON-LD</text>
+    <rect x="750.25" y="166" width="120" height="66.5"/>
+    <text x="763.88" y="208">RDF/XML</text>
+    <line x1="391" y1="199" x2="330" y2="199"/>
+    <line x1="270" y1="300" x2="270" y2="234"/>
+    <line x1="450" y1="300" x2="450" y2="234"/>
+  </g>
+</svg>
