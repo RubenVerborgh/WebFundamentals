@@ -892,8 +892,8 @@ dbp:Tim_Berners-Lee schema:givenName "Tim";
       <li>
         describing properties
         <ul class="inline">
-          <li><a href="#rdfs-range"><code>rdfs:range</code></a></li>
           <li><a href="#rdfs-domain"><code>rdfs:domain</code></a></li>
+          <li><a href="#rdfs-range"><code>rdfs:range</code></a></li>
           <li><a href="#rdfs-subpropertyof"><code>rdf:subPropertyOf</code></a></li>
           <li>…</li>
         </ul>
@@ -1074,48 +1074,48 @@ rdfs:Class rdfs:subClassOf rdfs:Resource.
 </code></pre>
   </div>
 
-  <div class="slide" id="rdfs-range">
+  <div class="slide" id="rdfs-domain">
     <h2>
-      <a href="https://www.w3.org/TR/rdf-schema/#ch_range"><code>rdfs:range</code></a> is a <a href="#rdf-property">property</a> that states<br>
+      <a href="https://www.w3.org/TR/rdf-schema/#ch_domain"><code>rdfs:domain</code></a> is a <a href="#rdf-property">property</a> that states<br>
       the class of possible subjects of a property.
     </h2>
     <ul>
       <li>
-        Properties can have multiple range restrictions.
+        Properties can have multiple domain restrictions.
         <ul>
           <li>Subjects need to satisfy <em>all</em> of them.</li>
         </ul>
       </li>
     </ul>
     <pre><code><span class="comment"># <a href="#rdfs-label">rdf, rdfs, and foaf prefixes</a> omitted for brevity</span>
-foaf:knows rdfs:range foaf:Person.
-foaf:knows rdfs:range rdfs:Resource.
-rdf:type rdfs:range rdfs:Resource.
+foaf:img rdfs:domain foaf:Person.
+foaf:img rdfs:domain foaf:Resource.
+rdf:type rdfs:domain rdfs:Resource.
 
-rdfs:range rdfs:range rdf:Property.
+rdfs:domain rdfs:domain rdf:Property.
 </code></pre>
   </div>
 
-  <div class="slide" id="rdfs-domain">
+  <div class="slide" id="rdfs-range">
     <h2>
-      <a href="https://www.w3.org/TR/rdf-schema/#ch_domain"><code>rdfs:domain</code></a> is a <a href="#rdf-property">property</a> that states<br>
-      the class of possible object of a property.
+      <a href="https://www.w3.org/TR/rdf-schema/#ch_range"><code>rdfs:range</code></a> is a <a href="#rdf-property">property</a> that states<br>
+      the class of possible objects of a property.
     </h2>
     <ul>
       <li>
-        Properties can have multiple domain restrictions.
+        Properties can have multiple range restrictions.
         <ul>
           <li>Objects need to satisfy <em>all</em> of them.</li>
         </ul>
       </li>
     </ul>
     <pre><code><span class="comment"># <a href="#rdfs-label">rdf, rdfs, and foaf prefixes</a> omitted for brevity</span>
-foaf:knows rdfs:domain foaf:Person.
-foaf:knows rdfs:domain rdfs:Resource.
-rdf:type rdfs:domain rdfs:Class.
-rdf:type rdfs:domain rdfs:Resource.
+foaf:img rdfs:range foaf:Image.
+foaf:img rdfs:range foaf:Resource.
+rdf:type rdfs:range rdfs:Class.
+rdf:type rdfs:range rdfs:Resource.
 
-rdfs:domain rdfs:domain rdf:Class.
+rdfs:range rdfs:range rdf:Class.
 </code></pre>
   </div>
 
