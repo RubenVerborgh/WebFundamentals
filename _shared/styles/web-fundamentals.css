@@ -231,6 +231,10 @@ iframe.graph {
   margin: -30px -60px;
   overflow: hidden;
 }
+iframe.query-client {
+  width: 100%;
+  height: 462px;
+}
 
 /* Labels on images */
 .shower .label {

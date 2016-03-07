@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Linked Data Fragments client</title>
+  <script src="../scripts/jquery-2.2.1.min.js"></script>
+  <script src="ldf-client-browser.min.js"></script>
+  <script>
+    jQuery(function ($) { $('.ldf-client').queryui({ settings: 'settings.json' }); });
+  </script>
+  <link rel=stylesheet href="ldf-client.css">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+</head>
+<body>
+<main>
+  <fieldset class="ldf-client">
+    <ul>
+      <li>
+        <label>Choose datasources</label>
+        <select class="datasources" multiple></select>
+      </li>
+      <li>
+        <label>Type a SPARQL query</label>
+        <textarea class="queryText"></textarea>
+      </li>
+      <li>
+        <button class="start">Execute query</button>
+        <button class="stop" style="display:none">Stop execution</button>
+      </li>
+      <li>
+        <label>Query results</label>
+        <pre class="results"></pre>
+      </li>
+      <li>
+        <label>Execution log</label>
+        <pre class="log"></pre>
+      </li>
+    </ul>
+  </fieldset>
+</main>
+</body>
+</html>

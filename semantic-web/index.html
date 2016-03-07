@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
   <link rel="stylesheet" href="../_shared/styles/shower-clear.css">
   <link rel="stylesheet" href="../_shared/styles/web-fundamentals.css">
+  <script src="../_shared/scripts/shower.min.js"></script>
 </head>
 <body class="shower list">
   <header class="caption">
@@ -1524,19 +1525,19 @@ ex:Delphine ex:hasFather ex:Jacques.</code></pre>
 
   <div class="slide" id="sparql-select-example">
     <h2>
-      This query finds names of artists<br>
+      This query finds artists<br>
       influenced by Picasso.
     </h2>
     <pre><code><span class="comment">PREFIX dbp: &lt;http://dbpedia.org/resource/&gt;</span>
 <span class="comment">PREFIX dbo: &lt;http://dbpedia.org/ontology/&gt;</span>
-SELECT ?name WHERE {
+SELECT ?name ?person WHERE {
   ?person a dbo:Artist.
   ?person foaf:name ?name.
   ?person dbo:influencedBy dbp:Pablo_Picasso.
 }</code></pre>
   </div>
 
-  <div class="slide" id="sparql-select-execution">
+  <div class="slide" id="sparql-select-evaluation">
     <h2>
       A query engine will try to find mappings<br>
       such that the entire BGP is satisfied.
@@ -1550,7 +1551,14 @@ SELECT ?name WHERE {
       <li><code>?person foaf:name ?name.</code></li>
       <li><code>?person dbo:influencedBy dbp:Pablo_Picasso.</code></li>
     </ul>
-    <p>We only ask for <code>?name</code> though.</p>
+  </div>
+
+  <div class="slide" id="sparql-select-client">
+    <h2>
+      Evaluating this query against DBpedia<br>
+      returns possible mappings.
+    </h2>
+    <iframe class="query-client" src="../_shared/query-client/#datasources=http%3A%2F%2Ffragments.dbpedia.org%2F2015%2Fen&query=SELECT%20%3Fname%20%3Fperson%20WHERE%20%7B%0A%20%20%3Fperson%20a%20dbo%3AArtist.%0A%20%20%3Fperson%20foaf%3Aname%20%3Fname.%0A%20%20%3Fperson%20dbo%3AinfluencedBy%20dbp%3APablo_Picasso.%0A%7D"></iframe>
   </div>
 
   <div class="toc slide" id="reasoning">
@@ -1592,7 +1600,6 @@ SELECT ?name WHERE {
       Except where otherwise noted, the content of these slides is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
     </p>
   </footer>
-  <script src="../_shared/scripts/shower.min.js"></script>
   <script src="../_shared/scripts/enhancements.js"></script>
   <script>ga=function(){ga.q.push(arguments)};ga.q=[['create','UA-6142365-12','auto'],['require','autotrack'],['send','pageview']];ga.l=1*new Date</script>
   <script async src="//www.google-analytics.com/analytics.js"></script>

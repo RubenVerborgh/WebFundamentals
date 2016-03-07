@@ -1,0 +1,402 @@
+/* ©2014 Ruben Verborgh - Multimedia Lab / iMinds / Ghent University */
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url(../fonts/OpenSans.woff) format('woff');
+}
+@font-face {
+	font-family: 'Open Sans';
+	font-weight: bold;
+	src: url(../fonts/OpenSans.Bold.woff) format('woff');
+}
+@font-face {
+	font-family: 'Open Sans';
+	font-style: italic;
+	src: url(../fonts/OpenSans.Italic.woff) format('woff');
+}
+@font-face {
+	font-family: 'Open Sans';
+	font-weight: bold;
+	font-style: italic;
+	src: url(../fonts/OpenSans.Bold.Italic.woff) format('woff');
+}
+@font-face {
+	font-family: 'Source Code Pro';
+	src: url(../fonts/SourceCodePro.woff) format('woff');
+}
+@font-face {
+	font-family: 'Source Code Pro';
+	font-weight: bold;
+	src: url(../fonts/SourceCodePro.Bold.woff) format('woff');
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+html, input, textarea, button {
+  font: 20pt/1.4 'Open Sans', Verdana, Arial, sans-serif;
+  -webkit-text-size-adjust: none;
+}
+* {
+  outline: none !important;
+}
+
+a, button, label {
+  font-weight: bold;
+}
+a, button, button:hover, input:hover, label {
+  color: #4B86C2;
+  cursor: pointer;
+  text-decoration: none;
+}
+a:hover {
+  color: #4B86C2;
+  text-decoration: underline;
+}
+button {
+  font-weight: bold;
+  color: black;
+  background-color: #f6f6f6;
+  border-radius: 3px;
+  margin: 0;
+  padding: 5px 8px;
+  border: 1px solid #999999;
+  cursor: pointer;
+}
+input {
+  padding: 1px 5px;
+  font-size: .9em;
+}
+label:after {
+  content: ":";
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+}
+.ldf-client, .ldf-client * {
+  max-width: 100%;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+li {
+  margin: 0 0 .5em;
+}
+
+.ui-combobox {
+  float: right;
+  min-width: 390px;
+}
+
+select {
+  min-width: 390px;
+}
+
+.chosen {
+  float: right;
+  margin-bottom: -999999px;
+}
+.chosen-choices {
+  max-height: 36px;
+  transition: max-height .5s;
+}
+
+textarea {
+  width: 100%;
+  min-height: 8em;
+  border: none;
+  cursor: pointer;
+  font-family: 'Source Code Pro';
+  font-size: .95em;
+  background-color: transparent;
+}
+textarea:hover {
+  color: #4B86C2;
+}
+
+pre {
+  width: 100%;
+  height: 13em;
+  font-family: 'Source Code Pro';
+  overflow: scroll;
+  margin: .5em -999999px 1em 0;
+}
+pre a {
+  font-weight: normal;
+}
+
+.log {
+  color: #666;
+  height: 6.5em;
+}
+
+
+
+/*
+ * Styling below derived from
+ * Chosen, a Select Box Enhancer for jQuery and Prototype
+ * by Patrick Filler for Harvest, http://getharvest.com
+ *
+ * Version 1.4.2
+ * Full source at https://github.com/harvesthq/chosen
+ * Copyright (c) 2011-2015 Harvest http://getharvest.com
+ *
+ * MIT License, https://github.com/harvesthq/chosen/blob/master/LICENSE.md
+*/
+
+.chosen {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  zoom: 1;
+  *display: inline;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+.chosen * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.chosen .chosen-drop {
+  position: absolute;
+  top: 100%;
+  left: -9999px;
+  z-index: 1010;
+  width: 100%;
+  border: 1px solid #999999;
+  border-top: 0;
+  background: #fff;
+}
+.chosen.chosen-with-drop .chosen-drop {
+  left: 0;
+}
+.chosen a {
+  cursor: pointer;
+}
+
+
+.chosen-single .chosen-single {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  padding: 0 0 0 8px;
+  height: 1.2em;
+  border: 1px solid #999999;
+  border-radius: 3px;
+  background-color: #fff;
+  text-decoration: none;
+  white-space: nowrap;
+  line-height: 2em;
+  font-weight: normal;
+  color: inherit;
+}
+.chosen-single .chosen-single span {
+  display: block;
+  overflow: hidden;
+  margin-right: 26px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.chosen-single .chosen-single-with-deselect span {
+  margin-right: 38px;
+}
+.chosen-single .chosen-single abbr {
+  position: absolute;
+  top: 6px;
+  right: 26px;
+  display: block;
+  width: 12px;
+  height: 12px;
+  background: url('chosen-sprite.png') -42px 1px no-repeat;
+  font-size: 1px;
+}
+.chosen-single .chosen-single abbr:hover {
+  background-position: -42px -10px;
+}
+.chosen-single .chosen-single div {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  width: 18px;
+  height: 100%;
+}
+.chosen-single .chosen-single div b {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: url('chosen-sprite.png') no-repeat 0px 2px;
+}
+.chosen-single .chosen-search {
+  position: relative;
+  z-index: 1010;
+  margin: 0;
+  padding: 3px 4px;
+  white-space: nowrap;
+}
+.chosen-single .chosen-search input[type="text"] {
+  margin: 1px 0;
+  padding: 4px 20px 4px 5px;
+  width: 100%;
+  height: auto;
+  outline: 0;
+  border: 1px solid #999999;
+  background: white url('chosen-sprite.png') no-repeat 100% -20px;
+  background: url('chosen-sprite.png') no-repeat 100% -20px;
+  font-size: 1em;
+  line-height: normal;
+  border-radius: 0;
+}
+.chosen-single .chosen-drop {
+  margin-top: -1px;
+  border-radius: 0 0 4px 4px;
+  background-clip: padding-box;
+}
+.chosen-single.chosen-single-nosearch .chosen-search {
+  position: absolute;
+  left: -9999px;
+}
+
+.chosen-results {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0 4px 4px 0;
+  padding: 0 0 0 4px;
+  max-height: 240px;
+  -webkit-overflow-scrolling: touch;
+}
+.chosen-results li {
+  display: none;
+  margin: 0;
+  padding: 5px 6px;
+  list-style: none;
+  line-height: 1.1em;
+  word-wrap: break-word;
+  -webkit-touch-callout: none;
+}
+li.active-result {
+  display: list-item;
+  cursor: pointer;
+}
+li.highlighted {
+  background-color: #4B86C2;
+  color: #fff;
+}
+li.no-results {
+  display: none;
+}
+.chosen-results li em {
+  font-style: normal;
+  text-decoration: underline;
+}
+
+.chosen-choices {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0 5px;
+  width: 100%;
+  height: auto !important;
+  height: 1%;
+  border: 1px solid #999999;
+  border-radius: 3px;
+  background-color: #fff;
+  cursor: text;
+}
+.chosen-choices li {
+  float: left;
+  list-style: none;
+}
+li.search-field {
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+}
+li.search-field input[type="text"] {
+  margin: 1px 0;
+  padding: 0;
+  height: 20px;
+  outline: 0;
+  border: 0 !important;
+  font-size: 100%;
+  line-height: normal;
+  border-radius: 0;
+}
+li.search-choice {
+  position: relative;
+  margin: 2px 5px 2px 0;
+  padding: 3px 20px 3px 5px;
+  max-width: 100%;
+  border-radius: 3px;
+  background-color: #f6f6f6;
+  line-height: 1em;
+  cursor: default;
+}
+li.search-choice span {
+  word-wrap: break-word;
+}
+li.search-choice .search-choice-close {
+  position: absolute;
+  top: 4px;
+  right: 3px;
+  display: block;
+  width: 12px;
+  height: 12px;
+  background: url('chosen-sprite.png') -42px 1px no-repeat;
+  font-size: 1px;
+}
+li.search-choice .search-choice-close:hover {
+  background-position: -42px -10px;
+}
+li.search-choice-focus {
+  background: #d4d4d4;
+}
+li.search-choice-focus .search-choice-close {
+  background-position: -42px -10px;
+}
+.chosen-results {
+  margin: 0;
+  padding: 0;
+}
+.chosen-drop .result-selected {
+  display: list-item;
+  cursor: default;
+}
+
+.chosen-active.chosen-with-drop .chosen-single {
+  border: 1px solid #999999;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.chosen-active.chosen-with-drop .chosen-single div {
+  border-left: none;
+}
+.chosen-active.chosen-with-drop .chosen-single div b {
+  background-position: -18px 2px;
+}
+.chosen-active .chosen-choices {
+  max-height: 500px;
+}
+
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-resolution: 144dpi), only screen and (min-resolution: 1.5dppx) {
+  .chosen-rtl .chosen-search input[type="text"],
+  .chosen-single .chosen-single abbr,
+  .chosen-single .chosen-single div b,
+  .chosen-single .chosen-search input[type="text"],
+  .chosen-multi .chosen-choices .search-choice .search-choice-close,
+  .chosen .chosen-results-scroll-down span,
+  .chosen .chosen-results-scroll-up span {
+    background-image: url('chosen-sprite@2x.png') !important;
+    background-size: 52px 37px !important;
+    background-repeat: no-repeat !important;
+  }
+}
