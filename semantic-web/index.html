@@ -1585,6 +1585,33 @@ SELECT ?name ?person WHERE {
     <iframe class="query-client" src="http://localhost:3000/_shared/query-client/#datasources=http%3A%2F%2Ffragments.dbpedia.org%2F2015%2Fen&query=DESCRIBE%20%3Fperson%20WHERE%20%7B%0A%20%20%3Fperson%20foaf%3Aname%20%22Pablo%20Picasso%22%40en.%0A%7D"></iframe>
   </div>
 
+  <div class="slide" id="sparql-modifiers">
+    <h2>
+      In addition to only BGPs,<br>
+      SPARQL queries can contain <em>modifiers</em>.
+    </h2>
+    <dl>
+      <dt><a href="https://www.w3.org/TR/rdf-sparql-query/#modResultLimit"><code>LIMIT</code></a></dt>
+      <dd>only return the first <var>n</var> results</dd>
+      <dt><a href="https://www.w3.org/TR/rdf-sparql-query/#OptionalMatching"><code>OPTIONAL</code></a></dt>
+      <dd>specifies a left join</dd>
+      <dt><a href="https://www.w3.org/TR/rdf-sparql-query/#tests"><code>FILTER</code></a></dt>
+      <dd>selects based on an expression</dd>
+      <dt><a href="https://www.w3.org/TR/rdf-sparql-query/#modOrderBy"><code>ORDER BY</code></a></dt>
+      <dd>sorts results based on an expression</dd>
+      <dt>…</dt>
+      <dd>…</dd>
+    </dl>
+  </div>
+
+  <div class="slide" id="sparql-modifiers-example">
+    <h2>
+      In addition to only BGPs,<br>
+      SPARQL queries can contain <em>modifiers</em>.
+    </h2>
+    <iframe class="query-client" src="http://localhost:3000/_shared/query-client/#datasources=http%3A%2F%2Ffragments.dbpedia.org%2F2015%2Fen&query=SELECT%20%3Fname%20%3Fperson%20%3Fspouse%20WHERE%20%7B%0A%20%20%3Fperson%20rdfs%3Alabel%20%3Fname.%0A%20%20%3Fperson%20dbo%3AinfluencedBy%20dbp%3APablo_Picasso.%0A%20%20OPTIONAL%20%7B%20%3Fperson%20dbo%3Aspouse%20%3Fspouse.%20%7D%0A%20%20FILTER%20LANGMATCHES(LANG(%3Fname)%2C%20%22EN%22)%0A%7D%0ALIMIT%2010"></iframe>
+  </div>
+
   <div class="toc slide" id="reasoning">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>

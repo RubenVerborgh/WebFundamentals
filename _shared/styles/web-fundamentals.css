@@ -133,6 +133,9 @@ li dd {
 code .comment {
   color: #979A9E;
 }
+var {
+  font-style: italic;
+}
 
 .element {
   cursor: pointer;
