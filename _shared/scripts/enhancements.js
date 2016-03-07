@@ -1,6 +1,6 @@
-// Avoid iframes (YouTube player etc.) stealing focus
+// Avoid full-screen elements (including iframes) stealing focus
 setInterval(function (e) {
-  ((e = document.activeElement) instanceof HTMLIFrameElement) && e.blur();
+  (e = document.activeElement).classList.contains('cover') && e.blur();
 }, 100);
 
 // Advance full-slide video slides on mobile
