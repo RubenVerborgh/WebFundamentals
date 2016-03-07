@@ -1418,11 +1418,11 @@ ex:Delphine ex:hasFather ex:Jacques.</code></pre>
         combined with restrictions on property value.
       </li>
     </ul>
-    <pre><code>ex:Father owl:equivalentClass [ a owl:Class;
+    <pre><code>ex:Bachelor owl:equivalentClass [ a owl:Class;
     owl:intersectionOf (ex:Man, [
         a owl:Class, owl:Restriction;
-        owl:onProperty ex:hasChild;
-        owl:minCardinality 1
+        owl:onProperty ex:hasPartner;
+        owl:maxCardinality 0
     ])
 ].</code></pre>
   </div>
@@ -1703,6 +1703,31 @@ foaf:knows rdfs:domain foaf:Person.</code></pre>
       will result in an extra triple
     </p>
     <pre><code>&lt;#Tim&gt; a foaf:Person.</code></pre>
+  </div>
+
+  <div class="tight slide" id="owl-reasoners">
+    <h2>
+      <a href="https://www.w3.org/2001/sw/wiki/Category%3AOWL_Reasoner">OWL reasoners</a>
+      can make entailments<br>
+      based on the <a href="#owl-concepts">OWL</a> semantics.
+    </h2>
+    <ul>
+      <li>
+        Load the data <em>together</em> with its vocabularies.
+        <ul>
+          <li>RDFS reasoning is built-in, but not your vocabulary.</li>
+        </ul>
+      </li>
+    </ul>
+    <p>
+      For example, the presence of
+    </p>
+    <pre><code>&lt;#me&gt; ex:hasPartner &lt;#SignificantOther&gt;.</code></pre>
+    <p>
+      together with the <a href="#class-restrictions">class restrictions we saw earlier</a><br>
+      ensures that the following triple <em>cannot</em> be true:
+    </p>
+    <pre><code>&lt;#me&gt; a ex:Bachelor.</code></pre>
   </div>
 
   <div class="toc slide" id="recap">
