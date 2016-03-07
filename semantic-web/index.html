@@ -1030,7 +1030,7 @@ foaf:knows a rdf:Property.
 rdf:type a rdf:Property.
 rdf:Property a rdfs:Class.
 <span class="comment"># Properties can serve as predicates of triples.</span>
-&lt;#tim&gt; foaf:knows &lt;#ted&gt;.
+&lt;#Tim&gt; foaf:knows &lt;#Ted&gt;.
 
 <span class="comment"># The following triples are false.</span>
 <span class="comment"># <del>rdf:seeAlso a rdf:Property.</del></span>
@@ -1678,6 +1678,31 @@ SELECT ?name ?person WHERE {
         </ul>
       </li>
     </ul>
+  </div>
+
+  <div class="tight slide" id="rdfs-reasoners">
+    <h2>
+      <a href="https://www.w3.org/2001/sw/wiki/Category%3ARDFS_Reasoner">RDFS reasoners</a>
+      can make entailments<br>
+      based on the <a href="#rdfs-vocabulary">RDFS</a> semantics.
+    </h2>
+    <ul>
+      <li>
+        Load the data <em>together</em> with its vocabularies.
+        <ul>
+          <li>RDFS reasoning is built-in, but not your vocabulary.</li>
+        </ul>
+      </li>
+    </ul>
+    <p>
+      For example, the presence of
+    </p>
+    <pre><code>&lt;#Tim&gt; foaf:knows &lt;#Ted&gt;.
+foaf:knows rdfs:domain foaf:Person.</code></pre>
+    <p>
+      will result in an extra triple
+    </p>
+    <pre><code>&lt;#Tim&gt; a foaf:Person.</code></pre>
   </div>
 
   <div class="toc slide" id="recap">
