@@ -250,6 +250,11 @@ blockquote.long p {
   margin-bottom: 21px;
 }
 
+/* Tight slides */
+.slide.tight p {
+  margin-bottom: 0px;
+}
+
 /* Full-screen navigation for touch */
 .handle::before {
   display: block;
