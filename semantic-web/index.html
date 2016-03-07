@@ -1210,8 +1210,8 @@ rdfs:domain rdfs:subPropertyOf rdfs:seeAlso.
       <li>
         restrictions on individuals
         <ul class="inline">
-          <li><a href="#owl-sameas"><code>owl:sameAs</code></a></li>
-          <li><a href="#owl-differentfrom"><code>owl:differentFrom</code></a></li>
+          <li><a href="#individual-equality"><code>owl:sameAs</code></a></li>
+          <li><a href="#individual-equality"><code>owl:differentFrom</code></a></li>
           <li>…</li>
         </ul>
       </li>
@@ -1230,6 +1230,33 @@ rdfs:domain rdfs:subPropertyOf rdfs:seeAlso.
           <li><a href="#owl-intersectionof"><code>owl:intersectionOf</code></a></li>
           <li><a href="#owl-complementOf"><code>owl:complementOf</code></a></li>
           <li>…</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="individual-equality">
+    <h2>
+      An IRI uniquely identifies a resource,<br>
+      but <a href="../web-apis/#resources">one resource can have many IRIs</a>.
+    </h2>
+    <ul>
+      <li>
+        You <em>cannot</em> assume just because 2 IRIs are different<br>
+        they necessarily point to different resources.
+        <ul>
+          <li><code>ex:Tom a ex:Cat.</code></li>
+          <li><code>ex:Jerry a ex:Mouse.</code></li>
+          <li>You cannot conclude <code>ex:Tom</code> and <code>ex:Jerry</code> are different.</li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://www.w3.org/TR/2012/REC-owl2-syntax-20121211/#Individual_Equality"><code>owl:sameAs</code></a> indicates two resources are the same.
+      </li>
+      <li>
+        <a href="https://www.w3.org/TR/2012/REC-owl2-syntax-20121211/#Individual_Inequality"><code>owl:differentFrom</code></a> indicates two resources differ.
+        <ul>
+          <li><code>ex:Tom owl:differentFrom ex:Jerry.</code></li>
         </ul>
       </li>
     </ul>
