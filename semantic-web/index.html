@@ -1176,7 +1176,7 @@ rdfs:domain rdfs:subPropertyOf rdfs:seeAlso.
     <p class="tweets"><a href="https://twitter.com/search?f=tweets&amp;q=%23ITech16">#ITech16</a></p>
   </div>
 
-  <div class="slide" id="owl-definition">
+  <div class="slide" id="owl-concepts">
     <h2>
       The <a href="https://www.w3.org/TR/owl2-overview/">Web Ontology Language (OWL)</a>
       provides concepts for detailed ontologies.
@@ -1196,6 +1196,40 @@ rdfs:domain rdfs:subPropertyOf rdfs:seeAlso.
         OWL extends RDFS with advanced concepts.
         <ul>
           <li>RDFS and OWL are used side by side.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="owl-overview">
+    <h2>
+      OWL defines additional constraints<br>
+      for individuals, properties, and classes.
+    </h2>
+    <ul>
+      <li>
+        restrictions on individuals
+        <ul class="inline">
+          <li><a href="#owl-sameas"><code>owl:sameAs</code></a></li>
+          <li><a href="#owl-differentfrom"><code>owl:differentFrom</code></a></li>
+          <li>…</li>
+        </ul>
+      </li>
+      <li>
+        restrictions on properties
+        <ul class="inline">
+          <li><a href="#owl-inverseof"><code>owl:ObjectProperty</code></a></li>
+          <li><a href="#owl-inverseof"><code>owl:inverseOf</code></a></li>
+          <li><a href="#owl-functionalproperty"><code>owl:FunctionalProperty</code></a></li>
+          <li>…</li>
+        </ul>
+      </li>
+      <li>
+        restrictions on classes
+        <ul class="inline">
+          <li><a href="#owl-intersectionof"><code>owl:intersectionOf</code></a></li>
+          <li><a href="#owl-complementOf"><code>owl:complementOf</code></a></li>
+          <li>…</li>
         </ul>
       </li>
     </ul>
