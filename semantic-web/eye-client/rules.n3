@@ -1,0 +1,5 @@
+@prefix : <ppl#>.
+
+{ ?a :knows ?b }
+=>
+{ ?b :knows ?a }.

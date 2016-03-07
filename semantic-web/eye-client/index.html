@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>EYE Client</title>
+  <link rel="stylesheet" href="../../_shared/styles/jquery-ui.1.11.4.custom.css" />
+  <link rel="stylesheet" href="eyeclient.css" />
+  <meta name="viewport" content="width=device-width,minimum-scale=1,maximum-scale=1">
+</head>
+<body>
+  <main class="eye">
+    <p>
+      Command to execute:
+      <code>eye <span class="data">input.n3</span>
+                <span class="data">rules.n3</span>
+                --query <span class="query">query.n3</span> --nope</code>
+    </p>
+  </main>
+  <script src="../../_shared/scripts/jquery-2.2.1.min.js"></script>
+  <script src="../../_shared/scripts/jquery-ui.1.11.4.custom.min.js"></script>
+  <script src="eyeclient.js"></script>
+  <script>$('.eye').eye({ path: 'http://eye.restdesc.org/' });</script>
+</body>
+</html>

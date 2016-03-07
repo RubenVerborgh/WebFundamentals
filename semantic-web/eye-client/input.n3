@@ -1,0 +1,4 @@
+@prefix : <ppl#>.
+
+:John :knows :Paul.
+:Lisa :knows :John.
