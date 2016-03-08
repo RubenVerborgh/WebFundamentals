@@ -32,9 +32,10 @@ line {
     <rect x="180" width="360" height="400" fill-opacity="0.1"/>
     <rect x="540" width="180" height="400" fill-opacity="0.2"/>
     <rect x="720" width="180" height="400" fill-opacity="0.3"/>
-    <text x="282" y="64">triple-based</text>
-    <text x="556" y="64">JSON-based</text>
-    <text x="739" y="64">XML-based</text>
+    <text x="282" y="78">triple-based</text>
+    <text x="556" y="78">JSON-based</text>
+    <text x="739" y="78">XML-based</text>
+    <rect y="133.33" width="900" height="133.33" fill-opacity="0.1"/>
     <text transform="translate(46.6543 194.459)">default <tspan x="6.33" y="31.2">graph</tspan></text>
   </g>
 
