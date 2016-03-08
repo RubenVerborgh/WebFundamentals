@@ -191,7 +191,7 @@
         “Useful” means the information is available<br>
         using standard technologies.
         <ul>
-          <li>Tim Berners-Lee <a href="https://www.w3.org/DesignIssues/LinkedData.html">mentions</a> <a href="#semantic-web">RDF</a> and <a href="#querying-reasoning">SPARQL</a>.</li>
+          <li>Tim Berners-Lee <a href="https://www.w3.org/DesignIssues/LinkedData.html">mentions</a> <a href="#rdf-model">RDF</a> and <a href="#sparql-language-protocol">SPARQL</a>.</li>
         </ul>
       </li>
       <li class="next">
@@ -331,7 +331,7 @@
         </ul>
       </li>
       <li class="next">
-        On the <em>content</em> level, <a href="http://ckan.org/">thousands of datasets</a><br>
+        On the <em>content</em> level, <a href="https://datahub.io/">thousands of datasets</a><br>
         provide identifiers and data of <a href="#rdfs-resource">individuals</a>.
         <ul>
           <li>Strive to reuse identifiers rather than to mint new ones.</li>
@@ -367,6 +367,147 @@
     </ul>
   </div>
 
+  <div class="slide" id="popular-vocabularies">
+    <h2>
+      Several vocabularies are used frequently<br>
+      across different datasets.
+    </h2>
+    <ul>
+      <li>
+        modeling vocabularies
+        <ul class="inline">
+          <li><a href="#rdfs-vocbulary">RDFS</a></li>
+          <li><a href="#owl-concepts">OWL</a></li>
+          <li><a href="https://www.w3.org/TR/skos-primer/">SKOS</a></li>
+        </ul>
+      </li>
+      <li>
+        general-purpose vocabularies
+        <ul class="inline">
+          <li><a href="#dublin-core">Dublin Core</a></li>
+          <li>…</li>
+        </ul>
+      </li>
+      <li>
+        concept-specific vocabularies
+        <ul class="inline">
+          <li><a href="#schema-org">Schema.org</a></li>
+          <li><a href="#open-graph">Open Graph</a></li>
+          <li><a href="http://dbpedia.org/services-resources/ontology">DBpedia ontology</a></li>
+          <li>…</li>
+        </ul>
+      </li>
+    </ul>
+    <p><em>Find the one you need at <a href="http://lov.okfn.org/">Linked Open Vocabularies</a>.</em></p>
+  </div>
+
+  <div class="slide" id="dublin-core">
+    <h2>
+      The <a href="http://dublincore.org/documents/2012/06/14/dcmi-terms/">Dublin Core terms</a> are a set of<br>
+      15 common metadata properties.
+    </h2>
+    <ul>
+      <li>
+        Each property is generic,<br>
+        and hence applicable in many cases.
+        <ul>
+          <li><a href="http://dublincore.org/documents/2012/06/14/dcmi-terms/?v=elements#elements-title"><code>title</code></a></li>
+          <li><a href="http://dublincore.org/documents/2012/06/14/dcmi-terms/?v=elements#elements-description"><code>description</code></a></li>
+          <li><a href="http://dublincore.org/documents/2012/06/14/dcmi-terms/?v=elements#elements-date"><code>date</code></a></li>
+          <li><a href="http://dublincore.org/documents/2012/06/14/dcmi-terms/?v=elements#elements-creator"><code>creator</code></a></li>
+          <li>…</li>
+        </ul>
+      </li>
+      <li>
+        Many applications use the Dublin Core terms.
+        <ul>
+          <li>good interoperability of high-level semantics</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="schema-org">
+    <h2>
+      <a href="http://schema.org/">Schema.org</a> is a single vocabulary<br>
+      that covers many different fields.
+    </h2>
+    <ul>
+      <li>
+        Created and maintained by major search engines,<br>
+        it mainly provides discovery data for search.
+      </li>
+      <li class="next">
+        Its concepts are defined rather loosely.
+        <ul>
+          <li>This makes it flexible to use for developers.</li>
+          <li>Machines cannot <a href="#semantic-web-reasoning">derive</a> much knowledge from it.</li>
+        </ul>
+      </li>
+      <li class="next">
+        Schema.org is manually curated<br>
+        and <a href="https://github.com/schemaorg/schemaorg">open for extension</a>.
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="open-graph">
+    <h2>
+      <a href="http://ogp.me/">Open Graph</a> is similar to <a href="#schema-org">Schema.org</a>,<br>
+      and mainly used for Facebook integration.
+    </h2>
+    <ul>
+      <li>
+        Facebook allows you to like and comment<br>
+        on items outside of the <em>facebook.com</em> domain.
+        <ul>
+          <li class="next">
+            If these items are described with Open Graph,<br>
+            Facebook can capture the object more precisely.
+          </li>
+          <li class="next">
+            For example, you might like a movie with a certain actor.
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        Facebook follows the Semantic Web standards<br>
+        in its recommendations to mark up webpages.
+        <ul>
+          <li class="next">You can even access Facebook data as <a href="#rdf-model">RDF</a>…</li>
+          <li class="next">…if you have an <a href="../web-apis/#api-keys">API key</a> 😉</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="popular-datasets">
+    <h2>
+      Billions of Linked Data facts are published<br>
+      on the Web with an open license.
+    </h2>
+    <ul>
+      <li class="next">
+        The most well-known dataset is <a href="http://dbpedia.org/">DBpedia</a>.
+        <ul>
+          <li>Data is extracted automatically from <a href="https://wikipedia.org/">Wikipedia</a> infoboxes.</li>
+          <li>Like Wikipedia, it exists in several different languages.</li>
+          <li>Its quality is acceptable for many queries.</li>
+        </ul>
+      </li>
+      <li class="next">
+        <a href="https://www.wikidata.org/">Wikidata</a> is a manually curated alternative.
+        <ul>
+          <li>It has its own data model on top of <a href="#rdf-model">RDF</a>.</li>
+          <li class="opinion">It grows fast and might overtake DBpedia.</li>
+        </ul>
+      </li>
+      <li class="next">
+        You can find many other datasets on <a href="https://datahub.io/">Datahub</a>.
+      </li>
+    </ul>
+  </div>
+
   <div class="toc slide" id="semantic-web">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
@@ -387,7 +528,7 @@
     <p class="tweets"><a href="https://twitter.com/search?f=tweets&amp;q=%23ITech16">#ITech16</a></p>
   </div>
 
-  <div class="slide" id="model">
+  <div class="slide" id="rdf-model">
     <h2>
       The <a href="https://www.w3.org/RDF/">Resource Description Framework</a> is<br>
       a model for data interchange on the Web.
