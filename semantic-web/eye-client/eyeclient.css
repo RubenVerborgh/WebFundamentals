@@ -53,7 +53,7 @@ html, input, textarea, button {
 .eye .ui-tabs-nav li.query {
   float: right;
 }
-.eye .ui-tabs-nav li.query a {
+.eye .ui-tabs-nav li.query:not(.ui-state-active) a {
   color: #4B86C2;
 }
 
