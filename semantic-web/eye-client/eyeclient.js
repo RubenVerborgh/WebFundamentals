@@ -29,16 +29,32 @@
                                  $resultContainer.append($resultList)));
 
       // Create data, query, and result tabs
-      var dataTabs = [];
-      $contents.find('.data').each(function () {
-        var $this = $(this), dataUri = $this.attr('href') || $this.text();
-        dataTabs.push(appendCodeTabFromUrl(dataUri, $inputList, $inputContainer, 'data'));
-      });
-      var queryTab;
-      $contents.find('.query').each(function () {
-        var $this = $(this), queryUri = $this.attr('href') || $this.text();
-        $queryTab = appendCodeTabFromUrl(queryUri, $inputList, $inputContainer, 'query');
-      });
+      var dataTabs = [], queryTab;
+      if (!options.url) {
+        $contents.find('.data').each(function () {
+          var $this = $(this), dataUri = $this.attr('href') || $this.text();
+          dataTabs.push(appendCodeTabFromUrl(dataUri, $inputList, $inputContainer, 'data'));
+        });
+        $contents.find('.query').each(function () {
+          var $this = $(this), queryUri = $this.attr('href') || $this.text();
+          $queryTab = appendCodeTabFromUrl(queryUri, $inputList, $inputContainer, 'query');
+        });
+      }
+      else {
+        location.hash.substr(1).split('&').forEach(function (part) {
+          var keyvalue = part.match(/^([^=]+)=(.*)/),
+              key = keyvalue && decodeURIComponent(keyvalue[1]),
+              value = keyvalue && decodeURIComponent(keyvalue[2]);
+          switch (key) {
+          case 'data':
+            dataTabs.push(appendCodeTabFromUrl(value, $inputList, $inputContainer, 'data'));
+            break;
+          case 'query':
+            $queryTab = appendCodeTabFromUrl(value, $inputList, $inputContainer, 'query');
+            break;
+          }
+        });
+      }
       $inputContainer.tabs();
       $resultContainer.tabs().hide();
 
