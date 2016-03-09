@@ -261,6 +261,9 @@ blockquote.long p {
 .slide.tight p {
   margin-bottom: 0px;
 }
+.slide.tight pre {
+  margin-bottom: 38px;
+}
 
 /* Full-screen navigation for touch */
 .handle::before {

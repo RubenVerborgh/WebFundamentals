@@ -102,10 +102,10 @@
       4 principles to publish <a href="https://www.w3.org/DesignIssues/LinkedData.html">Linked Data</a>.
     </h2>
     <ol>
-      <li>Use <a href="#uris-as-names">URIs as names</a> for things.</li>
-      <li>Use <a href="#http-uris">HTTP URIs</a> so people<br> can look up those names.</li>
-      <li>When someone looks up a URI,<br> <a href="#useful-information">provide useful information</a> using the standards.</li>
-      <li>Include <a href="#discover-more">links to other things</a>,<br> so people can discover more.</li>
+      <li class="next">Use <a href="#uris-as-names">URIs as names</a> for things.</li>
+      <li class="next">Use <a href="#http-uris">HTTP URIs</a> so people<br> can look up those names.</li>
+      <li class="next">When someone looks up a URI,<br> <a href="#useful-information">provide useful information</a> using the standards.</li>
+      <li class="next">Include <a href="#discover-more">links to other things</a>,<br> so people can discover more.</li>
     </ol>
   </div>
 
@@ -262,14 +262,14 @@
   <div class="slide" id="linked-data-property">
     <h2>
       In contrast to typical Web links, these links<br>
-      are typed with a URI—we can dereference.
+      are typed with a URI we can dereference.
     </h2>
     <iframe class="graph" src="images/tim-ted-property.html"></iframe>
   </div>
 
   <div class="slide" id="linked-data-property-resource">
     <h2>
-      This means that a link type <em>(“property”)</em><br>
+      This means that a link type <em>(<a href="#rdf-property">property</a>)</em><br>
       is <em>also</em> a resource we can describe.
     </h2>
     <iframe class="graph" src="images/property.html"></iframe>
@@ -376,7 +376,7 @@
       <li>
         modeling vocabularies
         <ul class="inline">
-          <li><a href="#rdfs-vocbulary">RDFS</a></li>
+          <li><a href="#rdfs-vocabulary">RDFS</a></li>
           <li><a href="#owl-concepts">OWL</a></li>
           <li><a href="https://www.w3.org/TR/skos-primer/">SKOS</a></li>
         </ul>
@@ -604,14 +604,14 @@
     </p>
     <dl>
       <dt>named node</dt>
-      <dd>a resource, identified by an IRI</dd>
-      <dd><em>for subjects, predicates, objects</em></dd>
+      <dd class="next">a resource, identified by an IRI</dd>
+      <dd class="next"><em>for subjects, predicates, objects</em></dd>
       <dt>blank node</dt>
-      <dd>an unnamed resource</dd>
-      <dd><em>for subjects and objects</em></dd>
+      <dd class="next">an unnamed resource</dd>
+      <dd class="next"><em>for subjects and objects</em></dd>
       <dt>literal</dt>
-      <dd>a value, with a datatype (IRI) or language</dd>
-      <dd><em>for objects only</em></dd>
+      <dd class="next">a value, with a datatype (IRI) or language</dd>
+      <dd class="next"><em>for objects only</em></dd>
     </dl>
   </div>
 
@@ -675,20 +675,20 @@
       and zero or more named graphs.
     </h2>
     <ul>
-      <li>
+      <li class="next">
         The default graph is an <a href="#graph">RDF graph</a>.
         <ul>
           <li>It can be empty.</li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         A named graph is an <a href="#graph">RDF graph</a> identified by an IRI.
         <ul>
           <li>A triple belongs to one or more graphs.</li>
           <li>A triple with graph is sometimes called a <em>quad</em>.</li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         Not all concrete syntaxes support named graphs.
         <ul>
           <li>All syntaxes support the default graph.</li>
@@ -699,9 +699,8 @@
 
   <div class="slide" id="rdf-syntaxes">
     <h2>
-      An <a href="https://www.w3.org/TR/rdf11-concepts/#section-dataset">RDF dataset</a>
-      has one default graph<br>
-      and zero or more named graphs.
+      Several standard syntaxes for RDF exist.<br>
+      Half of them have multi-graph support.
     </h2>
     <dl>
       <dt>triple-based</dt>
@@ -738,7 +737,7 @@
       <a href="https://www.w3.org/TR/turtle/">Turtle</a> is a superset of N-Triples<br>
       with prefixes and abbreviations.
     </h2>
-    <pre class="scroll"><code><span class="comment"># Declare prefixes before use (hint: <a href="http://prefix.cc/">prefix.cc</a>).</span>
+    <pre><code><span class="comment"># Declare prefixes before use (hint: <a href="http://prefix.cc/">prefix.cc</a>).</span>
 PREFIX dbp: &lt;http://dbpedia.org/resource/&gt;
 PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
 <span class="comment"># The predicate a abbreviates <a href="#rdf-type">rdf:type</a>.</span>
@@ -755,7 +754,7 @@ dbp:Tim_Berners-Lee a foaf:Person;
       <a href="#turtle">Turtle</a> includes syntactic sugar<br>
       to write blank nodes.
     </h2>
-    <pre class="scroll"><code>PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
+    <pre><code>PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
 <span class="comment"># The following lines all state something is named Tim.</span>
 <strong>_:x235</strong> foaf:name "Tim"@en.  <span class="comment"># blank node label</span>
 <strong>[]</strong> foaf:name "Tim"@en.      <span class="comment"># empty blank node</span>
@@ -764,15 +763,7 @@ dbp:Tim_Berners-Lee a foaf:Person;
 <strong>[</strong> foaf:name "Tim"@en <strong>]</strong> foaf:knows <strong>[</strong> foaf:name "Wendy"@en <strong>]</strong>.
 
 <span class="comment"># The label-based syntax allows cross-references within</span>
-<span class="comment"># the same document, and is also supported in <a href="#ntriples">N-Triples</a>.</span>
-
-
-<span class="comment"># A semi-colon ; reuses the subject.</span>
-<span class="comment"># A comma , reuses the subject and predicate.</span>
-dbp:Tim_Berners-Lee a foaf:Person;
-                    foaf:knows dbp:Ted_Nelson,
-                               dbp:Wendy_Hall.
-<span class="comment"># There are 3 triples above.</span></code></pre>
+<span class="comment"># the same document, and is also supported in <a href="#ntriples">N-Triples</a>.</span></code></pre>
   </div>
 
   <div class="slide" id="turtle-lists">
@@ -800,7 +791,7 @@ _:list3 rdf:next  rdf:nil.</code></pre>
       <a href="https://www.w3.org/TR/n-quads/">N-Quads</a> is a superset of <a href="#ntriples">N-Triples</a><br>
       with support for named graphs.
     </h2>
-    <pre class="scroll"><code><span class="comment"># Triples in the default graph look like N-Triples.</span>
+    <pre><code><span class="comment"># Triples in the default graph look like N-Triples.</span>
 &lt;urn:ex:s1&gt; &lt;urn:ex:p1&gt; &lt;urn:ex:o1&gt;.
 &lt;urn:ex:s1&gt; &lt;urn:ex:p2&gt; "abc".
 
@@ -816,7 +807,7 @@ _:list3 rdf:next  rdf:nil.</code></pre>
       (<em>not</em> <a href="#nquads">N-Quads</a>)<br>
       with support for named graphs.
     </h2>
-    <pre class="scroll"><code>PREFIX dbp: &lt;http://dbpedia.org/resource/&gt;
+    <pre><code>PREFIX dbp: &lt;http://dbpedia.org/resource/&gt;
 PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
 <span class="comment"># Triples in the default graph look like Turtle.</span>
 dbp:Tim_Berners-Lee a foaf:Person;
@@ -984,20 +975,20 @@ dbp:Tim_Berners-Lee schema:givenName "Tim";
       to model RDF vocabularies.
     </h2>
     <ul>
-      <li>
+      <li class="next">
         RDFS defines classes, properties, and datatypes<br>
         that are used to define vocabularies.
         <ul>
-          <li>
+          <li class="next">
             The RDFS vocabulary has a <a href="https://www.w3.org/TR/rdf-schema/">human-readable specification</a>.
           </li>
-          <li>
+          <li class="next">
             It also has a <a href="https://www.w3.org/1999/02/22-rdf-syntax-ns#">machine-readable</a> <a href="https://www.w3.org/2000/01/rdf-schema#">vocabularies</a>,<br>
             which define RDFS in terms of RDFS.
           </li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         RDFS defines concepts in two namespaces.
         <ul>
           <li><code>rdf</code>: <a href="https://www.w3.org/1999/02/22-rdf-syntax-ns#"><em>https://www.w3.org/1999/02/22-rdf-syntax-ns#</em></a></li>
@@ -1039,7 +1030,7 @@ dbp:Tim_Berners-Lee schema:givenName "Tim";
       to construct RDF vocabularies.
     </h2>
     <ul>
-      <li>
+      <li class="next">
         describing resources
         <ul class="inline">
           <li><a href="#rdfs-label"><code>rdfs:label</code></a></li>
@@ -1048,7 +1039,7 @@ dbp:Tim_Berners-Lee schema:givenName "Tim";
           <li>…</li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         describing classes
         <ul class="inline">
           <li><a href="#rdf-type"><code>rdf:type</code></a></li>
@@ -1060,7 +1051,7 @@ dbp:Tim_Berners-Lee schema:givenName "Tim";
           <li>…</li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         describing properties
         <ul class="inline">
           <li><a href="#rdfs-domain"><code>rdfs:domain</code></a></li>
@@ -1081,7 +1072,7 @@ dbp:Tim_Berners-Lee schema:givenName "Tim";
       <li>
         Resources typically have ≤ 1 label per language.
         <ul>
-          <li>However, <code>rdfs:label</code> is <em>not</em> a functional property.</li>
+          <li>However, <code>rdfs:label</code> is <em>not</em> a <a href="#functional-properties">functional property</a>.</li>
         </ul>
       </li>
     </ul>
@@ -1089,9 +1080,9 @@ dbp:Tim_Berners-Lee schema:givenName "Tim";
 PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
 PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
 
-foaf:knows rdfs:label "knows"@en, "kent"@nl", "connaît"@fr.
+foaf:knows <strong>rdfs:label</strong> "knows"@en, "kent"@nl", "connaît"@fr.
 
-rdfs:label rdfs:label "label"@en.</code></pre>
+<strong>rdfs:label</strong> <strong>rdfs:label</strong> "label"@en.</code></pre>
   </div>
 
   <div class="slide" id="rdfs-comment">
@@ -1103,7 +1094,7 @@ rdfs:label rdfs:label "label"@en.</code></pre>
       <li>
         Resources typically have ≤ 1 comment per language.
         <ul>
-          <li>However, <code>rdfs:comment</code> is <em>not</em> a functional property.</li>
+          <li>However, <code>rdfs:comment</code> is <em>not</em> a <a href="#functional-properties">functional property</a>.</li>
         </ul>
       </li>
     </ul>
@@ -1129,7 +1120,7 @@ rdfs:comment rdfs:label "comment"@en;
       </li>
     </ul>
     <pre><code><span class="comment"># <a href="#rdfs-label">rdf, rdfs, and foaf prefixes</a> omitted for brevity</span>
-foaf:givenName rdfs:seeAlso foaf:familyName.</code></pre>
+foaf:givenName <strong>rdfs:seeAlso</strong> foaf:familyName.</code></pre>
   </div>
 
   <div class="slide" id="rdf-type">
@@ -1147,11 +1138,11 @@ foaf:givenName rdfs:seeAlso foaf:familyName.</code></pre>
       </li>
     </ul>
     <pre><code><span class="comment"># <a href="#rdfs-label">rdf, rdfs, and foaf prefixes</a> omitted for brevity</span>
-&lt;#me&gt; rdf:type foaf:Person.
-rdf:type rdf:type rdf:Property.
+&lt;#me&gt; <strong>rdf:type</strong> foaf:Person.
+<strong>rdf:type</strong> <strong>rdf:type</strong> rdf:Property.
 <span class="comment"># <a href="#turtle">Turtle</a> and <a href="#trig">TriG</a> allow <em>a</em> in predicate position.</span>
 &lt;#me&gt; a foaf:Person.
-rdf:type a rdf:Property.</code></pre>
+<strong>rdf:type</strong> a rdf:Property.</code></pre>
   </div>
 
   <div class="slide" id="rdfs-resource">
@@ -1163,10 +1154,10 @@ rdf:type a rdf:Property.</code></pre>
       <li>“<code>_:x a rdfs:Resource</code>” holds for <em>all</em> <code>_:x</code>.</li>
     </ul>
     <pre><code><span class="comment"># <a href="#rdfs-label">rdf, rdfs, and foaf prefixes</a> omitted for brevity</span>
-&lt;#me&gt; a rdfs:Resource.
-foaf:Person a rdfs:Resource.
-rdfs:Resource a rdfs:Resource.
-rdf:type a rdfs:Resource.
+&lt;#me&gt; a <strong>rdfs:Resource</strong>.
+foaf:Person a <strong>rdfs:Resource</strong>.
+<strong>rdfs:Resource</strong> a <strong>rdfs:Resource</strong>.
+rdf:type a <strong>rdfs:Resource</strong>.
 
 <span class="comment"># Even literals are resources (Turtle cannot express this).</span>
 <span class="comment"># <del>"Tim"@en a rdfs:Resource.</del></span>
@@ -1179,9 +1170,9 @@ rdf:type a rdfs:Resource.
       that conceptually define a set of things.
     </h2>
     <pre><code><span class="comment"># <a href="#rdfs-label">rdf, rdfs, and foaf prefixes</a> omitted for brevity</span>
-foaf:Person a rdfs:Class.
-rdfs:Resource a rdfs:Class.
-rdfs:Class a rdfs:Class.
+foaf:Person a <strong>rdfs:Class</strong>.
+rdfs:Resource a <strong>rdfs:Class</strong>.
+<strong>rdfs:Class</strong> a <strong>rdfs:Class</strong>.
 <span class="comment"># Classes can serve as objects of rdf:type triples.</span>
 &lt;#me&gt; a foaf:Person.
 
@@ -1197,9 +1188,9 @@ rdfs:Class a rdfs:Class.
       that can be used as triple predicates.
     </h2>
     <pre><code><span class="comment"># <a href="#rdfs-label">rdf, rdfs, and foaf prefixes</a> omitted for brevity</span>
-foaf:knows a rdf:Property.
-rdf:type a rdf:Property.
-rdf:Property a rdfs:Class.
+foaf:knows a <strong>rdf:Property</strong>.
+rdf:type a <strong>rdf:Property</strong>.
+<strong>rdf:Property</strong> a rdfs:Class.
 <span class="comment"># Properties can serve as predicates of triples.</span>
 &lt;#Tim&gt; foaf:knows &lt;#Ted&gt;.
 
@@ -1217,9 +1208,9 @@ rdf:Property a rdfs:Class.
     <pre><code><span class="comment"># <a href="#rdfs-label">rdf, rdfs, and foaf prefixes</a> omitted for brevity</span>
 
 <span class="comment"># Unfortunately, we cannot express this in Turtle.</span>
-<span class="comment"># <del>"Tim"@en a rdfs:Literal.</del></span>
-<span class="comment"># <del>5 a rdfs:Literal.</del></span>
-<span class="comment"># <del>2.7 a rdfs:Literal.</del></span>
+<span class="comment"># <del>"Tim"@en a <strong>rdfs:Literal</strong>.</del></span>
+<span class="comment"># <del>5 a <strong>rdfs:Literal</strong>.</del></span>
+<span class="comment"># <del>2.7 a <strong>rdfs:Literal</strong>.</del></span>
 
 <span class="comment"># The following triples are false.</span>
 <span class="comment"># <del>foaf:Person a rdfs:Literal.</del></span>
@@ -1238,10 +1229,10 @@ foaf:Person a rdfs:Class.
 rdfs:Resource a rdfs:Class.
 rdfs:Class a rdfs:Class.
 
-&lt;#ComputerScientist&gt; rdfs:subClassOf foaf:Person.
-foaf:Person rdfs:subClassOf foaf:Agent.
-foaf:Person rdfs:subClassOf rdfs:Resource.
-rdfs:Class rdfs:subClassOf rdfs:Resource.
+&lt;#ComputerScientist&gt; <strong>rdfs:subClassOf</strong> foaf:Person.
+foaf:Person <strong>rdfs:subClassOf</strong> foaf:Agent.
+foaf:Person <strong>rdfs:subClassOf</strong> rdfs:Resource.
+rdfs:Class <strong>rdfs:subClassOf</strong> rdfs:Resource.
 </code></pre>
   </div>
 
@@ -1259,11 +1250,11 @@ rdfs:Class rdfs:subClassOf rdfs:Resource.
       </li>
     </ul>
     <pre><code><span class="comment"># <a href="#rdfs-label">rdf, rdfs, and foaf prefixes</a> omitted for brevity</span>
-foaf:img rdfs:domain foaf:Person.
-foaf:img rdfs:domain foaf:Resource.
-rdf:type rdfs:domain rdfs:Resource.
+foaf:img <strong>rdfs:domain</strong> foaf:Person.
+foaf:img <strong>rdfs:domain</strong> foaf:Resource.
+rdf:type <strong>rdfs:domain</strong> rdfs:Resource.
 
-rdfs:domain rdfs:domain rdf:Property.
+<strong>rdfs:domain</strong> <strong>rdfs:domain</strong> rdf:Property.
 </code></pre>
   </div>
 
@@ -1281,12 +1272,12 @@ rdfs:domain rdfs:domain rdf:Property.
       </li>
     </ul>
     <pre><code><span class="comment"># <a href="#rdfs-label">rdf, rdfs, and foaf prefixes</a> omitted for brevity</span>
-foaf:img rdfs:range foaf:Image.
-foaf:img rdfs:range foaf:Resource.
-rdf:type rdfs:range rdfs:Class.
-rdf:type rdfs:range rdfs:Resource.
+foaf:img <strong>rdfs:range</strong> foaf:Image.
+foaf:img <strong>rdfs:range</strong> foaf:Resource.
+rdf:type <strong>rdfs:range</strong> rdfs:Class.
+rdf:type <strong>rdfs:range</strong> rdfs:Resource.
 
-rdfs:range rdfs:range rdf:Class.
+<strong>rdfs:range</strong> <strong>rdfs:range</strong> rdf:Class.
 </code></pre>
   </div>
 
@@ -1302,9 +1293,9 @@ rdfs:range rdfs:range rdf:Class.
       </li>
     </ul>
     <pre><code><span class="comment"># <a href="#rdfs-label">rdf, rdfs, and foaf prefixes</a> omitted for brevity</span>
-&lt;#hasFriend&gt; rdfs:subPropertyOf foaf:knows.
-rdfs:range rdfs:subPropertyOf rdfs:seeAlso.
-rdfs:domain rdfs:subPropertyOf rdfs:seeAlso.
+&lt;#hasFriend&gt; <strong>rdfs:subPropertyOf</strong> foaf:knows.
+rdfs:range <strong>rdfs:subPropertyOf</strong> rdfs:seeAlso.
+rdfs:domain <strong>rdfs:subPropertyOf</strong> rdfs:seeAlso.
 </code></pre>
   </div>
 
@@ -1358,13 +1349,13 @@ rdfs:domain rdfs:subPropertyOf rdfs:seeAlso.
         <a href="#rdfs-vocabulary">RDFS</a> captures basic ontological relations,<br>
         but lacks several common and important concepts.
         <ul>
-          <li>cardinality restrictions on properties</li>
-          <li>inverse, symmetric, and transitive properties</li>
-          <li>equality and disjointness</li>
-          <li>…</li>
+          <li class="next">cardinality restrictions on properties</li>
+          <li class="next">inverse, symmetric, and transitive properties</li>
+          <li class="next">equality and disjointness</li>
+          <li class="next">…</li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         OWL extends RDFS with advanced concepts.
         <ul>
           <li>RDFS and OWL are used side by side.</li>
@@ -1379,7 +1370,7 @@ rdfs:domain rdfs:subPropertyOf rdfs:seeAlso.
       for individuals, properties, and classes.
     </h2>
     <ul>
-      <li>
+      <li class="next">
         restrictions on individuals
         <ul class="inline">
           <li><a href="#individual-equality"><code>owl:sameAs</code></a></li>
@@ -1387,7 +1378,7 @@ rdfs:domain rdfs:subPropertyOf rdfs:seeAlso.
           <li>…</li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         restrictions on properties
         <ul class="inline">
           <li><a href="#literal-object-properties"><code>owl:ObjectProperty</code></a></li>
@@ -1396,7 +1387,7 @@ rdfs:domain rdfs:subPropertyOf rdfs:seeAlso.
           <li>…</li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         restrictions on classes
         <ul class="inline">
           <li><a href="#class-restrictions"><code>owl:intersectionOf</code></a></li>
@@ -1442,16 +1433,16 @@ rdfs:domain rdfs:subPropertyOf rdfs:seeAlso.
         <ul>
           <li><code>ex:Tom a ex:Cat.</code></li>
           <li><code>ex:Jerry a ex:Mouse.</code></li>
-          <li>You cannot conclude <code>ex:Tom</code> and <code>ex:Jerry</code> are different.</li>
+          <li class="next">You cannot conclude <code>ex:Tom</code> and <code>ex:Jerry</code> are different.</li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         <a href="https://www.w3.org/TR/owl2-syntax/#Individual_Equality"><code>owl:sameAs</code></a> indicates two resources are the same.
       </li>
-      <li>
+      <li class="next">
         <a href="https://www.w3.org/TR/owl2-syntax/#Individual_Inequality"><code>owl:differentFrom</code></a> indicates two resources differ.
         <ul>
-          <li><code>ex:Tom owl:differentFrom ex:Jerry.</code></li>
+          <li><code>ex:Tom <strong>owl:differentFrom</strong> ex:Jerry.</code></li>
         </ul>
       </li>
     </ul>
@@ -1542,7 +1533,8 @@ rdfs:domain rdfs:subPropertyOf rdfs:seeAlso.
     </h2>
     <p>What is the logical consequence of the following?</p>
     <pre><code>ex:Delphine ex:hasFather ex:Albert.
-ex:Delphine ex:hasFather ex:Jacques.</code></pre>
+ex:Delphine ex:hasFather ex:Jacques.
+ex:hasFather a owl:FunctionalProperty.</code></pre>
     <p class="next">It might be counterintuitive, but the conclusion is:</p>
     <pre class="next"><code>ex:Albert owl:sameAs ex:Jacques.</code></pre>
     <p class="next">To arrive at a contradiction, <a href="#individual-equality">explicitly define inequality</a>:</p>
@@ -1623,15 +1615,15 @@ ex:Delphine ex:hasFather ex:Jacques.</code></pre>
       enables querying &amp; updating RDF datasets.
     </h2>
     <ul>
-      <li>
-        <a href="https://www.w3.org/TR/sparql11-query/">SPARQL</a> is a query language.
+      <li class="next">
+        <a href="#sparql-query-forms">SPARQL</a> is a query language.
         <ul>
           <li>Select specific data from an RDF dataset.</li>
           <li>Insert, change, or delete data in an RDF dataset.</li>
         </ul>
       </li>
-      <li>
-        The <a href="https://www.w3.org/TR/sparql11-protocol/">SPARQL protocol</a>
+      <li class="next">
+        The <a href="#sparql-protocol">SPARQL protocol</a>
         is a <a href="../web-apis/#definition">Web API</a> definition<br>
         for querying in the SPARQL language over HTTP.
         <ul>
@@ -1646,7 +1638,7 @@ ex:Delphine ex:hasFather ex:Jacques.</code></pre>
 
   <div class="slide" id="sparql-query-forms">
     <h2>
-      SPARQL defines several forms<br>
+      The <a href="https://www.w3.org/TR/sparql11-overview/">SPARQL language</a> defines several forms<br>
       a query can take.
     </h2>
     <p>There are currently 4 read-only query forms:</p>
@@ -1753,7 +1745,7 @@ SELECT ?name ?person WHERE {
       A <code>DESCRIBE</code> query returns (non-specified)<br>
       contextual information for resources.
     </h2>
-    <iframe class="query-client" src="http://localhost:3000/_shared/query-client/#datasources=http%3A%2F%2Ffragments.dbpedia.org%2F2015%2Fen&query=DESCRIBE%20%3Fperson%20WHERE%20%7B%0A%20%20%3Fperson%20foaf%3Aname%20%22Pablo%20Picasso%22%40en.%0A%7D"></iframe>
+    <iframe class="query-client" src="../_shared/query-client/#datasources=http%3A%2F%2Ffragments.dbpedia.org%2F2015%2Fen&query=DESCRIBE%20%3Fperson%20WHERE%20%7B%0A%20%20%3Fperson%20foaf%3Aname%20%22Pablo%20Picasso%22%40en.%0A%7D"></iframe>
   </div>
 
   <div class="slide" id="sparql-modifiers">
@@ -1780,7 +1772,39 @@ SELECT ?name ?person WHERE {
       In addition to only BGPs,<br>
       SPARQL queries can contain <em>modifiers</em>.
     </h2>
-    <iframe class="query-client" src="http://localhost:3000/_shared/query-client/#datasources=http%3A%2F%2Ffragments.dbpedia.org%2F2015%2Fen&query=SELECT%20%3Fname%20%3Fperson%20%3Fspouse%20WHERE%20%7B%0A%20%20%3Fperson%20rdfs%3Alabel%20%3Fname.%0A%20%20%3Fperson%20dbo%3AinfluencedBy%20dbp%3APablo_Picasso.%0A%20%20OPTIONAL%20%7B%20%3Fperson%20dbo%3Aspouse%20%3Fspouse.%20%7D%0A%20%20FILTER%20LANGMATCHES(LANG(%3Fname)%2C%20%22EN%22)%0A%7D%0ALIMIT%2010"></iframe>
+    <iframe class="query-client" src="../_shared/query-client/#datasources=http%3A%2F%2Ffragments.dbpedia.org%2F2015%2Fen&query=SELECT%20%3Fname%20%3Fperson%20%3Fspouse%20WHERE%20%7B%0A%20%20%3Fperson%20rdfs%3Alabel%20%3Fname.%0A%20%20%3Fperson%20dbo%3AinfluencedBy%20dbp%3APablo_Picasso.%0A%20%20OPTIONAL%20%7B%20%3Fperson%20dbo%3Aspouse%20%3Fspouse.%20%7D%0A%20%20FILTER%20LANGMATCHES(LANG(%3Fname)%2C%20%22EN%22)%0A%7D%0ALIMIT%2010"></iframe>
+  </div>
+
+  <div class="slide" id="sparql-protocol">
+    <h2>
+      The purpose of the <a href="https://www.w3.org/TR/sparql11-protocol">SPARQL protocol</a><br>
+      is sending queries and receiving results.
+    </h2>
+    <ul>
+      <li>
+        The server is typically an RDF database (<em>triplestore</em>)<br>
+        with a SPARQL query engine.
+      </li>
+      <li class="next">
+        The client sends a query using a <a href="https://www.w3.org/TR/sparql11-protocol/#query-operation">URI template</a>.
+        <ul>
+          <li>
+            In essence, <code>/sparql?query={query}</code> with<br>
+            an URL-encoded SPARQL query through <code>GET</code> or <code>POST</code>.
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        The server replies in a <a href="https://www.w3.org/TR/sparql11-protocol/#query-success">standardized format</a>.
+        <ul class="inline">
+          <li><a href="https://www.w3.org/TR/rdf-sparql-XMLres/">XML</a></li>
+          <li><a href="https://www.w3.org/TR/sparql11-results-json/">JSON</a></li>
+          <li><a href="https://www.w3.org/TR/sparql11-results-csv-tsv/">CSV/TSV</a></li>
+          <li><a href="https://www.w3.org/TR/sparql11-results-csv-tsv/">CSV/TSV</a></li>
+          <li>RDF (for <code>CONSTRUCT</code>/<code>DESCRIBE</code>)</li>
+        </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="toc slide" id="reasoning">
@@ -1868,12 +1892,12 @@ SELECT ?name ?person WHERE {
     <p>
       For example, the presence of
     </p>
-    <pre><code>&lt;#Tim&gt; foaf:knows &lt;#Ted&gt;.
+    <pre class="next"><code>&lt;#Tim&gt; foaf:knows &lt;#Ted&gt;.
 foaf:knows rdfs:domain foaf:Person.</code></pre>
     <p>
       will result in an extra triple
     </p>
-    <pre><code>&lt;#Tim&gt; a foaf:Person.</code></pre>
+    <pre class="next"><code>&lt;#Tim&gt; a foaf:Person.</code></pre>
   </div>
 
   <div class="tight slide" id="owl-reasoners">
@@ -1893,12 +1917,12 @@ foaf:knows rdfs:domain foaf:Person.</code></pre>
     <p>
       For example, the presence of
     </p>
-    <pre><code>&lt;#me&gt; ex:hasPartner &lt;#SignificantOther&gt;.</code></pre>
+    <pre class="next"><code>&lt;#me&gt; ex:hasPartner &lt;#SignificantOther&gt;.</code></pre>
     <p>
       together with the <a href="#class-restrictions">class restrictions we saw earlier</a><br>
       ensures that the following triple <em>cannot</em> be true:
     </p>
-    <pre><code>&lt;#me&gt; a ex:Bachelor.</code></pre>
+    <pre class="next"><code>&lt;#me&gt; a ex:Bachelor.</code></pre>
   </div>
 
   <div class="slide" id="rule-based-reasoners">
@@ -1942,14 +1966,14 @@ foaf:knows rdfs:domain foaf:Person.</code></pre>
         N3 adds support for additional constructs.
         <dl>
           <dt>variables</dt>
-          <dd><code>?name</code></dd>
+          <dd class="next"><code>?name</code></dd>
           <dt>formulas</dt>
-          <dd><code>{ ?x a foaf:Person. }</code></dd>
+          <dd class="next"><code>{ ?x a foaf:Person. }</code></dd>
           <dt>implications</dt>
-          <dd><code>{ … } =&gt; { … }.</code></dd>
+          <dd class="next"><code>{ … } =&gt; { … }.</code></dd>
         </dl>
       </li>
-      <li>
+      <li class="next">
         Several N3 reasoners exist.
         <ul class="inline">
           <li><a href="https://www.w3.org/2000/10/swap/doc/cwm.html">cwm</a></li>
@@ -1957,9 +1981,12 @@ foaf:knows rdfs:domain foaf:Person.</code></pre>
           <li>…</li>
         </ul>
       </li>
-      <li>
-        Common <a href="#rdfs-vocabulary">RDFS</a> and <a href="#owl-concepts">OWL</a> concepts<br>
-        are <a href="http://eulersharp.sourceforge.net/#theories">available as N3 rules</a>.
+      <li class="next">
+        Common <a href="#rdfs-vocabulary">RDFS</a> and <a href="#owl-concepts">OWL</a> concepts
+        exist <a href="http://eulersharp.sourceforge.net/#theories">as N3 rules</a>.
+        <ul>
+          <li>Read them when in doubt about RDFS or OWL concepts.</li>
+        </ul>
       </li>
     </ul>
   </div>
