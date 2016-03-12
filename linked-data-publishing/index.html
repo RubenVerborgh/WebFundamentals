@@ -286,6 +286,102 @@
     </ul>
   </div>
 
+  <div class="slide" id="performances-example">
+    <h2>
+      Let us consider an example<br>
+      of musical performances.
+    </h2>
+    <p>
+      A JSON file contains a list of performances:
+    </p>
+<pre><code>{ ... "Performance" :
+  { "Perf_ID": "567",
+    "Venue": { "Name": "Vooruit",
+               "Venue_ID": "78" },
+    "Location": { "longitude": "3.725379",
+								  "latitude": "51.0477644" } },
+    ...
+}</code></pre>
+  </div>
+
+  <div class="slide" id="performances-mapping">
+    <h2>
+      The venues could be mapped<br>
+      using the following RML document.
+    </h2>
+<pre><code>&lt;#VenuesMapping&gt;
+    rml:logicalSource [
+        rml:source "http://ex.com/performances.json";
+        rml:referenceFormulation ql:JSONPath;
+        rml:iterator "$.Performance.[*]"
+    ];
+    rr:subjectMap [
+        rr:template "http://ex.com/venues/{Venue_ID}"
+    ].</code></pre>
+  </div>
+
+  <div class="slide" id="performances-mapping-predicate-objects">
+    <h2>
+      The venues could be mapped<br>
+      using the following RML document.
+    </h2>
+<pre><code>&lt;#VenuesMapping&gt;
+    rr:predicateObjectMap [
+        rr:predicate geo:long;
+        rr:objectMap [ rml:reference "longitude";
+                       rr:datatype xsd:float ]
+    ], [
+        rr:predicate geo:lat;
+        rr:objectMap [ rml:reference "latitude";
+                       rr:datatype xsd:float ]
+    ].</code></pre>
+  </div>
+
+  <div class="slide" id="performances-mapping-result">
+    <h2>
+      The execution of the mapping<br>
+      results in an RDF dataset.
+    </h2>
+<pre><code>...
+&lt;http://ex.com/venues/78&gt;
+    geo:long 3.725379;
+    geo:lat 51.0477644.
+
+&lt;http://ex.com/venues/91&gt;
+    geo:long 3.728515;
+    geo:lat 51.056008.
+...</code></pre>
+  </div>
+
+  <div class="slide" id="mapping-extensibility">
+    <h2>
+      The mapping can be extended<br>
+      to include other resources and properties.
+    </h2>
+    <ul>
+      <li>
+        RML mappings can incorporate data<br>
+        from other sources, even in different formats.
+        <ul>
+          <li>
+            Parts of mapping definitions can be reused.
+          </li>
+        </ul>
+      </li>
+      <li>
+        RML mappings can look up data from Web APIs.
+      </li>
+      <li>
+        Interlinking can happen at mapping time,<br>
+        rather than as a separate step after mapping.
+        <ul>
+          <li>Reuse identifiers as much as possible.</li>
+          <li>Link data as early as possible.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
   <div class="slide" id="clean">
     <h2>
       Many Linked Data life cycles are proposed.<br>
