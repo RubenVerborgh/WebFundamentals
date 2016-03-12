@@ -167,6 +167,125 @@
     </ul>
   </div>
 
+  <div class="slide" id="mapping">
+    <h2>
+      Linked Data can be generated in batch<br>
+      through a <em>mapping</em> process.<br>
+    </h2>
+    <ul>
+      <li>
+        A <em>mapping processor</em> takes input sources<br>
+        and a mapping file as input.
+      </li>
+      <li>
+        The <em>mapping file</em> explains how input data<br>
+        should be converted to the RDF model.
+        <ul>
+          <li>selectors to locate data</li>
+          <li>rules to transform data</li>
+        </ul>
+      </li>
+      <li>
+        Different processors have different features.
+        <ul class="inline">
+          <li>source type support</li>
+          <li>interlinking together with mapping</li>
+          <li>…</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="ad-hoc-mapping">
+    <h2>
+      Mapping can be performed with<br>
+      ad-hoc scripts for a specific dataset.
+    </h2>
+    <ul>
+      <li>
+        You write custom code to handle your case.
+      </li>
+      <li class="next">
+        The short-term costs might be low,<br>
+        but long-term maintenance can prove difficult.
+        <ul>
+          <li>Changes require a developer.</li>
+          <li>The mapping is not reusable across datasets.</li>
+        </ul>
+      </li>
+      <li class="next">
+        Different but related data sources result in<br>
+        duplicated effort and incompatibilities.
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="r2rml">
+    <h2>
+      <a href="https://www.w3.org/TR/r2rml/">R2RML</a> is an RDF vocabulary to describe<br>
+      a mapping of relational data into RDF.
+    </h2>
+    <ul>
+      <li class="next">
+        A <a href="https://www.w3.org/TR/r2rml/#triples-map">triples map</a> has access to tables (and queries)<br>
+        through <a href="https://www.w3.org/TR/r2rml/#logical-tables">logical tables</a>.
+      </li>
+      <li class="next">
+        These logical tables are mapped with <a href="https://www.w3.org/TR/r2rml/#term-map">term maps</a>.
+        <ul>
+          <li><a href="https://www.w3.org/TR/r2rml/#subject-map">Subject maps</a> generate resource identifiers.</li>
+          <li><a href="https://www.w3.org/TR/r2rml/#predicate-object-map">Predicate-object maps</a> generate the rest of the triple.</li>
+        </ul>
+      </li>
+      <li class="next">
+        <a href="https://www.w3.org/TR/r2rml/#term-map">Term maps</a> generate individual RDF terms.
+        <ul class="inline">
+          <li><a href="https://www.w3.org/TR/r2rml/#constant">constant</a></li>
+          <li><a href="https://www.w3.org/TR/r2rml/#from-column">column value</a></li>
+          <li><a href="https://www.w3.org/TR/r2rml/#from-template">string template</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="rml">
+    <h2>
+      <a href="http://rml.io/spec.html">RML</a> is a generalization of <a href="#r2rml">R2RML</a><br>
+      toward heterogeneous data sources.
+    </h2>
+    <ul>
+      <li class="next">
+        RML abstracts different types of <a href="http://rml.io/spec.html#logical-source">logical sources</a>.
+        <ul>
+          <li class="next">A source is modelled as an <em>iterator</em> of items.</li>
+          <li class="next">
+            Sources can be
+            <ul class="inline">
+              <li>databases</li>
+              <li>CSV</li>
+              <li>XML</li>
+              <li>JSON</li>
+              <li>…</li>
+            </ul>
+          </li>
+          <li class="next">The mechanism is extensible through new vocabularies.</li>
+        </ul>
+      </li>
+      <li class="next">
+        RML <a href="http://rml.io/spec.html#term-map">term maps</a> use logical sources to create terms.
+        <ul>
+          <li>
+            The contents of iterator items are accessible<br>
+            through data-source-specific <a href="http://rml.io/spec.html#referenceFormulation">reference formulations</a>.
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        RML can map and interlink heterogeneous sources.
+      </li>
+    </ul>
+  </div>
+
   <div class="slide" id="clean">
     <h2>
       Many Linked Data life cycles are proposed.<br>
