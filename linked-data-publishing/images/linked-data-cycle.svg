@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="900" height="400">
+<style>
+@font-face{
+ font-weight: 700;
+ font-style: italic;
+ font-family: 'Open Sans';
+ src: url(../../_shared/fonts/OpenSans.Bold.Italic.woff) format('woff')
+}
+text {
+  font: 26px 'Open Sans';
+  font-weight: bold;
+  font-style: italic;
+  letter-spacing: -.5px;
+  fill: white;
+  stroke: none;
+}
+#arrows path {
+  fill: none;
+  stroke: #4B86C4;
+  stroke-width: 6px;
+  marker-end: url(#triangle);
+}
+path { fill: #4B86C4; }
+circle { fill: #4B86C4; }
+:target circle { fill: #CC4420; }
+a { outline: none; }
+</style>
+  <marker id="triangle" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto">
+    <path d="M 0 0 L 10 5 L 0 10 z" />
+  </marker>
+  <g id="arrows">
+    <path d="M279.75,230.31c-0.51-5.21-0.77-10.49-0.77-15.83 c0-65.98,39.73-122.69,96.57-147.5"/>
+    <path d="M405.27,371.61 c-67.21-14.72-118.7-71.47-125.52-141.3"/>
+    <path d="M578.96,295.29 c-27.87,47.87-79.73,80.04-139.12,80.04c-11.87,0-23.43-1.29-34.57-3.72"/>
+    <path d="M560.62,108.23 c24.95,28.34,40.08,65.53,40.08,106.25c0,29.46-7.92,57.07-21.74,80.81"/>
+    <path d="M375.55,66.98c19.69-8.59,41.43-13.36,64.29-13.36 c48.12,0,91.3,21.13,120.78,54.61"/>
+  </g>
+  <a id="generate" xlink:href="../#generate">
+    <circle cx="297" cy="168" r="64"/>
+    <text x="247" y="176">generate</text>
+  </a>
+  <a id="clean" xlink:href="../#clean">
+    <circle cx="440" cy="64" r="64"/>
+    <text x="409" y="71" >clean</text>
+  </a>
+  <a id="publish" xlink:href="../#publish">
+    <circle cx="584" cy="168" r="64"/>
+    <text x="542" y="176">publish</text>
+  </a>
+  <a id="query" xlink:href="../#query">
+    <circle cx="529" cy="336" r="64"/>
+    <text x="496" y="344">query</text>
+  </a>
+  <a id="enhance" xlink:href="../#enhance">
+    <circle cx="352" cy="336" r="64"/>
+    <text x="304" y="344">enhance</text>
+  </a>
+</svg>
+
