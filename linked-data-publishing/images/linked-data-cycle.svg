@@ -41,13 +41,13 @@ a { outline: none; }
     <circle cx="297" cy="168" r="64"/>
     <text x="247" y="176">generate</text>
   </a>
-  <a id="clean" xlink:href="../#clean">
+  <a id="validate" xlink:href="../#validate">
     <circle cx="440" cy="64" r="64"/>
-    <text x="409" y="71" >clean</text>
+    <text x="394" y="71" >validate</text>
   </a>
   <a id="publish" xlink:href="../#publish">
     <circle cx="584" cy="168" r="64"/>
-    <text x="542" y="176">publish</text>
+    <text x="544" y="176">publish</text>
   </a>
   <a id="query" xlink:href="../#query">
     <circle cx="529" cy="336" r="64"/>

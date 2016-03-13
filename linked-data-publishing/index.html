@@ -102,7 +102,7 @@
       Many Linked Data life cycles are proposed.<br>
       This simple cycle consists of 5 steps.
     </h2>
-    <img src="images/linked-data-cycle.svg" alt="generate, clean, publish, query, enhance">
+    <img src="images/linked-data-cycle.svg" alt="generate, validate, publish, query, enhance">
   </div>
 
   <div class="slide" id="generate">
@@ -110,7 +110,7 @@
       Generation is the step in which<br>
       we convert non-RDF data to RDF.
     </h2>
-    <img src="images/linked-data-cycle.svg#generate" alt="generate, clean, publish, query, enhance">
+    <img src="images/linked-data-cycle.svg#generate" alt="generate, validate, publish, query, enhance">
   </div>
 
   <div class="slide" id="web-templating">
@@ -382,22 +382,22 @@
     </ul>
   </div>
 
-  <div class="slide" id="clean">
+  <div class="slide" id="validate">
     <h2>
       After Linked Data has been generated,<br>
-      we can clean it using semantics.
+      we can validate it using semantics.
     </h2>
-    <img src="images/linked-data-cycle.svg#clean" alt="generate, clean, publish, query, enhance">
+    <img src="images/linked-data-cycle.svg#validate" alt="generate, validate, publish, query, enhance">
   </div>
 
-  <div class="slide" id="semantic-cleaning">
+  <div class="slide" id="semantic-validation">
     <h2>
-      Cleaning can be applied at various stages<br>
+      Validation can be applied at various stages<br>
       and on different levels.
     </h2>
     <ul>
       <li class="next">
-        Cleaning on data level can address:
+        Validation on input data level can address:
         <ul>
           <li>spelling mistakes</li>
           <li>field overloading</li>
@@ -406,7 +406,7 @@
         </ul>
       </li>
       <li class="next">
-        Cleaning on the semantic level can address:
+        Validation on the semantic level can address:
         <ul>
           <li>domain and range of values</li>
           <li>inconsistencies</li>
@@ -487,7 +487,7 @@
     </h2>
     <p>The ontology defines the following constraints:</p>
     <pre><code>:isFatherOf a owl:IrreflexiveProperty;
-               owl:InverseFunctionalProperty.</code></pre>
+              owl:InverseFunctionalProperty.</code></pre>
     <p>This triples below are inconsistent:</p>
     <pre><code>:Albert  :isFatherOf :Albert.
 :Albert  :isFatherOf :Delphine.
@@ -550,7 +550,7 @@
       As soon as Linked Data is ready,<br>
       it can be published for consumption.
     </h2>
-    <img src="images/linked-data-cycle.svg#publish" alt="generate, clean, publish, query, enhance">
+    <img src="images/linked-data-cycle.svg#publish" alt="generate, validation, publish, query, enhance">
   </div>
 
   <div class="slide" id="linked-data-publication">
@@ -692,7 +692,7 @@
       Many Linked Data life cycles are proposed.<br>
       This simple cycle consists of 5 steps.
     </h2>
-    <img src="images/linked-data-cycle.svg#query" alt="generate, clean, publish, query, enhance">
+    <img src="images/linked-data-cycle.svg#query" alt="generate, validation, publish, query, enhance">
   </div>
 
   <div class="slide" id="enhance">
@@ -700,7 +700,7 @@
       Many Linked Data life cycles are proposed.<br>
       This simple cycle consists of 5 steps.
     </h2>
-    <img src="images/linked-data-cycle.svg#enhance" alt="generate, clean, publish, query, enhance">
+    <img src="images/linked-data-cycle.svg#enhance" alt="generate, validation, publish, query, enhance">
   </div>
 
   <div class="toc slide" id="challenges">
