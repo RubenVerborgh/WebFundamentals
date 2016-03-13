@@ -384,10 +384,165 @@
 
   <div class="slide" id="clean">
     <h2>
-      Many Linked Data life cycles are proposed.<br>
-      This simple cycle consists of 5 steps.
+      After Linked Data has been generated,<br>
+      we can clean it using semantics.
     </h2>
     <img src="images/linked-data-cycle.svg#clean" alt="generate, clean, publish, query, enhance">
+  </div>
+
+  <div class="slide" id="semantic-cleaning">
+    <h2>
+      Cleaning can be applied at various stages<br>
+      and on different levels.
+    </h2>
+    <ul>
+      <li class="next">
+        Cleaning on data level can address:
+        <ul>
+          <li>spelling mistakes</li>
+          <li>field overloading</li>
+          <li>simple datatype checks</li>
+          <li>…</li>
+        </ul>
+      </li>
+      <li class="next">
+        Cleaning on the semantic level can address:
+        <ul>
+          <li>domain and range of values</li>
+          <li>inconsistencies</li>
+          <li>…</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="database-validation">
+    <h2>
+      Databases only allow for<br>
+      rudimentary constraint validation.
+    </h2>
+    <ul>
+      <li>
+        They perform elementary value-type checks.
+        <ul>
+          <li>field <code>Temperature</code> has type <code>INTEGER</code></li>
+        </ul>
+      </li>
+      <li>
+        They can ensure referential integrity.
+        <ul>
+          <li>Does a referenced record exist?</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="ontological-validation">
+    <h2>
+      Ontologies allow for much more<br>
+      fine-grained constrained validation.
+    </h2>
+    <ul>
+    <li>
+        More specific types can be defined,<br>
+        and their definitions can be reused.
+        <ul class="inline">
+          <li>temperature</li>
+          <li>days per month</li>
+          <li>…</li>
+        </ul>
+      </li>
+      <li>
+        Type checking can take more factors into account.
+        <ul class="inline">
+          <li>domain and range</li>
+          <li>incompatible types</li>
+          <li>…</li>
+        </ul>
+      </li>
+      <li>
+        Additional reasoning can further identify problems.
+      </li>
+    </ul>
+  </div>
+
+  <div class="tight slide" id="validation-range-domain">
+    <h2>
+      In the following example, type checking<br>
+      identifies an incorrect triple.
+    </h2>
+    <p>The ontology defines the following constraints:</p>
+    <pre><code>foaf:knows rdfs:domain foaf:Person;
+            rdfs:range foaf:Person.
+:Mathematics a :Course.
+:Course owl:disjointWith foaf:Person.</code></pre>
+    <p>This triple violates those constraints:</p>
+    <pre><code>:Albert foaf:knows :Mathematics.</code></pre>
+  </div>
+
+  <div class="tight slide" id="validation-complex-constraints">
+    <h2>
+      Violations <em>across</em> triples can be identified,<br>
+      but not always automatically resolved.
+    </h2>
+    <p>The ontology defines the following constraints:</p>
+    <pre><code>:isFatherOf a owl:IrreflexiveProperty;
+               owl:InverseFunctionalProperty.</code></pre>
+    <p>This triples below are inconsistent:</p>
+    <pre><code>:Albert  :isFatherOf :Albert.
+:Albert  :isFatherOf :Delphine.
+:Jacques :isFatherOf :Delphine.</code></pre>
+    <p>Which ones are correct is not known.</p>
+  </div>
+
+  <div class="slide" id="automated-validation">
+    <h2>
+      Automated validation tells you<br>
+      whether data makes sense.
+    </h2>
+    <ul>
+      <li>
+        <a href="https://github.com/AKSW/RDFUnit">RDFUnit</a> assesses the quality of a dataset<br>
+        by running automated tests on it.
+      </li>
+      <li>
+        It looks up the ontologies used in a dataset<br>
+        by <a href="../semantic-web/#http-uris">dereferencing</a> concepts.
+      </li>
+      <li>
+        The constraints in the ontology are transformed<br>
+        into SPARQL queries and executed.
+        <ul>
+          <li>This results in warnings and/or errors.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="mapping-validations">
+    <h2>
+      By validating during the <a href="#mapping">mapping process</a>,<br>
+      we detect quality issues before they occur.
+    </h2>
+    <ul>
+      <li class="next">
+        Batch mapping processes<br>
+        can generate millions of triples.
+        <ul>
+          <li class="next">
+            If we find a quality issue only afterwards,<br>
+            we have to restart the entire mapping.
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        Checking quality during mapping allows<br>
+        pinpointing the cause of errors and fixing them.
+        <ul>
+          <li>Mapping rules that fail need not be not executed first.</li>
+        </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="slide" id="publish">
