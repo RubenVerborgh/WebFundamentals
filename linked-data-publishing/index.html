@@ -547,10 +547,144 @@
 
   <div class="slide" id="publish">
     <h2>
-      Many Linked Data life cycles are proposed.<br>
-      This simple cycle consists of 5 steps.
+      As soon as Linked Data is ready,<br>
+      it can be published for consumption.
     </h2>
     <img src="images/linked-data-cycle.svg#publish" alt="generate, clean, publish, query, enhance">
+  </div>
+
+  <div class="slide" id="linked-data-publication">
+    <h2>
+      There are roughly 3 ways of<br>
+      publishing Linked Data on the Web.
+    </h2>
+    <ul>
+      <li>
+        <a href="#data-dump">data dump</a>
+        <ul>
+          <li class="next">provide an archive file with the entire dataset</li>
+        </ul>
+      </li>
+      <li>
+        <a href="#sparql-endpoints">SPARQL endpoint</a>
+        <ul>
+          <li class="next">expose a triple store's query interface</li>
+        </ul>
+      </li>
+      <li>
+        <a href="#linked-data-documents">Linked Data documents</a>
+        <ul>
+          <li class="next">browse triples per resource / topic</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="data-dump">
+    <h2>
+      A data dump places all dataset triples<br>
+      in one or more archive files.
+    </h2>
+    <ul>
+      <li>
+        Dumps need to be downloaded entirely<br>
+        before they can be queried.
+        <ul>
+          <li>Dump files can be several gigabytes.</li>
+        </ul>
+      </li>
+      <li class="next">
+        They offer the client full flexibility<br>
+        to choose how data is processed.
+      </li>
+      <li class="next">
+        Keeping data up-to date requires effort.
+        <ul>
+          <li>redownload the entire dump</li>
+          <li>download and apply incremental patches</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="data-dump-example">
+    <h2>
+      A data dump places all dataset triples<br>
+      in one or more archive files.
+    </h2>
+    <iframe class="website" src="http://downloads.dbpedia.org/2015-10/core/"></iframe>
+  </div>
+
+  <div class="slide" id="sparql-endpoint">
+    <h2>
+      A SPARQL endpoint lets clients execute<br>
+      arbitrary (read-only) queries on a server.
+    </h2>
+    <ul>
+      <li class="next">
+        This gives clients direct access to<br>
+        (only) the data they are interested in.
+        <ul>
+          <li>Only very little bandwidth is required.</li>
+        </ul>
+      </li>
+      <li class="next">
+        Data is always up-to-date.
+      </li>
+      <li class="next">
+        The per-request cost for SPARQL endpoints<br>
+        is much higher than for other HTTP servers.
+        <ul>
+          <li>Few servers allow arbitrarily complicated queries.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="sparql-endpoint-example">
+    <h2>
+      A SPARQL endpoint lets clients execute<br>
+      arbitrary (read-only) queries on a server.
+    </h2>
+    <iframe class="website" src="http://dbpedia.org/sparql"></iframe>
+  </div>
+
+  <div class="slide" id="linked-data-documents">
+    <h2>
+      Linked Data documents provide<br>
+      per-topic access to a dataset.
+    </h2>
+    <ul>
+      <li class="next">
+        They follow the <a href="../semantic-web/#linked-data-principles">Linked Data principles</a>.
+        <ul>
+          <li>The information structure resembles typical webpages.</li>
+        </ul>
+      </li>
+      <li class="next">
+        Browsing up-to-date datasets is straightforward.
+      </li>
+      <li class="next">
+        Query execution is possible through<br>
+        <a href="http://squin.sourceforge.net/index.shtml">link-traversal-based querying</a>.
+        <ul>
+          <li>
+            The execution of SPARQL queries is rather slow.
+          </li>
+          <li>
+            Completeness cannot always be guaranteed.
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="linked-data-documents-example">
+    <h2>
+      Linked Data documents provide<br>
+      per-topic access to a dataset.
+    </h2>
+    <iframe class="website" src="http://dbpedia.org/resource/Tim_Berners-Lee"></iframe>
   </div>
 
   <div class="slide" id="query">
