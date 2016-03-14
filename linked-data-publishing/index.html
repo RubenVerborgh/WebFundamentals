@@ -473,7 +473,7 @@
     </h2>
     <p>The ontology defines the following constraints:</p>
     <pre><code>foaf:knows rdfs:domain foaf:Person;
-            rdfs:range foaf:Person.
+           rdfs:range foaf:Person.
 :Mathematics a :Course.
 :Course owl:disjointWith foaf:Person.</code></pre>
     <p>This triple violates those constraints:</p>
@@ -764,10 +764,101 @@
 
   <div class="slide" id="enhance">
     <h2>
-      Many Linked Data life cycles are proposed.<br>
-      This simple cycle consists of 5 steps.
+      Enhancements let client feedback<br>
+      find its way back to the source.
     </h2>
     <img src="images/linked-data-cycle.svg#enhance" alt="generate, validation, publish, query, enhance">
+  </div>
+
+  <div class="slide" id="corrections-mistakes">
+    <h2>
+      Data doesn't stop when published.<br>
+      It only just begins.
+    </h2>
+    <ul>
+      <li class="next">
+        When users query data sources,<br>
+        they might spot mistakes or missing data.
+      </li>
+      <li class="next">
+        Can users correct data?<br>
+        Can they create new data?
+      </li>
+      <li class="next">
+        Especially open data should be open to corrections.
+        <ul>
+          <li>Feedback is a core added value of <em>open</em>.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="feedback-loops">
+    <h2>
+      Unfortunately, such feedback loops<br>
+      are still rare for Linked Data.
+    </h2>
+    <p>
+      Open challenges include:
+    </p>
+    <ul>
+      <li>How can end users edit triples?</li>
+      <li>How can edits be reviewed?</li>
+      <li>How do we keep track of history?</li>
+    </ul>
+  </div>
+
+  <div class="slide" id="provenance">
+    <h2>
+      <a href="https://www.w3.org/TR/prov-overview/">Provenance</a> allows modeling<br>
+      the history trail of facts.
+    </h2>
+    <ul>
+      <li class="next">
+        Provenance captures entities, activities, and people<br>
+        involved in producing a resource.
+      </li>
+      <li class="next">
+        Use provenance to asses quality, reliability, or trust.
+        <ul>
+          <li>
+            Tim Berners-Lee sketches an <a href="https://www.w3.org/DesignIssues/UI.html"><em>Oh yeah?</em> button</a><br>
+            you click to gain trust in information on the Web.
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        Many provenance challenges are still open.
+        <ul>
+          <li>How to generate provenance (during mapping)?</li>
+          <li>How to store <var>n</var> provenance triples per data triple?</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="reverse-mapping">
+    <h2>
+      <em>Reverse mappings</em> could feed edits<br>
+      back to the original source.
+    </h2>
+    <ul>
+      <li class="next">
+        If the RDF triples are generated from raw data,<br>
+        edits to the triples should be ported back.
+        <ul>
+          <li>If not, they are overwritten by the next mapping.</li>
+        </ul>
+      </li>
+      <li class="next">
+        If the <a href="#mapping">mapping file</a> declaratively specifies<br>
+        how a source maps to triples,<br>
+        we might be able to reverse it automatically.
+        <ul>
+          <li>Another reason not to use <a href="#ad-hoc-mapping">custom mapping scripts </a>😉</li>
+        </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="toc slide" id="challenges">
