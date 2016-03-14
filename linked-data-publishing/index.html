@@ -876,6 +876,260 @@
     <p class="tweets"><a href="https://twitter.com/search?f=tweets&amp;q=%23ITech16">#ITech16</a></p>
   </div>
 
+  <div class="slide" id="semantic-web-vision">
+    <h2>
+      The original Semantic Web vision<br>
+      features intelligent agents.
+    </h2>
+    <blockquote>
+      <p>
+        Schedule bi-weekly appointments<br>
+        with a licensed physical therapist,<br>
+        specialized in a particular field,<br>
+        living nearby home or my workplace.
+      </p>
+      <cite>adapted from <a href="http://www.scientificamerican.com/article/the-semantic-web/"><em>The Semantic Web</em></a></cite>
+    </blockquote>
+  </div>
+
+  <div class="slide" id="smartphones">
+    <h2>
+      Do we still need the Semantic Web<br>
+      with an smartphone in our pockets?
+    </h2>
+    <img src="../birds-eye-view/images/siri.png" alt="[an iPhone running Siri]" style="float: right; height: 430px;">
+    <ul>
+      <li>
+        On the surface, the current generation of smart devices realizes
+        much of what the Semantic Web promised.
+        <ul>
+          <li>Just realize the intelligence<br> is <em>not</em> on your smartphone.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="preprogrammed-agents">
+    <h2>
+      The current generation of agents<br>
+      only performs preprogrammed acts.
+    </h2>
+    <ul>
+      <li>
+        The Semantic Web's goal is to allow this
+        with <em>unknown</em> services and data.
+        <ul>
+          <li class="next">
+            The service inclusion process for current digital agents<br>
+            is non-transparent and non-democratic, unlike the Web.
+          </li>
+          <li class="next">
+            Even if it were democratic, it wouldn't scale,<br>
+            since the integration is hardcoded.
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        Machines should discover services and data<br>
+        and use them <em>without</em> any prior knowledge.
+        <ul>
+          <li><a href="../web-apis/#owl-s">Semantic service descriptions</a> did not really catch on.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="chicken-and-egg">
+    <h2>
+      Before Linked Data, the Semantic Web<br>
+      suffered from a <a href="../birds-eye-view/#chicken-and-egg">chicken-and-egg problem</a>.
+    </h2>
+    <ul>
+      <li class="next">
+        Applications and data were waiting for each other.
+        <ul>
+          <li>Have <em>you</em> used the Semantic Web yet?</li>
+        </ul>
+      </li>
+      <li class="next">
+        Now, at least the data is there on a large scale.
+        <ul>
+          <li class="opinion">But that is not sufficient to <a href="https://lists.w3.org/Archives/Public/semantic-web/2015Nov/0047.html">call the Semantic Web a success</a>.</li>
+        </ul>
+      </li>
+      <li class="next">
+        What more do we need to kickstart things?
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="where-are-the-agents">
+    <h2>
+      We have all the infrastructure,<br>
+      so <a href="https://www.computer.org/csdl/mags/ex/2007/03/x3002.pdf">where are all the intelligent agents?</a>
+    </h2>
+    <ul>
+      <li class="next">
+        We published billions of triples,<br>spanning many domains.
+      </li>
+      <li class="next">
+        Many answers we seek are out there.
+      </li>
+      <li class="next">
+        But how do we find them?<br>How do we access them?
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="public-sparql-endpoints">
+    <h2>
+      The SemWeb's answer to live querying<br>
+      has been “public SPARQL endpoints”.
+    </h2>
+    <ul>
+      <li>
+        A <a href="../semantic-web/#sparql-protocol">SPARQL endpoint</a> allows clients<br>
+        to send any SPARQL query for evaluation.
+        <ul>
+          <li><code>/sparql?query={query}</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        What could possibly go wrong?
+        <ul>
+          <li class="next">What if clients send expensive queries?</li>
+          <li class="next">What if many clients send medium queries?</li>
+          <li class="next">How will you mirror the server's data?</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="sql-versus-sparql">
+    <h2>
+      Would you put your SQL database<br>
+      publicly on the Web—even just read-only?
+    </h2>
+    <ul>
+      <li class="next">
+        Normally, Web interfaces purposely<br>
+        limit access to the underlying database.
+      </li>
+      <li class="next">
+        RDF removes the <em>model</em> barrier, and thus<br>
+        the need for clients to know the data schema.
+        <ul>
+          <li>The interface is not necessary as an <em>abstraction</em>.</li>
+        </ul>
+      </li>
+      <li class="next">
+        Yet RDF does not remove the <em>complexity</em> barrier.
+        <ul>
+          <li class="opinion">The interface might still be necessary as a <em>limiter</em>.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="public-endpoint-availability">
+    <h2>
+      Most public SPARQL endpoints<br>
+      have <a href="http://www.deri.ie/sites/default/files/publications/paperiswc.pdf">less than 95% availability</a>.
+    </h2>
+    <ul>
+      <li class="next">
+        The average SPARQL endpoint<br>
+        is down for 1.5 days <em>each month</em>.
+        <ul>
+          <li class="next">
+            Web servers usually express availability in <em>number of nines</em>.
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        Building a reliable application on top of<br>
+        a publicly queryable Linked Data source<br>
+        is thus currently not realistic.
+        <ul>
+          <li class="next">Things only get worse if you need <em>multiple</em> sources.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="availability-problem">
+    <h2>
+      Linked Data availability on the Web<br>
+      is a serious, two-sided problem.
+    </h2>
+    <ol>
+      <li class="next">
+        Public SPARQL endpoints that exist, lack uptime.
+        <ul>
+          <li>
+            High uptime would be possible,<br>
+            but comes with a high server cost.
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        For most datasets, no public endpoint exists.
+        <ul>
+          <li>
+            Publishers provide <a href="#data-dump">data dumps</a> instead,<br>
+            but these cannot be queried live.
+          </li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+
+  <div class="slide" id="private-endpoints">
+    <h2 class="opinion">
+      If we all host a private endpoint,<br>
+      it is no longer a Semantic <em>Web</em>.
+    </h2>
+    <blockquote>
+      <p class="next">
+        If you have operational need<br>
+        for SPARQL-accessible data,<br>
+        you must have your own infrastructure.
+      </p>
+      <p class="next">
+        No public endpoints.<br>
+        Public endpoints are for lookups and discovery;<br>
+        sort of a dataset demo.
+      </p>
+      <cite><a href="http://www.openlinksw.com/weblog/oerling/?id=1815">Orri Erling</a>, OpenLink (2014)</cite>
+    </blockquote>
+  </div>
+
+  <div class="slide" id="intelligent-servers">
+    <h2 class="opinion">
+      15 years of Semantic Web research<br>
+      has mostly lead to intelligent <em>servers</em>.
+    </h2>
+    <ul>
+      <li class="next">
+        Without a cost model behind it,<br>
+        server intelligence is not scalable.
+        <ul>
+          <li>Not every Web resource can be created just for you.</li>
+        </ul>
+      </li>
+      <li class="next opinion">
+        Instead of trying to be intelligent ourselves,<br>
+        we should <em>enable</em> clients to be intelligent.
+        <ul>
+          <li class="next">
+            What is a good basic set of conditions to guarantee<br>
+            <em>realistic</em> availability of Linked Data on the Web?
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
   <div class="toc slide" id="linked-data-fragments">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
