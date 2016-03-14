@@ -511,7 +511,7 @@
       </li>
       <li>
         The constraints in the ontology are transformed<br>
-        into SPARQL queries and executed.
+        into SPARQL queries and then evaluated.
         <ul>
           <li>This results in warnings and/or errors.</li>
         </ul>
@@ -617,7 +617,7 @@
 
   <div class="slide" id="sparql-endpoint">
     <h2>
-      A SPARQL endpoint lets clients execute<br>
+      A SPARQL endpoint lets clients evaluate<br>
       arbitrary (read-only) queries on a server.
     </h2>
     <ul>
@@ -643,7 +643,7 @@
 
   <div class="slide" id="sparql-endpoint-example">
     <h2>
-      A SPARQL endpoint lets clients execute<br>
+      A SPARQL endpoint lets clients evaluate<br>
       arbitrary (read-only) queries on a server.
     </h2>
     <iframe class="website" src="http://dbpedia.org/sparql"></iframe>
@@ -665,11 +665,11 @@
         Browsing up-to-date datasets is straightforward.
       </li>
       <li class="next">
-        Query execution is possible through<br>
+        Query evaluation is possible through<br>
         <a href="http://squin.sourceforge.net/index.shtml">link-traversal-based querying</a>.
         <ul>
           <li>
-            The execution of SPARQL queries is rather slow.
+            The evaluation of SPARQL queries is rather slow.
           </li>
           <li>
             Completeness cannot always be guaranteed.
@@ -689,10 +689,77 @@
 
   <div class="slide" id="query">
     <h2>
-      Many Linked Data life cycles are proposed.<br>
-      This simple cycle consists of 5 steps.
+      Once Linked Data is published on the Web,<br>
+      clients can evaluate queries over it.
     </h2>
     <img src="images/linked-data-cycle.svg#query" alt="generate, validation, publish, query, enhance">
+  </div>
+
+  <div class="slide" id="query-introduction">
+    <h2>
+      Just like on the “human” web,<br>
+      querying goes beyond browsing.
+    </h2>
+    <ul>
+      <li>Where can we find the data we need?</li>
+      <li>How can we access that data?</li>
+      <li>How do we combine it with other data?</li>
+    </ul>
+  </div>
+
+  <div class="slide" id="query-interface">
+    <h2>
+      The possibilities for query evaluation<br>
+      depend on how data is made available.
+    </h2>
+    <ul>
+      <li class="next">
+        Is the data available in RDF?
+        <ul>
+          <li>Then we should discover the ontologies used.</li>
+        </ul>
+      </li>
+      <li class="next">
+        Is the data linked to other data?
+        <ul>
+          <li>Then we can / might need to involve other datasets.</li>
+        </ul>
+      </li>
+      <li class="next">
+        In what interfaces is the data available?
+        <ul>
+          <li>The client might need to evaluate (a part of) the query.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="federation">
+    <h2>
+      Evaluating queries over a <em>federation</em><br>
+      of interfaces introduces new challenges.
+    </h2>
+    <ul>
+      <li class="next">
+        Which interface has the necessary data?
+        <ul>
+          <li>If there are multiple, which one is the best?</li>
+        </ul>
+      </li>
+      <li class="next">
+        How will the query evaluation be coordinated?
+        <ul>
+          <li>Does one SPARQL endpoint talk to others?</li>
+          <li>Does the client talk to all SPARQL endpoints?</li>
+        </ul>
+      </li>
+      <li class="next">
+        In what order are subqueries executed?
+        <ul>
+          <li>We should minimize high numbers of intermediary results.</li>
+        </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="slide" id="enhance">
