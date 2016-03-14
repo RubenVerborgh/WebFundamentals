@@ -66,6 +66,13 @@ footer p.license img {
   right: 60px;
 }
 
+/* Titles */
+h3 {
+  color: #4B86C2;
+  font-weight: bold;
+  margin-bottom: 42px;
+}
+
 /* Inline lists */
 ul.inline > li, ol.inline > li {
   margin-left: 0;
@@ -329,8 +336,8 @@ blockquote.long p {
   margin-right: 4%;
 }
 .do h3, .dont h3 {
-  font-weight: bold;
   color: #4B86C2;
+  margin-bottom: 0;
 }
 .dont h3 {
   color: #CC4320;
