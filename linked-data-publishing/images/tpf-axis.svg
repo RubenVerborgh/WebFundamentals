@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="900" height="400">
+<style>
+@font-face{
+ font-style: italic;
+ font-family: 'Open Sans';
+ src: url(../../_shared/fonts/OpenSans.Italic.woff) format('woff')
+}
+@font-face{
+ font-weight: 700;
+ font-family: 'Open Sans';
+ src: url(../../_shared/fonts/OpenSans.Bold.woff) format('woff')
+}
+
+line, path {
+  stroke: black;
+  fill: none;
+}
+line {
+  stroke-width: 3px;
+}
+.axis {
+  marker-start: url(#triangle);
+  marker-end: url(#triangle);
+}
+.tick {
+  stroke-width: 4px;
+}
+
+text {
+  font: 28px 'Open Sans';
+}
+.caption {
+  font-style: italic;
+  fill: #979A9E;
+}
+.label {
+  font-weight: bold;
+}
+.highlight {
+  fill: #CC4320;
+  stroke: #CC4320;
+}
+.right { text-anchor: end; }
+.middle { text-anchor: middle; }
+</style>
+  <marker id="triangle" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+    <path d="M 0 0 L 10 5 L 0 10" />
+  </marker>
+
+  <text x="0%"   y="6%"  class="caption left">old data</text>
+  <text x="0%"   y="18%" class="caption left">high bandwidth</text>
+  <text x="0%"   y="30%" class="caption left">high availability</text>
+  <text x="0%"   y="42%" class="caption left">high client cost</text>
+  <text x="0%"   y="54%" class="caption left">low server cost</text>
+
+  <text x="100%" y="6%"  class="caption right">live data</text>
+  <text x="100%" y="18%" class="caption right">low bandwidth</text>
+  <text x="100%" y="30%" class="caption right">low availability</text>
+  <text x="100%" y="42%" class="caption right">low client cost</text>
+  <text x="100%" y="54%" class="caption right">high server cost</text>
+
+  <line x1="0%" y1="68%" x2="100%" y2="68%" class="axis"/>
+  <line x1="5%"  x2="5%"  y1="65%" y2="71%" class="tick"/>
+  <line x1="19%" x2="19%" y1="65%" y2="71%" class="tick"/>
+  <line x1="29%" x2="29%" y1="65%" y2="71%" class="tick"/>
+  <line x1="43%" x2="43%" y1="65%" y2="71%" class="tick highlight"/>
+  <line x1="51%" x2="51%" y1="65%" y2="71%" class="tick"/>
+  <line x1="63%" x2="63%" y1="65%" y2="71%" class="tick"/>
+  <line x1="73%" x2="73%" y1="65%" y2="71%" class="tick"/>
+  <line x1="95%" x2="95%" y1="65%" y2="71%" class="tick"/>
+
+  <text  x="2%"   y="79%" class="label left">data</text>
+  <text  x="2%"   y="87%" class="label left">dump</text>
+  <text  x="43%"  y="79%" class="label middle highlight">Triple Pattern</text>
+  <text  x="43%"  y="87%" class="label middle highlight">Fragments</text>
+  <text  x="98%"  y="79%" class="label right">SPARQL</text>
+  <text  x="98%"  y="87%" class="label right">endpoint</text>
+
+  <text x="50%"   y="97%" class="caption middle">interface offered by the server</text>
+</svg>
