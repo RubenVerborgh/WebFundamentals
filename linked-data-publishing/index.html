@@ -1316,6 +1316,43 @@
     <p class="tweets"><a href="https://twitter.com/search?f=tweets&amp;q=%23ITech16">#ITech16</a></p>
   </div>
 
+  <div class="slide" id="tpf-html-form">
+    <h2>
+      Triple Pattern Fragment servers<br>
+      <em>enable</em> clients to be intelligent.
+    </h2>
+    <dl>
+      <dt>controls</dt>
+      <dd>
+        The HTML representation explains:<br>
+        <em>you can query by triple pattern</em>.
+      </dd>
+    </dl>
+    <iframe class="website" src="http://fragments.dbpedia.org/2015/en?subject=&amp;predicate=http%3A%2F%2Fdbpedia.org%2Fontology%2FbirthPlace&amp;object=http%3A%2F%2Fdbpedia.org%2Fresource%2FLondon"></iframe>
+  </div>
+
+  <div class="slide" id="tpf-rdf-form">
+    <h2>
+      Triple Pattern Fragment servers<br>
+      <em>enable</em> clients to be intelligent.
+    </h2>
+    <dl>
+      <dt>controls</dt>
+      <dd>
+        The RDF representation explains:<br>
+        <em>you can query by triple pattern</em>.
+      </dd>
+    </dl>
+    <pre class="scroll"><code>&lt;http://fragments.dbpedia.org/2015/en#dataset&gt; hydra:search [
+  hydra:template "http://fragments.dbpedia.org/2015/en{?s,p,o}";
+  hydra:mapping
+    [ hydra:variable "s"; hydra:property rdf:subject ],
+    [ hydra:variable "p"; hydra:property rdf:predicate ],
+    [ hydra:variable "o"; hydra:property rdf:object ]
+].
+</code></pre>
+  </div>
+
   <div class="slide" id="tpf-query-evaluation-steps">
     <h2>
       How can a client evaluate<br>
