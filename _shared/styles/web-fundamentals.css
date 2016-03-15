@@ -359,3 +359,20 @@ blockquote.long p {
   font-style: italic;
   color: #979A9E;
 }
+
+/* Queries */
+ol.query > li {
+  min-height: 126px;
+  margin-bottom: 0;
+}
+ol.query .count {
+  float: right;
+  color: #CC4320;
+}
+ol.query em {
+  color: #979A9E;
+}
+ol.query code {
+  letter-spacing: -1px;
+  white-space: nowrap;
+}

@@ -1403,6 +1403,240 @@
     </ul>
   </div>
 
+  <div class="slide" id="tpf-execution-example">
+    <h2>
+      Let's follow the execution<br>
+      of an example SPARQL query.
+    </h2>
+    <p><em>Find artists born in cities named Waterloo.</em></p>
+    <pre><code>SELECT ?person ?city WHERE {
+    ?person rdf:type dbpedia-owl:Artist.
+    ?person dbpedia-owl:birthPlace ?city.
+    ?city foaf:name "Waterloo"@en.
+}</code></pre>
+    <p>Fragment: <a href="http://fragments.dbpedia.org/2015/en">http://fragments.dbpedia.org/2015/en</a></p>
+  </div>
+
+  <div class="slide" id="tpf-inspect-fragment">
+    <h2>
+      The client looks inside of the fragment<br>
+      to see how it can access the dataset.
+    </h2>
+    <pre class="scroll"><code>&lt;http://fragments.dbpedia.org/2015/en#dataset&gt; hydra:search [
+  hydra:template "http://fragments.dbpedia.org/2015/en{?s,p,o}";
+  hydra:mapping
+    [ hydra:variable "s"; hydra:property rdf:subject ],
+    [ hydra:variable "p"; hydra:property rdf:predicate ],
+    [ hydra:variable "o"; hydra:property rdf:object ]
+].</code></pre>
+    <p><em>You can query the dataset by triple pattern.</em></p>
+  </div>
+
+  <div class="slide" id="tpf-split-query">
+    <h2>
+      The client splits the query<br>
+      into the available fragments.
+    </h2>
+    <ol class="query">
+      <li>
+        <code>?person rdf:type dbo:Artist.</code>
+      </li>
+      <li>
+        <code>?person dbo:birthPlace ?city.</code>
+      </li>
+      <li>
+        <code>?city foaf:name "Waterloo"@en.</code>
+      </li>
+    </ol>
+  </div>
+
+  <div class="slide" id="tpf-get-fragments">
+    <h2>
+      It gets the first page of all fragments<br>
+      <span class="next">and inspects their metadata.</span>
+    </h2>
+    <ol class="query">
+      <li>
+        <code>?person rdf:type dbo:Artist.</code>
+        <span class="next count">96.000</span>
+        <ul>
+          <li><em>(first 100 triples)</em></li>
+        </ul>
+      </li>
+      <li>
+        <code>?person dbo:birthPlace ?city.</code>
+        <span class="next count">12.000.000</span>
+        <ul>
+          <li><em>(first 100 triples)</em></li>
+        </ul>
+      </li>
+      <li>
+        <code>?city foaf:name "Waterloo"@en.</code>
+        <span class="next count">26</span>
+        <ul>
+          <li><em>(first 100 triples)</em></li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+
+  <div class="slide" id="tpf-pick-fragment">
+    <h2>
+      It starts with the smallest fragment,<br>
+      because it is most selective.
+    </h2>
+    <ol class="query">
+      <li>
+        <code>?person rdf:type dbo:Artist.</code>
+      </li>
+      <li>
+        <code>?person dbo:birthPlace ?city.</code>
+      </li>
+      <li>
+        <strong><code>?city foaf:name "Waterloo"@en.</code></strong>
+        <span class="count">26</span>
+        <ul>
+          <li class="next"><code>dbp:Waterloo,_Iowa foaf:name "Waterloo"@en.</code></li>
+          <li class="next"><code>dbp:Waterloo,_London foaf:name "Waterloo"@en.</code></li>
+          <li class="next"><code>dbp:Waterloo,_Ontario foaf:name "Waterloo"@en.</code></li>
+          <li class="next">…</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+
+  <div class="slide" id="tpf-recurse">
+    <h2>
+      This process continues recursively<br>
+      until all options have been tested.
+    </h2>
+    <ol class="query">
+      <li>
+        <code>?person rdf:type dbo:Artist.</code>
+      </li>
+      <li>
+        <code>?person dbo:birthPlace <strong>dbp:Waterloo,_Iowa</strong>.</code>
+      <li>
+        <strong><del><code>?city foaf:name "Waterloo"@en.</code></del></strong>
+        <ul>
+          <li><strong><code>dbp:Waterloo,_Iowa foaf:name "Waterloo"@en.</code></strong></li>
+          <li><code>dbp:Waterloo,_London foaf:name "Waterloo"@en.</code></li>
+          <li><code>dbp:Waterloo,_Ontario foaf:name "Waterloo"@en.</code></li>
+          <li>…</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+
+  <div class="slide" id="tpf-recurse-get-fragments">
+    <h2>
+      It gets the first page of all fragments<br>
+      and inspects their metadata.
+    </h2>
+    <ol class="query">
+      <li>
+        <code>?person rdf:type dbo:Artist.</code>
+        <span class="next count">96.000</span>
+        <ul>
+          <li><em>(first 100 triples)</em></li>
+        </ul>
+      </li>
+      <li>
+        <code>?person dbo:birthPlace dbp:Waterloo,_Iowa.</code>
+        <span class="next count">45</span>
+        <ul>
+          <li><em>(first 100 triples)</em></li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+
+  <div class="slide" id="tpf-recurse-pick-fragment">
+    <h2>
+      It starts with the smallest fragment,<br>
+      because it is most selective.
+    </h2>
+    <ol class="query">
+      <li>
+        <code>?person rdf:type dbo:Artist.</code>
+        <span class="count">96.000</span>
+      </li>
+      <li>
+        <strong><code>?person dbo:birthPlace dbp:Waterloo,_Iowa.</code></strong>
+        <span class="count">45</span>
+        <ul>
+          <li><code>dbp:Allan_Carpenter dbo:birthPlace dbp:Waterloo,_Iowa.</code></li>
+          <li><code>dbp:Adam_DeVine dbo:birthPlace dbp:Waterloo,_Iowa.</code></li>
+          <li><code>dbp:Bonnie_Koloc dbo:birthPlace dbp:Waterloo,_Iowa.</code></li>
+          <li>…</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+
+  <div class="slide" id="tpf-recurse-final">
+    <h2>
+      This process continues recursively<br>
+      until all options have been tested.
+    </h2>
+    <ol class="query">
+      <li>
+        <code><strong>dbp:Allan_Carpenter</strong> rdf:type dbo:Artist.</code>
+      </li>
+      <li>
+        <strong><del><code>?person dbo:birthPlace dbp:Waterloo,_Iowa.</code></del></strong>
+        <span class="count">26</span>
+        <ul>
+          <li><strong><code>dbp:Allan_Carpenter dbo:birthPlace dbp:Waterloo,_Iowa.</code></strong></li>
+          <li><code>dbp:Adam_DeVine dbo:birthPlace dbp:Waterloo,_Iowa.</code></li>
+          <li><code>dbp:Bonnie_Koloc dbo:birthPlace dbp:Waterloo,_Iowa.</code></li>
+          <li>…</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+
+  <div class="slide" id="tpf-first-solution">
+    <h2>
+      It gets the first page of the fragment,<br>
+      which provides mappings for a solution.
+    </h2>
+    <ol class="query">
+      <li>
+        <code>dbp:Allan_Carpenter rdf:type dbo:Artist.</code>
+        <span class="count">1</span>
+        <ul>
+          <li><code>dbp:Allan_Carpenter rdf:type dbo:Artist.</code></li>
+        </ul>
+      </li>
+    </ol>
+    <p class="next">We found a solution mapping.</p>
+    <dl>
+      <dt class="next"><var>?person</var></dt>
+      <dd class="next"><a href="http://dbpedia.org/resource/Allan_Carpenter">dbp:Allan_Carpenter</a></dd>
+      <dt class="next"><var>?city</var></dt>
+      <dd class="next"><a href="http://dbpedia.org/resource/Waterloo,_Iowa">dbp:Waterloo,_Iowa</a></dd>
+    </dl>
+  </div>
+
+  <div class="slide" id="tpf-no-solution">
+    <h2>
+      Some paths will result in empty fragments.<br>
+      They do not lead to a consistent solution.
+    </h2>
+    <ol class="query">
+      <li>
+        <code>dbp:Adam_DeVine rdf:type dbo:Artist.</code>
+        <span class="count">0</span>
+      </li>
+    </ol>
+    <p class="next">No solution mapping.</p>
+    <p class="next">
+      <em>At least, according to DBpedia.<br>
+          It turns out that <a href="http://www.imdb.com/name/nm2796745/">Adam DeVine</a> is actually an actor.</em>
+    </p>
+  </div>
+
   <div class="toc slide" id="evaluating-trade-offs">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
