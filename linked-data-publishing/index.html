@@ -1663,13 +1663,13 @@
       for server cost and availability.
     </h2>
     <p>
-      We ran the Berlin SPARQL benchmark<br>
-      on Amazon EC2 machines.
+      We ran the <a href="http://wifo5-03.informatik.uni-mannheim.de/bizer/berlinsparqlbenchmark/">Berlin SPARQL benchmark</a><br>
+      on <a href="https://aws.amazon.com/ec2/">Amazon EC2 virtual machines</a>.
     </p>
     <ul>
-      <li>100 million triples</li>
-      <li>high query diversity</li>
-      <li><code>BGP</code>, <code>UNION</code>, <code>FILTER</code>, …</li>
+      <li class="next">100 million triples</li>
+      <li class="next">high query diversity</li>
+      <li class="next"><code>BGP</code>, <code>UNION</code>, <code>FILTER</code>, …</li>
     </ul>
   </div>
 
@@ -1680,12 +1680,12 @@
     </h2>
     <p>
       We configured the Amazon machines<br>
-      to generate large loads.
+      to generate large loads in a Web-like setting.
     </p>
     <ul>
-      <li>1 server</li>
-      <li>1 cache</li>
-      <li>1–240 simultaneous clients</li>
+      <li class="next">1 server (4 cores)</li>
+      <li class="next">1 cache</li>
+      <li class="next">1–244 simultaneous clients (1 core each)</li>
     </ul>
   </div>
 
@@ -1694,6 +1694,7 @@
       The query throughput is lower,<br>
       but resilient to high client numbers.
     </h2>
+    <img src="images/tpf-throughput.svg" alt="[throughput of different SPARQL query solutions]">
   </div>
 
   <div class="slide" id="tpf-evaluation-server-bandwidth">
@@ -1701,6 +1702,7 @@
       The server traffic is higher,<br>
       but individual requests are lighter.
     </h2>
+    <img src="images/tpf-server-traffic.svg" alt="[server traffic of different SPARQL query solutions]">
   </div>
 
   <div class="slide" id="tpf-evaluation-cache-bandwidth">
@@ -1708,6 +1710,7 @@
       Caching is significantly more effective,<br>
       as clients reuse fragments for queries.
     </h2>
+    <img src="images/tpf-cache-traffic.svg" alt="[cache usage of different SPARQL query solutions]">
   </div>
 
   <div class="slide" id="tpf-evaluation-server-cpu">
@@ -1715,6 +1718,7 @@
       The server requires much less CPU,<br>
       allowing higher availability at lower cost.
     </h2>
+    <img src="images/tpf-server-cpu.svg" alt="[server CPU usage of different SPARQL query solutions]">
   </div>
 
   <div class="slide" id="tpf-evaluation-conclusion">
@@ -1722,6 +1726,7 @@
       The server <em>enables</em> clients to be intelligent,<br>
       so it can remain simple and lightweight.
     </h2>
+    <img src="images/tpf-server-cpu.svg" alt="[server CPU usage of different SPARQL query solutions]">
   </div>
 
   <div class="toc slide" id="recap">
