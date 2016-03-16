@@ -1275,6 +1275,32 @@
     <iframe class="website" src="http://fragments.dbpedia.org/2015/en?subject=&amp;predicate=http%3A%2F%2Fdbpedia.org%2Fontology%2FbirthPlace&amp;object=http%3A%2F%2Fdbpedia.org%2Fresource%2FLondon"></iframe>
   </div>
 
+  <div class="slide" id="hdt">
+    <h2>
+      Triple Pattern Fragments are lightweight,<br>
+      because they do not <em>require</em> a triple store.
+    </h2>
+    <ul>
+      <li>
+        The interface can be realized with many back-ends.<br>
+        <ul>
+          <li>A SPARQL endpoint <em>could</em> serve as back-end.</li>
+        </ul>
+      </li>
+      <li class="next">
+        Since queries are relatively simple,<br>
+        a less expensive data infrastructure is sufficient.
+      </li>
+      <li class="next">
+        The <a href="http://www.rdfhdt.org/">Header–Dictionary–Triples (HDT)</a> format<br>
+        stores triples in a compressed file.
+        <ul>
+          <li>Especially triple-pattern lookups (and counts) are fast.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
   <div class="slide" id="final-answer">
     <h2>
       Triple patterns are not the final answer.<br>
