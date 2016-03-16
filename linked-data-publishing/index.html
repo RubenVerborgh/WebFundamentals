@@ -173,11 +173,11 @@
       through a <em>mapping</em> process.<br>
     </h2>
     <ul>
-      <li>
+      <li class="next">
         A <em>mapping processor</em> takes input sources<br>
         and a mapping file as input.
       </li>
-      <li>
+      <li class="next">
         The <em>mapping file</em> explains how input data<br>
         should be converted to the RDF model.
         <ul>
@@ -185,7 +185,7 @@
           <li>rules to transform data</li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         Different processors have different features.
         <ul class="inline">
           <li>source type support</li>
@@ -359,7 +359,7 @@
       to include other resources and properties.
     </h2>
     <ul>
-      <li>
+      <li class="next">
         RML mappings can incorporate data<br>
         from other sources, even in different formats.
         <ul>
@@ -368,10 +368,10 @@
           </li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         RML mappings can look up data from Web APIs.
       </li>
-      <li>
+      <li class="next">
         Interlinking can happen at mapping time,<br>
         rather than as a separate step after mapping.
         <ul>
@@ -443,7 +443,7 @@
       fine-grained constrained validation.
     </h2>
     <ul>
-    <li>
+    <li class="next">
         More specific types can be defined,<br>
         and their definitions can be reused.
         <ul class="inline">
@@ -452,7 +452,7 @@
           <li>…</li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         Type checking can take more factors into account.
         <ul class="inline">
           <li>domain and range</li>
@@ -460,7 +460,7 @@
           <li>…</li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         Additional reasoning can further identify problems.
       </li>
     </ul>
@@ -476,8 +476,8 @@
            rdfs:range foaf:Person.
 :Mathematics a :Course.
 :Course owl:disjointWith foaf:Person.</code></pre>
-    <p>This triple violates those constraints:</p>
-    <pre><code>:Albert foaf:knows :Mathematics.</code></pre>
+    <p class="next">This triple violates those constraints:</p>
+    <pre class="next"><code>:Albert foaf:knows :Mathematics.</code></pre>
   </div>
 
   <div class="tight slide" id="validation-complex-constraints">
@@ -488,11 +488,11 @@
     <p>The ontology defines the following constraints:</p>
     <pre><code>:isFatherOf a owl:IrreflexiveProperty;
               owl:InverseFunctionalProperty.</code></pre>
-    <p>This triples below are inconsistent:</p>
-    <pre><code>:Albert  :isFatherOf :Albert.
+    <p class="next">The triples below are inconsistent:</p>
+    <pre class="next"><code>:Albert  :isFatherOf :Albert.
 :Albert  :isFatherOf :Delphine.
 :Jacques :isFatherOf :Delphine.</code></pre>
-    <p>Which ones are correct is not known.</p>
+    <p class="next">Which ones are correct is not known.</p>
   </div>
 
   <div class="slide" id="automated-validation">
@@ -501,15 +501,15 @@
       whether data makes sense.
     </h2>
     <ul>
-      <li>
+      <li class="next">
         <a href="https://github.com/AKSW/RDFUnit">RDFUnit</a> assesses the quality of a dataset<br>
         by running automated tests on it.
       </li>
-      <li>
-        It looks up the ontologies used in a dataset<br>
-        by <a href="../semantic-web/#http-uris">dereferencing</a> concepts.
+      <li class="next">
+        Ontologies used in a dataset can be looked up<br>
+        by <a href="../semantic-web/#http-uris">dereferencing</a> its concepts.
       </li>
-      <li>
+      <li class="next">
         The constraints in the ontology are transformed<br>
         into SPARQL queries and then evaluated.
         <ul>
@@ -822,7 +822,7 @@
         Use provenance to asses quality, reliability, or trust.
         <ul>
           <li>
-            Tim Berners-Lee sketches an <a href="https://www.w3.org/DesignIssues/UI.html"><em>Oh yeah?</em> button</a><br>
+            Tim Berners-Lee sketched an <a href="https://www.w3.org/DesignIssues/UI.html"><em>Oh yeah?</em> button</a><br>
             you click to gain trust in information on the Web.
           </li>
         </ul>
@@ -900,10 +900,10 @@
     <img src="../birds-eye-view/images/siri.png" alt="[an iPhone running Siri]" style="float: right; height: 430px;">
     <ul>
       <li>
-        On the surface, the current generation of smart devices realizes
+        On the surface, the current generation of smart devices delivers
         much of what the Semantic Web promised.
         <ul>
-          <li>Just realize the intelligence<br> is <em>not</em> on your smartphone.</li>
+          <li class="next">Just realize the intelligence<br> is <em>not</em> on your smartphone.</li>
         </ul>
       </li>
     </ul>
@@ -1179,11 +1179,11 @@
     <h3>Linked Data Fragment</h3>
     <dl>
       <dt>data</dt>
-      <dd><em>What triples does the fragment contain?</em></dd>
+      <dd class="next"><em>What triples does the fragment contain?</em></dd>
       <dt>metadata</dt>
-      <dd><em>Do we know more about the data/fragment?</em></dd>
+      <dd class="next"><em>Do we know more about the data/fragment?</em></dd>
       <dt>controls</dt>
-      <dd><em>How can we access more data?</em></dd>
+      <dd class="next"><em>How can we access more data?</em></dd>
     </dl>
   </div>
 
@@ -1259,11 +1259,11 @@
     <h3>Triple Pattern Fragment</h3>
     <dl>
       <dt>data</dt>
-      <dd>matches of a triple pattern <em>(paged)</em></dd>
+      <dd class="next">matches of a triple pattern <em>(paged)</em></dd>
       <dt>metadata</dt>
-      <dd>total number of matches</dd>
+      <dd class="next">total number of matches</dd>
       <dt>controls</dt>
-      <dd>access to all other Triple Pattern Fragments<br> of the same dataset</dd>
+      <dd class="next">access to all other Triple Pattern Fragments<br> of the same dataset</dd>
     </dl>
   </div>
 
@@ -1419,11 +1419,11 @@
         and the URL of any TPF of the dataset.
       </li>
       <li class="next">
-        They use the <em>controls</em> inside of the fragment<br>
+        It uses the <em>controls</em> inside of the fragment<br>
         to determine how to access the dataset.
       </li>
       <li class="next">
-        They use the <em>metadata</em> to decide<br>
+        It reads the <em>metadata</em> to decide<br>
         how to plan the query.
       </li>
     </ul>
@@ -1724,7 +1724,7 @@
   </div>
 
   <div class="slide" id="tpf-evaluation-throughput">
-    <h2>
+    <h2 class="next">
       The query throughput is lower,<br>
       but resilient to high client numbers.
     </h2>
@@ -1732,7 +1732,7 @@
   </div>
 
   <div class="slide" id="tpf-evaluation-server-bandwidth">
-    <h2>
+    <h2 class="next">
       The server traffic is higher,<br>
       but individual requests are lighter.
     </h2>
@@ -1740,7 +1740,7 @@
   </div>
 
   <div class="slide" id="tpf-evaluation-cache-bandwidth">
-    <h2>
+    <h2 class="next">
       Caching is significantly more effective,<br>
       as clients reuse fragments for queries.
     </h2>
@@ -1748,7 +1748,7 @@
   </div>
 
   <div class="slide" id="tpf-evaluation-server-cpu">
-    <h2>
+    <h2 class="next">
       The server requires much less CPU,<br>
       allowing higher availability at lower cost.
     </h2>
