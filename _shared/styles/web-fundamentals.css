@@ -28,6 +28,9 @@
   right: 39px;
   height: 82px;
 }
+.list > header a:hover, .list > footer a:hover {
+  text-decoration: underline;
+}
 
 /* License information */
 .slide p.license {
