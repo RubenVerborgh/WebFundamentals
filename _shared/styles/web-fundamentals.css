@@ -28,6 +28,11 @@
   right: 39px;
   height: 82px;
 }
+.list > header .links {
+  font-size: 20px;
+  margin-top: 1em;
+  line-height: 1.5;
+}
 .list > header a:hover, .list > footer a:hover {
   text-decoration: underline;
 }
