@@ -489,12 +489,12 @@
       but not always automatically resolved.
     </h2>
     <p>The ontology defines the following constraints:</p>
-    <pre><code>:isFatherOf a owl:IrreflexiveProperty;
-              owl:InverseFunctionalProperty.</code></pre>
+    <pre><code>:isBiologicalFatherOf a owl:IrreflexiveProperty;
+                        owl:InverseFunctionalProperty.</code></pre>
     <p class="next">The triples below are inconsistent:</p>
-    <pre class="next"><code>:Albert  :isFatherOf :Albert.
-:Albert  :isFatherOf :Delphine.
-:Jacques :isFatherOf :Delphine.</code></pre>
+    <pre class="next"><code>:Albert  :isBiologicalFatherOf :Albert.
+:Albert  :isBiologicalFatherOf :Delphine.
+:Jacques :isBiologicalFatherOf :Delphine.</code></pre>
     <p class="next">Which ones are correct is not known.</p>
   </div>
 

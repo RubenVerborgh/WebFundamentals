@@ -1515,16 +1515,16 @@ rdfs:domain <strong>rdfs:subPropertyOf</strong> rdfs:seeAlso.
         If any subject can at most have one unique value<br>
         for some property, it's an <a href="https://www.w3.org/TR/owl-ref/#FunctionalProperty-def"><code>owl:FunctionalProperty</code></a>.
         <ul>
-          <li><code>ex:Delphine ex:hasFather ex:Albert.</code></li>
-          <li><code>ex:hasFather a <strong>owl:FunctionalProperty</strong>.</code></li>
+          <li><code>ex:Delphine ex:hasBiologicalFather ex:Albert.</code></li>
+          <li><code>ex:hasBiologicalFather a <strong>owl:FunctionalProperty</strong>.</code></li>
         </ul>
       </li>
       <li class="next">
         The <a href="#inverse-properties">inverse</a>
         is <a href="https://www.w3.org/TR/owl-ref/#InverseFunctionalProperty-def"><code>owl:InverseFunctionalProperty</code></a>.
         <ul>
-          <li><code>ex:Albert ex:isFatherOf ex:Delphine.</code></li>
-          <li><code>ex:isFatherOf a <strong>owl:InverseFunctionalProperty</strong>.</code></li>
+          <li><code>ex:Albert ex:isBiologicalFatherOf ex:Delphine.</code></li>
+          <li><code>ex:isBiologicalFatherOf a <strong>owl:InverseFunctionalProperty</strong>.</code></li>
         </ul>
       </li>
     </ul>
@@ -1536,9 +1536,9 @@ rdfs:domain <strong>rdfs:subPropertyOf</strong> rdfs:seeAlso.
       so you have to understand them well.
     </h2>
     <p>What is the logical consequence of the following?</p>
-    <pre><code>ex:Delphine ex:hasFather ex:Albert.
-ex:Delphine ex:hasFather ex:Jacques.
-ex:hasFather a owl:FunctionalProperty.</code></pre>
+    <pre><code>ex:Delphine ex:hasBiologicalFather ex:Albert.
+ex:Delphine ex:hasBiologicalFather ex:Jacques.
+ex:hasBiologicalFather a owl:FunctionalProperty.</code></pre>
     <p class="next">It might be counterintuitive, but the conclusion is:</p>
     <pre class="next"><code>ex:Albert owl:sameAs ex:Jacques.</code></pre>
     <p class="next">To arrive at a contradiction, <a href="#individual-equality">explicitly define inequality</a>:</p>
