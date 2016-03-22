@@ -132,6 +132,18 @@ li dt:after {
 }
 li dd {
   margin: 0;
+  float: left;
+}
+li dl dd + dd:before {
+  content: ', ';
+}
+.slide > ul > li, .slide > ol > li {
+  clear: left;
+}
+.slide > ul > li:after, .slide > ol > li:after {
+  content: '';
+  display: table;
+  clear: both;
 }
 
 /* Code */
