@@ -217,11 +217,11 @@ input[type=text] {
   position: absolute;
   width: 1.3em;
   margin-left: -1.5em;
-  background: url(../images/opinion.svg) no-repeat center bottom / 100% 100%;
+  background: url(../images/opinion.svg) no-repeat center center / contain;
 }
 h2.opinion:before {
   width: 1em;
-  margin: 0 0 0 -1.15em;
+  margin: .05em 0 0 -1.15em;
 }
 
 /* Images */
