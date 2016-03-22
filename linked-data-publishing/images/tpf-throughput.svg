@@ -45,9 +45,9 @@ text   { font: 22px 'Open Sans'; }
   <g id="values">
     <text x="278" y="120" class="title">queries executed per hour (logarithmic scale)</text>
     <text x="7"   y="22"  fill="#4B86C2">11,223</text>
-    <text x="7"   y="212" fill="#CC4320">275</text>
+    <text x="7"   y="212" fill="#CC4320">130</text>
     <text x="756" y="201" fill="#4B86C2">146</text>
-    <text x="767" y="304" fill="#CC4320">63</text>
+    <text x="767" y="304" fill="#CC4320">33</text>
   </g>
 
   <line x1="7"   y1="356" x2="790" y2="356"/>
