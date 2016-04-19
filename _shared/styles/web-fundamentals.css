@@ -134,6 +134,9 @@ input[type=text] {
   padding: 0 .5em;
   border: 1px solid #979A9E;
 }
+.slide form p {
+  margin-bottom: 0;
+}
 
 /* Opinion symbols */
 .opinion:before {
