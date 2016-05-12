@@ -996,6 +996,40 @@
     </ul>
   </div>
 
+  <div class="slide" id="non-html-hypermedia">
+    <h2>
+      Other media types can also have links,<br>
+      if an interpretation is specified.
+    </h2>
+    <ul>
+      <li>
+        A regular JSON document <em>cannot</em> have hyperlinks.
+        <ul>
+          <li>
+            <code>{ "url": "http://perdu.com/" }</code> is not a link.
+          </li>
+          <li>
+            The <a href="https://tools.ietf.org/html/rfc4627"><code>application/json</code></a> media type<br>
+            does not specify an interpretation for links.
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        Specific JSON subtypes <em>can</em> have hyperlinks.
+        <ul>
+          <li>
+            The <a href="http://tools.ietf.org/html/draft-kelly-json-hal"><code>application/hal+json</code></a> media type<br>
+            specifies an <a href="https://tools.ietf.org/html/draft-kelly-json-hal-07#section-5">interpretation for links</a>.
+          </li>
+          <li class="next">
+            This interpretation is <em>only</em> allowed if the server<br>
+            replies with <code>Content-Type: application/hal+json</code>.
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
   <div class="slide" id="hypertext-definition">
     <blockquote>
       <p>
