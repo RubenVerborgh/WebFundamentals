@@ -969,15 +969,19 @@
         In HTML documents, links can be marked up.
         <ul>
           <li class="next">
-            <code>&lt;em&gt;http://perdu.com/&lt;/em&gt;</code> is not a link.
+            <code>&lt;em&gt;http://perdu.com/&lt;/em&gt;</code>
             <ul>
               <li><em>http://perdu.com/</em> is not a link.</li>
             </ul>
           </li>
           <li class="next">
-            But <code>&lt;a href="http://perdu.com/"&gt;Perdu?&lt;/a&gt;</code> is.
+            <code>&lt;a href="http://perdu.com/"&gt;Perdu?&lt;/a&gt;</code>
             <ul>
-              <li>But <a href="http://perdu.com/">Perdu?</a> is.</li>
+              <li>
+                <a href="http://perdu.com/">Perdu?</a> is,
+                because the HTML media type <a href="https://www.w3.org/TR/html5/text-level-semantics.html#the-a-element">defines</a><br>
+                the <a href="https://www.w3.org/TR/html5/dom.html#represents">semantics</a> of this element as a <a href="https://www.w3.org/TR/html5/links.html#hyperlink">hyperlink</a>.
+              </li>
             </ul>
           </li>
         </ul>
