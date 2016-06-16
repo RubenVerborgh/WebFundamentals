@@ -43,7 +43,7 @@ text   { font: 22px 'Open Sans'; }
   <text x="804" y="285" fill="#CC4320" class="label">TPF</text>
 
   <g id="values">
-    <text x="278" y="120" class="title">queries executed per hour (logarithmic scale)</text>
+    <text x="278" y="120" class="title">queries per client per hour (logarithmic scale)</text>
     <text x="7"   y="22"  fill="#4B86C2">11,223</text>
     <text x="7"   y="212" fill="#CC4320">130</text>
     <text x="756" y="201" fill="#4B86C2">146</text>
