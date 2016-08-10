@@ -224,7 +224,7 @@ blockquote.long p {
 /* Tweets */
 .twitter-tweet-rendered {
   margin: 3em auto !important;
-  transform: scale(1.5);
+  transform: scale(1.5) !important;
 }
 
 /* Browser window */
