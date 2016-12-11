@@ -1,4 +1,6 @@
 # Web Fundamentals
+[![DOI](https://zenodo.org/badge/49000057.svg)](https://zenodo.org/badge/latestdoi/49000057)
+
 This repository contains the slides for the [Web Fundamentals](http://rubenverborgh.github.io/WebFundamentals/) module
 of the Ghent University course [Internet Technology](http://studiegids.ugent.be/2015/EN/studiefiches/C001894.pdf).
 <br>
