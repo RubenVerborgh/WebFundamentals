@@ -5,28 +5,41 @@
 }
 .title.slide h2 {
   line-height: 41pt;
-  font-size: 42pt;
+  font-size: 48pt;
   letter-spacing: -1px;
-  margin: 171px 0 48px;
+  margin: 112px 0 33px -2px;
+  max-width: 600px;
+  line-height: 84px;
+}
+.title.slide .series {
+  line-height: 58px;
 }
 .module:not(:hover),.series:not(:hover) {
   background-position: 0 2em !important;
 }
 .tweets {
-  float: right;
+  position: absolute;
+  top: 178px;
+  left: 806px;
   font-style: italic;
 }
 .ugent {
   position: absolute;
-  bottom: 41px;
-  right: 280px;
-  height: 114px;
+  bottom: 158px;
+  right: -31px;
+  height: 250px;
 }
-.iminds {
+.imec {
   position: absolute;
-  bottom: 76px;
-  right: 39px;
-  height: 82px;
+  bottom: 92px;
+  right: 9px;
+  height: 146px;
+}
+.idlab {
+  position: absolute;
+  bottom: 27px;
+  right: 51px;
+  height: 76px;
 }
 .list > header .links {
   font-size: .45em;
@@ -38,17 +51,18 @@
 .slide p.license {
   font-size: .3em;
   line-height: 1.5em;
-  width: 320px;
+  width: 370px;
   position: absolute;
-  bottom: 60px;
+  bottom: 52px;
 }
 .slide p.license img {
   display: block;
+  float: left;
   height: 42px;
-  margin-bottom: 7px;
+  margin-right: 20px;
 }
 footer p.license img {
-  margin: 0 .5em -.15em 0;
+  margin-right: 0 .5em -.15em 0;
 }
 
 /* Content table slides */
