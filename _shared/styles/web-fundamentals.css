@@ -19,25 +19,25 @@
 }
 .tweets {
   position: absolute;
-  top: 178px;
-  left: 806px;
+  top: 555px;
+  right: 60px;
   font-style: italic;
 }
 .ugent {
   position: absolute;
-  bottom: 158px;
+  bottom: 284px;
   right: -31px;
   height: 250px;
 }
 .imec {
   position: absolute;
-  bottom: 92px;
+  bottom: 218px;
   right: 9px;
   height: 146px;
 }
 .idlab {
   position: absolute;
-  bottom: 27px;
+  bottom: 153px;
   right: 51px;
   height: 76px;
 }
