@@ -19,7 +19,7 @@
       <a href="http://www.ugent.be/">Ghent University</a> – <a href="http://www.imec.be/">imec</a>
     </p>
     <ul class="links">
-      <li class="prev">Previous topic: <a href="../birds-eye-view/">A Bird's-Eye View of the Web</a></li>
+      <li class="prev">Previous topic: <a href="../birds-eye-view/">A Bird’s-Eye View of the Web</a></li>
       <li class="next">Next topic: <a href="../web-apis/">Web APIs</a></li>
     </ul>
   </header>
@@ -49,8 +49,8 @@
   <div class="slide" id="aicha-paroles">
     <blockquote lang="fr">
       <p>
-        J'irai où ton souffle nous mène,<br>
-        dans les pays d'ivoire et d'ébène.
+        J’irai où ton souffle nous mène,<br>
+        dans les pays d’ivoire et d’ébène.
       </p>
       <cite>Jean-Jacques Goldman, Aïcha</cite>
     </blockquote>
@@ -59,7 +59,7 @@
   <div class="slide" id="aicha-lyrics">
     <blockquote>
       <p>
-        I'll go where your breath takes us<br>
+        I’ll go where your breath takes us<br>
         to countries of ivory and ebony.
       </p>
       <cite>Jean-Jacques Goldman, Aïcha</cite>
@@ -84,7 +84,7 @@
 
   <div class="slide" id="flyer">
     <h2>
-      This flyer predates the Web's boom.<br>
+      This flyer predates the Web’s boom.<br>
       <em>What is missing?</em>
     </h2>
     <img src="images/before-web.png" alt="[A flyer with instructions on how to obtain files through a mailserver and FTP server.]" height="400" class="narrow">
@@ -193,7 +193,7 @@
         about Marissa Mayer.
         <ul class="next">
           <li>It does <em>not</em> (also) identify Marissa herself.</li>
-          <li>Otherwise, it wouldn't be unique anymore.</li>
+          <li>Otherwise, it wouldn’t be unique anymore.</li>
         </ul>
       </li>
       <li class="next">
@@ -305,7 +305,7 @@
     <p><code>http://&lt;host&gt;/&lt;path&gt;?&lt;search&gt;#&lt;fragment&gt;</code></p>
     <ol>
       <li class="next">
-        The client looks up the host's IP address.
+        The client looks up the host’s IP address.
         <ul>
           <li>The client uses DNS for this.</li>
         </ul>
@@ -408,7 +408,7 @@
       <li class="next">
         IRI – Internationalized Resource Identifier (<a href="https://tools.ietf.org/html/rfc3987">RFC3987</a>)
         <ul>
-          <li>Non-ASCII chars don't need to be encoded.</li>
+          <li>Non-ASCII chars don’t need to be encoded.</li>
           <li>Chars with other meaning still need encoding.</li>
           <li class="next"><a href="http://🛀🌰🐊🎩🍓🐒🐝👊.🍕💩.ws">http://🛀🌰🐊🎩🍓🐒🐝👊.🍕💩.ws</a></li>
         </ul>
@@ -476,7 +476,7 @@
 
   <div class="slide" id="http-request">
     <h2>
-      After resolving the server's IP address,<br>
+      After resolving the server’s IP address,<br>
       the client can send an HTTP request.
     </h2>
     <ul>
@@ -517,7 +517,7 @@
 
   <div class="slide" id="example-request">
     <h2>
-      After resolving the server's IP address,<br>
+      After resolving the server’s IP address,<br>
       the client can send an HTTP request.
     </h2>
     <p>
@@ -582,7 +582,7 @@ Accept: text/html</span></code></pre>
   <div class="slide" id="idempotent-methods">
     <h2>
       An HTTP method is <a href="https://tools.ietf.org/html/rfc7231#section-4.2.2">idempotent</a><br>
-      if repetitions don't alter the outcome.
+      if repetitions don’t alter the outcome.
     </h2>
     <ul>
       <li class="next">
@@ -1045,9 +1045,9 @@ Last-Modified: Sun, 24 Jan 2016 18:26:27 GMT</span>
     <ul>
       <li class="next">
         They use their own infrastructure,<br>
-        as they don't have the browser's.
+        as they don’t have the browser’s.
         <ul>
-          <li class="next">In particular, they usually don't set <a href="#cookies">cookies</a>.</li>
+          <li class="next">In particular, they usually don’t set <a href="#cookies">cookies</a>.</li>
         </ul>
       </li>
       <li class="next">
@@ -1075,11 +1075,11 @@ Last-Modified: Sun, 24 Jan 2016 18:26:27 GMT</span>
         <ul>
           <li>
             to improve search results
-            (<a href="https://developers.google.com/structured-data/rich-snippets/">Google's Rich Snippets</a>)
+            (<a href="https://developers.google.com/structured-data/rich-snippets/">Google’s Rich Snippets</a>)
           </li>
           <li>
             for social interactions
-            (<a href="https://developers.facebook.com/docs/sharing/best-practices#crawl">Facebook's Open Graph</a>)
+            (<a href="https://developers.facebook.com/docs/sharing/best-practices#crawl">Facebook’s Open Graph</a>)
           </li>
         </ul>
       </li>
@@ -1319,7 +1319,7 @@ Last-Modified: Sun, 24 Jan 2016 18:26:27 GMT</span>
     </h2>
     <p class="next">
       This is not as easy with other protocols.<br>
-      For example, let's assume Java RMI.
+      For example, let’s assume Java RMI.
     </p>
     <pre class="next"><code>removeObject.getMessage(234);
 removeObject.getMessage(234);
@@ -1436,7 +1436,7 @@ removeObject.deleteMessage(234);</code></pre>
   <div class="slide" id="caching-anywhere">
     <h2>
       Caching can happen virtually anywhere—<br>
-      and we don't always know.
+      and we don’t always know.
     </h2>
     <object data="images/intermediaries.svg">Diagram showing a client connected to a server through several intermediaries.</object>
   </div>
@@ -1596,8 +1596,8 @@ removeObject.deleteMessage(234);</code></pre>
         Responsive: <em>one</em> HTML version<br>
         can support <em>multiple</em> devices.
         <ul>
-          <li class="next opinion">We don't need dedicated mobile sites.</li>
-          <li class="next opinion">We don't need dedicated mobile apps.</li>
+          <li class="next opinion">We don’t need dedicated mobile sites.</li>
+          <li class="next opinion">We don’t need dedicated mobile apps.</li>
         </ul>
       </li>
     </ul>
@@ -1641,8 +1641,8 @@ removeObject.deleteMessage(234);</code></pre>
       <li>
         supported by several highly optimized engines
         <ul class="inline">
-          <li>Google's <a href="https://developers.google.com/v8/">V8</a></li>
-          <li>Mozilla's <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey">SpiderMonkey</a></li>
+          <li>Google’s <a href="https://developers.google.com/v8/">V8</a></li>
+          <li>Mozilla’s <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey">SpiderMonkey</a></li>
         </ul>
       </li>
       <li>
@@ -1839,7 +1839,7 @@ input.onkeyup = function () {
     </h2>
 
     <pre><code>&lt;feed xmlns="http://www.w3.org/2005/Atom"&gt;
-  &lt;title&gt;Ruben Verborgh's blog&lt;/title&gt;
+  &lt;title&gt;Ruben Verborgh’s blog&lt;/title&gt;
   &lt;link rel="self" href="<a href="https://ruben.verborgh.org/blog/latest.xml">https://ruben.verborgh.org/blog/latest.xml</a>"/&gt;
   &lt;entry&gt;
     &lt;title&gt;Turtles all the way down&lt;/title&gt;
@@ -1961,7 +1961,7 @@ input.onkeyup = function () {
       </li>
       <li>
         The original ASP.NET defined <a href="http://www.asp.net/web-forms">Web Forms</a>,<br>
-        treating a page's elements as <em>server-side</em> objects.
+        treating a page’s elements as <em>server-side</em> objects.
         <ul>
           <li>very tight client-server coupling</li>
         </ul>
@@ -1981,7 +1981,7 @@ input.onkeyup = function () {
       <li>
         Node.js bundles the V8 engine with <a href="https://nodejs.org/api/">low-level APIs</a>.
         <ul>
-          <li>Google's V8 engine made JavaScript fast in browsers.</li>
+          <li>Google’s V8 engine made JavaScript fast in browsers.</li>
         </ul>
       </li>
       <li>
@@ -1989,7 +1989,7 @@ input.onkeyup = function () {
         a single thread reacting to events.
         <ul>
           <li>never actively wait: IO operations happen asynchronously</li>
-          <li>encouraged by JavaScript's first-class functions</li>
+          <li>encouraged by JavaScript’s first-class functions</li>
         </ul>
       </li>
       <li>

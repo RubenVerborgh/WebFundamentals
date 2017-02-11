@@ -48,7 +48,7 @@
 
   <div class="slide" id="90s">
     <h2>
-      Unlike many things from the '90s,<br>
+      Unlike many things from the ’90s,<br>
       the Web still works and is in active use.
     </h2>
     <ul>
@@ -61,14 +61,14 @@
         </ul>
       </li>
       <li class="next">
-        The Web's users have changed.
+        The Web’s users have changed.
         <ul>
           <li>many more people</li>
           <li>much more time online</li>
         </ul>
       </li>
       <li class="next">
-        The Web's users are no longer only people.
+        The Web’s users are no longer only people.
         <ul class="inline">
           <li>crawlers</li>
           <li>automated clients</li>
@@ -198,7 +198,7 @@
         REST has guided protocol decisions<br>
         and can guide Web applications.
         <ul>
-          <li>Being <a href="#web-rest">on the Web</a> doesn't imply following REST.</li>
+          <li>Being <a href="#web-rest">on the Web</a> doesn’t imply following REST.</li>
         </ul>
       </li>
     </ul>
@@ -312,7 +312,7 @@
       </li>
     </ul>
     <p class="next">
-      This <a href="https://ruben.verborgh.org/blog/2012/08/24/rest-wheres-my-state/" title="REST where's my state">blog post</a>
+      This <a href="https://ruben.verborgh.org/blog/2012/08/24/rest-wheres-my-state/" title="REST where’s my state">blog post</a>
       and this <a href="http://restfulwebapis.com/RESTful_Web_Services/#calibre_link-1645" title="RESTful Web Services">book</a>
       elaborate on the difference.
     </p>
@@ -367,7 +367,7 @@
       </dd>
     </dl>
     <p class="next">
-      The server does not know any client's previous state.<br>
+      The server does not know any client’s previous state.<br>
       Clients might jump to unpermitted states by “guessing”.
     </p>
   </div>
@@ -489,10 +489,10 @@
         that associates a definition with a value.
         <ul>
           <li class="next">
-            <em>“today's most played song in Ghent”</em>
+            <em>“today’s most played song in Ghent”</em>
             <ul>
               <li>current value: <em>“the top song on <time datetime="2016-02-15" class="today">15 February 2016</time>”</em></li>
-              <li>tomorrow's value: <em>“the top song on <time datetime="2016-02-16" class="tomorrow">16 February 2016</time>”</em></li>
+              <li>tomorrow’s value: <em>“the top song on <time datetime="2016-02-16" class="tomorrow">16 February 2016</time>”</em></li>
             </ul>
           </li>
           <li class="next">
@@ -542,7 +542,7 @@
         a resource can be represented differently.
         <ul>
           <li class="next">
-            <em>“metadata about today's most played song in Ghent”</em>
+            <em>“metadata about today’s most played song in Ghent”</em>
             <ul>
               <li class="next">…in English or Dutch?</li>
               <li class="next">…in HTML or JSON?</li>
@@ -553,7 +553,7 @@
       <li class="next">
         Representations can also have an identifier.
         <ul>
-          <li class="next"><em>“English HTML document about today's top song in Ghent”</em></li>
+          <li class="next"><em>“English HTML document about today’s top song in Ghent”</em></li>
           <li class="next opinion">
             The notion of resource/representation is <em>relative</em>:<br>
             representations become resources when identified.
@@ -613,7 +613,7 @@
       </li>
       <li class="next">
         Rather than executing a pre-defined script,<br>
-        the client <a href="../architecture/#aicha">follows the server's lead</a>.
+        the client <a href="../architecture/#aicha">follows the server’s lead</a>.
         <ul>
           <li class="next">
             With Remote Procedure Calling, clients instead must know<br>
@@ -758,7 +758,7 @@
     </h2>
     <ul>
       <li>
-        Servers don't remember clients between requests.
+        Servers don’t remember clients between requests.
         <ul>
           <li>
             An IP address is insufficient to identify a client
@@ -859,7 +859,7 @@
         </ul>
       </li>
       <li class="next">
-        The concept pointed to by an URL shouldn't change.
+        The concept pointed to by an URL shouldn’t change.
         <ul>
           <li>Tim Berners-Lee calls such identifiers <a href="https://www.w3.org/Provider/Style/URI.html">“Cool URIs”</a>.</li>
         </ul>
@@ -1111,7 +1111,7 @@
       an URL to a concept.
     </h2>
     <div class="dont">
-      <h3>Don't.</h3>
+      <h3>Don’t.</h3>
       <div class="example">
         <p><em>http://&#8203;example.org/&#8203;songs/&#8203;showDetails.php</em></p>
       </div>
@@ -1146,7 +1146,7 @@
       under a single URL.
     </h2>
     <div class="dont">
-      <h3>Don't.</h3>
+      <h3>Don’t.</h3>
       <div class="example">
         <p><em>http://&#8203;example.org/&#8203;songs/&#8203;3563642</em>
            results in HTML.</p>
@@ -1179,7 +1179,7 @@
       and stand on its own.
     </h2>
     <div class="dont">
-      <h3>Don't.</h3>
+      <h3>Don’t.</h3>
       <div class="example">
         <p><em>/songs?artist=5521</em></p>
         <p><em>/?page=2</em></p>
@@ -1212,9 +1212,9 @@
       driven by hypermedia.
     </h2>
     <div class="dont">
-      <h3>Don't.</h3>
+      <h3>Don’t.</h3>
       <pre class="example"><code>{
-  "title": "Baba O'Riley",
+  "title": "Baba O’Riley",
   "artist": {
     "id": 5521
 
@@ -1227,7 +1227,7 @@
     <div class="next do">
       <h3>Do.</h3>
       <pre class="example"><code>{
-  "title": "Baba O'Riley",
+  "title": "Baba O’Riley",
   "artist": {
     "id": "http://example.org/
            artists/5521"
@@ -1268,7 +1268,7 @@
 
   <div class="slide" id="web-without-hypermedia">
     <h2>
-      To understand hypermedia's importance,<br>
+      To understand hypermedia’s importance,<br>
       imagine using any website without it.
     </h2>
     <div class="next browser">
@@ -1281,7 +1281,7 @@
 
   <div class="slide" id="web-with-documentation">
     <h2>
-      You'd need to read the documentation,<br>
+      You’d need to read the documentation,<br>
       and hard-code it in your implementation.
     </h2>
     <div class="browser">
@@ -1412,7 +1412,7 @@
     </h2>
     <ul>
       <li class="next">
-        In fact, machines can't use it.
+        In fact, machines can’t use it.
         <ul>
           <li>They need to access the API.</li>
         </ul>
@@ -1435,14 +1435,14 @@
         </ul>
       </li>
       <li class="next">
-        You'll need to get an <a href="#api-keys">API key</a>.
+        You’ll need to get an <a href="#api-keys">API key</a>.
       </li>
       <li class="next">
         You must follow a <a href="https://gist.github.com/RubenVerborgh/7684361/#gistcomment-959892">specific order of requests</a>.
       </li>
     </ul>
     <p class="next">
-      All of that wasn't necessary for the website,<br>
+      All of that wasn’t necessary for the website,<br>
       even though it contains the <em>exact</em> same information.
     </p>
   </div>
@@ -1662,7 +1662,7 @@
 
   <div class="slide" id="europeana-consequences">
     <h2>
-      Europeana's Web API design choices<br>
+      Europeana’s Web API design choices<br>
       have consequences for sustainability.
     </h2>
     <ul>
@@ -1743,7 +1743,7 @@
         </ul>
       </li>
       <li class="next opinion">
-        There's nothing intrinsically “Web” about this.
+        There’s nothing intrinsically “Web” about this.
         <ul>
           <li>The Web acts as a convenient tunnel.</li>
           <li><em>(Which firewall would block TCP port 80?)</em></li>
@@ -1800,7 +1800,7 @@
   &lt;/env:Header&gt;
   &lt;env:Body&gt;
     &lt;s:songDetails xmlns:m="http://example.org/song-service"&gt;
-      &lt;s:title&gt;Baba O'Riley&lt;/s:title&gt;
+      &lt;s:title&gt;Baba O’Riley&lt;/s:title&gt;
       &lt;s:artistId&gt;5521&lt;/s:artistId&gt;
     &lt;/s:songDetails&gt;
   &lt;/env:Body&gt;
@@ -1821,12 +1821,12 @@
         </ul>
       </li>
       <li class="next">
-        SOAP does not inherit the Web's benefits.
+        SOAP does not inherit the Web’s benefits.
         <dl>
           <dt>no caching</dt>
           <dd>all requests use <code>POST</code></dd>
           <dt>no visibility</dt>
-          <dd>intermediaries can't understand requests</dd>
+          <dd>intermediaries can’t understand requests</dd>
           <dt>no evolvability</dt>
           <dd>the contract is hard-coded</dd>
         </dl>
@@ -1885,7 +1885,7 @@
     <ul>
       <li class="next">
         A WSDL description is an XML document<br>
-        that lists a service's methods and parameters.
+        that lists a service’s methods and parameters.
         <ul>
           <li>just structure, no semantics</li>
         </ul>
@@ -1965,7 +1965,7 @@
     <ul>
       <li class="next">
         An <a href="http://swagger.io/">OpenAPI (formerly Swagger)</a> specification<br>
-        documents a Web API's methods in JSON.
+        documents a Web API’s methods in JSON.
         <ul>
           <li>documentation for developers <em>(<a href="http://petstore.swagger.io/">example</a>)</em></li>
           <li>automatic client code generation</li>
@@ -1986,7 +1986,7 @@
   <div class="slide" id="description-utility">
     <h2 class="opinion">
       Structural descriptions boost development<br>
-      but don't fundamentally change Web APIs.
+      but don’t fundamentally change Web APIs.
     </h2>
     <ul>
       <li class="next opinion">
@@ -2006,7 +2006,7 @@
       <li class="next opinion">
         In essence, they have few to do with the Web.
         <ul>
-          <li>Do <em>you</em> need to read a website's contract first?</li>
+          <li>Do <em>you</em> need to read a website’s contract first?</li>
         </ul>
       </li>
     </ul>
