@@ -165,6 +165,9 @@ h2.opinion:before {
   width: 1em;
   margin: .05em 0 0 -1.15em;
 }
+.label.opinion:before {
+  margin: -1em 0 0 -1em;
+}
 
 /* Images */
 figure img {
