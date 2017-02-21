@@ -182,7 +182,7 @@ figcaption {
   line-height: 1.5 !important;
   text-align: right;
 }
-img.center {
+.center {
   display: block;
   margin: 0 auto;
 }
