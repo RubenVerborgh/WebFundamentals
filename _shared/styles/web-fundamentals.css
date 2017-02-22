@@ -54,6 +54,10 @@
 .slide h3 + dl, .slide h3 + ul {
   margin-top: 42px;
 }
+ins {
+  color: #cc4320;
+  text-decoration: none;
+}
 
 /* License information */
 .slide p.license {

