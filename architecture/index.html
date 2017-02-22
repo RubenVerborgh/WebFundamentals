@@ -2006,9 +2006,72 @@ xhr.send(null);</code></pre>
 
   <div class="slide" id="cross-origin-access">
     <h2>
-      Cross-origin access
+      With cross-origin access, a page requests
+      third-party resources through JavaScript.
+    </h2>
+    <dl>
+      <dt>attack</dt>
+      <dd class="next">request resources from another site with JavaScript and read their contents</dd>
+      <dt>causes</dt>
+      <dd class="next">the existence of <code>XMLHttpRequest</code></dd>
+      <dd class="next">being logged in on another website</dd>
+      <dt>defense</dt>
+      <dd class="next">browsers block cross-origin requests by default</dd>
+    </dl>
+  </div>
+
+  <div class="slide" id="cross-origin-why">
+    <h2>
+      Cross-origin requests are a problem<br>
+      within browsers only.
     </h2>
     <ul>
+      <li>
+        Nothing happens when any other script or app<br>
+        requests <code>https://mybank.com/onlinebanking/</code>.
+        <ul class="next">
+          <li>You are not logged in—there are no cookies.</li>
+        </ul>
+      </li>
+      <li>
+        When the browser requests that page,<br>
+        the page might contain personal information.
+        <ul class="next">
+          <li>You might be logged in—browsers maintain cookies.</li>
+        </ul>
+      </li>
+      <li class="next">
+        As a result, browsers block cross-origin requests.
+        <ul>
+          <li>an <em>origin</em> more or less corresponds to a <em>domain</em></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="cors">
+    <h2>
+      <a href="https://www.w3.org/TR/cors/">Cross-Origin Resource Sharing (CORS)</a>
+      enables others to access your pages.
+    </h2>
+    <ul>
+      <li class="next">
+        Activate CORS to enable <a href="./web-apis/">Web APIs</a> access
+        from within other browser-based Web applications.
+      </li>
+      <li class="next">
+        The browser adds an <code>Origin</code> header to requests.
+        <ul>
+          <li><code>Origin: https://my.site</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        If the server allows requests from that origin,<br>
+        it adds <code>Access-Control-Allow-Origin</code>.
+        <ul>
+          <li><code>Access-Control-Allow-Origin: https://my.site</code></li>
+        </ul>
+      </li>
     </ul>
   </div>
 
