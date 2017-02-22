@@ -1551,6 +1551,33 @@ removeObject.deleteMessage(234);</code></pre>
     </ul>
   </div>
 
+  <div class="slide" id="https-where">
+    <h2>
+      HTTPS can be applied in<br>
+      different parts of the network.
+    </h2>
+    <p>
+      Consider the common use case in which<br>
+      an <strong>application server</strong> lives behind a <strong>reverse proxy</strong>.
+    </p>
+    <ul>
+      <li class="next">
+        Only the proxy could use HTTPS.
+        <ul>
+          <li>Typically, server and proxy operate in a trusted network.</li>
+          <li>Client–proxy communications are secured.</li>
+        </ul>
+      </li>
+      <li class="next">
+        The server <em>and</em> the proxy could use HTTPS.
+        <ul>
+          <li>These are two <em>different</em> encrypted communications.</li>
+          <li>No proxy can sit “in between” an encrypted communication.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
   <div class="toc slide" id="http2">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
