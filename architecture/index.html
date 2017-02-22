@@ -1928,6 +1928,34 @@ removeObject.deleteMessage(234);</code></pre>
                     <strong>AND</strong> password='' OR <strong>''=''</strong>;</code></pre>
   </div>
 
+  <div class="slide" id="server-side-validation">
+    <h2>
+      Client-side validation <em>only</em> offers usability;<br>
+      servers <em>always</em> need to (re-)validate.
+    </h2>
+    <h3>Client-side form</h3>
+    <p>
+      <label>role</label>
+      <select name="role">
+        <option value="1" disabled>admin</option>
+        <option value="2">user</option>
+        <option value="3">developer</option>
+      </select>
+    </p>
+    <h3>Ways to bypass</h3>
+    <ul>
+      <li class="next">change the HTML at runtime</li>
+      <li class="next">construct the HTTP request in another way</li>
+    </ul>
+  </div>
+
+  <div class="slide" id="client-only-validation">
+    <figure class="cover width">
+      <img src="images/client-only-validation.jpg" alt="" />
+      <figcaption>Client-side-only validation in the real world</figcaption>
+    </figure>
+  </div>
+
   <div class="slide" id="xss">
     <h2>
       Cross-site scripting (XSS)

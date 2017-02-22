@@ -51,7 +51,7 @@
 .slide h3 {
   margin-bottom: 0;
 }
-.slide h3 + dl {
+.slide h3 + dl, .slide h3 + ul {
   margin-top: 42px;
 }
 
