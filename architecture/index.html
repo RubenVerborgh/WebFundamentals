@@ -1728,6 +1728,12 @@ removeObject.deleteMessage(234);</code></pre>
       </li>
       <li class="next">
         <a href="https://http2-explained.haxx.se/content/en/part2.html#26-head-of-line-blocking">Sequential handling of requests blocks pipelines.</a>
+        <ul>
+          <li>
+            <em>HTTP pipelining</em> allows issuing multiple requests on a single TCP connection
+            without waiting for responses to arrive.
+          </li>
+        </ul>
       </li>
     </ul>
   </div>
@@ -1755,6 +1761,19 @@ removeObject.deleteMessage(234);</code></pre>
         to bypass connection restrictions.
       <dd>
     </dl>
+  </div>
+
+  <div class="slide" id="http2-goals">
+    <h2>
+      HTTP/2 set out a couple of<br>
+      important <a href="https://http2-explained.haxx.se/content/en/part4.html">goals</a> for improvement.
+    </h2>
+    <ul>
+      <li>Reduce sensitivity to latency.</li>
+      <li>Eliminate the need for multiple connections.</li>
+      <li>Fix HTTP pipelining and line blocking.</li>
+      <li>Maintain interfaces, content, and URLs.</li>
+    </ul>
   </div>
 
   <div class="toc slide" id="security">
