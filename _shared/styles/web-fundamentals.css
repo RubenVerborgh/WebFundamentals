@@ -47,6 +47,14 @@
   line-height: 1.5;
 }
 
+/* General */
+.slide h3 {
+  margin-bottom: 0;
+}
+.slide h3 + dl {
+  margin-top: 42px;
+}
+
 /* License information */
 .slide p.license {
   font-size: .3em;
@@ -86,6 +94,9 @@ footer p.license img {
 }
 
 /* Code */
+.slide pre {
+  margin-bottom: 38px;
+}
 .slide pre.scroll {
   max-height: 420px;
   overflow: scroll;
@@ -136,6 +147,9 @@ footer p.license img {
 }
 
 /* Forms */
+label {
+  font-weight: bold;
+}
 label:after {
   content: ": ";
 }
@@ -147,6 +161,9 @@ input[type=text] {
   border: 1px solid;
   padding: 0 .5em;
   border: 1px solid #979A9E;
+}
+input.small {
+  max-width: 200px;
 }
 .slide form p {
   margin-bottom: 0;
@@ -285,9 +302,8 @@ blockquote.long p {
 .dont {
   margin-right: 4%;
 }
-.do h3, .dont h3 {
+.do h3 {
   color: #4B86C2;
-  margin-bottom: 0;
 }
 .dont h3 {
   color: #CC4320;

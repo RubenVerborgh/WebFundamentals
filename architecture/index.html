@@ -1893,10 +1893,39 @@ removeObject.deleteMessage(234);</code></pre>
 
   <div class="slide" id="code-injection">
     <h2>
-      Code injection
+      With code injection, clients send input<br>
+      designed to execute on the server.
     </h2>
-    <ul>
-    </ul>
+    <dl>
+      <dt>attack</dt>
+      <dd class="next">executable code passed in an URL or <code>POST</code> body parameter</dd>
+      <dt>cause</dt>
+      <dd class="next">improper input validation by the server</dd>
+      <dt>defense</dt>
+      <dd class="next"><em>never</em> trust raw client input</dd>
+      <dd class="next">validate input ranges</dd>
+      <dd class="next">escape values before passing to scripts</dd>
+    </dl>
+  </div>
+
+  <div class="slide" id="sql-injection">
+    <h2>
+      SQL injection used to be<br>
+      a very common type of attack.
+    </h2>
+    <h3>Server-side code</h3>
+    <pre><code>query = "SELECT id FROM User WHERE name='" + name + '" +
+        " AND password='" + password + '";</code></pre>
+    <h3>Client-side code</h3>
+    <p class="next">
+      <label>username</label>
+      <input class="small" value="admin">
+      <label>password</label>
+      <input class="small" value="' OR ''='">
+    </p>
+    <h3>Result</h3>
+    <pre class="next"><code>SELECT id FROM User <strong>WHERE name='admin'</strong>
+                    <strong>AND</strong> password='' OR <strong>''=''</strong>;</code></pre>
   </div>
 
   <div class="slide" id="xss">
