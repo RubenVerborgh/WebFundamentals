@@ -1783,7 +1783,7 @@ removeObject.deleteMessage(234);</code></pre>
       frames over multiplexed streams.
     </h2>
     <ul>
-      <li>
+      <li class="next">
         Switching to <a href="https://http2-explained.haxx.se/content/en/part6.html#61-binary">binary</a> makes framing easier.
         <ul>
           <li>10 types of frames</li>
@@ -1791,16 +1791,45 @@ removeObject.deleteMessage(234);</code></pre>
           <li><code>DATA</code> for request and response payloads</li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         <a href="https://http2-explained.haxx.se/content/en/part6.html#63-multiplexed-streams">Multiplexing</a> ensures objects don’t block each other.
         <ul>
           <li>Frames from many streams flow over the same connection.</li>
         </ul>
       </li>
-      <li>
+      <li class="next">
         <a href="https://http2-explained.haxx.se/content/en/part6.html#65-header-compression">Additional compression</a> reduces overhead.
         <ul>
-          <li>HTTP’s stateless nature implies (redundant) repetition.</li>
+          <li>HTTP’s stateless nature implies repetition.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="http2-tls">
+    <h2>
+      HTTP/2 always goes over TLS in practice,<br>
+      even though the standard also allows TCP.<br>
+    </h2>
+    <ul>
+      <li class="next">
+        With regular TCP on port 80, clients would<br>
+        need to upgrade from HTTP 1.x to HTTP/2.
+        <ul>
+          <li>overhead necessary for backward compatibility</li>
+        </ul>
+      </li>
+      <li class="next">
+        With TLS, <a href="https://tools.ietf.org/html/rfc7301">Application-Layer Protocol Negotiation</a>
+        is embedded within the TLS handshake.
+        <ul>
+          <li>no protocol selection latency</li>
+        </ul>
+      </li>
+      <li class="next">
+        Firefox and Chrome will only support TLS.
+        <ul>
+          <li><code>https:</code> everywhere in the future</li>
         </ul>
       </li>
     </ul>
