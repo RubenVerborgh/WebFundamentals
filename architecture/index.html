@@ -1604,6 +1604,33 @@ removeObject.deleteMessage(234);</code></pre>
     </ul>
   </div>
 
+  <div class="slide" id="https-urls">
+    <h2>
+      HTTPS URLs are different,<br>
+      so clients know what protocol to use.
+    </h2>
+    <ul>
+      <li>
+        HTTP URLs start with <code>http:</code><br>
+        HTTPS URLs start with <code>https:</code>
+      </li>
+      <li>
+        After HTTPS has been configured,<br>
+        server admins typically set up redirects.
+        <ul>
+          <li>Never break existing URLs!</li>
+        </ul>
+      </li>
+      <li>
+        The connection between two URLS differing only
+        in <code>http</code>/<code>https</code> is <em>not</em> universally defined.
+        <ul>
+          <li>They <em>could</em> be different things.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
   <div class="toc slide" id="http2">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
