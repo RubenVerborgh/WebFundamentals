@@ -1710,6 +1710,28 @@ removeObject.deleteMessage(234);</code></pre>
     </ul>
   </div>
 
+  <div class="slide" id="http-limitations">
+    <h2>
+      Several limitations of HTTP have<br>
+      a negative impact on page load times.
+    </h2>
+    <ul>
+      <li class="next">
+        <a href="https://http2-explained.haxx.se/content/en/part2.html#23-inadequate-use-of-tcp">TCP connections are not used optimally.</a>
+        <ul>
+          <li>Connections are costly due to the three-way handshake.</li>
+          <li>Limit the connections per host to avoid exhaustion.</li>
+        </ul>
+      </li>
+      <li class="next">
+        <a href="https://http2-explained.haxx.se/content/en/part2.html#25-latency-kills">HTTP is very latency-sensitive.</a>
+      </li>
+      <li class="next">
+        <a href="https://http2-explained.haxx.se/content/en/part2.html#26-head-of-line-blocking">Sequential handling of requests blocks pipelines.</a>
+      </li>
+    </ul>
+  </div>
+
   <div class="toc slide" id="security">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
