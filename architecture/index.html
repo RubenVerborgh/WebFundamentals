@@ -1578,6 +1578,32 @@ removeObject.deleteMessage(234);</code></pre>
     </ul>
   </div>
 
+  <div class="slide" id="https-how">
+    <h2>
+      Setting up HTTPS involves requesting,<br>
+      installing, and maintaining a certificate.
+    </h2>
+    <ul>
+      <li class="next">
+        Request SSL certificate from a <em>certificate authority</em>.
+        <ul>
+          <li>This certificate is valid for one or more hostnames.</li>
+          <li><a href="https://letsencrypt.org/">Let's Encrypt</a> provides free certificates for all.</li>
+        </ul>
+      </li>
+      <li class="next">
+        Configure your Web server with the certificate.
+        <ul>
+          <li>private key stored safely</li>
+          <li>public key shared with clients</li>
+        </ul>
+      </li>
+      <li class="next">
+        When the certificate expires, request a new one.
+      </li>
+    </ul>
+  </div>
+
   <div class="toc slide" id="http2">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
