@@ -1149,9 +1149,9 @@ Last-Modified: Sun, 24 Jan 2016 18:26:27 GMT</span>
         </ul>
       </li>
       <li>
-        <a href="#reverse-proxy">reverse proxy</a>
+        <a href="#proxies">proxies</a>
         <ul>
-          <li>delegates requests to other Web servers</li>
+          <li>delegate requests to other Web servers</li>
         </ul>
       </li>
     </ul>
@@ -1244,39 +1244,6 @@ Last-Modified: Sun, 24 Jan 2016 18:26:27 GMT</span>
     </ul>
   </div>
 
-  <div class="slide" id="reverse-proxy">
-    <h2>
-      Each machine can open <em>one</em> TCP port 80.<br>
-      A reverse proxy lets it run many servers.
-    </h2>
-    <ul>
-      <li>
-        What if we need to serve static <em>and</em> dynamic files?<br>
-        What if we want to combine application servers?
-        <ul>
-          <li>
-            Only one application can listen to a given TCP port.
-          </li>
-        </ul>
-      </li>
-      <li class="next">
-        Configure servers to run on internal ports<br>
-        (such as 3000, 4000, 5000) instead of port 80.
-      </li>
-      <li class="next">
-        Run a reverse proxy
-        <em>(<a href="http://nginx.org/">NGINX</a>,
-             <a href="http://httpd.apache.org/">Apache</a>,
-             …)</em>
-        on port 80,<br>
-        which dispatches requests to the other servers.
-        <ul>
-          <li>Switch based on domain name and/or URL.</li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-
   <div class="toc slide" id="intermediaries">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
@@ -1318,7 +1285,7 @@ Last-Modified: Sun, 24 Jan 2016 18:26:27 GMT</span>
 removeObject.getMessage(234);
 removeObject.deleteMessage(234);</code></pre>
     <p class="next">
-      If a proxy server is inserted before the remote server,<br>
+      If a <a href="#proxies">proxy server</a> is inserted before the remote server,<br>
       may it cache the result of <code>getMessage</code>?
       If so, how long?
     </p>
@@ -1401,7 +1368,7 @@ removeObject.deleteMessage(234);</code></pre>
     </dl>
   </div>
 
-  <div class="slide" id="forward-reverse-proxies">
+  <div class="slide" id="proxies">
     <h2>
       Depending on their position the network,<br>
       proxies are <em>forward</em> or <em>reverse</em>.
@@ -1421,6 +1388,39 @@ removeObject.deleteMessage(234);</code></pre>
           <li>in the network of the server</li>
           <li>typically used for caching</li>
           <li>also for routing, hiding/abstracting remote architecture</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="reverse-proxy">
+    <h2>
+      Each machine can open <em>one</em> TCP port 80.<br>
+      A reverse proxy lets it run many servers.
+    </h2>
+    <ul>
+      <li>
+        What if we need to serve static <em>and</em> dynamic files?<br>
+        What if we want to combine application servers?
+        <ul>
+          <li>
+            Only one application can listen to a given TCP port.
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        Configure servers to run on internal ports<br>
+        (such as 3000, 4000, 5000) instead of port 80.
+      </li>
+      <li class="next">
+        Run a reverse proxy
+        <em>(<a href="http://nginx.org/">NGINX</a>,
+             <a href="http://httpd.apache.org/">Apache</a>,
+             …)</em>
+        on port 80,<br>
+        which dispatches requests to the other servers.
+        <ul>
+          <li>Switch based on domain name and/or URL.</li>
         </ul>
       </li>
     </ul>
