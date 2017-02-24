@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="900" height="400" viewBox="118 120 900 400">
+<style>
+@font-face{
+ font-family: 'Open Sans';
+ src: url(../../_shared/fonts/OpenSans.woff) format('woff')
+}
+@font-face{
+ font-style: italic;
+ font-family: 'Open Sans';
+ src: url(../../_shared/fonts/OpenSans.Italic.woff) format('woff')
+}
+@font-face{
+ font-weight: 700;
+ font-family: 'Open Sans';
+ src: url(../../_shared/fonts/OpenSans.Bold.woff) format('woff')
+}
+
+text { font-family: 'Open Sans'; }
+.em { font-style: italic; }
+.strong { font-weight: bold; }
+rect, path, ellipse { stroke: black; }
+path { fill: none; }
+rect, ellipse { fill: white; }
+</style>
+<rect x="712" y="122" fill="#F9F9F9" width="302" height="395"/>
+<ellipse cx="917" cy="240" rx="62" ry="40"/>
+<path d="M750,183 c47-0,85,12,117,32"/>
+<path d="M284,148 l376,19"/>
+<path d="M283,468 c61-8,278-168,375-176"/>
+<path d="M283,320 c61-8,275-111,372-119"/>
+<rect x="655" y="154" width="112" height="58"/>
+<text x="693" y="195" class="em" font-size="32">80</text>
+<path d="M750,297 c47,0,85-12,117-32"/>
+<ellipse cx="946" cy="399" rx="51" ry="33"/>
+<path d="M907,281 c0,30-116,89-136,98"/>
+<path d="M933,279 c0,53-137,173-162,180"/>
+<rect x="712" y="370" width="59" height="58"/>
+<text x="717" y="406" class="em" font-size="22">3000</text>
+<rect x="655" y="265" width="112" height="58"/>
+<text x="684" y="305" class="em" font-size="32">443</text>
+<rect x="712" y="444" width="59" height="58"/>
+<text x="716" y="480" class="em" font-size="22">4000</text>
+<path d="M771,473 H895"/>
+<path d="M771,399 H895"/>
+<rect x="171" y="132" width="112" height="32"/>
+<text x="227" y="155" class="em" font-size="22">5596</text>
+<path d="M284,192 l371-5"/>
+<rect x="171" y="175" width="112" height="32"/>
+<text x="227" y="199" class="em" font-size="22">5597</text>
+<rect x="171" y="302" width="112" height="32"/>
+<text x="227" y="325" class="em" font-size="22">5597</text>
+<rect x="171" y="455" width="112" height="32"/>
+<text x="227" y="478" class="em" font-size="22">2357</text>
+<rect x="119" y="121" fill="#F9F9F9" width="101" height="101"/>
+<text x="158" y="192" font-size="40">1</text>
+<text x="148" y="153" class="strong" font-size="16">client</text>
+<text x="838" y="141" class="strong" font-size="16">server</text>
+<rect x="119" y="268" fill="#F2F2F2" width="101" height="101"/>
+<text x="158" y="338" font-size="40">2</text>
+<text x="148" y="300" class="strong" font-size="16">client</text>
+<rect x="119" y="416" fill="#F2F2F2" width="101" height="101"/>
+<text x="158" y="487" font-size="40">3</text>
+<text x="148" y="449" class="strong" font-size="16">client</text>
+<ellipse cx="946" cy="473" rx="51" ry="33"/>
+<text transform="matrix(1 0 0 1 876 233)" class="strong" font-size="22">reverse <tspan x="9" y="26">proxy</tspan></text>
+<text transform="matrix(1 0 0 1 926 392)" class="strong" font-size="22">app <tspan x="-14" y="26">server</tspan></text>
+<text transform="matrix(1 0 0 1 926 464)" class="strong" font-size="22">app <tspan x="-14" y="26">server</tspan></text>
+</svg>

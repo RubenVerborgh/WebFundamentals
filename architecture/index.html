@@ -1395,7 +1395,7 @@ removeObject.deleteMessage(234);</code></pre>
 
   <div class="slide" id="reverse-proxy">
     <h2>
-      Each machine can open <em>one</em> TCP port 80.<br>
+      A device can listen on only one TCP port 80.<br>
       A reverse proxy lets it run many servers.
     </h2>
     <ul>
@@ -1420,10 +1420,18 @@ removeObject.deleteMessage(234);</code></pre>
         on port 80,<br>
         which dispatches requests to the other servers.
         <ul>
-          <li>Switch based on domain name and/or URL.</li>
+          <li>Route requests based on <code>Host</code> header and/or path.</li>
         </ul>
       </li>
     </ul>
+  </div>
+
+  <div class="slide" id="reverse-proxy-diagram">
+    <h2>
+      The proxy interfaces with app servers<br>
+      through other, non-public TCP ports.
+    </h2>
+    <object data="images/reverse-proxy.svg"></object>
   </div>
 
   <div class="slide" id="caching-anywhere">
