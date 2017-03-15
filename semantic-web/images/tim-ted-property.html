@@ -11,8 +11,8 @@ var graph = new vis.Network(
   document.body,
   {
     nodes: [
-      { id: 'tim', label: 'dbp:Tim_Berners-Lee', title: 'http://dbpedia.org/resource/Tim_Berners-Lee', x: 10, y: 1 },
-      { id: 'ted', label: 'dbp:Ted_Nelson', title: 'http://dbpedia.org/resource/Ted_Nelson', x: 40, y: 30 },
+      { id: 'tim', label: 'dbr:Tim_Berners-Lee', title: 'http://dbpedia.org/resource/Tim_Berners-Lee', x: 10, y: 1 },
+      { id: 'ted', label: 'dbr:Ted_Nelson', title: 'http://dbpedia.org/resource/Ted_Nelson', x: 40, y: 30 },
     ],
     edges: [
       { from: 'tim', to: 'ted', label: 'foaf:knows', title: 'http://xmlns.com/foaf/0.1/knows' },
