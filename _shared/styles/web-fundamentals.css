@@ -150,6 +150,17 @@ footer p.license img {
   box-shadow: 2px 2px currentColor;
 }
 
+/* Lists */
+dl.long {
+  font-size: .8em;
+}
+dl.long dt {
+  min-width: 120px !important;
+}
+dl.long dt, dl.long dd {
+  margin: 0 !important;
+}
+
 /* Forms */
 label {
   font-weight: bold;
