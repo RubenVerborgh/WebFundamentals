@@ -617,7 +617,7 @@
       A data dump places all dataset triples<br>
       in one or more archive files.
     </h2>
-    <iframe class="website" src="http://downloads.dbpedia.org/2015-10/core/"></iframe>
+    <iframe class="website" src="http://downloads.dbpedia.org/2016-04/core/"></iframe>
   </div>
 
   <div class="slide" id="sparql-endpoint">
@@ -1275,9 +1275,9 @@
   <div class="slide" id="tpf-example">
     <h2>
       This Triple Pattern Fragment shows<br>
-      <a href="http://fragments.dbpedia.org/2015/en?subject=&amp;predicate=http%3A%2F%2Fdbpedia.org%2Fontology%2FbirthPlace&amp;object=http%3A%2F%2Fdbpedia.org%2Fresource%2FLondon">subjects born in London</a> from <a href="http://wiki.dbpedia.org/">DBpedia</a>.
+      <a href="http://fragments.dbpedia.org/2016-04/en?subject=&amp;predicate=http%3A%2F%2Fdbpedia.org%2Fontology%2FbirthPlace&amp;object=http%3A%2F%2Fdbpedia.org%2Fresource%2FLondon">subjects born in London</a> from <a href="http://wiki.dbpedia.org/">DBpedia</a>.
     </h2>
-    <iframe class="website" src="http://fragments.dbpedia.org/2015/en?subject=&amp;predicate=http%3A%2F%2Fdbpedia.org%2Fontology%2FbirthPlace&amp;object=http%3A%2F%2Fdbpedia.org%2Fresource%2FLondon"></iframe>
+    <iframe class="website" src="http://fragments.dbpedia.org/2016-04/en?subject=&amp;predicate=http%3A%2F%2Fdbpedia.org%2Fontology%2FbirthPlace&amp;object=http%3A%2F%2Fdbpedia.org%2Fresource%2FLondon"></iframe>
   </div>
 
   <div class="slide" id="hdt">
@@ -1359,7 +1359,7 @@
         <em>you can query by triple pattern</em>.
       </dd>
     </dl>
-    <iframe class="website" src="http://fragments.dbpedia.org/2015/en?subject=&amp;predicate=http%3A%2F%2Fdbpedia.org%2Fontology%2FbirthPlace&amp;object=http%3A%2F%2Fdbpedia.org%2Fresource%2FLondon"></iframe>
+    <iframe class="website" src="http://fragments.dbpedia.org/2016-04/en?subject=&amp;predicate=http%3A%2F%2Fdbpedia.org%2Fontology%2FbirthPlace&amp;object=http%3A%2F%2Fdbpedia.org%2Fresource%2FLondon"></iframe>
   </div>
 
   <div class="slide" id="tpf-rdf-form">
@@ -1374,8 +1374,8 @@
         <em>you can query by triple pattern</em>.
       </dd>
     </dl>
-    <pre class="scroll"><code>&lt;http://fragments.dbpedia.org/2015/en#dataset&gt; hydra:search [
-  hydra:template "http://fragments.dbpedia.org/2015/en{?s,p,o}";
+    <pre class="scroll"><code>&lt;http://fragments.dbpedia.org/2016-04/en#dataset&gt; hydra:search [
+  hydra:template "http://fragments.dbpedia.org/2016-04/en{?s,p,o}";
   hydra:mapping
     [ hydra:variable "s"; hydra:property rdf:subject ],
     [ hydra:variable "p"; hydra:property rdf:predicate ],
@@ -1395,7 +1395,7 @@
         <em>this is the number of matches</em>.
       </dd>
     </dl>
-    <iframe class="website" src="http://fragments.dbpedia.org/2015/en?subject=&amp;predicate=http%3A%2F%2Fdbpedia.org%2Fontology%2FbirthPlace&amp;object=http%3A%2F%2Fdbpedia.org%2Fresource%2FLondon"></iframe>
+    <iframe class="website" src="http://fragments.dbpedia.org/2016-04/en?subject=&amp;predicate=http%3A%2F%2Fdbpedia.org%2Fontology%2FbirthPlace&amp;object=http%3A%2F%2Fdbpedia.org%2Fresource%2FLondon"></iframe>
   </div>
 
   <div class="slide" id="tpf-rdf-metadata">
@@ -1445,7 +1445,7 @@
     ?person dbpedia-owl:birthPlace ?city.
     ?city foaf:name "Waterloo"@en.
 }</code></pre>
-    <p>Fragment: <a href="http://fragments.dbpedia.org/2015/en">http://fragments.dbpedia.org/2015/en</a></p>
+    <p>Fragment: <a href="http://fragments.dbpedia.org/2016-04/en">http://fragments.dbpedia.org/2016-04/en</a></p>
   </div>
 
   <div class="slide" id="tpf-inspect-fragment">
@@ -1453,8 +1453,8 @@
       The client looks inside of the fragment<br>
       to see how it can access the dataset.
     </h2>
-    <pre class="scroll"><code>&lt;http://fragments.dbpedia.org/2015/en#dataset&gt; hydra:search [
-  hydra:template "http://fragments.dbpedia.org/2015/en{?s,p,o}";
+    <pre class="scroll"><code>&lt;http://fragments.dbpedia.org/2016-04/en#dataset&gt; hydra:search [
+  hydra:template "http://fragments.dbpedia.org/2016-04/en{?s,p,o}";
   hydra:mapping
     [ hydra:variable "s"; hydra:property rdf:subject ],
     [ hydra:variable "p"; hydra:property rdf:predicate ],
@@ -1670,10 +1670,10 @@
 
   <div class="slide" id="tpf-query-client">
     <h2>
-      Executing this query in the <a href="http://client.linkeddatafragments.org/#datasources=http%3A%2F%2Ffragments.dbpedia.org%2F2015%2Fen&query=SELECT%20%3Fperson%20%3Fcity%20WHERE%20%7B%0A%20%20%20%20%3Fperson%20rdf%3Atype%20dbpedia-owl%3AArtist.%0A%20%20%20%20%3Fperson%20dbpedia-owl%3AbirthPlace%20%3Fcity.%0A%20%20%20%20%3Fcity%20foaf%3Aname%20%22Waterloo%22%40en.%0A%7D">browser client</a><br>
+      Executing this query in the <a href="http://client.linkeddatafragments.org/#datasources=http%3A%2F%2Ffragments.dbpedia.org%2F2016-04%2Fen&query=SELECT%20%3Fperson%20%3Fcity%20WHERE%20%7B%0A%20%20%20%20%3Fperson%20rdf%3Atype%20dbpedia-owl%3AArtist.%0A%20%20%20%20%3Fperson%20dbpedia-owl%3AbirthPlace%20%3Fcity.%0A%20%20%20%20%3Fcity%20foaf%3Aname%20%22Waterloo%22%40en.%0A%7D">browser client</a><br>
       only takes a couple of seconds.
     </h2>
-    <iframe class="query-client" src="../_shared/query-client/#datasources=http%3A%2F%2Ffragments.dbpedia.org%2F2015%2Fen&amp;query=SELECT%20%3Fperson%20%3Fcity%20WHERE%20%7B%0A%20%20%20%20%3Fperson%20rdf%3Atype%20dbpedia-owl%3AArtist.%0A%20%20%20%20%3Fperson%20dbpedia-owl%3AbirthPlace%20%3Fcity.%0A%20%20%20%20%3Fcity%20foaf%3Aname%20%22Waterloo%22%40en.%0A%7D"></iframe>
+    <iframe class="query-client" src="../_shared/query-client/#datasources=http%3A%2F%2Ffragments.dbpedia.org%2F2016-04%2Fen&amp;query=SELECT%20%3Fperson%20%3Fcity%20WHERE%20%7B%0A%20%20%20%20%3Fperson%20rdf%3Atype%20dbpedia-owl%3AArtist.%0A%20%20%20%20%3Fperson%20dbpedia-owl%3AbirthPlace%20%3Fcity.%0A%20%20%20%20%3Fcity%20foaf%3Aname%20%22Waterloo%22%40en.%0A%7D"></iframe>
   </div>
 
   <div class="toc slide" id="evaluating-trade-offs">
