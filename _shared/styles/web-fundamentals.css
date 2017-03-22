@@ -151,6 +151,9 @@ footer p.license img {
 }
 
 /* Lists */
+.inline {
+  line-height: 1.32 !important;
+}
 dl.long {
   font-size: .8em;
 }
