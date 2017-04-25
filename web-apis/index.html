@@ -1383,7 +1383,7 @@
       </li>
       <li class="next">
         Europeana publishes its content on a website<br>
-        and as a separate Web API.
+        with content negotiation and as a separate Web API.
       </li>
     </ul>
   </div>
@@ -1399,7 +1399,7 @@
       <li>
         You can link to items.
         <ul>
-          <li><a href="http://www.europeana.eu/portal/record/9200229/BibliographicResource_3000135601313.html">http://www.europeana.eu/portal/record/&#8203;9200229/BibliographicResource_3000135601313.html</a></li>
+          <li><a href="http://www.europeana.eu/portal/en/record/9200229/BibliographicResource_3000135601313">http://www.europeana.eu/portal/en/record/&#8203;9200229/BibliographicResource_3000135601313</a></li>
         </ul>
       </li>
     </ul>
@@ -1408,21 +1408,39 @@
   <div class="slide" id="europeana-website-machine">
     <h2>
       Using the <a href="http://europeana.eu/">Europeana website</a><br>
-      as a machine is more difficult.
+      as a machine is possible in two ways.
     </h2>
     <ul>
       <li class="next">
-        In fact, machines can’t use it.
+        They can use the regular website<br> with content negotiation.
+      </li>
+      <li class="next">
+        They can use the dedicated machine API.
         <ul>
-          <li>They need to access the API.</li>
+          <li>It is an HTTP API, but not a REST API.</li>
         </ul>
       </li>
     </ul>
+    <p class="next">Which one would be easier?</p>
+  </div>
+
+  <div class="slide" id="europeana-rest-steps">
+    <h2>
+      Retrieving an item through the website<br>
+      as a machine takes one step.
+    </h2>
+    <ol>
+      <li>
+        Use the same URL of the item, but ask for JSON.
+      </li>
+    </ol>
+    <pre class="scroll"><code>curl -H "Accept: application/json" \
+http://www.europeana.eu/portal/en/record/9200229/BibliographicResource_3000135601313</code></pre>
   </div>
 
   <div class="slide" id="europeana-api">
     <h2>
-      Using the Europeana API<br>
+      Using the dedicated Europeana API<br>
       is quite complicated.
     </h2>
     <ul>
@@ -1447,21 +1465,9 @@
     </p>
   </div>
 
-  <div class="slide" id="europeana-rest-steps">
-    <h2>
-      Retrieving an item using a REST API<br>
-      would have cost you one step.
-    </h2>
-    <ol>
-      <li>
-        Use the same URL of the item, but ask for JSON.
-      </li>
-    </ol>
-  </div>
-
   <div class="slide" id="europeana-steps">
     <h2>
-      Retrieving an item using the actual API<br>
+      Retrieving an item using the dedicated API<br>
       involves at least 5 steps.
     </h2>
     <ol>
@@ -1671,6 +1677,20 @@
       <li>You cannot share nor cache a response.</li>
       <li>You cannot use the API without documentation.</li>
       <li>You cannot use the API in the future.</li>
+    </ul>
+  </div>
+
+  <div class="slide" id="europeana-website-consequences">
+    <h2>
+      Europeana’s website design choices<br>
+      have consequences for sustainability.
+    </h2>
+    <ul>
+      <li>You can bookmark a URL.</li>
+      <li>You can share a URL.</li>
+      <li>You can share and cache a response.</li>
+      <li>You can use the website without documentation.</li>
+      <li>You can use the website in the future.</li>
     </ul>
   </div>
 
