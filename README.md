@@ -26,7 +26,7 @@ A typical starting point would be to open up any `index.html` file, either in th
 
 The slides themselves are regular HTML files, brought to life with the [Shower](https://github.com/shower/shower) presentation engine. They use the [Clear](https://github.com/RubenVerborgh/Shower-Clear) template with a few customizations in [`_shared/styles/web-fundamentals.css`](https://github.com/RubenVerborgh/WebFundamentals/blob/gh-pages/_shared/styles/web-fundamentals.css).
 
-You can just open the slides in you browser. from the local filesystem while editing. Alternatively, you can install [gulp](http://gulpjs.com/) and run the `gulp` command in the root folder, which will autorefresh your browser upon changes.
+You can just open the slides in your browser. from the local filesystem while editing. Alternatively, you can install [gulp](http://gulpjs.com/) and run the `gulp` command in the root folder, which will autorefresh your browser upon changes.
 
 ## License
 Except where otherwise noted, the content of these slides is licensed under a [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/).
