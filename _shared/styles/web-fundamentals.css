@@ -224,6 +224,10 @@ figcaption {
 img.narrow {
   margin-left: 60px;
 }
+iframe.image {
+  width: 100%;
+  height: 420px;
+}
 iframe.graph {
   width: 1024px;
   height: 492px;

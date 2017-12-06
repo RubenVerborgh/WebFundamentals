@@ -9,8 +9,9 @@ shower.modules.require(['shower'], function (Shower) {
 
     // Avoid full-screen elements (including iframes) stealing focus
     setInterval(function () {
-      if (document.activeElement.classList.contains('cover'))
-        document.activeElement.blur();
+      var focused = document.activeElement;
+      if (focused.classList.contains('cover') || focused.classList.contains('image'))
+        focused.blur();
     }, 100);
 
     // Add handles to advance video slides on mobile
