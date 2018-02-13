@@ -50,6 +50,7 @@ body {
 }
 .list > header .links {
   font-size: .45em;
+  font-style: italic;
   margin-top: 1em;
   line-height: 1.5;
 }
