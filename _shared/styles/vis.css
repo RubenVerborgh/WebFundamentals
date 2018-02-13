@@ -34,11 +34,11 @@ html, body {
 
   font-family: 'Open Sans';
   font-size: 24px;
-  color: #4B86C2;
+  color: #453688;
   background: rgba(255, 255, 255, 0.9);
 
   border-radius: 10px;
-  border: 1px solid #4B86C2;
+  border: 1px solid #453688;
 
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
   pointer-events: none;

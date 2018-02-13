@@ -18,11 +18,11 @@ text {
 }
 #arrows path {
   fill: none;
-  stroke: #4B86C4;
+  stroke: #453688;
   stroke-width: 6px;
   marker-end: url(#triangle);
 }
-path, circle { fill: #4B86C4; }
+path, circle { fill: #453688; }
 a { outline: none; }
 </style>
   <marker id="triangle" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto">

@@ -33,19 +33,19 @@ text   { font: 22px 'Open Sans'; }
 #values text { font-style: italic; }
 </style>
   <polyline stroke="#93B6DA" points="8.98,337.22 57.16,278.75 111.77,279.81 217.78,273.34 429.8,267.33 789.59,261.94"/>
-  <polyline stroke="#4B86C2" points="8.98,336.11 8.98,331.23 12.19,307.15 18.61,284.3 18.61,273.17 31.46,239.19 57.16,202.28 111.77,176.33 217.78,159 429.8,213.48 789.59,170.23"/>
+  <polyline stroke="#453688" points="8.98,336.11 8.98,331.23 12.19,307.15 18.61,284.3 18.61,273.17 31.46,239.19 57.16,202.28 111.77,176.33 217.78,159 429.8,213.48 789.59,170.23"/>
   <polyline stroke="#C0C2C5" points="8.98,337.93 57.16,296.55 111.77,293.9 217.78,292.34 429.8,294.93 789.59,294.96"/>
   <polyline stroke="#979A9E" points="8.98,336.34 57.16,251.53 111.77,242.92 217.78,241.99 429.8,258.99 789.59,251.49"/>
   <polyline stroke="#CC4320" points="8.98,309.89 12.19,268.54 18.61,217.05 31.46,144.21 57.16,49.65 111.77,14.14 217.78,11.23 429.8,19.72 789.59,38.6"/>
 
   <text x="804" y="46"  fill="#CC4320" class="label">TPF</text>
-  <text x="804" y="178" fill="#4B86C2" class="label">Virtuoso</text>
+  <text x="804" y="178" fill="#453688" class="label">Virtuoso</text>
   <text x="804" y="258" fill="#979A9E" class="label">Fuseki</text>
 
   <g id="values">
     <text x="389" y="120" class="title">outgoing data from the server (MB)</text>
     <text x="759" y="70" fill="#CC4320">4.1</text>
-    <text x="759" y="203" fill="#4B86C2">2.4</text>
+    <text x="759" y="203" fill="#453688">2.4</text>
     <text x="759" y="325" fill="#979A9E">1.4</text>
   </g>
 

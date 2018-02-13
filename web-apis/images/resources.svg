@@ -21,7 +21,7 @@ rect {
   fill: #979A9E;
 }
 .resource {
-  fill: #CC4420 !important;
+  fill: #D76016 !important;
 }
 
 text {
@@ -41,12 +41,12 @@ text {
 }
 
 line {
-  stroke: #CC4420;
+  stroke: #D76016;
   stroke-width: 3px;
   marker-end: url(#triangle);
 }
 path {
-  fill: #CC4420;
+  fill: #D76016;
 }
 .dashed {
   stroke-dasharray: 5, 5;

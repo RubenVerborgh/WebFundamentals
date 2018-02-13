@@ -35,18 +35,18 @@ text   { font: 22px 'Open Sans'; }
   <polyline stroke="#C0C2C5" points="10.55,69.24 10.55,69.24 58.65,150.73 113.16,181.12 218.97,213.3 430.61,246.14 789.74,261.23"/>
   <polyline stroke="#93B6DA" points="10.55,55.98 58.65,133.53 113.16,173.17 218.97,206.3 430.61,228.52 789.74,251.08"/>
   <polyline stroke="#979A9E" points="10.55,43.63 58.65,120.72 113.16,153.31 218.97,187.75 430.61,220.8 789.74,247.27"/>
-  <polyline stroke="#4B86C2" points="10.55,28.18 13.76,33.19 20.17,49.64 33,73.84 58.65,102.55 113.16,134.08 218.97,164.7 430.61,195.54 789.74,212.73"/>
+  <polyline stroke="#453688" points="10.55,28.18 13.76,33.19 20.17,49.64 33,73.84 58.65,102.55 113.16,134.08 218.97,164.7 430.61,195.54 789.74,212.73"/>
   <polyline stroke="#CC4320" points="10.55,217.66 13.76,233.98 20.17,239.92 33,270.38 58.65,275.97 113.16,289.25 218.97,292.33 430.61,282.27 789.74,276.05"/>
 
-  <text x="804" y="216" fill="#4B86C2" class="label">Virtuoso</text>
+  <text x="804" y="216" fill="#453688" class="label">Virtuoso</text>
   <text x="804" y="251" fill="#979A9E" class="label">Fuseki</text>
   <text x="804" y="285" fill="#CC4320" class="label">TPF</text>
 
   <g id="values">
     <text x="278" y="120" class="title">queries per client per hour (logarithmic scale)</text>
-    <text x="7"   y="22"  fill="#4B86C2">11,223</text>
+    <text x="7"   y="22"  fill="#453688">11,223</text>
     <text x="7"   y="212" fill="#CC4320">130</text>
-    <text x="756" y="201" fill="#4B86C2">146</text>
+    <text x="756" y="201" fill="#453688">146</text>
     <text x="767" y="304" fill="#CC4320">33</text>
   </g>
 

@@ -20,16 +20,16 @@ path {
   stroke-linecap: round;
 }
 .client {
-  fill: #4B86C4;
+  fill: #453688;
 }
 .server {
-  fill: #CC4420;
+  fill: #D76016;
 }
 </style>
 <defs>
   <linearGradient id="gradient">
-  <stop stop-color="#4B86C4" offset="20%"/>
-  <stop stop-color="#CC4420" offset="80%"/>
+  <stop stop-color="#453688" offset="20%"/>
+  <stop stop-color="#D76016" offset="80%"/>
   </linearGradient>
 </defs>
 <path d="M161,176 c55-17,128-23,230,18"/>
