@@ -39,7 +39,7 @@ path, rect {
 }
 rect.semweb {
   transform: rotate(45deg);
-  transform-origin: 50% 50%;
+  fill: white !important;
 }
 
 line.web, line.semweb {
@@ -51,20 +51,6 @@ line.web, line.semweb {
 <circle class="internet" cx="313" cy="315" r="18"/>
 <circle class="internet" cx="454" cy="362" r="18"/>
 <circle class="internet" cx="570" cy="308" r="18"/>
-
-<g id="web" class="web" transform="translate(13,151)">
-	<rect  x="0" y="0" width="50" height="67"/>
-	<line x1="8" y1="15" x2="37" y2="15"/>
-	<line x1="8" y1="23" x2="37" y2="23"/>
-	<line x1="8" y1="38" x2="37" y2="38"/>
-	<line x1="8" y1="46" x2="37" y2="46"/>
-</g>
-<g transform="translate(278,23)"><use xlink:href="#web"/></g>
-<g transform="translate(533,20)"><use xlink:href="#web"/></g>
-
-<rect x="14"  y="16" class="semweb" width="45" height="45"/>
-<rect x="290" y="40" class="semweb" width="45" height="45"/>
-<rect x="546" y="32" class="semweb" width="45" height="45"/>
 
 <path class="internet" d="M64,306c70-18,144-18,219,0"/>
 <path class="internet" d="M188,376c77,26,157,25,238-4"/>
@@ -78,6 +64,20 @@ line.web, line.semweb {
 <line class="semweb" x1="37"  y1="148" x2="37"  y2="69"/>
 <line class="semweb" x1="313" y1="171" x2="313" y2="93"/>
 <line class="semweb" x1="569" y1="168" x2="569" y2="86"/>
+
+<g id="web" class="web" transform="translate(14,151)">
+	<rect  x="0" y="0" width="50" height="67"/>
+	<line x1="8" y1="15" x2="37" y2="15"/>
+	<line x1="8" y1="23" x2="37" y2="23"/>
+	<line x1="8" y1="38" x2="37" y2="38"/>
+	<line x1="8" y1="46" x2="37" y2="46"/>
+</g>
+<g transform="translate(275,23)"><use xlink:href="#web"/></g>
+<g transform="translate(532,20)"><use xlink:href="#web"/></g>
+
+<g transform="translate( 37, 4)"><rect class="semweb" width="45" height="45"/></g>
+<g transform="translate(313,28)"><rect class="semweb" width="45" height="45"/></g>
+<g transform="translate(569,20)"><rect class="semweb" width="45" height="45"/></g>
 
 <text class="internet" x="640" y="320">Internet</text>
 <text class="web"      x="640" y="216">Web</text>
