@@ -46,12 +46,12 @@ a, button, label {
   font-weight: bold;
 }
 a, button, button:hover, input:hover, label {
-  color: #4B86C2;
+  color: #453688;
   cursor: pointer;
   text-decoration: none;
 }
 a:hover {
-  color: #4B86C2;
+  color: #453688;
   text-decoration: underline;
 }
 button {
@@ -116,7 +116,7 @@ textarea {
   background-color: transparent;
 }
 textarea:hover {
-  color: #4B86C2;
+  color: #453688;
 }
 
 pre {
@@ -287,7 +287,7 @@ li.active-result {
   cursor: pointer;
 }
 li.highlighted {
-  background-color: #4B86C2;
+  background-color: #453688;
   color: #fff;
 }
 li.no-results {

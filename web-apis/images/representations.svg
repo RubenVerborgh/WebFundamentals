@@ -18,10 +18,10 @@
 }
 
 rect, .resource {
-  fill: #CC4420 !important;
+  fill: #D76016 !important;
 }
 circle {
-  fill: #4B86C4;
+  fill: #453688;
 }
 
 text {
@@ -36,16 +36,16 @@ text {
   font-style: italic;
 }
 .label {
-  fill: #4B86C4;
+  fill: #453688;
 }
 
 line {
-  stroke: #4B86C4;
+  stroke: #453688;
   stroke-width: 3px;
   marker-end: url(#triangle);
 }
 path {
-  fill: #4B86C4;
+  fill: #453688;
 }
 </style>
 

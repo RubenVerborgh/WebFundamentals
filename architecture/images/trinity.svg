@@ -14,7 +14,7 @@ text {
   fill: white;
 }
 circle {
-  fill: #4B86C4;
+  fill: #453688;
 }
 path {
   stroke: #979A9E;

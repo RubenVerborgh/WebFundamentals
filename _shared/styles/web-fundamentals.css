@@ -110,13 +110,13 @@ footer p.license img {
   cursor: pointer;
 }
 .element:hover {
-  color: #4B86C2;
+  color: #453688;
 }
 .element .element:hover {
   color: #CC4320;
 }
 .element .element .element:hover {
-  color: #979A9E;
+  color: #737373;
 }
 .element:hover:before {
   content: 'element';
@@ -178,7 +178,7 @@ input {
 input[type=text] {
   border: 1px solid;
   padding: 0 .5em;
-  border: 1px solid #979A9E;
+  border: 1px solid #737373;
 }
 input.small {
   max-width: 200px;
@@ -311,10 +311,10 @@ blockquote.long p {
 #css-test {
   font-style: italic;
   text-align: center;
-  border: 3px solid #4B86C2;
+  border: 3px solid #453688;
 }
 #css-test span { border: 3px solid #CC4320; }
-#css-test span:last-child { background-color: #979A9E; }
+#css-test span:last-child { background-color: #737373; }
 
 /* Do and dont's */
 .do, .dont {
@@ -325,7 +325,7 @@ blockquote.long p {
   margin-right: 4%;
 }
 .do h3 {
-  color: #4B86C2;
+  color: #453688;
 }
 .dont h3 {
   color: #CC4320;
@@ -345,7 +345,7 @@ blockquote.long p {
   margin: 0;
   font-weight: normal;
   font-style: italic;
-  color: #979A9E;
+  color: #737373;
 }
 
 /* Queries */
@@ -358,7 +358,7 @@ ol.query .count {
   color: #CC4320;
 }
 ol.query em {
-  color: #979A9E;
+  color: #737373;
 }
 ol.query code {
   letter-spacing: -1px;

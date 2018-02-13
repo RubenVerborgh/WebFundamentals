@@ -27,8 +27,8 @@ path, rect {
 }
 
 .web {
-  stroke: #4B86C4;
-  fill:   #4B86C4;
+  stroke: #453688;
+  fill:   #453688;
   stroke-width: 5;
 }
 line.web {
