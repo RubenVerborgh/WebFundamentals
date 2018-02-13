@@ -78,18 +78,12 @@ footer p.license img {
 }
 
 /* Content table slides */
-.toc.slide {
-  padding-left: 200px;
-  font-style: italic;
-}
-.toc.slide li {
-  font-weight: normal;
-}
-.toc.slide li.current {
-  font-weight: bold;
-}
-.toc .series {
-  line-height: 1;
+.slide.toc h2 {
+  top: 34px;
+  left: 60px;
+  bottom: auto;
+  right: auto;
+  line-height: 48px;
 }
 .toc .tweets {
   position: absolute;
