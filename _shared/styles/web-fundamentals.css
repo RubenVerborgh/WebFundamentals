@@ -92,6 +92,10 @@ footer p.license img {
   bottom: auto;
   right: auto;
   line-height: 48px;
+  font-style: normal;
+}
+.slide.toc ul {
+  font-style: italic;
 }
 .toc .tweets {
   position: absolute;
