@@ -1,8 +1,8 @@
-(function (shower) {
+(function () {
   // Disable slide builds by default, but re-enable them when 'c' is pressed
   setBuildsEnabled(false);
-  shower.player.events.on('keydown', function (e) {
-    if (e._data.event.keyCode === 67)
+  document.addEventListener('keydown', function (e) {
+    if (e.which === 67)
       setBuildsEnabled(true);
   });
 
@@ -21,8 +21,11 @@
 
   // Enables or disable slide builds
   function setBuildsEnabled(enabled) {
-    [].forEach.call(document.getElementsByClassName('next'), function (e) {
-      e.classList[enabled ? 'remove' : 'add']('active');
+    var classes = { true: 'next', false: 'no-next' };
+    var elements = [].slice.call(document.getElementsByClassName(classes[!enabled]));
+    elements.forEach(function (e) {
+      e.classList.add(classes[enabled]);
+      e.classList.remove(classes[!enabled]);
     });
   }
-})(shower.shower);
+})();
