@@ -66,6 +66,9 @@ ins {
   color: #cc4320;
   text-decoration: none;
 }
+abbr {
+  text-decoration: none;
+}
 
 /* License information */
 .slide p.license {
