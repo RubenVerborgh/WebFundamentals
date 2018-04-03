@@ -1,26 +1,65 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   xmlns="http://www.w3.org/2000/svg"
-   width="1000"
-   height="520"
-   preserveAspectRatio="none"
-   version="1.0">
-  <g transform="matrix(1.266263,0,0,1.350058,-20.699168,-6.966066)">
-    <g transform="matrix(1.055449,0,0,1.011534,-56.0384,16.70264)">
-      <path
-         style="fill:#453688"
-         d="M 181.941,358.342 L 71.983,358.342 L 71.983,0.107 L 82.983,0.107 C 82.983,0.107 91.394,156.175 100.983,199.342 C 105.649,220.347 122.34,261.845 181.941,291.892" />
-      <path
-         style="fill:#CC4320"
-         d="M 181.941,358.342 L 781.983,358.342 L 782.983,347.342 C 782.983,347.342 471.983,340.342 306.983,324.342 C 252.072,319.017 211.669,306.879 181.941,291.892 L 181.941,358.342 z" />
-    </g>
-    <g transform="matrix(1.055449,0,0,1.011534,-56.0384,16.70264)">
-      <polyline
-         style="fill:none;stroke:black;stroke-width:3"
-         points="71.983,0.107 71.983,358.342 781.983,358.342" />
-      <path
-         style="fill:none;stroke:#909090;stroke-width:4"
-         d="M 82.983,0.107 C 82.983,0.107 91.394,156.175 100.983,199.342 C 107.976,230.823 141.983,308.342 306.983,324.342 C 471.983,340.342 782.983,347.342 782.983,347.342" />
-    </g>
-  </g>
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="900" height="285">
+<style>
+@font-face{
+ font-family: 'Open Sans';
+ src: url(../../_shared/fonts/OpenSans.woff) format('woff')
+}
+@font-face{
+ font-style: italic;
+ font-family: 'Open Sans';
+ src: url(../../_shared/fonts/OpenSans.Italic.woff) format('woff')
+}
+@font-face{
+ font-weight: 700;
+ font-family: 'Open Sans';
+ src: url(../../_shared/fonts/OpenSans.Bold.woff) format('woff')
+}
+text {
+  font-family: 'Open Sans';
+  font-size: 14px;
+}
+line {
+  marker-end: url(#triangle);
+  stroke-linecap: square;
+}
+line, marker {
+  fill: none;
+  stroke: #868686;
+}
+.axis {
+  fill: #6F6F6E;
+  font-style: italic;
+  font-size: 12px;
+}
+.label {
+  font-weight: bold;
+  font-size: 15px;
+}
+.usage {
+  font-style: italic;
+}
+</style>
+
+<marker id="triangle" viewBox="0 0 10 10" refX="7" refY="4" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+  <path d="M 0 0 L 8 4 L 0 8" />
+</marker>
+
+<g transform="scale(1.89)">
+<path fill="#453688" d="M100,132H4V0c0,0,19.5-65.33,24,0s28.57,88.05,72,100"/>
+<path fill="#CC4320" d="M100,100c23.93,6.58,347.75,19.25,375,20c34.46,0.95,0,12,0,12l-375,0.5"/>
+
+<line stroke="#868686" x1="4" y1="132" x2="474" y2="132"/>
+<text transform="matrix(1 0 0 1 361 146)" class="axis">number of products</text>
+
+<line stroke="#868686" x1="4" y1="132" x2="4" y2="2"/>
+<text transform="matrix(1 0 0 1 36 11)" class="axis">number of buyers</text>
+
+<text transform="matrix(1 0 0 1 44 37)"><tspan fill="#453688" class="label">head: </tspan><tspan x="46">few products are bought by many people</tspan></text>
+<text transform="matrix(1 0 0 1 52 54)" fill="#453688" class="usage">also profitable for physical stores</text>
+
+<text transform="matrix(1 0 0 1 131 88)"><tspan fill="#CC4320" class="label">long tail: </tspan><tspan x="70">many products are bought by few people</tspan></text>
+<text transform="matrix(1 0 0 1 298 106)" fill="#CC4320" class="usage">only profitable at Web scale</text>
+</g>
 </svg>
