@@ -1,9 +1,8 @@
 {
-  "devDependencies": {
-    "browser-sync": "^2.23.6",
-    "gulp": "^4.0.0"
+  "scripts": {
+    "start": "live-server ."
   },
-  "dependencies": {
-    "gulp-cli": "^2.0.1"
+  "devDependencies": {
+    "live-server": "^1.2.0"
   }
 }
