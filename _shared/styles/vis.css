@@ -1,23 +1,4 @@
-@font-face {
-	font-family: 'Open Sans';
-	src: url(../fonts/OpenSans.woff) format('woff');
-}
-@font-face {
-	font-style: italic;
-	font-family: 'Open Sans';
-	src: url(../fonts/OpenSans.Italic.woff) format('woff');
-}
-@font-face {
-	font-weight: bold;
-	font-family: 'Open Sans';
-	src: url(../fonts/OpenSans.Bold.woff) format('woff');
-}
-@font-face {
-	font-style: italic;
-	font-weight: bold;
-	font-family: 'Open Sans';
-	src: url(../fonts/OpenSans.Bold.Italic.woff) format('woff');
-}
+@font-face{font-family:'Open Sans';src:local("Open Sans"),local("OpenSans"),url(../fonts/OpenSans.woff2) format("woff2"),url(../fonts/OpenSans.woff) format("woff")}@font-face{font-weight:700;font-family:'Open Sans';src:local("Open Sans Bold"),local("OpenSans-Bold"),url(../fonts/OpenSans.Bold.woff2) format("woff2"),url(../fonts/OpenSans.Bold.woff) format("woff")}@font-face{font-style:italic;font-family:'Open Sans';src:local("Open Sans Italic"),local("OpenSans-Italic"),url(../fonts/OpenSans.Italic.woff2) format("woff2"),url(../fonts/OpenSans.Italic.woff) format("woff")}@font-face{font-style:italic;font-weight:700;font-family:'Open Sans';src:local("Open Sans Bold Italic"),local("OpenSans-BoldItalic"),url(../fonts/OpenSans.Bold.Italic.woff2) format("woff2"),url(../fonts/OpenSans.Bold.Italic.woff) format("woff")}@font-face{font-weight:300;font-family:'Open Sans';src:local("Open Sans Light"),local("OpenSans-Light"),url(../fonts/OpenSans.Light.woff2) format("woff2"),url(../fonts/OpenSans.Light.woff) format("woff")}@font-face{font-family:'Source Code Pro';src:local("Source Code Pro"),local("SourceCodePro-Regular"),url(../fonts/SourceCodePro.woff2) format("woff2"),url(../fonts/SourceCodePro.woff) format("woff")}@font-face{font-weight:700;font-family:'Source Code Pro';src:local("Source Code Pro Bold"),local("SourceCodePro-Bold"),url(../fonts/SourceCodePro.Bold.woff2) format("woff2"),url(../fonts/SourceCodePro.Bold.woff) format("woff")}
 
 html, body {
   margin: 0;
