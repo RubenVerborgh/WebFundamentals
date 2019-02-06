@@ -1,5 +1,6 @@
 .shower {
   --accent: #453688;
+  --gray: #737373;
 }
 
 html, body:not(.full) {
@@ -94,12 +95,69 @@ nav h2 {
 
 nav ol {
   counter-reset: topic;
-
   margin-left: 1em;
 }
 nav ol li:before {
   counter-increment: topic;
   content: counter(topic) '. '; */
+}
+
+/* Text sections */
+
+.shower > section {
+  width: 100%;
+  font-size: 50%;
+  padding: 0 1.6em 2em;
+  line-height: 1.5;
+}
+
+@media (min-width:1174px) {
+  .shower > section {
+    font-size: 66%;
+    padding: 0 2.4em 2.5em;
+  }
+}
+
+@media (min-width:2348px) {
+  .shower > section {
+    font-size: 133%;
+  }
+}
+
+.shower.full > section {
+  display: none;
+}
+
+.shower > section h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: var(--accent);
+}
+.shower > section h3 {
+  margin-top: .5em;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.shower > section h4 {
+  font-weight: bold;
+  margin-left: 2em;
+}
+
+.shower > section li {
+  margin-left: 3em;
+}
+
+.shower > section a {
+  color: var(--accent);
+}
+.shower > section a[href*="ugent.be"]:after {
+  content: " 🔐";
+}
+.shower > section a:hover {
+  text-decoration: underline;
+}
+.shower > section cite a {
+  font-style: italic;
 }
 
 /* General */
@@ -446,6 +504,12 @@ blockquote.white::before {
 .do .example, .dont .example {
   min-height: 210px;
 }
+.do ul li, .dont ul li {
+  margin: 0;
+  font-weight: normal;
+  font-style: italic;
+  color: #737373;
+}
 .do + ul {
   margin: 0;
   bottom: 42px;
@@ -453,9 +517,6 @@ blockquote.white::before {
 }
 .do + ul li {
   margin: 0;
-  font-weight: normal;
-  font-style: italic;
-  color: #737373;
 }
 
 /* Queries */
