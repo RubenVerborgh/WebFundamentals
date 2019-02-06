@@ -1,3 +1,7 @@
+.shower {
+  --accent: #3a2d72;
+}
+
 /* Title and title slide */
 body {
   padding-top: 30px !important;
@@ -53,6 +57,52 @@ body {
   font-style: italic;
   margin-top: 1em;
   line-height: 1.5;
+}
+
+/* Navigation sidebar */
+
+.shower.full nav {
+  display: none;
+}
+
+nav {
+  font-size: 80%;
+  line-height: 1.66;
+
+  position: fixed;
+  z-index: 10;
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  transition: .5s transform;
+
+  padding: 1em;
+
+  color: white;
+  background: var(--accent);
+
+  cursor: pointer;
+}
+
+nav:not(:hover) {
+  transform: translate(calc(100% - 1.8em), -50%);
+  transition: .5s .5s transform;
+}
+
+nav h2 {
+  letter-spacing: .1em;
+  font-weight: bold;
+  margin-bottom: .33em;
+}
+
+nav ol {
+  counter-reset: topic;
+
+  margin-left: 1em;
+}
+nav ol li:before {
+  counter-increment: topic;
+  content: counter(topic) '. '; */
 }
 
 /* General */
