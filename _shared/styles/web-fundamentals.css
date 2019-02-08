@@ -85,12 +85,11 @@ nav {
 }
 
 nav:not(:hover) {
-  transform: translate(calc(100% - 1.8em), -50%);
+  transform: translate(calc(100% - 2em), -50%);
   transition: .5s .5s transform;
 }
 
 nav h2 {
-  letter-spacing: .1em;
   font-weight: bold;
   margin-bottom: .33em;
 }
