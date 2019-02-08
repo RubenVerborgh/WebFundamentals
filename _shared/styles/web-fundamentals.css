@@ -152,12 +152,16 @@ nav ol li:before {
   margin-left: 3em;
 }
 
+.shower > section a {
+  color: var(--accent);
+}
+.shower > section a[href*="github.ugent.be"]:after {
+  content: " 🔐";
+}
 .shower > section a:hover {
   text-decoration: underline;
 }
-
 .shower > section cite a {
-  color: var(--accent);
   font-style: italic;
 }
 
