@@ -2,20 +2,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="900" height="285">
 <style>
-@font-face{
- font-family: 'Open Sans';
- src: url(../../_shared/fonts/OpenSans.woff) format('woff')
-}
-@font-face{
- font-style: italic;
- font-family: 'Open Sans';
- src: url(../../_shared/fonts/OpenSans.Italic.woff) format('woff')
-}
-@font-face{
- font-weight: 700;
- font-family: 'Open Sans';
- src: url(../../_shared/fonts/OpenSans.Bold.woff) format('woff')
-}
+@font-face{font-family:'Open Sans';src:local("Open Sans"),local("OpenSans"),url(../../_shared/fonts/OpenSans.woff2) format("woff2"),url(../../_shared/fonts/OpenSans.woff) format("woff")}@font-face{font-weight:700;font-family:'Open Sans';src:local("Open Sans Bold"),local("OpenSans-Bold"),url(../../_shared/fonts/OpenSans.Bold.woff2) format("woff2"),url(../../_shared/fonts/OpenSans.Bold.woff) format("woff")}@font-face{font-style:italic;font-family:'Open Sans';src:local("Open Sans Italic"),local("OpenSans-Italic"),url(../../_shared/fonts/OpenSans.Italic.woff2) format("woff2"),url(../../_shared/fonts/OpenSans.Italic.woff) format("woff")}@font-face{font-style:italic;font-weight:700;font-family:'Open Sans';src:local("Open Sans Bold Italic"),local("OpenSans-BoldItalic"),url(../../_shared/fonts/OpenSans.Bold.Italic.woff2) format("woff2"),url(../../_shared/fonts/OpenSans.Bold.Italic.woff) format("woff")}@font-face{font-weight:300;font-family:'Open Sans';src:local("Open Sans Light"),local("OpenSans-Light"),url(../../_shared/fonts/OpenSans.Light.woff2) format("woff2"),url(../../_shared/fonts/OpenSans.Light.woff) format("woff")}@font-face{font-family:'Source Code Pro';src:local("Source Code Pro"),local("SourceCodePro-Regular"),url(../../_shared/fonts/SourceCodePro.woff2) format("woff2"),url(../../_shared/fonts/SourceCodePro.woff) format("woff")}@font-face{font-weight:700;font-family:'Source Code Pro';src:local("Source Code Pro Bold"),local("SourceCodePro-Bold"),url(../../_shared/fonts/SourceCodePro.Bold.woff2) format("woff2"),url(../../_shared/fonts/SourceCodePro.Bold.woff) format("woff")}
 text {
   font-family: 'Open Sans';
   font-size: 14px;
