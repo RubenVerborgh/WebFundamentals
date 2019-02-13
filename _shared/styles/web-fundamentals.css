@@ -318,11 +318,15 @@ iframe.query-client, iframe.website {
 }
 
 /* Full-slide quotes */
+blockquote > p {
+  font-weight: bold;
+  font-style: italic;
+}
 .slide:not(.full) > blockquote:first-child {
   padding-top: 145px;
 }
 blockquote.long p {
-  margin-bottom: 21px;
+  margin-bottom: .66em;
 }
 
 /* Tight slides */
