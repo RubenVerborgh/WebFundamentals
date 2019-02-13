@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>A Bird's-Eye View of the Web</title>
+  <title>A Bird’s-Eye View of the Web</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
@@ -12,7 +12,7 @@
   <header class="caption">
     <h1>
       <a class="series" href="../">Web Fundamentals</a><br>
-      <a class="module" href="#title">A Bird's-Eye View of the Web</a>
+      <a class="module" href="#title">A Bird’s-Eye View of the Web</a>
     </h1>
     <p>
       <a href="https://ruben.verborgh.org/">Ruben Verborgh</a>,
@@ -116,8 +116,8 @@
       <a class="module" href="#title">A Bird’s-Eye View of the Web</a>
     </h2>
     <ul>
-      <li><a href="#origins">The world before the Web</a></li>
-      <li><a href="#definition">The Web as we know it</a></li>
+      <li><a href="#origins">Dreams and visions</a></li>
+      <li><a href="#definition">The Web and universality</a></li>
       <li><a href="#web-of-data">Societal impact and future</a></li>
     </ul>
     <p class="tweets"><a href="https://twitter.com/search?f=tweets&amp;q=%23WebDev2019">#WebDev2019</a></p>
@@ -129,8 +129,8 @@
       <a class="module" href="#title">A Bird’s-Eye View of the Web</a>
     </h2>
     <ul>
-      <li class="current"><a href="#origins">The world before the Web</a></li>
-      <li><a href="#definition">The Web as we know it</a></li>
+      <li class="current"><a href="#origins">Dreams and visions</a></li>
+      <li><a href="#definition">The Web and universality</a></li>
       <li><a href="#web-of-data">Societal impact and future</a></li>
     </ul>
     <p class="tweets"><a href="https://twitter.com/search?f=tweets&amp;q=%23WebDev2019">#WebDev2019</a></p>
@@ -196,7 +196,7 @@
         <em>Project Xanadu</em>
         <ul>
           <li>advanced hypertext, with features like <em>transclusion</em></li>
-          <li>called “<a href="http://www.wired.com/1995/06/xanadu/" title="The Curse of Xanadu">the longest-running vaporware project</a>”</li>
+          <li>dubbed “<a href="http://www.wired.com/1995/06/xanadu/" title="The Curse of Xanadu">the longest-running vaporware project</a>”</li>
         </ul>
       </li>
       <li>
@@ -253,30 +253,46 @@
     <iframe class="cover width height" src="https://www.youtube.com/embed/yJDv-zdhzMY?start=746&amp;end=817&amp;cc_load_policy=1&amp;hl=en&amp;iv_load_policy=3&amp;disablekb=1&amp;rel=0&amp;showinfo=0&amp;autohide=1"></iframe>
   </div>
 
-  <div class="slide" id="doug-end">
+  <div class="toc slide" id="definition">
     <h2>
-      Most of Engelbart’s ideas never<br>
-      directly reached the real world.
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">A Bird’s-Eye View of the Web</a>
     </h2>
     <ul>
-      <li>The invention of the mouse was sold to Apple.</li>
-      <li>His group disbanded in the 1970s.</li>
-      <li>The world might have never heard of hypertext…</li>
+      <li><a href="#origins">Dreams and visions</a></li>
+      <li class="current"><a href="#definition">The Web and universality</a>
+        <ul>
+          <li class="current"><a href="#definition">Origins and aims</a></li>
+          <li><a href="#foundation">Technical foundations</a></li>
+          <li><a href="#machines">For humans and machines</a></li>
+        </ul>
+      </li>
+      <li><a href="#web-of-data">Societal impact and future</a></li>
     </ul>
+    <p class="tweets"><a href="https://twitter.com/search?f=tweets&amp;q=%23WebDev2019">#WebDev2019</a></p>
   </div>
 
-  <div class="slide" id="tim-picture">
-    <figure class="cover width">
-      <img src="images/tim-berners-lee.jpg"
-           alt="[Tim Berners-Lee at his desk in CERN, 1994]">
-      <figcaption>
-        ©1994 <a href="http://home.cern/images/2013/12/tim-berners-lee-cern">CERN</a>
-      </figcaption>
-    </figure>
-    <footer>
-      <p>The world might have never heard of hypertext
-         if it wasn’t for Tim Berners-Lee.</p>
-    </footer>
+  <div class="slide" id="heterogeneity">
+    <h2>
+      The world before the Web<br>
+      was highly heterogeneous.
+    </h2>
+    <ul>
+      <li>
+        exchanging information was hard
+        <ul>
+          <li>different hardware</li>
+          <li>different software</li>
+        </ul>
+      </li>
+      <li class="next">
+        innovation was hard
+        <ul>
+          <li>for which machines do we build?</li>
+          <li>for which operating systems do we build?</li>
+        </ul>
+      </li>
+    </ul>
   </div>
 
   <div class="slide" id="raw-data-now">
@@ -296,18 +312,78 @@
       the World Wide Web.
     </h2>
     <ul>
-      <li>Berners-Lee was working at CERN.</li>
-      <li>He drafted “<a href="http://www.w3.org/History/1989/proposal.html">Information Management: A Proposal</a>”.</li>
+      <li>
+        Berners-Lee was working at CERN.
+      </li>
+      <li>
+        He drafted <cite><a href="http://www.w3.org/History/1989/proposal.html">Information Management: A Proposal</a></cite>
+        <dl>
+          <dt>goal</dt>
+          <dd>facilitating information sharing</dd>
+          <dt>needs</dt>
+          <dd>heterogeneity</dd>
+          <dd>decentralization</dd>
+          <dd><em>live</em> links</dd>
+          <dd>…</dd>
+        </dl>
+      </li>
       <li>
         The <a href="http://info.cern.ch/hypertext/WWW/TheProject.html">first Web page</a> came online in 1990.
         <ul>
-          <li class="next">
-            The major revolution was that
-            <ul>
-              <li>it was accessible from anywhere in the world and</li>
-              <li>it could link to pages anywhere in the world.</li>
-            </ul>
-          </li>
+          <li>accessible from anywhere in the world</li>
+          <li>any other page in the world can link to it</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="first-server">
+    <figure class="cover width">
+      <img src="images/first-web-server.jpg"
+           alt="[The first Web server at CERN.]">
+        <figcaption>
+          ©2005 <a href="https://en.wikipedia.org/wiki/File:First_Web_Server.jpg">Coolcaesar</a>
+        </figcaption>
+    </figure>
+    <footer>
+      <p>This was the first server (and client) of the Web.</p>
+    </footer>
+  </div>
+
+  <div class="slide" id="universality">
+    <h2>
+      The Web strives to be <a href="https://www.w3.org/2005/Talks/0323-yorkshire-tbl/slide5-2.html">universal</a><br> through
+      independence of many factors.
+    </h2>
+    <ul>
+      <li>
+        anyone can use the Web, regardless of
+        <dl>
+          <dt>hardware</dt>
+          <dd>desktop</dd>
+          <dd>phone</dd>
+          <dd>tablet</dd>
+          <dd>watch</dd>
+          <dd>…</dd>
+
+          <dt>software</dt>
+          <dd>operating system</dd>
+          <dd>browser</dd>
+          <dd>app</dd>
+          <dd>…</dd>
+        </dl>
+      </li>
+      <li class="next">
+       developers are free to innovate
+        <ul>
+          <li>build for the Web</li>
+          <li>standards provide interoperability</li>
+        </ul>
+      </li>
+      <li class="next">
+       universality is not a default everywhere
+        <ul>
+          <li>popular counterexample: app stores</li>
         </ul>
       </li>
     </ul>
@@ -325,23 +401,67 @@
     </blockquote>
   </div>
 
-  <div class="toc slide" id="definition">
+  <div class="slide" id="w3c">
+    <h2>
+      Web technologies are standardized<br>
+      by the World Wide Web Consortium <abbr>(W3C)</abbr>.
+    </h2>
+    <ul>
+      <li class="next">
+        The W3C brings together <a href="https://www.w3.org/Consortium/Member/List">member organizations</a><br>
+        to create <a href="https://www.w3.org/standards/">standards</a>.
+      </li>
+      <li class="next">
+        Every member’s voice counts,<br>
+        preferably through <a href="https://www.w3.org/2005/10/Process-20051014/policies.html#Consensus">consensus</a>.
+      </li>
+      <li class="next">
+        <a href="https://www.w3.org/Consortium/activities#Working">Working groups</a> publish
+        <a href="https://www.w3.org/TR/tr-technology-stds">recommendations</a>,<br>
+        which are considered Web standards.
+        <ul class="inline">
+          <li><a href="https://www.w3.org/TR/css-2018/">CSS</a></li>
+          <li><a href="https://www.w3.org/TR/xml11/">XML</a></li>
+          <li><a href="https://www.w3.org/TR/rdf11-concepts/">RDF</a></li>
+          <li>…</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="toc slide" id="foundation">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
       <a class="module" href="#title">A Bird’s-Eye View of the Web</a>
     </h2>
     <ul>
-      <li><a href="#origins">The world before the Web</a></li>
-      <li class="current"><a href="#definition">The Web as we know it</a>
+      <li><a href="#origins">Dreams and visions</a></li>
+      <li class="current"><a href="#definition">The Web and universality</a>
         <ul>
-          <li class="current"><a href="#definition">Definition</a></li>
-          <li><a href="#foundation">Technical foundation</a></li>
+          <li><a href="#definition">Origins and aims</a></li>
+          <li class="current"><a href="#foundation">Technical foundations</a></li>
           <li><a href="#machines">For humans and machines</a></li>
         </ul>
       </li>
       <li><a href="#web-of-data">Societal impact and future</a></li>
     </ul>
     <p class="tweets"><a href="https://twitter.com/search?f=tweets&amp;q=%23WebDev2019">#WebDev2019</a></p>
+  </div>
+
+  <div class="slide" id="internet">
+    <h2>
+      The Internet is a communication network
+      between different machines in the world.
+    </h2>
+    <iframe class="image" src="images/layers-internet.svg"></iframe>
+  </div>
+
+  <div class="slide" id="web">
+    <h2>
+      The Web is a layer of interlinked resources
+      accessible through the Internet.
+    </h2>
+    <iframe class="image" src="images/layers-web.svg"></iframe>
   </div>
 
   <div class="slide" id="internet-web">
@@ -387,22 +507,6 @@
     </p>
   </div>
 
-  <div class="slide" id="internet">
-    <h2>
-      The Internet is a communication network
-      between different machines in the world.
-    </h2>
-    <iframe class="image" src="images/layers-internet.svg"></iframe>
-  </div>
-
-  <div class="slide" id="web">
-    <h2>
-      The Web is a layer of interlinked resources
-      accessible through the Internet.
-    </h2>
-    <iframe class="image" src="images/layers-web.svg"></iframe>
-  </div>
-
   <div class="slide" id="internet-more-than-web">
     <h2>
       The Internet contains more<br>
@@ -428,32 +532,6 @@
     </ul>
   </div>
 
-  <div class="slide" id="web-most-popular">
-    <h2>
-      The Web is perhaps
-      the most popular application of the Internet.
-    </h2>
-    <ul>
-      <li>
-        Billions of documents from all over the world<br>
-        at everyone’s fingertips, often <em>free</em>.
-        <ul>
-          <li class="next">access without leaving home</li>
-          <li class="next">access without leaving your car, train, or airplane</li>
-        </ul>
-      </li>
-      <li class="next">
-        Are we surfing the Internet or surfing the Web?
-        <ul>
-          <li class="next opinion">
-            The difference is difficult to explain with<br>
-            a well-known <em>Web</em> browser called “<em>Internet</em> Explorer” 😉 
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-
   <div class="slide" id="difference">
     <h2>
       Most people don’t understand or care about the difference…
@@ -467,68 +545,9 @@
     </figure>
   </div>
 
-  <div class="toc slide" id="foundation">
-    <h2>
-      <a class="series" href="../">Web Fundamentals</a><br>
-      <a class="module" href="#title">A Bird’s-Eye View of the Web</a>
-    </h2>
-    <ul>
-      <li><a href="#origins">The world before the Web</a></li>
-      <li class="current"><a href="#definition">The Web as we know it</a>
-        <ul>
-          <li><a href="#definition">Definition</a></li>
-          <li class="current"><a href="#foundation">Technical foundation</a></li>
-          <li><a href="#machines">For humans and machines</a></li>
-        </ul>
-      </li>
-      <li><a href="#web-of-data">Societal impact and future</a></li>
-    </ul>
-    <p class="tweets"><a href="https://twitter.com/search?f=tweets&amp;q=%23WebDev2019">#WebDev2019</a></p>
-  </div>
-
-  <div class="slide" id="first-server">
-    <figure class="cover width">
-      <img src="images/first-web-server.jpg"
-           alt="[The first Web server at CERN.]">
-        <figcaption>
-          ©2005 <a href="https://en.wikipedia.org/wiki/File:First_Web_Server.jpg">Coolcaesar</a>
-        </figcaption>
-    </figure>
-    <footer>
-      <p>This was the first server (and client) of the Web.</p>
-    </footer>
-  </div>
-
-  <div class="slide" id="client-server">
-    <h2>
-      With the Web’s client–server architecture,<br>
-      nobody needs to know about others.
-    </h2>
-    <ul>
-      <li class="next">
-        Servers don’t need to know about clients.
-        <ul>
-          <li>Servers do not keep application state.</li>
-        </ul>
-      </li>
-      <li class="next">
-        Clients don’t need to know about other servers.
-        <ul>
-          <li>Clients follow links from one server to another.</li>
-        </ul>
-      </li>
-      <li class="next">
-        Servers don’t need to know about other servers.
-        <ul>
-          <li>Servers only maintain their own outgoing links.</li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-
   <div class="slide" id="decentralized">
     <h2>
-      Web linking is <em>decentralized</em>, implemented<br>
+      Web linking is decentralized, implemented<br>
       as one-way links embedded in documents.
     </h2>
     <ul>
@@ -571,7 +590,7 @@
 
   <div class="slide" id="operating-systems">
     <h2>
-      The Web’s operation-system independence<br>
+      The Web’s universality<br>
       helped accelerate its growth.
     </h2>
     <ul>
@@ -592,6 +611,7 @@
         It provides compatibility at an unprecedented scale.
         <ul>
           <li>The text-based browser <a href="http://lynx.invisible-island.net/">Lynx</a> is still developed and used.</li>
+          <li>Your phone can access websites created 20 years ago.</li>
         </ul>
       </li>
     </ul>
@@ -602,8 +622,8 @@
 
   <div class="slide" id="growth">
     <h2>
-      The number of websites<br>
-      started to grow at an explosive rate.
+      The number of websites started<br>
+      growing at an explosive rate.
     </h2>
     <table>
       <thead>
@@ -638,45 +658,17 @@
     </dl>
   </div>
 
-  <div class="slide" id="w3c">
-    <h2>
-      Web technologies are standardized<br>
-      by the World Wide Web Consortium <abbr>(W3C)</abbr>.
-    </h2>
-    <ul>
-      <li class="next">
-        The W3C brings together <a href="https://www.w3.org/Consortium/Member/List">member organizations</a><br>
-        to create <a href="https://www.w3.org/standards/">standards</a>.
-      </li>
-      <li class="next">
-        Every member’s voice counts,<br>
-        preferably through <a href="https://www.w3.org/2005/10/Process-20051014/policies.html#Consensus">consensus</a>.
-      </li>
-      <li class="next">
-        <a href="https://www.w3.org/Consortium/activities#Working">Working groups</a> publish
-        <a href="https://www.w3.org/TR/tr-technology-stds">recommendations</a>,<br>
-        which are considered Web standards.
-        <ul class="inline">
-          <li><a href="https://www.w3.org/TR/2014/REC-html5-20141028/">HTML5</a></li>
-          <li><a href="https://www.w3.org/TR/xml11/">XML</a></li>
-          <li><a href="https://www.w3.org/TR/soap12-part0/">SOAP</a></li>
-          <li>…</li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-
   <div class="toc slide" id="machines">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
       <a class="module" href="#title">A Bird’s-Eye View of the Web</a>
     </h2>
     <ul>
-      <li><a href="#origins">The world before the Web</a></li>
-      <li class="current"><a href="#definition">The Web as we know it</a>
+      <li><a href="#origins">Dreams and visions</a></li>
+      <li class="current"><a href="#definition">The Web and universality</a>
         <ul>
-          <li><a href="#definition">Definition</a></li>
-          <li><a href="#foundation">Technical foundation</a></li>
+          <li><a href="#definition">Origins and aims</a></li>
+          <li><a href="#foundation">Technical foundations</a></li>
           <li class="current"><a href="#machines">For humans and machines</a></li>
         </ul>
       </li>
@@ -706,34 +698,6 @@
         </ul>
       </li>
     </ul>
-  </div>
-
-  <div class="slide" id="feeds">
-    <h2>
-      <em>Feeds</em> let you discover new content<br>
-      on websites you already know.
-    </h2>
-    <ul>
-      <li>
-        An <a href="http://web.resource.org/rss/1.0/spec">RSS feed</a> contains the title and summary<br>
-        of the last entries on a (part of a) website.
-        <ul>
-          <li>specification co-authored by Aaron Swartz</li>
-        </ul>
-      </li>
-      <li>
-        By regularly polling such a feed,<br>
-        your computer can tell you if there’s news.
-        <ul>
-          <li>no need to search/monitor the entire Web</li>
-        </ul>
-      </li>
-    </ul>
-    <footer>
-      <p>Aaron was one of many voices… and he was only 14 years old at the time.
-         This shows the Web’s democratic process:
-         who you are doesn’t matter, it’s what you do.</p>
-    </footer>
   </div>
 
   <div class="slide" id="human-web">
@@ -785,45 +749,11 @@
 
   <div class="slide" id="api-growth">
     <h2>
-      The number of Web APIs<br>
-      has grown tremendously since 2000.
+      The number of Web APIs has<br>
+      grown tremendously since 2000.
     </h2>
     <p class="label">number of Web APIs<br>indexed in <a href="http://www.programmableweb.com/">ProgrammableWeb</a></p>
     <iframe class="image" src="images/web-api-growth.svg"></iframe>
-  </div>
-
-    <div class="slide" id="native-apps">
-    <h2>
-      Native online applications<br>
-      are often powered by Web APIs.
-    </h2>
-    <ul>
-      <li class="next">
-        Despite the power of Web applications,<br>
-        many popular sites have their own <em>app</em>.
-        <ul>
-          <li><em>“Don’t you want to use our app instead?”</em></li>
-        </ul>
-      </li>
-      <li class="next opinion">
-        Motivated by <a href="https://ruben.verborgh.org/blog/2016/08/05/use-the-web-instead/">technology or</a> business?
-        <ul>
-          <li>Mark Zuckerberg: <em>“<a href="https://lists.w3.org/Archives/Public/public-coremob/2012Sep/0015.html">[we’ve been] betting too much on HTML5</a>”</em></li>
-          <li>Sencha: <em>here’s an <a href="https://www.sencha.com/blog/the-making-of-fastbook-an-html5-love-story/">HTML5 version of Facebook</a></em></li>
-        </ul>
-      </li>
-      <li class="next">
-        Developers code a website, API, <em>and</em> mobile app.
-        <ul>
-          <li class="next opinion">excellent job security 😉</li>
-        </ul>
-      </li>
-    </ul>
-    <footer>
-      <p>Why would developers oppose apps?
-         You can write the same thing 3 times and get billed more.
-         But I rather have one good Web.</p>
-    </footer>
   </div>
 
   <div class="toc slide" id="web-of-data">
@@ -832,8 +762,8 @@
       <a class="module" href="#title">A Bird’s-Eye View of the Web</a>
     </h2>
     <ul>
-      <li><a href="#origins">The world before the Web</a></li>
-      <li><a href="#definition">The Web as we know it</a></li>
+      <li><a href="#origins">Dreams and visions</a></li>
+      <li><a href="#definition">The Web and universality</a></li>
       <li class="current">
         <a href="#web-of-data">Societal impact and future</a>
         <ul>
@@ -1000,8 +930,8 @@
       <a class="module" href="#title">A Bird’s-Eye View of the Web</a>
     </h2>
     <ul>
-      <li><a href="#origins">The world before the Web</a></li>
-      <li><a href="#definition">The Web as we know it</a></li>
+      <li><a href="#origins">Dreams and visions</a></li>
+      <li><a href="#definition">The Web and universality</a></li>
       <li class="current">
         <a href="#web-of-data">Societal impact and future</a>
         <ul>
@@ -1052,7 +982,7 @@
       <li>Pizza Hut accepted online orders already in 1994.</li>
       <li>Amazon and many others exploit the <em>long tail</em>.</li>
     </ul>
-    <iframe class="image" src="images/long-tail.svg" alt="[graph with a long tail]"></iframe>
+    <iframe class="image" src="images/long-tail.svg"></iframe>
   </div>
 
   <div class="slide" id="communication">
@@ -1134,8 +1064,7 @@
     </footer>
   </div>
 
-  <div class="slide" id="facebook">
-    <figure class="cover height">
+  <div class="slide" id="facebook"><figure class="cover height">
       <a href="https://www.theguardian.com/technology/2016/may/12/facebook-free-basics-india-zuckerberg">
         <img src="images/zuckerberg.jpg"
              alt="[Indian prime minister Narendra Modi with Mark Zuckerberg at Menlo Park in 2015.]">
@@ -1213,8 +1142,8 @@
       <a class="module" href="#title">A Bird’s-Eye View of the Web</a>
     </h2>
     <ul>
-      <li><a href="#origins">The world before the Web</a></li>
-      <li><a href="#definition">The Web as we know it</a></li>
+      <li><a href="#origins">Dreams and visions</a></li>
+      <li><a href="#definition">The Web and universality</a></li>
       <li class="current">
         <a href="#web-of-data">Societal impact and future</a>
         <ul>
@@ -1333,9 +1262,9 @@
       <a class="module" href="#title">A Bird’s-Eye View of the Web</a>
     </h2>
     <ul>
-      <li><a href="#origins">The world before the Web</a></li>
-      <li><a href="#definition">The Web as we know it</a></li>
-      <li><a href="#web-of-data">Societal impact and future</a><ul>
+      <li><a href="#origins">Dreams and visions</a></li>
+      <li><a href="#definition">The Web and universality</a></li>
+      <li><a href="#web-of-data">Societal impact and future</a></li>
     </ul>
     <p class="tweets"><a href="https://twitter.com/search?f=tweets&amp;q=%23WebDev2019">#WebDev2019</a></p>
   </div>

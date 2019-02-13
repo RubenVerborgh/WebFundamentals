@@ -118,6 +118,9 @@ ins {
 abbr {
   text-decoration: none;
 }
+cite {
+  font-style: italic;
+}
 
 /* License information */
 .slide p.license {
