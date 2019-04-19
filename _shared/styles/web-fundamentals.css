@@ -2,6 +2,10 @@
   --accent: #453688;
 }
 
+html, body:not(.full) {
+  min-height: 100%;
+}
+
 /* Title and title slide */
 body {
   padding-top: 30px !important;
