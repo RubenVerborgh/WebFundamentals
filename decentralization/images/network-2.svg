@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="900" height="400">
+<style>
+line {
+  stroke: #B1ABC6;
+  stroke-width: 2px;
+  marker-start: url(#triangle);
+  marker-end: url(#triangle);
+}
+path {
+  fill: #B1ABC6;
+}
+circle {
+  fill: #3D2C6F;
+  opacity: .7;
+}
+</style>
+<marker id="triangle" viewBox="0 0 6 6" refX="5.5" refY="3" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+  <path d="M 0 0 L 6 3 L 0 6" />
+</marker>
+<g id="Nodes">
+	<circle cx="31.67"  cy="156.67" r="29.67"/>
+	<circle cx="41.67"  cy="267.33" r="29.67"/>
+	<circle cx="117.67" cy="73.67"  r="29.67"/>
+	<circle cx="126.33" cy="333.33" r="29.67"/>
+	<circle cx="257.33" cy="357.67" r="29.67"/>
+	<circle cx="395.33" cy="366.33" r="29.67"/>
+	<circle cx="521.67" cy="364.33" r="29.67"/>
+	<circle cx="867"    cy="170.33" r="29.67"/>
+	<circle cx="751.34" cy="322"    r="29.67"/>
+	<circle cx="843.33" cy="267.33" r="29.67"/>
+	<circle cx="641.67" cy="350"    r="29.67"/>
+	<circle cx="253.33" cy="44"     r="29.67"/>
+	<circle cx="402.33" cy="31.33"  r="29.67"/>
+	<circle cx="539"    cy="32.67"  r="29.67"/>
+	<circle cx="801.67" cy="88.67"  r="29.67"/>
+	<circle cx="680.33" cy="48.67"  r="29.67"/>
+</g>
+<g id="Arrows">
+	<line x1="71.33"  y1="266.25" x2="369.01" y2="219.56"/>
+	<line x1="144.83" y1="85.59"  x2="373.48" y2="161.38"/>
+	<line x1="530.18" y1="61"     x2="482.32" y2="122"/>
+	<line x1="276.65" y1="62.33"  x2="395.33" y2="133.21"/>
+	<line x1="409.78" y1="60.06"  x2="432"    y2="117.51"/>
+	<line x1="61.33"  y1="159"    x2="365.77" y2="192.32"/>
+	<line x1="813.67" y1="261"    x2="526.32" y2="219.56"/>
+	<line x1="775.4"  y1="102.46" x2="525.46" y2="170.33"/>
+	<line x1="659.71" y1="69.98"  x2="511.99" y2="145.48"/>
+	<line x1="837.33" y1="175.5"  x2="529.67" y2="196.34"/>
+	<line x1="151.99" y1="318.44" x2="378.43" y2="240.28"/>
+	<line x1="509.62" y1="337.69" x2="472.29" y2="274.57"/>
+	<line x1="278.29" y1="336.67" x2="399.54" y2="262.72"/>
+	<line x1="403.06" y1="337.69" x2="427.61" y2="275.86"/>
+	<line x1="723.59" y1="311.48" x2="518.5"  y2="237.67"/>
+	<line x1="617.6"  y1="332.67" x2="498.09" y2="261"/>
+</g>
+<g id="Aggregator">
+	<circle cx="447.67" cy="196.34" r="82" style="opacity: 1"/>
+</g>
+</svg>
