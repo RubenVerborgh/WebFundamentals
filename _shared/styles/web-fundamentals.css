@@ -228,6 +228,9 @@ dl.long dt {
 dl.long dt, dl.long dd {
   margin: 0 !important;
 }
+ol.tight li {
+  margin-bottom: 1em;
+}
 
 /* Forms */
 label {
