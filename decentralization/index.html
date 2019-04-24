@@ -499,75 +499,58 @@
 
   <div class="slide" id="ecosystem">
     <h2>
-      Solid is not a company or organisation.<br>
-      Solid is not (just) software.
+      Solid is not a platform to replace others,<br>
+      but a way of building for the Web.
     </h2>
     <ul>
       <li>
-        Solid is an ecosystem
+        Solid is an ecosystem.
         <ul>
-          <li class="next">standards enable interoperability</li>
+          <li class="next">Standards enable interoperability</li>
         </ul>
       </li>
       <li>
-        Solid is a movement
+        Solid is a movement.
         <ul>
-          <li class="next">shifting the app builder mindset</li>
+          <li class="next">We need to shift the app builder mindset.</li>
         </ul>
       </li>
       <li>
-        Solid is a community
+        Solid is a community.
         <ul>
-          <li class="next">different people, companies, and organisations</li>
+          <li class="next">
+            Building Solid requires different people,<br>
+            companies, and organisations.
+          </li>
         </ul>
-      </li>
-    </ul>
-  </div>
-
-  <div class="slide" id="open">
-    <h2>
-      Anyone can build or host<br>
-      software for Solid.
-    </h2>
-    <ul>
-      <li class="next">
-        a server at home and/or<br>
-        at your workplace
-      </li>
-      <li class="next">
-        rent server space
-      </li>
-      <li class="next">
-        use one of the<br>
-        free community servers
       </li>
     </ul>
   </div>
 
   <div class="slide" id="server">
     <h2>
-      The Solid server acts as a data pod<br>
+      A Solid server acts as a data pod<br>
       that stores and guards your data.
     </h2>
     <ul>
       <li class="next">
-       a regular Web server
+       It is a regular Web server
         <ul>
-          <li>with support for access control</li>
-          <li>with support for Linked Data</li>
+          <li>…with support for access control.</li>
+          <li>…with support for Linked Data.</li>
         </ul>
       </li>
       <li class="next">
-       application-agnostic
+       Its interface is application-agnostic.
         <ul>
-          <li>build <em>any</em> application</li>
-          <li>application-specific logic resides in clients</li>
+          <li>Build <em>any</em> application, like on the Web.</li>
+          <li>Application-specific logic resides in clients.</li>
         </ul>
       </li>
       <li class="next">
-        just like your website
+        A Solid pod is essentially a website with data.
         <ul>
-          <li>your data can be opened with any app</li>
+          <li>Its data is compatible with any Solid app.</li>
         </ul>
       </li>
     </ul>
@@ -575,12 +558,12 @@
 
   <div class="slide" id="data-pod">
     <h2>
-      A typical data pod can contain<br>
-      any data you create or need online.
+      A data pod can contain any data<br>
+      you create or need online.
     </h2>
     <ul>
       <li>profile 👤</li>
-      <li>photos 🖼</li>
+      <li>media 🖼</li>
       <li>comments 🗣</li>
       <li>likes 👍</li>
       <li>… ✨</li>
@@ -593,22 +576,23 @@
       that read from or write to your data pod.
     </h2>
     <ul>
-      <li class="next">
-        you give apps permission
+      <li>
+        People give read and/or write permissions<br>
+        for specific pieces of data to:
         <ul>
-          <li>choose very precisely what they can access</li>
+          <li>apps</li>
+          <li>other people</li>
+          <li>automated agents</li>
+          <li>…</li>
         </ul>
       </li>
       <li class="next">
-        friends give you permission
+        Apps deliver an integrated experience.
         <ul>
-          <li>choose very precisely what you can access</li>
-        </ul>
-      </li>
-      <li class="next">
-        apps deliver a unified experience
-        <ul>
-          <li>browse your friends’ pictures along with yours</li>
+          <li>
+            Instead of displaying individual webpages or data items,<br>
+            apps interleave data from multiple sources.
+          </li>
         </ul>
       </li>
     </ul>
@@ -628,22 +612,41 @@
     </ul>
   </div>
 
-  <div class="slide" id="past">
+  <div class="slide" id="standards">
     <h2>
-      The Solid server and several apps exist<br>
-      and are usable for developers.
+      Client–server communication is governed<br>
+      by the Solid specifications.
     </h2>
     <ul>
       <li>
-        <a href="https://github.com/solid/node-solid-server/">Solid server</a>
+        The specifications are a (currently unstandardized)<br>
+        set of <a href="https://github.com/solid/solid-spec">documents on GitHub</a>.
+      </li>
+      <li class="next">
+        They essentially demand compliance<br>
+        with a couple of existing standards:
+        <ul>
+          <li>HyperText Transfer Protocol (HTTP)</li>
+          <li>Linked Data Platform (LDP)</li>
+          <li>Linked Data Notifications (LDN)</li>
+        </ul>
+      </li>
+      <li class="next">
+        They suggest specific RDF vocabularies.
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="past">
+    <h2>
+      Several open-source implementations<br>
+      of servers, apps, and libraries exist.
+    </h2>
+    <ul>
+      <li>
+        <a href="https://github.com/solid/node-solid-server/">server</a>
         <ul class="next">
-          <li>store your data online with access control</li>
-          <li>
-            free storage at
-            <a href="https://solid.community/">solid.community</a>
-            and
-            <a href="https://inrupt.net/">inrupt.net</a>
-          </li>
+          <li>Use a public instance or host your own.</li>
         </ul>
       </li>
       <li>
