@@ -38,7 +38,7 @@ line {
 
   <g id="graphs">
     <rect y="266.66" width="900" height="133.33" fill-opacity="0.15"/>
-    <text transform="translate(39.1289 325.459)">multiple<tspan x="7.29" y="31.2">graphs</tspan></text>
+    <text transform="translate(18.1289 325.459)">also named<tspan x="26.29" y="31.2">graphs</tspan></text>
   </g>
 
   <g id="formats">
@@ -50,8 +50,6 @@ line {
     <text x="420.29" y="208">Turtle</text>
     <rect x="390.5"  y="300" width="120" height="66.5"/>
     <text x="429.38" y="339">TriG</text>
-    <rect x="570"    y="166" width="120" height="66.5"/>
-    <text x="588.82" y="208">JSON-LD</text>
     <rect x="570"    y="300" width="120" height="66.5"/>
     <text x="588.82" y="339">JSON-LD</text>
     <rect x="750.25" y="166" width="120" height="66.5"/>
