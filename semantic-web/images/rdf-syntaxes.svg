@@ -13,10 +13,10 @@ text {
   fill: white;
   font-size: 20px;
 }
-#graphs * { fill: #F29100; }
-#families *, #formats *, path { fill: #1D70B7; }
+#families *, #formats *, path { fill: #453688; }
+#graphs * { fill: #D76016; }
 line {
-  stroke: #1D70B7;
+  stroke: #453688;
   stroke-width: 2px;
   marker-end: url(#triangle);
 }
@@ -26,9 +26,9 @@ line {
   </marker>
 
   <g id="families">
-    <rect x="180" width="360" height="400" fill-opacity="0.1"/>
-    <rect x="540" width="180" height="400" fill-opacity="0.2"/>
-    <rect x="720" width="180" height="400" fill-opacity="0.3"/>
+    <rect x="180" width="360" height="400" fill-opacity="0.10"/>
+    <rect x="540" width="180" height="400" fill-opacity="0.17"/>
+    <rect x="720" width="180" height="400" fill-opacity="0.25"/>
     <text x="282" y="78">triple-based</text>
     <text x="556" y="78">JSON-based</text>
     <text x="739" y="78">XML-based</text>
@@ -37,7 +37,7 @@ line {
   </g>
 
   <g id="graphs">
-    <rect y="266.66" width="900" height="133.33" fill-opacity="0.15"/>
+    <rect y="266.66" width="900" height="133.33" fill-opacity="0.17"/>
     <text transform="translate(39.1289 325.459)">multiple<tspan x="7.29" y="31.2">graphs</tspan></text>
   </g>
 
