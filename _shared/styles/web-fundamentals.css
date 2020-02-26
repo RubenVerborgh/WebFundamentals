@@ -441,7 +441,12 @@ blockquote.long p {
 .do .example, .dont .example {
   min-height: 210px;
 }
-.do ul li, .dont ul li {
+.do + ul {
+  margin: 0;
+  bottom: 42px;
+  position: absolute;
+}
+.do + ul li {
   margin: 0;
   font-weight: normal;
   font-style: italic;
