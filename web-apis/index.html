@@ -1192,33 +1192,31 @@
 
   <div class="slide" id="self-descriptive-do-dont">
     <h2>
-      Each message should be self-descriptive<br>
-      and stand on its own.
+      Each message should<br>
+      be self-descriptive.
     </h2>
     <div class="dont">
       <h3>Don’t.</h3>
       <div class="example">
-        <p><em>/songs?artist=5521</em></p>
-        <p><em>/?page=2</em></p>
-        <p><em>/?page=3</em></p>
+        <pre><code>HTTP/1.1 5027 Incomplete
+Custom-Server-Id: song.1.2
+Content-Type:
+  application/json</code></pre>
       </div>
       <ul>
         <li>What is this?</li>
-        <li>Can I bookmark this?</li>
-        <li>Can I share this?</li>
       </ul>
     </div>
     <div class="next do">
       <h3>Do.</h3>
       <div class="example">
-        <p><em>/songs?artist=5521</em></p>
-        <p><em>/songs?artist=5521&amp;page=2</em></p>
-        <p><em>/songs?artist=5521&amp;page=3</em></p>
+        <pre><code>HTTP/1.1 200 OK
+Server: Song-Server 1.2
+Content-Type:
+  application/vnd.acme.songs</code></pre>
       </div>
       <ul>
         <li>What is this?</li>
-        <li>Can I bookmark this?</li>
-        <li>Can I share this?</li>
       </ul>
     </div>
   </div>
