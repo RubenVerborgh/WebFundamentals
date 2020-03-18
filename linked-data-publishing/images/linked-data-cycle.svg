@@ -18,6 +18,7 @@ text {
   marker-end: url(#triangle);
 }
 path, circle { fill: #453688; }
+:target circle { fill: #D76016; }
 a { outline: none; }
 </style>
   <marker id="triangle" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="4" markerHeight="4" orient="auto">
@@ -30,23 +31,23 @@ a { outline: none; }
     <path d="M560.62,108.23 c24.95,28.34,40.08,65.53,40.08,106.25c0,29.46-7.92,57.07-21.74,80.81"/>
     <path d="M375.55,66.98c19.69-8.59,41.43-13.36,64.29-13.36 c48.12,0,91.3,21.13,120.78,54.61"/>
   </g>
-  <a xlink:href="../#generate" target="_parent">
+  <a id="generate" xlink:href="../#generate" target="_parent">
     <circle cx="297" cy="168" r="64"/>
     <text x="247" y="176">generate</text>
   </a>
-  <a xlink:href="../#validate" target="_parent">
+  <a id="validate" xlink:href="../#validate" target="_parent">
     <circle cx="440" cy="64" r="64"/>
     <text x="394" y="71" >validate</text>
   </a>
-  <a xlink:href="../#publish" target="_parent">
+  <a id="publish" xlink:href="../#publish" target="_parent">
     <circle cx="584" cy="168" r="64"/>
     <text x="544" y="176">publish</text>
   </a>
-  <a xlink:href="../#query" target="_parent">
+  <a id="query" xlink:href="../#query" target="_parent">
     <circle cx="529" cy="336" r="64"/>
     <text x="496" y="344">query</text>
   </a>
-  <a xlink:href="../#enhance" target="_parent">
+  <a id="enhance" xlink:href="../#enhance" target="_parent">
     <circle cx="352" cy="336" r="64"/>
     <text x="304" y="344">enhance</text>
   </a>
