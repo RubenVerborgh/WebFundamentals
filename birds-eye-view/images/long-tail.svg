@@ -35,7 +35,7 @@ line, marker {
 
 <g transform="scale(1.89)">
 <path fill="#453688" d="M100,132H4V0c0,0,19.5-65.33,24,0s28.57,88.05,72,100"/>
-<path fill="#CC4320" d="M100,100c23.93,6.58,347.75,19.25,375,20c34.46,0.95,0,12,0,12l-375,0.5"/>
+<path fill="#D76016" d="M100,100c23.93,6.58,347.75,19.25,375,20c34.46,0.95,0,12,0,12l-375,0.5"/>
 
 <line stroke="#868686" x1="4" y1="132" x2="474" y2="132"/>
 <text transform="matrix(1 0 0 1 361 146)" class="axis">number of products</text>
@@ -46,7 +46,7 @@ line, marker {
 <text transform="matrix(1 0 0 1 44 37)"><tspan fill="#453688" class="label">head: </tspan><tspan x="46">few products are bought by many people</tspan></text>
 <text transform="matrix(1 0 0 1 52 54)" fill="#453688" class="usage">also profitable for physical stores</text>
 
-<text transform="matrix(1 0 0 1 131 88)"><tspan fill="#CC4320" class="label">long tail: </tspan><tspan x="70">many products are bought by few people</tspan></text>
-<text transform="matrix(1 0 0 1 298 106)" fill="#CC4320" class="usage">only profitable at Web scale</text>
+<text transform="matrix(1 0 0 1 131 88)"><tspan fill="#D76016" class="label">long tail: </tspan><tspan x="70">many products are bought by few people</tspan></text>
+<text transform="matrix(1 0 0 1 298 106)" fill="#D76016" class="usage">only profitable at Web scale</text>
 </g>
 </svg>

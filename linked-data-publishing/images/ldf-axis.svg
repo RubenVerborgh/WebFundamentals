@@ -16,7 +16,7 @@ line {
   marker-end: url(#triangle);
 }
 .tick {
-  stroke: #CC4320;
+  stroke: #D76016;
   stroke-width: 4px;
 }
 
@@ -29,7 +29,7 @@ text {
 }
 .label {
   font-weight: bold;
-  fill: #CC4320;
+  fill: #D76016;
 }
 .right { text-anchor: end; }
 .middle { text-anchor: middle; }

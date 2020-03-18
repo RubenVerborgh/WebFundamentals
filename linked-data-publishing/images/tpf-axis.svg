@@ -30,8 +30,8 @@ text {
   font-weight: bold;
 }
 .highlight {
-  fill: #CC4320;
-  stroke: #CC4320;
+  fill: #D76016;
+  stroke: #D76016;
 }
 .right { text-anchor: end; }
 .middle { text-anchor: middle; }

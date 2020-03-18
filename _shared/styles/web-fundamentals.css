@@ -116,7 +116,7 @@ nav ol li:before {
   margin-top: 42px;
 }
 ins {
-  color: #cc4320;
+  color: #D76016;
   text-decoration: none;
 }
 abbr {
@@ -178,7 +178,7 @@ footer p.license img {
   color: #453688;
 }
 .element .element:hover {
-  color: #CC4320;
+  color: #D76016;
 }
 .element .element .element:hover {
   color: #737373;
@@ -413,7 +413,7 @@ blockquote.long p {
   text-align: center;
   border: 3px solid #453688;
 }
-#css-test span { border: 3px solid #CC4320; }
+#css-test span { border: 3px solid #D76016; }
 #css-test span:last-child { background-color: #737373; }
 
 /* Do and dont's */
@@ -428,7 +428,7 @@ blockquote.long p {
   color: #453688;
 }
 .dont h3 {
-  color: #CC4320;
+  color: #D76016;
 }
 .do *, .dont * {
   margin-left:  0 !important;
@@ -460,7 +460,7 @@ ol.query > li {
 }
 ol.query .count {
   float: right;
-  color: #CC4320;
+  color: #D76016;
 }
 ol.query em {
   color: #737373;
