@@ -75,7 +75,7 @@
     </h2>
     <ul>
       <li class="next">
-        Many applications capture data directly</br>
+        Many applications capture data directly<br>
         in the format they will use afterwards.
       </li>
       <li class="next">
@@ -412,22 +412,30 @@
 
   <div class="slide" id="semantic-validation">
     <h2>
-      Validation can be applied at various stages<br>
-      and on different levels.
+      Validation can be applied<br>
+      on different data levels.
     </h2>
     <ul>
       <li class="next">
-        Validation on input data level can address:
-        <ul>
+        validation on the <em>individual field</em> level
+        <ul class="inline">
           <li>spelling mistakes</li>
           <li>field overloading</li>
-          <li>simple datatype checks</li>
+          <li>simple datatypes</li>
           <li>…</li>
         </ul>
       </li>
       <li class="next">
-        Validation on the semantic level can address:
-        <ul>
+        validation on the <em>structural</em> level
+        <ul class="inline">
+          <li>integrity</li>
+          <li>required and prohibited structures</li>
+          <li>…</li>
+        </ul>
+      </li>
+      <li class="next">
+        validation on the <em>semantic</em> level
+        <ul class="inline">
           <li>domain and range of values</li>
           <li>inconsistencies</li>
           <li>…</li>
@@ -457,10 +465,43 @@
     </ul>
   </div>
 
+  <div class="slide" id="schema-validation">
+    <h2>
+      Schemas can validate conformance to<br>
+      a reusable set of structural constraints.
+    </h2>
+    <ul>
+      <li class="next">
+        The <a href="https://www.w3.org/TR/shacl/">Shapes Constraint Language (SHACL)</a>
+        allows for<br>
+        the specification of validation rules in RDF.
+        <ul>
+          <li>
+            Use nested <em>shapes</em> to describe the desired structure.
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        <a href="https://shex.io/">Shape Expressions (ShEx)</a>
+        serve similar goals,<br>
+        but have a higher expressivity.
+      </li>
+      <li class="next">
+        Both languages soften the open-world assumption<br>
+        by providing <em>expectations</em> for a specific context.
+        <ul>
+          <li>
+            This is useful for apps with specific assumptions.
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
   <div class="slide" id="ontological-validation">
     <h2>
-      Ontologies allow for much more<br>
-      fine-grained constrained validation.
+      Ontologies allow for more specific<br>
+      content-based validation.
     </h2>
     <ul>
     <li class="next">
