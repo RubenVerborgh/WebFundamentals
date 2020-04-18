@@ -319,17 +319,17 @@
     </p>
     <dl class="long">
       <dt><code>rdf</code></dt>
-      <dd><code>https://www.w3.org/1999/02/22-rdf-syntax-ns#</code></dd>
+      <dd><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></dd>
       <dt><code>rdfs</code></dt>
-      <dd><code>https://www.w3.org/2000/01/rdf-schema#</code></dd>
+      <dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd>
       <dt><code>owl</code></dt>
-      <dd><code>https://www.w3.org/2002/07/owl#</code></dd>
+      <dd><code>http://www.w3.org/2002/07/owl#</code></dd>
       <dt><code>foaf</code></dt>
-      <dd><code>https://xmlns.com/foaf/0.1/</code></dd>
+      <dd><code>http://xmlns.com/foaf/0.1/</code></dd>
       <dt><code>dbr</code></dt>
-      <dd><code>https://dbpedia.org/resource/</code></dd>
+      <dd><code>http://dbpedia.org/resource/</code></dd>
       <dt><code>dbo</code></dt>
-      <dd><code>https://dbpedia.org/ontology/</code></dd>
+      <dd><code>http://dbpedia.org/ontology/</code></dd>
     </dl>
     <p>
       Additionally, we will use <code>ex</code> for examples.
@@ -701,7 +701,7 @@
       <dd>IRI – <code><a href="http://dbpedia.org/ontology/birthDate">dbo:birthDate</a></code></dd>
       <dt>object</dt>
       <dd>literal – <code>1955-06-08</code><br>
-          with datatype <code><abbr title="https://www.w3.org/2001/XMLSchema#date">xsd:date</abbr></code></dd>
+          with datatype <code><abbr title="http://www.w3.org/2001/XMLSchema#date">xsd:date</abbr></code></dd>
     </dl>
   </div>
 
@@ -786,7 +786,7 @@
 <span class="comment"># and optionally end with @ and a <a href="https://tools.ietf.org/html/bcp47">language tag</a>.</span>
 &lt;http://dbpedia.org/resource/Tim_Berners-Lee&gt; &lt;http://xmlns.com/foaf/0.1/givenName&gt; "Tim"@en.
 <span class="comment"># Alternatively, they end with ^^ and a datatype IRI.</span>
-&lt;http://dbpedia.org/resource/Tim_Berners-Lee&gt; &lt;http://dbpedia.org/ontology/birthDate&gt; "1955-06-08"^^&lt;https://www.w3.org/2001/XMLSchema#date&gt;.</code></pre>
+&lt;http://dbpedia.org/resource/Tim_Berners-Lee&gt; &lt;http://dbpedia.org/ontology/birthDate&gt; "1955-06-08"^^&lt;http://www.w3.org/2001/XMLSchema#date&gt;.</code></pre>
   </div>
 
   <div class="slide" id="turtle">
@@ -828,12 +828,12 @@ dbr:Tim_Berners-Lee a foaf:Person;
       <a href="#turtle">Turtle</a> includes syntactic sugar<br>
       to write (head/tail) lists.
     </h2>
-    <pre class="scroll"><code>PREFIX ex: &lt;https://example.org/&gt;
+    <pre class="scroll"><code>PREFIX ex: &lt;http://example.org/&gt;
 <span class="comment"># Note also a shorthand for writing numbers.</span>
 ex:MyLottery ex:luckyNumbers <strong>(5 14 15)</strong>.
 <span class="comment"># This corresponds to:</span>
-PREFIX rdf: &lt;https://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
-PREFIX xsd: &lt;https://www.w3.org/2001/XMLSchema#&gt;
+PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
 ex:MyLottery ex:luckyNumbers _:list1.
 _:list1 rdf:first "5"^^xsd:integer
 _:list1 rdf:next  _:list2.
@@ -870,7 +870,7 @@ PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
 dbr:Tim_Berners-Lee a foaf:Person;
                     foaf:knows dbr:Ted_Nelson.
 <span class="comment"># Named graphs are indicated by a <a href="https://www.w3.org/TR/trig/#sec-graph-statements">graph statement</a>.</span>
-<strong>&lt;https://example.org/graphs/Fiction&gt; {</strong>
+<strong>&lt;http://example.org/graphs/Fiction&gt; {</strong>
     dbr:Clark_Kent a foaf:Person;
                      foaf:nick "Superman"@en.
 <strong>}</strong>
@@ -941,7 +941,7 @@ dbr:Tim_Berners-Lee a foaf:Person;
       like regular JSON documents.
     </h2>
     <pre class="scroll"><code>{
-  "@context": "https://schema.org/",
+  "@context": "http://schema.org/",
   "@id": "http://dbpedia.org/resource/Tim_Berners-Lee",
   "givenName": "Tim",
   "knows": [{
@@ -957,7 +957,7 @@ dbr:Tim_Berners-Lee a foaf:Person;
       like regular JSON documents.
     </h2>
     <pre class="scroll"><code>{
-  <span class="comment">"@context": "https://schema.org/",</span>
+  <span class="comment">"@context": "http://schema.org/",</span>
   <span class="comment">"@id": "http://dbpedia.org/resource/Tim_Berners-Lee",</span>
   "givenName": "Tim",
   "knows": [{
@@ -974,7 +974,7 @@ dbr:Tim_Berners-Lee a foaf:Person;
     </h2>
     <pre class="scroll"><code><span class="comment"># These triples are equivalent to the <a href="#jsonld-example">JSON-LD example</a>.</span>
 PREFIX dbr: &lt;http://dbpedia.org/resource/&gt;
-PREFIX schema: &lt;https://schema.org&gt;
+PREFIX schema: &lt;http://schema.org&gt;
 
 dbr:Ted_Nelson schema:givenName "Ted".
 dbr:Tim_Berners-Lee schema:givenName "Tim";
@@ -986,8 +986,8 @@ dbr:Tim_Berners-Lee schema:givenName "Tim";
       The <a href="https://www.w3.org/TR/rdf-syntax-grammar/">XML-based syntax for RDF</a><br>
       represents triples, but not named graphs.
     </h2>
-    <pre class="scroll"><code>&lt;rdf:RDF xmlns:rdf="https://www.w3.org/1999/02/22-rdf-syntax-ns#"
-         xmlns:schema="https://schema.org/"&gt;
+    <pre class="scroll"><code>&lt;rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:schema="http://schema.org/"&gt;
   &lt;rdf:Description rdf:about="http://dbpedia.org/resource/Ted_Nelson"&gt;
     &lt;schema:givenName&gt;Ted&lt;/schema:givenName&gt;
   &lt;/rdf:Description&gt;
@@ -1231,8 +1231,8 @@ dbr:Tim_Berners-Lee schema:givenName "Tim";
         </ul>
       </li>
     </ul>
-    <pre><code>PREFIX rdf: &lt;https://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
-PREFIX rdfs: &lt;https://www.w3.org/2000/01/rdf-schema#&gt;
+    <pre><code>PREFIX rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
 PREFIX foaf: &lt;http://xmlns.com/foaf/0.1/&gt;
 
 foaf:knows <strong>rdfs:label</strong> "knows"@en, "kent"@nl, "connaît"@fr.
