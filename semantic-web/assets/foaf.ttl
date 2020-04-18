@@ -1,10 +1,10 @@
-@prefix rdf: <https://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <https://www.w3.org/2000/01/rdf-schema#> .
-@prefix owl: <https://www.w3.org/2002/07/owl#> .
-@prefix vs: <https://www.w3.org/2003/06/sw-vocab-status/ns#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix vs: <http://www.w3.org/2003/06/sw-vocab-status/ns#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix wot: <http://xmlns.com/wot/0.1/> .
-@prefix dc: <https://purl.org/dc/elements/1.1/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
 
 dc:date
     a owl:AnnotationProperty .

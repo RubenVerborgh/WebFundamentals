@@ -1,4 +1,4 @@
-PREFIX ppl: <https://example.org/people#>
+PREFIX ppl: <http://example.org/people#>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
 ppl:Tim foaf:knows ppl:Ted.
