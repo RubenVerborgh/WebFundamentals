@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "live-server ."
+    "start": "live-server --port=3000 --https=_shared/https/https-config.js ."
   },
   "devDependencies": {
     "live-server": "^1.2.0"
