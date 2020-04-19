@@ -1876,7 +1876,7 @@ SELECT ?name ?person WHERE {
       Evaluating this query against DBpedia<br>
       returns possible mappings.
     </h2>
-    <iframe class="query-client" src="../_shared/query-client/#datasources=http%3A%2F%2Ffragments.dbpedia.org%2F2016-04%2Fen&query=SELECT%20%3Fname%20%3Fperson%20WHERE%20%7B%0A%20%20%3Fperson%20a%20dbo%3AArtist.%0A%20%20%3Fperson%20foaf%3Aname%20%3Fname.%0A%20%20%3Fperson%20dbo%3AinfluencedBy%20dbp%3APablo_Picasso.%0A%7D"></iframe>
+    <iframe class="query-client" src="../_shared/query-client/#datasources=https%3A%2F%2Ffragments.dbpedia.org%2F2016-04%2Fen&query=SELECT%20%3Fname%20%3Fperson%20WHERE%20%7B%0A%20%20%3Fperson%20a%20dbo%3AArtist.%0A%20%20%3Fperson%20foaf%3Aname%20%3Fname.%0A%20%20%3Fperson%20dbo%3AinfluencedBy%20dbp%3APablo_Picasso.%0A%7D"></iframe>
   </div>
 
   <div class="slide" id="sparql-construct-client">
@@ -1884,7 +1884,7 @@ SELECT ?name ?person WHERE {
       A <code>CONSTRUCT</code> query<br>
       returns matching triples.
     </h2>
-    <iframe class="query-client" src="../_shared/query-client/#datasources=http%3A%2F%2Ffragments.dbpedia.org%2F2016-04%2Fen&query=CONSTRUCT%20WHERE%20%7B%0A%20%20%3Fperson%20a%20dbo%3AArtist.%0A%20%20%3Fperson%20foaf%3Aname%20%3Fname.%0A%20%20%3Fperson%20dbo%3AinfluencedBy%20dbp%3APablo_Picasso.%0A%7D"></iframe>
+    <iframe class="query-client" src="../_shared/query-client/#datasources=https%3A%2F%2Ffragments.dbpedia.org%2F2016-04%2Fen&query=CONSTRUCT%20WHERE%20%7B%0A%20%20%3Fperson%20a%20dbo%3AArtist.%0A%20%20%3Fperson%20foaf%3Aname%20%3Fname.%0A%20%20%3Fperson%20dbo%3AinfluencedBy%20dbp%3APablo_Picasso.%0A%7D"></iframe>
   </div>
 
   <div class="slide" id="sparql-ask-client">
@@ -1892,7 +1892,7 @@ SELECT ?name ?person WHERE {
       An <code>ASK</code> query returns a boolean stating<br>
       whether the pattern exists in the dataset.
     </h2>
-    <iframe class="query-client" src="../_shared/query-client/#datasources=http%3A%2F%2Ffragments.dbpedia.org%2F2016-04%2Fen&query=ASK%20WHERE%20%7B%0A%20%20%3Fperson%20a%20dbo%3AArtist.%0A%20%20%3Fperson%20foaf%3Aname%20%3Fname.%0A%20%20%3Fperson%20dbo%3AinfluencedBy%20dbp%3APablo_Picasso.%0A%7D"></iframe>
+    <iframe class="query-client" src="../_shared/query-client/#datasources=https%3A%2F%2Ffragments.dbpedia.org%2F2016-04%2Fen&query=ASK%20WHERE%20%7B%0A%20%20%3Fperson%20a%20dbo%3AArtist.%0A%20%20%3Fperson%20foaf%3Aname%20%3Fname.%0A%20%20%3Fperson%20dbo%3AinfluencedBy%20dbp%3APablo_Picasso.%0A%7D"></iframe>
   </div>
 
   <div class="slide" id="sparql-describe-client">
@@ -1900,7 +1900,7 @@ SELECT ?name ?person WHERE {
       A <code>DESCRIBE</code> query returns (non-specified)<br>
       contextual information for resources.
     </h2>
-    <iframe class="query-client" src="../_shared/query-client/#datasources=http%3A%2F%2Ffragments.dbpedia.org%2F2016-04%2Fen&query=DESCRIBE%20%3Fperson%20WHERE%20%7B%0A%20%20%3Fperson%20foaf%3Aname%20%22Pablo%20Picasso%22%40en.%0A%7D"></iframe>
+    <iframe class="query-client" src="../_shared/query-client/#datasources=https%3A%2F%2Ffragments.dbpedia.org%2F2016-04%2Fen&query=DESCRIBE%20%3Fperson%20WHERE%20%7B%0A%20%20%3Fperson%20foaf%3Aname%20%22Pablo%20Picasso%22%40en.%0A%7D"></iframe>
   </div>
 
   <div class="slide" id="sparql-modifiers">
@@ -1927,7 +1927,7 @@ SELECT ?name ?person WHERE {
       In addition to only BGPs,<br>
       SPARQL queries can contain <em>modifiers</em>.
     </h2>
-    <iframe class="query-client" src="../_shared/query-client/#datasources=http%3A%2F%2Ffragments.dbpedia.org%2F2016-04%2Fen&query=SELECT%20%3Fname%20%3Fperson%20%3Fspouse%20WHERE%20%7B%0A%20%20%3Fperson%20rdfs%3Alabel%20%3Fname.%0A%20%20%3Fperson%20dbo%3AinfluencedBy%20dbp%3APablo_Picasso.%0A%20%20OPTIONAL%20%7B%20%3Fperson%20dbo%3Aspouse%20%3Fspouse.%20%7D%0A%20%20FILTER%20LANGMATCHES(LANG(%3Fname)%2C%20%22EN%22)%0A%7D%0ALIMIT%2010"></iframe>
+    <iframe class="query-client" src="../_shared/query-client/#datasources=https%3A%2F%2Ffragments.dbpedia.org%2F2016-04%2Fen&query=SELECT%20%3Fname%20%3Fperson%20%3Fspouse%20WHERE%20%7B%0A%20%20%3Fperson%20rdfs%3Alabel%20%3Fname.%0A%20%20%3Fperson%20dbo%3AinfluencedBy%20dbp%3APablo_Picasso.%0A%20%20OPTIONAL%20%7B%20%3Fperson%20dbo%3Aspouse%20%3Fspouse.%20%7D%0A%20%20FILTER%20LANGMATCHES(LANG(%3Fname)%2C%20%22EN%22)%0A%7D%0ALIMIT%2010"></iframe>
   </div>
 
   <div class="slide" id="sparql-protocol">
