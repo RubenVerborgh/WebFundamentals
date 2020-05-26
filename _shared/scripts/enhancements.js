@@ -1,8 +1,8 @@
 (function () {
-  // Disable slide builds by default, but re-enable them when 'c' is pressed
+  // Disable slide builds by default, but re-enable them when 'b' is pressed
   setBuildsEnabled(false);
   document.addEventListener('keydown', function (e) {
-    if (e.which === 67)
+    if (e.which === 'B'.charCodeAt(0))
       setBuildsEnabled(true);
   });
 
