@@ -474,3 +474,25 @@ ol.query code {
     display: none;
   }
 }
+
+.slide.story .label {
+  color: var(--accent);
+  background: none;
+  font-weight: bold;
+  text-shadow:
+    0 0 200px rgba(255, 255, 255, .5),
+    0 0 15px white;
+  left: 40px;
+}
+.slide.story .label.year {
+  top: 64px;
+  font-size: 4em;
+}
+.slide.story .label.item {
+  top: 160px;
+  font-size: 2em;
+}
+.slide.story .label.distance {
+  top: 230px;
+  font-size: 1.66em;
+}
