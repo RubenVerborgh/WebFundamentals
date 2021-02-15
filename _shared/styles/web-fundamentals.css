@@ -150,7 +150,7 @@ nav ol li:before {
 .shower > section a {
   color: var(--accent);
 }
-.shower > section a[href*="ugent.be"]:after {
+.shower > section a[href*="ugent"]:after {
   content: " 🔐";
 }
 .shower > section a:hover {
