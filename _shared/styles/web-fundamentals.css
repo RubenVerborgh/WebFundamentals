@@ -159,6 +159,9 @@ nav ol li:before {
 .shower > section a[href*="ugent"]:after {
   content: " 🔐";
 }
+.shower > section a[href*="rubensworks"]:after {
+  content: "";
+}
 .shower > section a:hover {
   text-decoration: underline;
 }
