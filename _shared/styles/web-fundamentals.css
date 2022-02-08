@@ -32,12 +32,6 @@ body {
 .module:not(:hover),.series:not(:hover) {
   background-position: 0 2em !important;
 }
-.tweets {
-  position: absolute;
-  top: 555px;
-  right: 60px;
-  font-style: italic;
-}
 .ugent {
   position: absolute;
   bottom: 284px;
@@ -155,11 +149,6 @@ footer p.license img {
 }
 .slide.toc ul {
   font-style: italic;
-}
-.toc .tweets {
-  position: absolute;
-  bottom: 1px;
-  right: 60px;
 }
 
 /* Code */
