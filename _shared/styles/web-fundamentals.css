@@ -321,19 +321,6 @@ iframe.query-client, iframe.website {
   background-color: rgba(255, 255, 255, .5);
 }
 
-/* Labels on images */
-.shower .label {
-  position: absolute;
-  display: block;
-  background-color: rgba(255,255,255,.8);
-  border-radius: 15px;
-  color: black;
-  padding: 10px;
-}
-.shower .label * {
-  color: black;
-}
-
 /* Full-slide quotes */
 blockquote > p {
   font-weight: bold;
@@ -344,6 +331,30 @@ blockquote > p {
 }
 blockquote.long p {
   margin-bottom: .66em;
+}
+blockquote.white {
+  position: absolute;
+  color: white;
+}
+blockquote.white > * {
+  filter: drop-shadow(5px 5px 2px rgba(0,0,0,.5));
+}
+blockquote.white::before {
+  z-index: -1;
+  color: var(--accent);
+}
+
+/* Overlays on images */
+.shower .label {
+  position: absolute;
+  display: block;
+  background-color: rgba(255,255,255,.8);
+  border-radius: 15px;
+  color: black;
+  padding: 10px;
+}
+.shower .label * {
+  color: black;
 }
 
 /* Tight slides */
