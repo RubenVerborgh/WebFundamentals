@@ -1292,9 +1292,9 @@ Last-Modified: Sun, 24 Jan 2016 18:26:27 GMT</span>
       This is not as easy with other protocols.<br>
       For example, let’s assume Java RMI.
     </p>
-    <pre class="next"><code>removeObject.getMessage(234);
-removeObject.getMessage(234);
-removeObject.deleteMessage(234);</code></pre>
+    <pre class="next"><code>remoteObject.getMessage(234);
+remoteObject.getMessage(234);
+remoteObject.deleteMessage(234);</code></pre>
     <p class="next">
       If a <a href="#proxies">proxy server</a> is inserted before the remote server,<br>
       may it cache the result of <code>getMessage</code>?
