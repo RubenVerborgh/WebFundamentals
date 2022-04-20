@@ -746,7 +746,7 @@
         <a href="#toc-challenges">Challenges for the future</a>
         <ul>
           <li class="current"><a href="#toc-challenges">Decentralized application architecture</a></li>
-          <li><a href="#toc-devx">Linked Data developer experience</a></li>
+          <li><a href="#toc-kg-apis">From API integration to data integration</a></li>
         </ul>
       </li>
     </ul>
@@ -876,7 +876,7 @@
     </ul>
   </div>
 
-  <div class="toc slide" id="toc-devx">
+  <div class="toc slide" id="toc-kg-apis">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
       <a class="module" href="#title">Re-decentralizing the Web</a>
@@ -888,7 +888,7 @@
         <a href="#toc-challenges">Challenges for the future</a>
         <ul>
           <li><a href="#toc-challenges">Decentralized application architecture</a></li>
-          <li class="current"><a href="#toc-devx">Linked Data developer experience</a></li>
+          <li class="current"><a href="#toc-kg-apis">From API integration to data integration</a></li>
         </ul>
       </li>
     </ul>
@@ -966,27 +966,6 @@
 }</code></pre>
   </div>
 
-  <div class="slide" id="devx-first">
-    <h2>
-      The <em>developer experience</em> is the most<br>
-      crucial factor for Solid success.
-    </h2>
-    <ul>
-      <li class="next">
-        Front-end developers build<br>
-        the apps people see.
-      </li>
-      <li class="next">
-        Together with UX designers,<br>
-        they bring Solid to people.
-      </li>
-      <li class="next">
-        Enabling developers<br>
-        means enabling ourselves.
-      </li>
-    </ul>
-  </div>
-
   <div class="slide" id="complicated">
     <h2>
       Simple tasks should be simple,<br>
@@ -1007,107 +986,196 @@
     </blockquote>
   </div>
 
-  <div class="slide" id="old-way">
+  <div class="slide" id="web-apis">
     <h2>
-      The old way of working with RDF<br>
-      followed the old way of JSON APIs.
+      Web APIs provide access<br>
+      to remote functionality.
     </h2>
     <ol>
-      <li class="next">Gather input data.</li>
-      <li class="next">Send a specific API call.</li>
-      <li class="next">Parse the response as JSON.</li>
-      <li class="next">Traverse the JSON tree structure.</li>
-      <li class="next">Update the DOM.</li>
+      <li>
+        action APIs
+        <ul class="next inline">
+          <li>RPC</li>
+          <li>SOAP</li>
+          <li>XML</li>
+          <li>…</li>
+        </ul>
+      </li>
+      <li>
+        document APIs
+        <ul class="next inline">
+          <li>REST APIs</li>
+          <li>LDP</li>
+          <li>…</li>
+        </ul>
+      </li>
+      <li>
+        graph APIs
+        <ul class="next inline">
+          <li>GraphQL</li>
+          <li>SPARQL</li>
+          <li>…</li>
+        </ul>
+      </li>
     </ol>
+    <p class="next">
+      Graph APIs are just a specific kind of document APIs.
+    </p>
   </div>
 
-  <div class="slide" id="old-way-hard">
+  <div class="slide" id="no-query-api">
     <h2>
-      The old way of working with RDF<br>
-      in the browser is hard.
-    </h2>
-    <ol>
-      <li>Gather input data <ins>into a query</ins>.</li>
-      <li>Send <del>a specific API call</del> <ins>the query</ins>.</li>
-      <li>Parse the response as <del>JSON</del> <ins>RDF</ins>.</li>
-      <li>Traverse the <del>JSON tree</del> <ins>RDF graph</ins> structure.</li>
-      <li>Update the DOM.</li>
-    </ol>
-  </div>
-
-  <div class="cover slide" id="react">
-    <h2>
-      Frameworks like React combines all steps<br>
-      into a seamless component experience.
-    </h2>
-    <pre><code>&lt;LoggedIn&gt;
-  &lt;p&gt;Welcome, <mark>&lt;Value src="user.firstName"/&gt;</mark>&lt;/p&gt;
-  <span class="next"><mark>&lt;Image src="user.image" defaultSrc="profile.svg"/&gt;</mark></span>
-  <span class="next">&lt;ul&gt;
-    &lt;li&gt;<mark>&lt;Link href="user.inbox"&gt;Your inbox&lt;/Link&gt;</mark>&lt;/li&gt;
-    &lt;li&gt;&lt;Link href="user.homepage"&gt;Your homepage&lt;/Link&gt;&lt;/li&gt;
-  &lt;/ul&gt;</span>
-  <span class="next">&lt;h2&gt;Your friends&lt;/h2&gt;
-  <mark>&lt;List src="user.friends.firstName"/&gt;</mark></span>
-&lt;/LoggedIn&gt;</code></pre>
-  </div>
-
-  <div class="cover slide" id="react-ldflex">
-    <h2>
-      Reusable abstractions can be shared<br>
-      between different frameworks.
-    </h2>
-    <pre><code>&lt;LoggedIn&gt;
-  &lt;p&gt;Welcome, &lt;Value src="<mark>user.firstName</mark>"/&gt;&lt;/p&gt;
-  &lt;Image src="<mark>user.image</mark>" defaultSrc="profile.svg"/&gt;
-  &lt;ul&gt;
-    &lt;li&gt;&lt;Link href="<mark>user.inbox</mark>"&gt;Your inbox&lt;/Link&gt;&lt;/li&gt;
-    &lt;li&gt;&lt;Link href="<mark>user.homepage</mark>"&gt;Your homepage&lt;/Link&gt;&lt;/li&gt;
-  &lt;/ul&gt;
-  &lt;h2&gt;Your friends&lt;/h2&gt;
-  &lt;List src="<mark>user.friends.firstName</mark>"/&gt;
-&lt;/LoggedIn&gt;</code></pre>
-  </div>
-
-  <div class="cover slide" id="ldflex">
-    <h2>
-      LDflex exposes Linked Data’s flexibility
-      without RDF’s complexity.
+      There's no such thing as a <q>query API</q>.<br>
+      All Web APIs provide <em>some</em> kind of queries.
     </h2>
     <ul>
-      <li class="next">data.user.name</li>
-      <li class="next">data.user.friends</li>
-      <li class="next">data.user.friends.firstName</li>
-      <li class="next">data.user.friends.friends.firstName</li>
-      <li class="next">data['https://ruben.verborgh.org/profile/#me'].blog</li>
+      <li class="next">
+        Solid apps want to <em>query</em>:<br>
+        gather data from multiple documents and pods.
+      </li>
+      <li class="next">
+        We tend to make two wrong assumptions:
+        <ol>
+          <li class="next">Client-side query necessitates server-side query.</li>
+          <li class="next">Servers need dedicated query APIs.</li>
+        </ol>
+      </li>
+      <li class="next">
+        Web APIs for decentralized ecosystems<br>
+        require a very different design mindset.
+      </li>
     </ul>
   </div>
 
-  <div class="cover slide" id="ldflex-dsl">
+  <div class="slide" id="abstract-knowledge">
     <h2>
-      LDflex is a domain-specific language<br>
-      for JavaScript.
+      Solid applications need, in some way,<br>
+      read/write access to a knowledge graph.
+    </h2>
+    <figure class="cover width margin">
+      <img src="images/abstract-knowledge.svg" alt="[a browser app needs access to knowledge]"/>
+    </figure>
+  </div>
+
+  <div class="slide" id="abstract-transfer">
+    <h2>
+      The graph is too big for <em>any</em> single place,<br>
+      so apps reconstruct the whole via parts.
+    </h2>
+    <figure class="cover width margin">
+      <img src="images/abstract-transfer.svg" alt="[apps operate parts of the knowledge graph]"/>
+    </figure>
+  </div>
+
+  <div class="slide" id="single-knowledge-api">
+    <h2>
+      When knowledge fits in a single source,<br>
+      we can place an API in front of it.
+    </h2>
+    <figure class="cover width margin">
+      <img src="images/single-knowledge-api.svg" alt="[accessing knowledge hosted on a single server]"/>
+    </figure>
+  </div>
+
+  <div class="slide" id="single-json-api">
+    <h2>
+      Abstract knowledge needs to be exposed<br>
+      through concrete documents/resources.
+    </h2>
+    <figure class="cover width margin">
+      <img src="images/single-json-api.svg" alt="[accessing knowledge through a single JSON API]"/>
+    </figure>
+  </div>
+
+  <div class="slide" id="single-graphql-api">
+    <h2>
+      A GraphQL API combines data from across<br>
+      multiple resources of the “main” API.
+    </h2>
+    <figure class="cover width margin">
+      <img src="images/single-graphql-api.svg" alt="[GraphQL APIs can access multiple conceptual resources]"/>
+    </figure>
+  </div>
+
+  <div class="slide" id="multi-source-knowledge">
+    <h2>
+      Let's revisit the story for cases where<br>
+      knowledge cannot fit in one place.
+    </h2>
+    <figure class="cover width margin">
+      <img src="images/multi-source-knowledge.svg" alt="[an application needs to access a knowledge graph that is distributed across multiple servers]"/>
+    </figure>
+  </div>
+
+  <div class="slide" id="multi-source-apis">
+    <h2>
+      Each data pod exposes its part<br>
+      as RDF through a Web API.
+    </h2>
+    <figure class="cover width margin">
+      <img src="images/multi-source-apis.svg" alt="[each server exposes an RDF API]"/>
+    </figure>
+  </div>
+
+  <div class="slide" id="heterogeneous-apis">
+    <h2>
+      Different APIs for RDF<br>
+      have different characteristics.
+    </h2>
+    <figure class="cover width margin">
+      <img src="images/heterogeneous-apis.svg" alt="[RDF can be exposed through different APIs]"/>
+    </figure>
+  </div>
+
+  <div class="slide" id="heterogeneous-multi-apis">
+    <h2>
+      It quickly becomes unfeasible for apps<br>
+      to deal with all possible API combinations.
+    </h2>
+    <figure class="cover width margin">
+      <img src="images/heterogeneous-multi-apis.svg" alt="[each server might expose the same knowledge through multiple APIs]"/>
+    </figure>
+  </div>
+
+  <div class="slide" id="graphql-multi-apis">
+    <h2>
+      A GraphQL Web API cannot help us,<br>
+      since there's no server to attach it to.
+    </h2>
+    <figure class="cover width margin">
+      <img src="images/graphql-multi-apis.svg" alt="[we cannot attach a GraphQL API to any single server when the data resides in multiple servers]"/>
+    </figure>
+  </div>
+
+  <div class="slide" id="graphql-client-side">
+    <h2>
+      The app can still be written with GraphQL:<br>
+      a library translates it into HTTP requests.
+    </h2>
+    <figure class="cover width margin">
+      <img src="images/graphql-client-side.svg" alt="[a client-side library translates GraphQL queries from the app into HTTP requests for different APIs and servers]"/>
+    </figure>
+  </div>
+
+  <div class="slide" id="outro">
+    <h2>
+      Solid has kickstarted the transition<br>
+      from API integration to data integration.
     </h2>
     <ul>
-      <li>
-        Every expression is valid JavaScript.
+      <li class="next">
+        Solid app developers face challenges…<br>
+        <span class="next">…but API problems are not among those!</span>
+      </li>
+      <li class="next">
+        The way we write apps can be independent<br>
+        of the Web APIs offered by servers.
         <ul>
-          <li><code>data.user.friend.firstName</code></li>
+          <li>Clients can have their own abstractions.</li>
         </ul>
       </li>
       <li class="next">
-        It <em>feels</em> like a local object.
-        <ul>
-          <li class="next">…but actually uses <code>Proxy</code></li>
-        </ul>
-      </li>
-      <li class="next">
-        It <em>behaves</em> like a Web query.
-        <ul>
-          <li><a href="https://solid.github.io/ldflex-playground/#.user.friend.firstName"><code><strong>await</strong> data.user.friend.firstName</code></a></li>
-          <li class="next">fetches friends from your data pod…</li>
-          <li class="next">…but can fetch their names from <em>their</em> data pods!</li>
-        </ul>
+        Let's invest in reusable <em>client development patterns</em>.
       </li>
     </ul>
   </div>
