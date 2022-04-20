@@ -204,6 +204,11 @@ footer p.license img {
   box-shadow: 2px 2px currentColor;
 }
 
+/* Inline elements */
+del {
+  text-decoration: var(--accent) .08em line-through;
+}
+
 /* Lists */
 .inline {
   line-height: 1.32 !important;

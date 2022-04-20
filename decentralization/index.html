@@ -110,7 +110,7 @@
     <ul>
       <li><a href="#toc-decentralization">The pendulum of (de-)centralization</a></li>
       <li><a href="#toc-solid">The Solid ecosystem</a></li>
-      <li><a href="#toc-challenges">Challenges for the future</a></li>
+      <li><a href="#toc-challenges">Challenges with decentralization</a></li>
     </ul>
   </div>
 
@@ -128,7 +128,7 @@
         </ul>
       </li>
       <li><a href="#toc-solid">The Solid ecosystem</a></li>
-      <li><a href="#toc-challenges">Challenges for the future</a></li>
+      <li><a href="#toc-challenges">Challenges with decentralization</a></li>
     </ul>
   </div>
 
@@ -287,7 +287,7 @@
         </ul>
       </li>
       <li><a href="#toc-solid">The Solid ecosystem</a></li>
-      <li><a href="#toc-challenges">Challenges for the future</a></li>
+      <li><a href="#toc-challenges">Challenges with decentralization</a></li>
     </ul>
   </div>
 
@@ -448,8 +448,14 @@
     </h2>
     <ul>
       <li><a href="#toc-decentralization">The pendulum of (de-)centralization</a></li>
-      <li class="current"><a href="#toc-solid">The Solid ecosystem</a></li>
-      <li><a href="#toc-challenges">Challenges for the future</a></li>
+      <li class="current">
+        <a href="#toc-solid">The Solid ecosystem</a>
+        <ul>
+          <li class="current"><a href="#toc-solid">Principles</a></li>
+          <li><a href="#toc-technologies">Technologies</a></li>
+        </ul>
+      </li>
+      <li><a href="#toc-challenges">Challenges with decentralization</a></li>
     </ul>
   </div>
 
@@ -591,6 +597,24 @@
     </ul>
   </div>
 
+  <div class="toc slide" id="toc-technologies">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Re-decentralizing the Web</a>
+    </h2>
+    <ul>
+      <li><a href="#toc-decentralization">The pendulum of (de-)centralization</a></li>
+      <li class="current">
+        <a href="#toc-solid">The Solid ecosystem</a>
+        <ul>
+          <li><a href="#toc-solid">Principles</a></li>
+          <li class="current"><a href="#toc-technologies">Technologies</a></li>
+        </ul>
+      </li>
+      <li><a href="#toc-challenges">Challenges with decentralization</a></li>
+    </ul>
+  </div>
+
   <div class="slide" id="server">
     <h2>
       A Solid server acts as a data pod<br>
@@ -683,8 +707,8 @@
     </h2>
     <ul>
       <li>
-        The specifications are a (currently unstandardized)<br>
-        set of <a href="https://github.com/solid/solid-spec">documents on GitHub</a>.
+        The specifications are a set<br>
+        of <a href="https://solidproject.org/TR/protocol">multiple documents</a>.
       </li>
       <li class="next">
         They essentially demand compliance<br>
@@ -694,9 +718,6 @@
           <li>Linked Data Platform (LDP)</li>
           <li>Linked Data Notifications (LDN)</li>
         </ul>
-      </li>
-      <li class="next">
-        They suggest specific RDF vocabularies.
       </li>
     </ul>
   </div>
@@ -708,7 +729,7 @@
     </h2>
     <ul>
       <li>
-        <a href="https://github.com/solid/node-solid-server/">server</a>
+        <a href="https://github.com/CommunitySolidServer/CommunitySolidServer">server</a>
         <ul class="next">
           <li>Use a public instance or host your own.</li>
         </ul>
@@ -716,7 +737,7 @@
       <li>
         apps
         <ul class="next inline">
-          <li><a href="https://github.com/linkeddata/mashlib">data browser</a></li>
+          <li><a href="https://github.com/SolidOS/mashlib">data browser</a></li>
           <li>contacts</li>
           <li>photos</li>
           <li>meeting organizer</li>
@@ -726,12 +747,84 @@
       <li>
         libraries
         <ul class="next inline">
-          <li><a href="https://github.com/solid/solid-auth-client">authentication</a></li>
-          <li><a href="https://github.com/linkeddata/rdflib.js/">data processing</a></li>
+          <li><a href="https://github.com/inrupt/solid-client-authn-js">authentication</a></li>
+          <li><a href="https://github.com/rdfjs/N3.js">data processing</a></li>
           <li>…</li>
         </ul>
       </li>
     </ul>
+  </div>
+
+  <div class="slide" id="hypermedia">
+    <h2>
+      Interoperability challenges in Solid<br>
+      are solved through Linked Data in RDF.
+    </h2>
+    <ul>
+      <li>
+        If we all store our own data,<br>
+        <span class="next">how do we <a href="#linking">connect</a> it to others’ data?</span>
+      </li>
+      <li>
+        How can apps <a href="#semantics">share</a> data,<br>
+        <span class="next">without too many prior agreements?</span>
+      </li>
+      <li>
+        How do we <a href="#integration">integrate</a> data<br>
+        <span class="next">from multiple data pods?</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="linking">
+    <h2>
+      With JSON-LD, every piece of data<br>
+      can link to any other piece of data.
+    </h2>
+    <pre><code>{
+  <span class="prefix">"@context":  "https://www.w3.org/ns/activitystreams",</span>
+  "id":        "#ruben-likes-ugent",
+  "type":      "Like",
+  "actor":     "<mark>https://ruben.verborgh.org/profile/#me</mark>",
+  "object":    "<mark>https://www.ugent.be/#this</mark>",
+  "published": "2019-04-25T08:00:00Z"
+}</code></pre>
+  </div>
+
+  <div class="slide" id="semantics">
+    <h2>
+      Data shapes and their semantics<br>
+      enable <em>layered compatibility</em>.
+    </h2>
+    <pre><code>{
+  <span class="prefix">"@context":  "https://www.w3.org/ns/activitystreams",</span>
+  "id":        "#ruben-likes-ugent",
+  "<mark>type</mark>":      "<mark>Like</mark>",
+  "<mark>actor</mark>":     "https://ruben.verborgh.org/profile/#me",
+  "<mark>object</mark>":    "https://www.ugent.be/#this",
+  "<mark>published</mark>": "2019-04-25T08:00:00Z"
+}</code></pre>
+  </div>
+
+  <div class="slide" id="integration">
+    <h2>
+      Different source data<br>
+      can be concatenated.
+    </h2>
+    <pre><code>{
+  <span class="prefix">"@context":  "https://www.w3.org/ns/activitystreams",</span>
+  <span class="prefix">"@graph":</span> [{
+    "type":      "Like",
+    "actor":     <mark>"https://ruben.verborgh.org/profile/#me"</mark>,
+    "object":    "https://www.ugent.be/#this",
+    "published": "2019-04-25T08:00:00Z"
+  },{
+    "type":      "Like",
+    "actor":     <mark>"https://example.org/people/silvia#me"</mark>,
+    "object":    "https://www.ugent.be/#this",
+    "published": "2019-04-25T08:05:00Z"
+  }]
+}</code></pre>
   </div>
 
   <div class="toc slide" id="toc-challenges">
@@ -743,7 +836,7 @@
       <li><a href="#toc-decentralization">The pendulum of (de-)centralization</a></li>
       <li><a href="#toc-solid">The Solid ecosystem</a></li>
       <li class="current">
-        <a href="#toc-challenges">Challenges for the future</a>
+        <a href="#toc-challenges">Challenges with decentralization</a>
         <ul>
           <li class="current"><a href="#toc-challenges">Decentralized application architecture</a></li>
           <li><a href="#toc-kg-apis">From API integration to data integration</a></li>
@@ -752,40 +845,40 @@
     </ul>
   </div>
 
+  <div class="slide" id="complicated">
+    <h2>
+      Simple tasks should be simple,<br>
+      complex tasks should be manageable.
+    </h2>
+    <blockquote>
+      <p class="next">
+        People think RDF is a pain<br>
+        because it is complicated.<br>
+        The truth is even worse.
+      </p>
+      <p class="next">
+        RDF is painfully simplistic,<br>
+        but it allows you to work with real-world data<br>
+        and problems that are horribly complicated.
+      </p>
+      <cite><a href="https://book.validatingrdf.com/bookHtml005.html">Dan Brickley &amp; Libby Miller</a></cite>
+    </blockquote>
+  </div>
+
   <div class="slide" id="multiple-backends">
     <h2>
-      Decentralized apps have many back-ends.
-      Back-ends work with many apps.
+      Decentralized apps have many back-ends<br>
+      that need to work with many apps.
     </h2>
     <figure class="cover width margin">
       <img src="images/multiple-backends.svg" alt="">
     </figure>
   </div>
 
-  <div class="slide" id="requests">
-    <h2>
-      The current approach to building APIs<br>
-      does not play well with decentralization.
-    </h2>
-    <figure class="cover width margin">
-      <img src="images/request-based-interaction.svg" alt="">
-    </figure>
-  </div>
-
-  <div class="slide" id="queries">
-    <h2>
-      When clients do not bind to HTTP requests,<br>
-      APIs can evolve independently of app logic.
-    </h2>
-    <figure class="cover width margin">
-      <img src="images/query-based-interaction.svg" alt="">
-    </figure>
-  </div>
-
   <div class="slide" id="cache">
     <h2>
       Decentralization needs replication<br>
-      for realistic performance.
+      for to achieve expected performance.
     </h2>
     <figure class="cover width margin">
       <img src="images/queries-network.svg" alt="">
@@ -885,7 +978,7 @@
       <li><a href="#toc-decentralization">The pendulum of (de-)centralization</a></li>
       <li><a href="#toc-solid">The Solid ecosystem</a></li>
       <li class="current">
-        <a href="#toc-challenges">Challenges for the future</a>
+        <a href="#toc-challenges">Challenges with decentralization</a>
         <ul>
           <li><a href="#toc-challenges">Decentralized application architecture</a></li>
           <li class="current"><a href="#toc-kg-apis">From API integration to data integration</a></li>
@@ -894,106 +987,38 @@
     </ul>
   </div>
 
-  <div class="slide" id="hypermedia">
+  <div class="slide" id="query-needs">
     <h2>
-      Interoperability challenges in Solid<br>
-      are solved through Linked Data in RDF.
+      Solid apps conceptually <em>query</em>: read/write<br>
+      data in multiple documents and pods.
     </h2>
     <ul>
-      <li>
-        If we all store our own data,<br>
-        <span class="next">how do we <a href="#linking">connect</a> it to others’ data?</span>
+      <li class="next">
+        <a href="../linked-data-publishing/#linked-data-fragments-definition">Linked Data Fragments</a> has proven<br>old assumptions wrong:
+        <ul>
+          <li><del>Client-side query requires the <em>same</em> server-side query.</del></li>
+          <li><del>Servers need <em>some</em> dedicated query API to enable query.</del></li>
+        </ul>
       </li>
-      <li>
-        How can apps <a href="#semantics">share</a> data,<br>
-        <span class="next">without too many prior agreements?</span>
+      <li class="next">
+        Hence, a <q>query API</q> does not inherently exist.<br>
+        All Web APIs provide <em>some</em> kind of queries.
       </li>
-      <li>
-        How do we <a href="#integration">integrate</a> data<br>
-        <span class="next">from multiple data pods?</span>
+      <li class="next">
+        Web APIs for decentralized ecosystems<br>
+        require a very different design mindset.
       </li>
     </ul>
   </div>
 
-  <div class="slide" id="linking">
-    <h2>
-      With JSON-LD, every piece of data<br>
-      can link to any other piece of data.
-    </h2>
-    <pre><code>{
-  <span class="prefix">"@context":  "https://www.w3.org/ns/activitystreams",</span>
-  "id":        "#ruben-likes-ugent",
-  "type":      "Like",
-  "actor":     "<mark>https://ruben.verborgh.org/profile/#me</mark>",
-  "object":    "<mark>https://www.ugent.be/#this</mark>",
-  "published": "2019-04-25T08:00:00Z"
-}</code></pre>
-  </div>
-
-  <div class="slide" id="semantics">
-    <h2>
-      Data shapes and their semantics<br>
-      enable <em>layered compatibility</em>.
-    </h2>
-    <pre><code>{
-  <span class="prefix">"@context":  "https://www.w3.org/ns/activitystreams",</span>
-  "id":        "#ruben-likes-ugent",
-  "<mark>type</mark>":      "<mark>Like</mark>",
-  "<mark>actor</mark>":     "https://ruben.verborgh.org/profile/#me",
-  "<mark>object</mark>":    "https://www.ugent.be/#this",
-  "<mark>published</mark>": "2019-04-25T08:00:00Z"
-}</code></pre>
-  </div>
-
-  <div class="slide" id="integration">
-    <h2>
-      Different source data<br>
-      can be concatenated.
-    </h2>
-    <pre><code>{
-  <span class="prefix">"@context":  "https://www.w3.org/ns/activitystreams",</span>
-  <span class="prefix">"@graph":</span> [{
-    "type":      "Like",
-    "actor":     <mark>"https://ruben.verborgh.org/profile/#me"</mark>,
-    "object":    "https://www.ugent.be/#this",
-    "published": "2019-04-25T08:00:00Z"
-  },{
-    "type":      "Like",
-    "actor":     <mark>"https://example.org/people/silvia#me"</mark>,
-    "object":    "https://www.ugent.be/#this",
-    "published": "2019-04-25T08:05:00Z"
-  }]
-}</code></pre>
-  </div>
-
-  <div class="slide" id="complicated">
-    <h2>
-      Simple tasks should be simple,<br>
-      complex tasks should be manageable.
-    </h2>
-    <blockquote>
-      <p class="next">
-        People think RDF is a pain<br>
-        because it is complicated.<br>
-        The truth is even worse.
-      </p>
-      <p class="next">
-        RDF is painfully simplistic,<br>
-        but it allows you to work with real-world data<br>
-        and problems that are horribly complicated.
-      </p>
-      <cite><a href="https://book.validatingrdf.com/bookHtml005.html">Dan Brickley &amp; Libby Miller</a></cite>
-    </blockquote>
-  </div>
-
   <div class="slide" id="web-apis">
     <h2>
-      Web APIs provide access<br>
-      to remote functionality.
+      <a href="../web-apis/#definition">Web APIs</a> exist to provide access<br>
+      to remote data or functionality.
     </h2>
     <ol>
       <li>
-        action APIs
+        action-oriented APIs
         <ul class="next inline">
           <li>RPC</li>
           <li>SOAP</li>
@@ -1002,7 +1027,7 @@
         </ul>
       </li>
       <li>
-        document APIs
+        document-oriented APIs
         <ul class="next inline">
           <li>REST APIs</li>
           <li>LDP</li>
@@ -1010,10 +1035,10 @@
         </ul>
       </li>
       <li>
-        graph APIs
+        graph-oriented APIs
         <ul class="next inline">
-          <li>GraphQL</li>
           <li>SPARQL</li>
+          <li>GraphQL</li>
           <li>…</li>
         </ul>
       </li>
@@ -1023,34 +1048,10 @@
     </p>
   </div>
 
-  <div class="slide" id="no-query-api">
-    <h2>
-      There's no such thing as a <q>query API</q>.<br>
-      All Web APIs provide <em>some</em> kind of queries.
-    </h2>
-    <ul>
-      <li class="next">
-        Solid apps want to <em>query</em>:<br>
-        gather data from multiple documents and pods.
-      </li>
-      <li class="next">
-        We tend to make two wrong assumptions:
-        <ol>
-          <li class="next">Client-side query necessitates server-side query.</li>
-          <li class="next">Servers need dedicated query APIs.</li>
-        </ol>
-      </li>
-      <li class="next">
-        Web APIs for decentralized ecosystems<br>
-        require a very different design mindset.
-      </li>
-    </ul>
-  </div>
-
   <div class="slide" id="abstract-knowledge">
     <h2>
-      Solid applications need, in some way,<br>
-      read/write access to a knowledge graph.
+      We need to design, in some way,<br>
+      read–write access to a <em>knowledge graph</em>.
     </h2>
     <figure class="cover width margin">
       <img src="images/abstract-knowledge.svg" alt="[a browser app needs access to knowledge]"/>
@@ -1099,7 +1100,7 @@
 
   <div class="slide" id="multi-source-knowledge">
     <h2>
-      Let's revisit the story for cases where<br>
+      Let’s revisit API design for cases where<br>
       knowledge cannot fit in one place.
     </h2>
     <figure class="cover width margin">
@@ -1139,8 +1140,8 @@
 
   <div class="slide" id="graphql-multi-apis">
     <h2>
-      A GraphQL Web API cannot help us,<br>
-      since there's no server to attach it to.
+      A GraphQL Web API is not possible here,<br>
+      since there is no server to attach it to.
     </h2>
     <figure class="cover width margin">
       <img src="images/graphql-multi-apis.svg" alt="[we cannot attach a GraphQL API to any single server when the data resides in multiple servers]"/>
@@ -1157,9 +1158,9 @@
     </figure>
   </div>
 
-  <div class="slide" id="outro">
+  <div class="slide" id="transition">
     <h2>
-      Solid has kickstarted the transition<br>
+      Solid technology marks a transition<br>
       from API integration to data integration.
     </h2>
     <ul>
@@ -1188,7 +1189,7 @@
     <ul>
       <li><a href="#toc-decentralization">The pendulum of (de-)centralization</a></li>
       <li><a href="#toc-solid">The Solid ecosystem</a></li>
-      <li><a href="#toc-challenges">Challenges for the future</a></li>
+      <li><a href="#toc-challenges">Challenges with decentralization</a></li>
     </ul>
   </div>
 
