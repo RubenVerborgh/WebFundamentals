@@ -2023,7 +2023,7 @@ SELECT ?name ?person WHERE {
     <p>
       For example, the presence of
     </p>
-    <pre class="next"><code>&lt;#Tim&gt; foaf:knows &lt;#Ted&gt;.
+    <pre class="next"><code>&lt;#Tim&gt; foaf:knows &lt;#Wendy&gt;.
 foaf:knows rdfs:domain foaf:Person.</code></pre>
     <p>
       will result in an extra triple
@@ -2048,12 +2048,12 @@ foaf:knows rdfs:domain foaf:Person.</code></pre>
     <p>
       For example, the presence of
     </p>
-    <pre class="next"><code>&lt;#me&gt; ex:hasPartner &lt;#SignificantOther&gt;.</code></pre>
+    <pre class="next"><code>&lt;#me&gt; ex:hasSpouse &lt;#SignificantOther&gt;.</code></pre>
     <p>
       together with the <a href="#class-restrictions">class restrictions we saw earlier</a><br>
       ensures that the following triple <em>cannot</em> be true:
     </p>
-    <pre class="next"><code>&lt;#me&gt; a ex:Bachelor.</code></pre>
+    <pre class="next"><code>&lt;#me&gt; a ex:Single.</code></pre>
   </div>
 
   <div class="slide" id="rule-based-reasoners">
@@ -2122,12 +2122,12 @@ foaf:knows rdfs:domain foaf:Person.</code></pre>
     </ul>
   </div>
 
-  <div class="slide" id="ted-knows-tim-rule">
+  <div class="slide" id="tim-knows-wendy-rule">
     <h2>
       We can define rules<br>
       for very specific situations.
     </h2>
-    <iframe class="query-client" src="eye-client/#data=tim.n3&amp;data=tim-knows-ted-rule.n3&amp;query=query.n3"></iframe>
+    <iframe class="query-client" src="eye-client/#data=tim.n3&amp;data=tim-knows-wendy-rule.n3&amp;query=query.n3"></iframe>
   </div>
 
   <div class="slide" id="knows-rule">

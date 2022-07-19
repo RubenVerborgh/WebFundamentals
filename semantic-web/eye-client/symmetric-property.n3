@@ -1,3 +1,6 @@
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
-{ ?p a owl:SymmetricProperty. ?s ?p ?o. } => { ?o ?p ?s. }.
+{ ?p a owl:SymmetricProperty.
+  ?s ?p ?o. }
+=>
+{ ?o ?p ?s. }.

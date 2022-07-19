@@ -1,6 +1,6 @@
 PREFIX ppl: <http://example.org/people#>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
-{ ppl:Tim foaf:knows ppl:Ted. }
+{ ppl:Tim foaf:knows ppl:Wendy. }
 =>
-{ ppl:Ted foaf:knows ppl:Tim. }.
+{ ppl:Wendy foaf:knows ppl:Tim. }.
