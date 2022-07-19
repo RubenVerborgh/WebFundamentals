@@ -159,6 +159,9 @@ footer p.license img {
   max-height: 420px;
   overflow: scroll;
 }
+.slide li li code {
+  letter-spacing: -.5px;
+}
 
 .element {
   cursor: pointer;

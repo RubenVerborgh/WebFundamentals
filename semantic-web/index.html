@@ -1645,16 +1645,16 @@ rdfs:domain <strong>rdfs:subPropertyOf</strong> rdfs:seeAlso.
         If any subject can at most have one unique value<br>
         for some property, it’s an <a href="https://www.w3.org/TR/owl-ref/#FunctionalProperty-def"><code>owl:FunctionalProperty</code></a>.
         <ul>
-          <li><code>ex:Delphine ex:hasBiologicalFather ex:Albert.</code></li>
-          <li><code>ex:hasBiologicalFather a <strong>owl:FunctionalProperty</strong>.</code></li>
+          <li><code>ex:Julia ex:hasSpouse ex:Cathy.</code></li>
+          <li><code>ex:hasSpouse a <strong>owl:FunctionalProperty</strong>.</code></li>
         </ul>
       </li>
       <li class="next">
         The <a href="#inverse-properties">inverse</a>
         is <a href="https://www.w3.org/TR/owl-ref/#InverseFunctionalProperty-def"><code>owl:InverseFunctionalProperty</code></a>.
         <ul>
-          <li><code>ex:Albert ex:isBiologicalFatherOf ex:Delphine.</code></li>
-          <li><code>ex:isBiologicalFatherOf a <strong>owl:InverseFunctionalProperty</strong>.</code></li>
+          <li><code>ex:Elisabeth ex:successorOf ex:Philippe.</code></li>
+          <li><code>ex:successorOf a <strong>owl:InverseFunctionalProperty</strong>.</code></li>
         </ul>
       </li>
     </ul>
@@ -1666,13 +1666,13 @@ rdfs:domain <strong>rdfs:subPropertyOf</strong> rdfs:seeAlso.
       so you have to understand them well.
     </h2>
     <p>What is the logical consequence of the following?</p>
-    <pre><code>ex:Delphine ex:hasBiologicalFather ex:Albert.
-ex:Delphine ex:hasBiologicalFather ex:Jacques.
-ex:hasBiologicalFather a owl:FunctionalProperty.</code></pre>
+    <pre><code>ex:Julia ex:hasSpouse ex:Cathy.
+ex:Julia ex:hasSpouse ex:John.
+ex:hasSpouse a owl:FunctionalProperty.</code></pre>
     <p class="next">It might be counterintuitive, but the conclusion is:</p>
-    <pre class="next"><code>ex:Albert owl:sameAs ex:Jacques.</code></pre>
+    <pre class="next"><code>ex:Cathy owl:sameAs ex:John.</code></pre>
     <p class="next">To arrive at a contradiction, <a href="#individual-equality">explicitly define inequality</a>:</p>
-    <pre class="next"><code>ex:Albert owl:differentFrom ex:Jacques.</code></pre>
+    <pre class="next"><code>ex:Cathy owl:differentFrom ex:John.</code></pre>
   </div>
 
   <div class="slide" id="symmetry-reflexivity-transitivity">
@@ -1684,7 +1684,7 @@ ex:hasBiologicalFather a owl:FunctionalProperty.</code></pre>
       <li>
         <a href="https://www.w3.org/TR/owl2-syntax/#Symmetric_Object_Properties"><code>owl:SymmetricProperty</code></a>
         <ul>
-          <li><code>ex:isMarriedTo a owl:SymmetricProperty.</code></li>
+          <li><code>ex:hasSpouse a owl:SymmetricProperty.</code></li>
           <li>opposite: <a href="https://www.w3.org/TR/owl2-syntax/#Asymmetric_Object_Properties"><code>owl:AsymmetricProperty</code></a></li>
         </ul>
       </li>
@@ -1692,7 +1692,7 @@ ex:hasBiologicalFather a owl:FunctionalProperty.</code></pre>
         <a href="https://www.w3.org/TR/owl2-syntax/#Reflexive_Object_Properties"><code>owl:ReflexiveProperty</code></a>
         <ul>
           <li>opposite: <a href="https://www.w3.org/TR/owl2-syntax/#Irreflexive_Object_Properties"><code>owl:IrreflexiveProperty</code></a></li>
-          <li><code>ex:isFatherOf a owl:IrreflexiveProperty.</code></li>
+          <li><code>ex:isMotherOf a owl:IrreflexiveProperty.</code></li>
         </ul>
       </li>
       <li>
@@ -1715,8 +1715,8 @@ ex:hasBiologicalFather a owl:FunctionalProperty.</code></pre>
         combined with restrictions on property value.
       </li>
     </ul>
-    <pre><code>ex:Bachelor owl:equivalentClass [ a owl:Class;
-    owl:intersectionOf (ex:Man, [
+    <pre><code>ex:Single owl:equivalentClass [ a owl:Class;
+    owl:intersectionOf (foaf:Person, [
         a owl:Class, owl:Restriction;
         owl:onProperty ex:hasPartner;
         owl:maxCardinality 0
