@@ -947,10 +947,136 @@
     </ul>
   </div>
 
-  <div class="slide" id="history-recap">
+  <div class="slide" id="architecture-ui">
+    <figure class="cover height">
+      <img src="images/browser-ui.png"
+           alt="[Typical user interface of a modern browser.]">
+    </figure>
+    <footer>
+      <p>Typical user interface of a modern browser.</p>
+    </footer>
+  </div>
+  
+  <div class="slide" id="architecture-what">
     <h2>
-      TODO
+      What is happening under the hood?
     </h2>
+    <ul>
+      <li class="next">
+        Browsers have become highly-complex applications
+        <ul>
+          <li></li>
+        </ul>
+      </li>
+      <li class="next">
+        Steps between entering a link to an interactive page
+        <ul>
+          <li>Navigation and the network stack</li>
+          <li>Parsing and rendering</li>
+          <li>Interactivity with JavaScript</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="architecture-multi-process">
+    <h2>
+      The multi-process browser architecture
+    </h2>
+    <dl>
+      <dt>Browser process</dt> <dd>handles the user interface</dd>
+      <dt>Render process(es)</dt> <dd>handles rendering of a single tab</dd>
+      <dt>Plugin process(es)</dt> <dd>plugins inside websites (e.g. Flash)</dd>
+      <dt>GPU process</dt> <dd>Handles GPU tasks</dd>
+      <dt>&mldr;</dt>
+    </dl>
+  </div>
+  
+  <div class="slide" id="architecture-multi-process">
+    <h2>
+      Impact of multiple processes 
+    </h2>
+    <ul>
+      <li class="next">
+        Need for IPC
+        <ul>
+          <li>Inter Process Communication</li>
+        </ul>
+      </li>
+      <li class="next">
+        Sandboxing
+        <ul>
+          <li>Better security</li>
+          <li>An unresponsive process can be killed and recreated</li>
+        </ul>
+      </li>
+      <li class="next">
+        Higher memory usage
+        <ul>
+          <li>Multiple copies of the same infrastructure</li>
+          <li>Negative for memory-constrained devices</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="architecture-chrome">
+    <figure class="cover width">
+      <img src="images/chrome-arch.avif"
+           alt="[Chrome's multi-process architecture.]">
+        <figcaption>
+          ©2018 <a href="https://developer.chrome.com/blog/inside-browser-part1/">Mariko Kosaka</a>
+        </figcaption>
+    </figure>
+    <footer>
+      <p>Chrome's multi-process architecture.</p>
+    </footer>
+  </div>
+  
+  <div class="slide" id="architecture-site-isolation">
+    <h2>
+      Site Isolation
+    </h2>
+    <ul>
+      <li class="next">
+        Security model requires site isolation
+        <ul>
+          <li>Same Origin Policy: inability to access other sites data</li>
+        </ul>
+      </li>
+      <li class="next">
+        Separate render processes per site
+        <ul>
+          <li><code>http://foo.ex.com</code> and <code>http://bar.ex.com</code> in same site <code>http://ex.com</code></li>
+        </ul>
+      </li>
+      <li class="next">
+         Complex process handling with cross-site iframes
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="architecture-servicification">
+    <h2>
+      Towards Servicification
+    </h2>
+    <ul>
+      <li class="next">
+        Hardware capabilities influence process handling
+        <ul>
+          <li>High-end devices can easily run many processes</li>
+          <li>Low-end devices with memory restrictions prefer fewer processes</li>
+        </ul>
+      </li>
+      <li class="next">
+        Servicification
+        <ul>
+          <li>Modularized architecture</li>
+          <li>Run logic inside <em>services</em></li>
+          <li>Services could be split across processes, or merged</li>
+        </ul>
+      </li>
+    </ul>
   </div>
   
   <div class="toc slide" id="navigation">
