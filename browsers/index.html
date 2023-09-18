@@ -1126,7 +1126,7 @@
         <a href="#navigation">Browser Navigation</a>
         <ul>
           <li class="current"><a href="#navigation-first">Overview</a></li>
-          <li><a href="#navigation-request-waterfall">Request waterfall</a></li>
+          <li><a href="#navigation-front-end-performance">Front-end Performance</a></li>
           <li><a href="#navigation-networkstack">Network Stack</a></li>
           <li><a href="#navigation-data">Data Layer</a></li>
           <li><a href="#navigation-transport">Transport Layer</a></li>
@@ -1136,10 +1136,337 @@
     </ul>
   </div>
 
-  <div class="slide" id="history-recap">
+  <div class="slide" id="navigation-overview-steps">
     <h2>
-      TODO
+      Navigation triggers network thread
     </h2>
+    <ul>
+      <li class="next">
+        Navigation actions
+        <ul>
+          <li>Entering and confirming a URL</li>
+          <li>Entering and confirming a search query</li>
+          <li>Clicking on a link</li>
+          <li>Fetching required resources on pages – images, scripts, &mldr;</li>
+          <li>Network requests through JavaScript</li>
+          <li>Pre-emptive requests by the browser</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="navigation-overview-steps">
+    <h2>
+      Network thread handles requests
+    </h2>
+    <ul>
+      <li class="next">
+        Going through the network stack
+        <ul>
+          <li>DNS</li>
+          <li>TLS</li>
+          <li>TCP/IP</li>
+          <li>&mldr;</li>
+        </ul>
+      </li>
+      <li class="next">
+        Handling redirects
+        <ul>
+          <li>HTTP 3xx range</li>
+        </ul>
+      </li>
+      <li class="next">
+        Cache management – reusing previous responses
+        <ul>
+          <li><code>Cache-Control</code>, <code>ETag</code>, <code>Last-Modified</code></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="navigation-overview-steps">
+    <h2>
+      Network thread handles responses
+    </h2>
+    <ul>
+      <li class="next">
+        Identifying media type
+        <ul>
+          <li><code>Content-Type</code> header</li>
+          <li>MIME Type snipping – if <code>Content-Type</code> is missing or wrong</li>
+        </ul>
+      </li>
+      <li class="next">
+        Passing to responsible process
+        <ul>
+          <li>HTML &rarr; Renderer process</li>
+          <li>ZIP &rarr; Download manager</li>
+        </ul>
+      </li>
+      <li class="next">
+        Performing security checks
+        <ul>
+          <li>SafeBrowsing – Blacklist of known malicious sites</li>
+          <li>
+            CORB – Prevent data leakage in dubious requests
+            <ul>
+              <li><em>Including HTML in <code>&lt;img&gt;</code> tag</em></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="toc slide" id="navigation-request-waterfall">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Browsers</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#navigation">Browser Navigation</a>
+        <ul>
+          <li><a href="#navigation-first">Overview</a></li>
+          <li class="current"><a href="#navigation-front-end-performance">Front-end Performance</a></li>
+          <li><a href="#navigation-networkstack">Network Stack</a></li>
+          <li><a href="#navigation-data">Data Layer</a></li>
+          <li><a href="#navigation-transport">Transport Layer</a></li>
+          <li><a href="#navigation-application">Application Layer</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="navigation-optimize-humans">
+    <h2>
+      Front-end Performance Optimization: delivering smooth experience for humans
+    </h2>
+    <ul>
+      <li class="next">
+        <a href="https://www.nngroup.com/books/usability-engineering/">Nielsen's guidelines for response times based on human perception</a>
+        <ul>
+          <li>0.1 second – feels instantaneous</li>
+          <li>1.0 second – limit for keeping user's flow of thought</li>
+          <li>10 seconds – limit for keeping user's attention</li>
+        </ul>
+      </li>
+      <li class="next">
+        Rule of thumb in Web performance community
+        <ul>
+          <li>Render (partial) pages in under 250 ms</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="navigation-measuring-targets">
+    <h2>
+      Targets for performance metrics
+    </h2>
+    <ul>
+      <li class="next">
+        Web Documents
+        <ul>
+          <li>Plain text with some hyperlinks</li>
+          <li>DLT: Document load time – Loading single resource</li>
+        </ul>
+      </li>
+      <li class="next">
+        Web Pages
+        <ul>
+          <li>Hypermedia resources, e.g. images, videos, &mldr;</li>
+          <li>PLT: Page load time – Loading all resources in page</li>
+        </ul>
+      </li>
+      <li class="next">
+        Web Applications
+        <ul>
+          <li>Dynamic applications using JavaScript</li>
+          <li>Performance metrics depend on application</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="navigation-request-types">
+    <h2>
+      Pages can trigger multiple requests
+    </h2>
+    <ul>
+      <li class="next">
+        Median number of requests per page: 72 (67 mobile)
+        <ul>
+          <li>From <a href="https://httparchive.org/reports/state-of-the-web">HTTP Archive State of the Web August 2023</a></li>
+        </ul>
+      </li>
+      <li class="next">
+        Composed of different resources
+        <ul>
+          <li>Images: 21 requests (1029.2 KB)</li>
+          <li>JavaScript: 23 requests (587.0 KB)</li>
+          <li>Fonts: 5 requests (151.0 KB)</li>
+          <li>CSS: 8 requests (8.5 KB)</li>
+          <li>HTML: 2 requests (31.0 KB)</li>
+          <li>Other: 3 requests (1.3 KB)</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="navigation-resource-waterfall-example">
+    <figure class="cover height">
+      <img src="images/resource-waterfall.png"
+           alt="[Resource waterfall example in Chrome.]">
+    </figure>
+    <footer>
+      <p>Resource Waterfall example in Chrome.</p>
+    </footer>
+  </div>
+  
+  <div class="slide" id="navigation-resource-waterfall-overview">
+    <h2>
+      The Resource Waterfall gives an overview of a page's performance
+    </h2>
+    <ul>
+      <li class="next">
+        Timeline of all network requests
+        <ul>
+          <li>Not all requests are initiated at the same time</li>
+          <li>Requests can happen in parallel</li>
+          <li>
+            Requests go through different stages
+            <ul>
+              <li>Request sent</li>
+              <li>Time to first byte</li>
+              <li>Content downloaded</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        Impacts the <em>Critical Rendering Path</em> (CRP)
+        <ul>
+          <li>CRP: steps for going from bytes to pixels on screen</li>
+          <li>Delayed by HTML, CSS, (non-async) JavaScript</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="navigation-resource-waterfall-shortcomings">
+    <h2>
+      The Resource Waterfall tells only part of the story
+    </h2>
+    <ul>
+      <li class="next">
+        User experience also depends on other factors
+        <ul>
+          <li>User need and link click order</li>
+          <li>Browser cache</li>
+          <li>Intermediary caches</li>
+          <li>User's hardware</li>
+          <li>User's browser</li>
+          <li>Connectivity: wired, WiFi, mobile, &mldr;</li>
+          <li>&mldr;</li>
+        </ul>
+      </li>
+      <li class="next"><a href="https://www.webpagetest.org/">WebPageTest</a> may give a more complete picture</li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="navigation-resource-waterfall-overview">
+    <h2>
+      Metrics for human-perceived load speed
+    </h2>
+    <ul>
+      <li class="next">
+        <a href="https://web.dev/fcp/">FCP</a>: First Contentful Paint
+        <ul>
+          <li>Time until something is rendered</li>
+          <li>Blue line in Chrome's Resource Waterfall</li>
+        </ul>
+      </li>
+      <li class="next">
+        <a href="https://web.dev/lcp/">LCP</a>: Largest Contentful Paint
+        <ul>
+          <li>Time until rendering of largest image or text block</li>
+          <li>Red line in Chrome's Resource Waterfall</li>
+        </ul>
+      </li>
+      <li class="next">
+        <em><a href="https://web.dev/metrics/">And more!</a></em>
+        <ul>
+          <li>Relevant metrics depend on your type of Web Application</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="navigation-browser-optimization">
+    <h2>
+      Browsers schedule requests to optimize navigation
+    </h2>
+    <ul>
+      <li class="next">
+        Document-aware optimization
+        <ul>
+          <li>Identify and prioritize critical resource requests</li>
+          <li>E.g. CSS, (non-async) JavaScript</li>
+          <li>Using lookahead parsing, resource priority assignments, &mldr;</li>
+        </ul>
+      </li>
+      <li class="next">
+        Speculative optimization
+        <ul>
+          <li>Learning user-specific navigation patterns</li>
+          <li>E.g. pre-resolving DNS, TCP pre-connect, pre-rendering, &mldr;</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="navigation-browser-optimization-hints">
+    <h2>
+      We can assist navigation optimization
+    </h2>
+    <ul>
+      <li class="next">
+        Ordering resource types in document structure
+        <ol>
+          <li>CSS – CSS fetching blocks rendering</li>
+          <li>Critical JavaScript – Also blocks rendering</li>
+          <li>Defer non-critical JavaScript – To load asynchronously</li>
+        </ol>
+      </li>
+      <li class="next">
+        Providing hints
+        <ul>
+          <li>Using <code>&lt;link rel="&mldr;"&gt;</code></li>
+          <li><code>dns-prefetch</code>, <code>subresource</code>, <code>prefetch</code>, <code>prerender</code></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="toc slide" id="navigation-networkstack">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Browsers</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#navigation">Browser Navigation</a>
+        <ul>
+          <li><a href="#navigation-first">Overview</a></li>
+          <li><a href="#navigation-front-end-performance">Front-end Performance</a></li>
+          <li class="current"><a href="#navigation-networkstack">Network Stack</a></li>
+          <li><a href="#navigation-data">Data Layer</a></li>
+          <li><a href="#navigation-transport">Transport Layer</a></li>
+          <li><a href="#navigation-application">Application Layer</a></li>
+        </ul>
+      </li>
+    </ul>
   </div>
   
   <div class="toc slide" id="crp">
