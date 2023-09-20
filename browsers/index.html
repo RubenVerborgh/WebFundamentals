@@ -1367,7 +1367,7 @@
           <li>Intermediary caches</li>
           <li>User's hardware</li>
           <li>User's browser</li>
-          <li>Connectivity: wired, WiFi, mobile, &mldr;</li>
+          <li>Connectivity: wired, Wi-Fi, mobile, &mldr;</li>
           <li>&mldr;</li>
         </ul>
       </li>
@@ -1464,6 +1464,490 @@
           <li><a href="#navigation-data">Data Layer</a></li>
           <li><a href="#navigation-transport">Transport Layer</a></li>
           <li><a href="#navigation-application">Application Layer</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="navigation-understanding-network">
+    <h2>
+      Browsers take care of networking
+    </h2>
+    <ul>
+      <li class="next">
+        Web developers can make requests using APIs
+        <ul>
+          <li>HTML</li>
+          <li>Fetch</li>
+          <li>WebSockets</li>
+          <li>&mldr;</li>
+        </ul>
+      </li>
+      <li class="next">
+        Understanding networking stack is important
+        <ul>
+          <li>For optimization and debugging</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="navigation-network-stack">
+    <h2>
+      Five network layers
+    </h2>
+    <dl>
+      <dt>Physical</dt> <dd>Cables, radio waves, &mldr;</dd>
+      <dt>Data</dt> <dd>Ethernet, Wi-Fi, Mobile, &mldr;</dd>
+      <dt>Network</dt> <dd>IP</dd>
+      <dt>Transport</dt> <dd>TCP, UDP, &mldr;</dd>
+      <dt>Application</dt> <dd>HTTP, SMTP, &mldr;</dd>
+    </dl>
+  </div>
+  
+  <div class="slide" id="navigation-understanding-network">
+    <h2>
+      Layers contribute to <em>speed</em>
+    </h2>
+    <dl>
+      <dt>Latency</dt> <dd>Time between sending and receiving packet</dd>
+      <dt>Bandwith</dt> <dd>Throughput of a communication path</dd>
+    </dl>
+    <ul>
+      <li class="next">
+        RTT – Round-trip time
+        <ul>
+          <li>Time for request going from sender to receiver, and back</li>
+        </ul>
+      </li>
+      <li class="next">
+        Either latency or bandwidth may be more important
+        <ul>
+          <li>Video streaming is bandwidth limited</li>
+          <li>Interactive applications are latency limited</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="navigation-latency-bandwidth-increase">
+    <figure class="cover width">
+      <img src="images/latency-bandwidth-increase.png"
+           alt="[Page load time versus bandwidth and latency.]">
+      <figcaption>
+        ©2013 <a href="https://www.oreilly.com/library/view/high-performance-browser/9781449344757/">Ilya Grigorik</a>
+      </figcaption>
+    </figure>
+    <footer>
+      <p>Page load time versus bandwidth and latency.</p>
+    </footer>
+  </div>
+  
+  <div class="slide" id="navigation-bottleneck">
+    <blockquote>
+      <p>
+        Latency is the bottleneck,
+      </p>
+      <p class="next">
+         and the fastest byte is a byte not sent.
+      </p>
+      <cite><a href="https://www.oreilly.com/library/view/high-performance-browser/9781449344757/">Ilya Grigorik</a></cite>
+    </blockquote>
+  </div>
+  
+  <div class="toc slide" id="navigation-data">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Browsers</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#navigation">Browser Navigation</a>
+        <ul>
+          <li><a href="#navigation-first">Overview</a></li>
+          <li><a href="#navigation-front-end-performance">Front-end Performance</a></li>
+          <li><a href="#navigation-networkstack">Network Stack</a></li>
+          <li class="current"><a href="#navigation-data">Data Layer</a></li>
+          <li><a href="#navigation-transport">Transport Layer</a></li>
+          <li><a href="#navigation-application">Application Layer</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="navigation-data-connection-types">
+    <h2>
+      Data connection types for the Web
+    </h2>
+    <ul>
+      <li class="next">
+        Ethernet – Wired connection
+        <ul>
+          <li>Stable and low latency, high bandwidth</li>
+        </ul>
+      </li>
+      <li class="next">
+        Wi-Fi – Wireless connection
+        <ul>
+          <li>Variable latency and bandwidth</li>
+        </ul>
+      </li>
+      <li class="next">
+        Mobile networks – Wireless connection
+        <ul>
+          <li>Variable latency and bandwidth</li>
+          <li>More complex and costly than Wi-Fi</li>
+          <li>Possibly better performance than Wi-Fi</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="navigation-ethernet">
+    <h2>
+      Ethernet is stable
+    </h2>
+    <ul>
+      <li class="next">
+        Internet backbone is wired
+        <ul>
+          <li>Mostly fiber-optic connections</li>
+        </ul>
+      </li>
+      <li class="next">
+        Ideal: connect all devices via ethernet
+      </li>
+      <li class="next">
+        Reality: wireless connections are more convenient
+        <ul>
+          <li><a href="https://www.statista.com/statistics/277125/share-of-website-traffic-coming-from-mobile-devices/">58% of Web traffic is mobile</a></li>
+          <li>Web infrastructure must cope with mobile reality</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="navigation-mobile-wifi-simmilarities">
+    <h2>
+      Similarities between mobile and Wi-Fi
+    </h2>
+    <ul>
+      <li class="next">
+        Variable latency
+        <ul>
+          <li>If latency is too high &rarr; protocol with lower overhead (UDP)</li>
+        </ul>
+      </li>
+      <li class="next">
+        Variable bandwidth
+        <ul>
+          <li>Less problematic for traditional Web applications</li>
+          <li>For multimedia: adaptive video bitrates</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="navigation-mobile-wifi-differences">
+    <h2>
+      Differences between mobile and Wi-Fi
+    </h2>
+    <ul>
+      <li class="next">
+        Cost of bandwidth
+        <ul>
+          <li>Wi-Fi traffic usually costs less than mobile network traffic</li>
+          <li>Signal switching from mobile to Wi-Fi for large downloads</li>
+        </ul>
+      </li>
+      <li class="next">
+        Battery usage
+        <ul>
+          <li>Data transfer over Wi-Fi is more battery-friendly</li>
+          <li>Idle connections are more efficient over mobile networks</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="navigation-mobile-latencies">
+    <h2>
+      Anticipate high latencies in mobile networks
+    </h2>
+    <ul>
+      <li class="next">
+        Radio goes to low-power state when idle
+        <ul>
+          <li>High latency (100-1000ms) to reestablish connection</li>
+        </ul>
+      </li>
+      <li class="next">
+        Impact on scheduling requests
+        <ul>
+          <li>Request in bursts (carriers prioritize bursty flows)</li>
+          <li>Prefer push over polling</li>
+          <li>Defer non-critical requests until radio is active</li>
+          <li>Anticipate user needs and pre-fetch</li>
+          <li>Avoid progressive loading</li>
+          <li>&mldr;</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="navigation-mobile-variability">
+    <h2>
+      Anticipate variability in mobile networks
+    </h2>
+    <ul>
+      <li class="next">
+        Connections change over time – devices are mobile
+        <ul>
+          <li>Tower-to-tower handoffs cause delays (100ms - seconds)</li>
+          <li>Transitions between modern and legacy networks (5G, 2G)</li>
+        </ul>
+      </li>
+      <li class="next">
+        Connections will be unavailable
+        <ul>
+          <li>Transient errors will happen – plan and retry</li>
+        </ul>
+      </li>
+      <li class="next">
+        Decouple UI from network communication
+        <ul>
+          <li>Execute requests in background</li>
+          <li>Enable interactions even if offline (<code>localStorage</code>)</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="toc slide" id="navigation-transport">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Browsers</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#navigation">Browser Navigation</a>
+        <ul>
+          <li><a href="#navigation-first">Overview</a></li>
+          <li><a href="#navigation-front-end-performance">Front-end Performance</a></li>
+          <li><a href="#navigation-networkstack">Network Stack</a></li>
+          <li><a href="#navigation-data">Data Layer</a></li>
+          <li class="current"><a href="#navigation-transport">Transport Layer</a></li>
+          <li><a href="#navigation-application">Application Layer</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="navigation-transport-protocols">
+    <h2>
+      Transport protocols for the Web
+    </h2>
+    <ul>
+      <li class="next">
+        TCP – Used by HTTP/1.x, HTTP/2
+        <ul>
+          <li>Reliable connections, ordered packets</li>
+        </ul>
+      </li>
+      <li class="next">
+        UDP – Used by WebRTC
+        <ul>
+          <li>No guarantees</li>
+        </ul>
+      </li>
+      <li class="next">
+        QUIC - Used by HTTP/3
+        <ul>
+          <li>Multiplexing without head-of-line-blocking</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="navigation-tcp">
+    <h2>
+      Setting up TCP connections is expensive
+    </h2>
+    <ul>
+      <li class="next">
+        Three-way handshake
+        <ul>
+          <li>Introduces full roundtrip of latency</li>
+        </ul>
+      </li>
+      <li class="next">
+        Slow start
+        <ul>
+          <li>Reduced initial bandwidth to avoid congestion</li>
+        </ul>
+      </li>
+      <li class="next">
+        Reuse TCP connections
+        <ul>
+          <li>TCP keepalive – default since HTTP/1.1</li>
+        </ul>
+      </li>
+      <li class="next">
+        Lower RTT by positioning servers closer to user
+        <ul>
+          <li>Content Delivery Networks</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="navigation-tcp-hol">
+    <h2>
+      TCP suffers from head-of-line blocking
+    </h2>
+    <ul>
+      <li class="next">
+        TCP guarantees in-order packet delivery
+        <ul>
+          <li>Packets have sequence numbers</li>
+        </ul>
+      </li>
+      <li class="next">
+        Lost packet will cause delay for later packets
+        <ul>
+          <li>Packet needs to be retransmitted</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="navigation-udp">
+    <h2>
+      UDP provides no guarantees and minimal overhead
+    </h2>
+    <ul>
+      <li class="next">
+        Use if not all features of TCP are needed
+        <ul>
+          <li>Reliability</li>
+          <li>Ordered delivery</li>
+          <li>Flow and congestion control</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="navigation-quic">
+    <h2>
+      QUIC aims to supersede TCP
+    </h2>
+    <ul>
+      <li class="next">
+        Solves problems with TCP
+        <ul>
+          <li>Multiplexing of multiple requests over one connections</li>
+          <li>Head-of-line-blocking</li>
+        </ul>
+      </li>
+      <li class="next">
+        Limited adoption
+        <ul>
+          <li>Used on <a href="https://w3techs.com/technologies/details/ce-http3">26.8%</a> of all Websites</li>
+          <li>Supported by 95% of browsers</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="toc slide" id="navigation-application">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Browsers</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#navigation">Browser Navigation</a>
+        <ul>
+          <li><a href="#navigation-first">Overview</a></li>
+          <li><a href="#navigation-front-end-performance">Front-end Performance</a></li>
+          <li><a href="#navigation-networkstack">Network Stack</a></li>
+          <li><a href="#navigation-data">Data Layer</a></li>
+          <li><a href="#navigation-transport">Transport Layer</a></li>
+          <li class="current"><a href="#navigation-application">Application Layer</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="navigation-navigation-http">
+    <h2>
+      HTTP – transfer of hypermedia
+    </h2>
+    <ul>
+      <li class="next">
+        Browser-directed
+        <ul>
+          <li>Following hyperlinks</li>
+          <li>Fetching subresources</li>
+        </ul>
+      </li>
+      <li class="next">
+        Fetch API – HTTP requests via JavaScript
+        <ul>
+          <li>For one-time client to server requests and polling</li>
+        </ul>
+      </li>
+      <li class="next">
+        Server-Sent Events – One-way messaging
+        <ul>
+          <li>Persistent HTTP connection from client to server</li>
+          <li>Server can send stream of text messages</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="navigation-navigation-websocket">
+    <h2>
+      WebSocket – Bidirectional messaging
+    </h2>
+    <ul>
+      <li class="next">
+        Communication of text and binary data
+        <ul>
+          <li>Persistent connection</li>
+        </ul>
+      </li>
+      <li class="next">
+        Standalone protocol
+        <ul>
+          <li>Mainly designed to use in browsers</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="navigation-navigation-webrtc">
+    <h2>
+      WebRTC – Peer-to-peer messaging
+    </h2>
+    <ul>
+      <li class="next">
+        Arbitrary connection direction
+        <ul>
+          <li>One-to-one, one-to-many, &mldr;</li>
+        </ul>
+      </li>
+      <li class="next">
+        Arbitrary message types
+        <ul>
+          <li>Bytes, text</li>
+        </ul>
+      </li>
+      <li class="next">
+        Enables audio/video streams between peers
+        <ul>
+          <li>Initially designed for videoconferencing</li>
         </ul>
       </li>
     </ul>
