@@ -1968,6 +1968,33 @@
     </ul>
   </div>
   
+  <div class="slide" id="crp-what">
+    <h2>
+      Critical Rendering Path
+    </h2>
+    <ul>
+      <li class="next">
+        Steps to go from bytes to pixels on screen
+        <ul>
+          <li>HTML, CSS, JavaScript, &mldr;</li>
+        </ul>
+      </li>
+      <li class="next">
+        <em>"Critical"</em>
+        <ul>
+          <li>Only those resources required for rendering a page</li>
+          <li>Some steps may be skipped, e.g., CSS <code>media="print"</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        Can be slow for complex and dynamic pages
+        <ul>
+          <li>Optimize for human perception: FCP, LCP, &mldr;</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
   <div class="toc slide" id="crp-first">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
@@ -1975,9 +2002,9 @@
     </h2>
     <ul>
       <li class="current">
-        <a href="#crp-first">Critical Rendering Path</a>
+        <a href="#crp">Critical Rendering Path</a>
         <ul>
-          <li class="current"><a href="#crp">DOM Parsing</a></li>
+          <li class="current"><a href="#crp-first">DOM Parsing</a></li>
           <li><a href="#crp-styling">CSSOM Styling</a></li>
           <li><a href="#crp-rendertree">Render Tree</a></li>
           <li><a href="#crp-layout">Layout</a></li>
@@ -1986,11 +2013,472 @@
       </li>
     </ul>
   </div>
-
-  <div class="slide" id="history-recap">
+  
+  <div class="slide" id="crp-dom">
     <h2>
-      TODO
+      DOM: Document Object Model
     </h2>
+    <ul>
+      <li class="next">
+        Tree-based representation of document structure
+        <ul>
+          <li>Stored in memory, derived from HTML files</li>
+        </ul>
+      </li>
+      <li class="next">
+        Steps for constructing a DOM
+        <ul>
+          <li>Conversion: raw bytes to characters (e.g. UTF-8)</li>
+          <li>Tokenizing: characters to tokens (e.g. <code>&lt;body&gt;</code>)</li>
+          <li>Lexing: tokens to objects (e.g. a <em>body</em> object)</li>
+          <li>DOM construction: tree represents relationships</li>
+        </ul>
+      </li>
+      <li class="next">
+        Event handlers can be attached to nodes
+        <ul>
+          <li>For triggering events: <code>"click"</code>, <code>"mousedown"</code></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="crp-dom-steps">
+    <figure class="cover width">
+      <img src="images/dom-steps.avif"
+           alt="[Steps for constructing the DOM.]">
+      <figcaption>
+        ©2019 <a href="https://web.dev/critical-rendering-path-constructing-the-object-model/">Ilya Grigorik</a>
+      </figcaption>
+    </figure>
+    <footer>
+      <p>Steps for constructing the DOM.</p>
+    </footer>
+  </div>
+  
+  <div class="slide" id="crp-js-blocks-parsing">
+    <h2>
+      JavaScript can block DOM parsing
+    </h2>
+    <ul>
+      <li class="next">
+        Parsing is paused on <code>&lt;script&gt;</code> tags
+        <ul>
+          <li>JavaScript can change document structure</li>
+          <li>Especially problematic for remote scripts</li>
+        </ul>
+      </li>
+      <li class="next">
+        Avoid blocking
+        <ul>
+          <li>Async script tags: Load JS asynchronous to parsing</li>
+          <li>Defer script tags: Load JS once DOM is available</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="crp-preload-scanner">
+    <h2>
+      Preload scanner for subresources
+    </h2>
+    <ul>
+      <li class="next">
+        Preload scanner runs concurrently next to parser
+        <ul>
+          <li>Looks for subresources</li>
+          <li><code>&lt;img&gt;</code>, <code>&lt;link&gt;</code>, &mldr;</li>
+        </ul>
+      </li>
+      <li class="next">
+        Fetch subresources immediately
+      </li>
+      <li class="next">
+        Placing resources early in document is beneficial
+        <ul>
+          <li>CSS stylesheets</li>
+          <li><code>&lt;link rel="preload"&gt;</code> for resources that will be required</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="toc slide" id="crp-styling">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Browsers</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#crp">Critical Rendering Path</a>
+        <ul>
+          <li><a href="#crp-first">DOM Parsing</a></li>
+          <li class="current"><a href="#crp-styling">CSSOM Styling</a></li>
+          <li><a href="#crp-rendertree">Render Tree</a></li>
+          <li><a href="#crp-layout">Layout</a></li>
+          <li><a href="#crp-painting">Painting</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="crp-cssdom">
+    <h2>
+      CSSOM: CSS Object Model
+    </h2>
+    <ul>
+      <li class="next">
+        Separation of concerns
+        <ul>
+          <li>Designers (CSS) and developers (HTML)</li>
+        </ul>
+      </li>
+      <li class="next">
+        Tree-based representation of style rules
+        <ul>
+          <li>Stored in memory, derived from CSS files</li>
+        </ul>
+      </li>
+      <li class="next">
+        Steps for constructing a CSSOM
+        <ul>
+          <li>Identical to DOM construction</li>
+        </ul>
+      </li>
+      <li class="next">
+        Rules cascade down in tree
+        <ul>
+          <li>Hence the name <em>Cascading Style Sheets</em></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="crp-cssom-example">
+    <figure class="">
+      <img src="images/cssom-example.avif"
+           alt="[Example of a constructed CSSOM.]">
+      <figcaption>
+        ©2019 <a href="https://web.dev/critical-rendering-path-constructing-the-object-model/">Ilya Grigorik</a>
+      </figcaption>
+    </figure>
+    <footer>
+      <p>Example of a constructed CSSOM.</p>
+    </footer>
+  </div>
+  
+  <div class="slide" id="crp-css-loading">
+    <h2>
+      CSS is a render blocking resource
+    </h2>
+    <ul>
+      <li class="next">
+        Time to first render delayed until all CSS is loaded
+        <ul>
+          <li>To avoid FOUC issues: <em>Flash of Unstyled Content</em></li>
+        </ul>
+      </li>
+      <li class="next">
+        Optimize CSS usage
+        <ul>
+          <li>Refer to CSS in document head</li>
+          <li>Avoid CSS imports to reduce additional roundtrips</li>
+          <li>Consider inlining critical CSS</li>
+          <li>
+              Use media queries<br />
+              <code>
+                  &lt;link href="&mldr;" &mldr; media="orientation:portrait" /&gt;<br />
+                  &lt;link href="&mldr;" &mldr; media="print" /&gt;
+              </code>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="toc slide" id="crp-rendertree">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Browsers</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#crp">Critical Rendering Path</a>
+        <ul>
+          <li><a href="#crp-first">DOM Parsing</a></li>
+          <li><a href="#crp-styling">CSSOM Styling</a></li>
+          <li class="current"><a href="#crp-rendertree">Render Tree</a></li>
+          <li><a href="#crp-layout">Layout</a></li>
+          <li><a href="#crp-painting">Painting</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="crp-rendertree-overview">
+    <h2>
+      Render Tree combines DOM and CSSOM
+    </h2>
+    <ul>
+      <li class="next">
+        DOM and CSSOM are independent from each other
+        <ul>
+          <li>DOM: document structure; CSSOM: document style</li>
+        </ul>
+      </li>
+      <li class="next">
+        Render Tree combines both
+        <ul>
+          <li>Prerequisite for layout step</li>
+        </ul>
+      </li>
+      <li class="next">
+        Render Tree only contains <em>visible</em> nodes
+        <ul>
+          <li>Nodes with <code>display: none</code> are omitted</li>
+          <li>Non-renderable notes are omitted, e.g. <code>&lt;meta&gt;</code></li>
+          <li>Screen size is not considered yet at this step!</li>
+          <li><code>visibility: hidden</code> considered, which occupy space.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="crp-rendertree-steps">
+    <h2>
+      Constructing the Render Tree
+    </h2>
+    <ol>
+      <li class="next">
+        Traverse each node in the DOM
+        <ul>
+          <li>Only consider visible nodes</li>
+        </ul>
+      </li>
+      <li class="next">
+        Apply style rules to each node
+        <ul>
+          <li>Matching rules are derived from CSSOM</li>
+        </ul>
+      </li>
+      <li class="next">
+        Emit nodes with content and computed styles
+        <ul>
+          <li>Result is a tree structure</li>
+        </ul>
+      </li>
+    </ol>
+  </div>
+  
+  <div class="slide" id="crp-rendertree-example">
+    <figure class="cover width">
+      <img src="images/rendertree-example.avif"
+           alt="[Example of a Render Tree.]">
+      <figcaption>
+        ©2019 <a href="https://web.dev/critical-rendering-path-render-tree-construction/">Ilya Grigorik</a>
+      </figcaption>
+    </figure>
+    <footer>
+      <p>Example of a Render Tree.</p>
+    </footer>
+  </div>
+  
+  <div class="toc slide" id="crp-layout">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Browsers</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#crp">Critical Rendering Path</a>
+        <ul>
+          <li><a href="#crp-first">DOM Parsing</a></li>
+          <li><a href="#crp-styling">CSSOM Styling</a></li>
+          <li><a href="#crp-rendertree">Render Tree</a></li>
+          <li class="current"><a href="#crp-layout">Layout</a></li>
+          <li><a href="#crp-painting">Painting</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="crp-layout-overview">
+    <h2>
+      Layout Stage (=<em>reflow</em>) computes positions
+    </h2>
+    <ul>
+      <li class="next">
+        Render Tree only contains content and styles
+        <ul>
+          <li>Layout calculates position and size of each node</li>
+        </ul>
+      </li>
+      <li class="next">
+        Dependent on <em>viewport</em>
+        <ul>
+          <li>Area of the window in which content can be seen</li>
+        </ul>
+      </li>
+      <li class="next">
+        Many aspects to consider
+        <ul>
+          <li>Font-size, line breaks, &mldr;</li>
+        </ul>
+      </li>
+      <li class="next">
+        Outputs a <em>Box Model</em>
+        <ul>
+          <li>Contains absolute positions and sizes of each node</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="crp-layout-example">
+    <figure class="cover width">
+      <img src="images/layout-example.avif"
+           alt="[Example of input to the layout stage.]">
+      <figcaption>
+        ©2019 <a href="https://web.dev/critical-rendering-path-render-tree-construction/">Ilya Grigorik</a>
+      </figcaption>
+    </figure>
+    <footer>
+      <p>Example of input to the layout stage.</p>
+    </footer>
+  </div>
+
+  <div class="toc slide" id="crp-painting">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Browsers</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#crp">Critical Rendering Path</a>
+        <ul>
+          <li><a href="#crp-first">DOM Parsing</a></li>
+          <li><a href="#crp-styling">CSSOM Styling</a></li>
+          <li><a href="#crp-rendertree">Render Tree</a></li>
+          <li><a href="#crp-layout">Layout</a></li>
+          <li class="current"><a href="#crp-painting">Painting</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="crp-painting-overview">
+    <h2>
+      Painting Stage converts to pixels on screen
+    </h2>
+    <ul>
+      <li class="next">
+        Ordered iteration over Box Model
+        <ul>
+          <li>In order of HTML sequence</li>
+          <li><code>z-index</code> can override order</li>
+        </ul>
+      </li>
+      <li class="next">
+        Outputs sequence of <em>Paint Records</em>
+        <ul>
+          <li>E.g. draw rectangle at position X with size Y, with color Z</li>
+        </ul>
+      </li>
+      <li class="next">
+        Paint Records are <em>rasterized</em>
+        <ul>
+          <li>Conversion to pixels</li>
+          <li>Some records are expensive, e.g. solid color vs gradient</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="crp-compositing">
+    <h2>
+      Compositing splits page into layers
+    </h2>
+    <ul>
+      <li class="next">
+        Rasterization can be expensive
+        <ul>
+          <li>Redo upon scroll due to change in viewport</li>
+          <li>Redo on animations</li>
+        </ul>
+      </li>
+      <li class="next">
+        Grouping parts of page into layers
+        <ul>
+          <li>Each layer can be rasterized separately</li>
+          <li>Browser will guess layers, or use CSS hint <code>will-change</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        Rasterized layers can be composed
+        <ul>
+          <li>Layers can be moved on scroll or animation</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="crp-non-fast-scrollable">
+    <h2>
+      Compositing marks <em>Non-fast Scrollable Regions</em>
+    </h2>
+    <ul>
+      <li class="next">
+        Regions that may be slow to rasterize
+        <ul>
+          <li>E.g. region with event handler on scroll</li>
+          <li>Compositor has to wait for main thread</li>
+        </ul>
+      </li>
+      <li class="next">
+        Non-fast Scrollable Regions slow down rendering
+        <ul>
+          <li>Avoid event listeners on large elements</li>
+          <li>Or use <code>{ passive: true }</code> listeners</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="crp-compositing">
+    <h2>
+      Compositing happens in a separate thread
+    </h2>
+    <ul>
+      <li class="next">
+        UI interactions should not block rendering
+        <ul>
+          <li>Such as scrolling</li>
+        </ul>
+      </li>
+      <li class="next">
+        JavaScript can influence rendering
+        <ul>
+          <li>E.g. modify text on scroll</li>
+          <li>Compositor must be in contact with main thread</li>
+        </ul>
+      </li>
+      <li class="next">
+        Compositor marks <em>Non-fast Scrollable Regions</em>
+        <ul>
+          <li>Layers can be moved on scroll or animation</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="crp-rendered">
+    <figure class="cover height">
+      <img src="images/browser-ui.png"
+           alt="[A fully rendered and interactive Web page.]">
+    </figure>
+    <footer>
+      <p>A fully rendered and interactive Web page.</p>
+    </footer>
   </div>
   
   <div class="toc slide" id="interactivity">
