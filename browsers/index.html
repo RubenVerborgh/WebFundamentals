@@ -2505,18 +2505,378 @@
       <li class="current">
         <a href="#interactivity">Interactivity with JavaScript</a>
         <ul>
-          <li class="current"><a href="#interactivity-first">User Interaction</a></li>
+          <li class="current"><a href="#interactivity-first">Origins of JavaScript</a></li>
           <li><a href="#interactivity-eventloop">Event Loop</a></li>
           <li><a href="#interactivity-engines">JavaScript Engines</a></li>
         </ul>
       </li>
     </ul>
   </div>
-
-  <div class="slide" id="history-recap">
+  
+  <div class="slide" id="interactivity-js">
     <h2>
-      TODO
+      Dynamicity for Web pages with JavaScript
     </h2>
+    <img src="images/js-logo.png"
+         alt="[Logo of JavaScript.]"
+         style="float: right; width: 150px"\>
+    <div>
+    <ul>
+      <li class="next">
+        Invented by Netscape
+        <ul>
+          <li>In 1995</li>
+        </ul>
+      </li>
+      <li class="next">
+        Event-driven
+        <ul>
+          <li>Listening to events: click, scroll, load, &mldr;</li>
+        </ul>
+      </li>
+      <li class="next">
+        Interact with documents
+        <ul>
+          <li>Querying and modifying the DOM and the CSSOM</li>
+        </ul>
+      </li>
+    </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="interactivity-example">
+    <h2>
+      Example: handle button clicks
+    </h2>
+    <div>
+    <pre style="font-size: 1em; font-family: 'Lucida Console', 'Courier New', monospace;">document.getElementsByTagName('button')[0]<br \>
+&nbsp;&nbsp;.addEventListener('click', () => {<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;console.log('Clicked!');<br \>
+&nbsp;&nbsp;});</pre>
+    </div>
+  </div>
+
+  <div class="slide" id="interactivity-standardization">
+    <h2>
+      Standardized as ECMAScript <em>(ECMA-262)</em>
+    </h2>
+    <ul>
+      <li class="next">
+        ECMAScript is a standard for scripting languages
+        <ul>
+          <li>A blueprint, not a language</li>
+          <li>Also includes JScript and ActionScript</li>
+        </ul>
+      </li>
+      <li class="next">
+        JavaScript conforms to the ECMAScript standard
+        <ul>
+          <li>Also contains Web APIs (DOM, &mldr;)</li>
+          <li>JavaScript is an informal name</li>
+        </ul>
+      </li>
+      <li class="next">
+        Ecma is a nonprofit standards organization
+        <ul>
+          <li><em>European Computer Manufacturers Association</em> until 1994</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="interactivity-tc39">
+    <h2>
+      TC39 committee works on ECMAScript
+    </h2>
+    <img src="images/tc39-logo.svg"
+         alt="[Logo of TC39.]"
+         style="float: right; width: 135px"\>
+    <ul>
+      <li class="next">
+        Yearly version releases
+        <ul>
+          <li>ES2023, ES2022, ES2021, &mldr;</li>
+          <li>ESNext refers to next version in progress</li>
+          <li>Major version numbers until 2015 (ES6 = ES2015)</li>
+        </ul>
+      </li>
+      <li class="next">
+        Langage proposals go through <a href="https://tc39.es/process-document/">5-stage process</a>
+        <ul>
+          <li>Implemented by engines in stage 3~4 &rarr; available to public</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="toc slide" id="interactivity-eventloop">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Browsers</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#interactivity">Interactivity with JavaScript</a>
+        <ul>
+          <li><a href="#interactivity-first">Origins of JavaScript</a></li>
+          <li class="current"><a href="#interactivity-eventloop">Event Loop</a></li>
+          <li><a href="#interactivity-engines">JavaScript Engines</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="interactivity-macrotask-queue">
+    <h2>
+      Engines process the <em>macrotask queue</em>
+    </h2>
+    <ul>
+      <li class="next">
+        Macrotask queue contains tasks
+        <ul>
+          <li>Registered <code>'click'</code> handler after user clicks</li>
+          <li>Callback after scheduled <code>setTimeout</code> is due</li>
+          <li>Executing a loaded <code>&lt;script src="..."&gt;</code></li>
+          <li>&mldr;</li>
+        </ul>
+      </li>
+      <li class="next">
+        Engine processes tasks in the macrotask queue
+        <ul>
+          <li>In FIFO order</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="interactivity-macrotask-queue-figure">
+    <figure class="cover width">
+      <img src="images/macrotasks.svg"
+           alt="[Example of the Macrotask queue.]">
+      <figcaption>
+        ©2023 <a href="https://javascript.info/event-loop">Ilya Kantor</a>
+      </figcaption>
+    </figure>
+    <footer>
+      <p>Example of the Macrotask queue.</p>
+    </footer>
+  </div>
+  
+  <div class="slide" id="interactivity-microtask-queue">
+    <h2>
+      <em>Micro</em>tasks run before <em>macro</em>tasks
+    </h2>
+    <ul>
+      <li class="next">
+        Microtask queue contains tasks
+        <ul>
+          <li>Scheduled via <code>queueMicrotask</code></li>
+          <li>Handling of <em>Promises</em> and <code>await</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        Engine processes tasks in the microtask queue
+        <ul>
+          <li>Fully processed after each macrotask</li>
+          <li>In FIFO order</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="interactivity-task-queue-scheduling">
+    <h2>
+      Task scheduling impacts performance
+    </h2>
+    <ul>
+      <li class="next">
+        Rendering pipeline invoked in-between macrotasks
+        <ul>
+          <li>Not in-between microtasks</li>
+        </ul>
+      </li>
+      <li class="next">
+        Tasks block interaction
+        <ul>
+          <li>Long-running tasks should be avoided</li>
+          <li><code>setTimeout</code>, <code>setInterval</code>, <code>requestAnimationFrame</code></li>
+          <li>Web Workers run in separate thread (no DOM access)</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="interactivity-microtask-queue-figure">
+    <figure class="cover height">
+      <img src="images/microtasks.svg"
+           alt="[Example of the Macrotask and Microtask queues.]">
+      <figcaption>
+        ©2023 <a href="https://javascript.info/event-loop">Ilya Kantor</a>
+      </figcaption>
+    </figure>
+    <footer>
+      <p>Example of the Macrotask and Microtask queues.</p>
+    </footer>
+  </div>
+  
+  <div class="toc slide" id="interactivity-engines">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Browsers</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#interactivity">Interactivity with JavaScript</a>
+        <ul>
+          <li><a href="#interactivity-first">Origins of JavaScript</a></li>
+          <li><a href="#interactivity-eventloop">Event Loop</a></li>
+          <li class="current"><a href="#interactivity-engines">JavaScript Engines</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="interactivity-engines-overview">
+    <h2>
+      JavaScript engines execute JavaScript code
+    </h2>
+    <ul>
+      <li class="next">
+        Modern engines use <em>just-in-time</em> (JIT) compilation
+        <ul>
+          <li>Combines <em>ahead-of-time</em> compilation with interpretation</li>
+          <li>Older engines were interpreters (flexible, but slow)</li>
+        </ul>
+      </li>
+      <li class="next">
+        Since 2017, most engines also support <em>WebAssembly</em>
+        <ul>
+          <li>Execution of compiled code for improved performance</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="interactivity-engines-spidermonkey">
+    <img src="images/spidermonkey-logo.png"
+         alt="[Spidermonkey icon.]"
+         style="float: right; width: 150px">
+    <h2>
+      Spidermonkey is the engine in Firefox
+    </h2>
+    <ul>
+      <li class="next">
+        The first JavaScript engine
+        <ul>
+          <li>Initially developed for Netscape</li>
+        </ul>
+      </li>
+      <li class="next">
+        JIT compilation since 2009
+        <ul>
+          <li>Interpreted before</li>
+        </ul>
+      </li>
+      <li class="next">
+        Adoption beyond Firefox
+        <ul>
+          <li>MongoDB and CouchDB databases</li>
+          <li>Adobe Acrobat/Reader, Flash, Dreamweaver</li>
+          <li>GNOME desktop environment</li>
+          <li>&mldr;</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="interactivity-engines-v8">
+    <img src="images/v8-logo.png"
+         alt="[V8 icon.]"
+         style="float: right; width: 150px">
+    <h2>
+      V8 is the engine in Chromium
+    </h2>
+    <ul>
+      <li class="next">
+        Released in 2008
+        <ul>
+          <li>Together with Chrome</li>
+        </ul>
+      </li>
+      <li class="next">
+        JIT compilation upon release
+        <ul>
+          <li>Much faster than any other engine upon release</li>
+        </ul>
+      </li>
+      <li class="next">
+        Adoption beyond Chromium
+        <ul>
+          <li>Node.js and Deno runtime environments</li>
+          <li>Electron for desktop apps</li>
+          <li>MarkLogic database</li>
+          <li>&mldr;</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="interactivity-engines-javascriptcore">
+    <img src="images/webkit-logo.png"
+         alt="[WebKit icon.]"
+         style="float: right; width: 150px">
+    <h2>
+      JavaScript is the engine in WebKit
+    </h2>
+    <ul>
+      <li class="next">
+        WebKit is the browser engine of Safari
+        <ul>
+          <li>Forked from KDE's JavaScript engine</li>
+        </ul>
+      </li>
+      <li class="next">
+        JIT compilation since 2014
+      </li>
+      <li class="next">
+        Adoption beyond WebKit
+        <ul>
+          <li>Other MacOS apps: Mail, App Store, &mldr;</li>
+          <li>Bun runtime environment</li>
+          <li>React Native (partially until 2020)</li>
+          <li>&mldr;</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="interactivity-engines-other">
+    <h2>
+      More JavaScript engines
+    </h2>
+    <ul>
+      <li class="next">
+        Chakra – Internet Explorer
+        <ul>
+          <li>Discontinued</li>
+        </ul>
+      </li>
+      <li class="next">
+        Hermes – Designed for React Native
+        <ul>
+          <li>Optimized for fast startup</li>
+        </ul>
+      </li>
+      <li class="next">
+        Graal.js – part of GraalVM
+        <ul>
+          <li>Execution on the Java VM</li>
+        </ul>
+      </li>
+      <li class="next">
+          &mldr;
+      </li>
+    </ul>
   </div>
   
   <div class="toc slide" id="extended">
