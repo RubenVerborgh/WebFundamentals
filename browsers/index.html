@@ -2690,6 +2690,14 @@
     </h2>
     <ul>
       <li class="next">
+        Run-to-completion
+        <ul>
+          <li>Tasks are processed completely before going to next</li>
+          <li>Makes reasoning about program easier</li>
+          <li>Long-running tasks block later tasks (avoid them!)</li>
+        </ul>
+      </li>
+      <li class="next">
         Rendering pipeline invoked in-between macrotasks
         <ul>
           <li>Not in-between microtasks</li>
@@ -2698,7 +2706,6 @@
       <li class="next">
         Tasks block interaction
         <ul>
-          <li>Long-running tasks should be avoided</li>
           <li><code>setTimeout</code>, <code>setInterval</code>, <code>requestAnimationFrame</code></li>
           <li>Web Workers run in separate thread (no DOM access)</li>
         </ul>
