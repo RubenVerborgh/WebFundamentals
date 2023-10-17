@@ -2930,10 +2930,186 @@
     </ul>
   </div>
 
-  <div class="slide" id="history-recap">
+  <div class="slide" id="extended-browser-apis">
     <h2>
-      TODO
+      Browser APIs expose browser and system capabilities
     </h2>
+    <ul>
+      <li class="next">
+        Beyond DOM and CSSOM
+        <ul>
+          <li>Manipulation of pages</li>
+        </ul>
+      </li>
+      <li class="next">
+        Access via JavaScript
+        <ul>
+          <li>Sometimes technology-specific (e.g. CSS)</li>
+        </ul>
+      </li>
+      <li class="next">
+        Standardized through different efforts
+        <ul>
+          <li>W3C, WHATWG, &mldr;</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="extended-web-workers">
+    <h2>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API">Web Workers</a> enable multi-threaded JavaScript
+    </h2>
+    <ul>
+      <li class="next">
+        Creation of <code>Worker()</code>'s
+        <ul>
+          <li>Refers to a JavaScript file that needs to run</li>
+          <li>Not all APIs are available, e.g. DOM</li>
+        </ul>
+      </li>
+      <li class="next">
+        Message-based communication
+        <ul>
+          <li><code>structuredClone()</code> datatypes <em>(excludes functions)</em></li>
+        </ul>
+      </li>
+      <li class="next">
+        Different types of workers
+        <ul>
+          <li>Dedicated: Access from a single context</li>
+          <li>Shared: Access from contexts with same origin</li>
+          <li>Service: Proxy worker between network and app</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="extended-web-storage">
+    <h2>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API">Web Storage</a> enables data persistence
+    </h2>
+    <ul>
+      <li class="next">
+        <code>sessionStorage</code>
+        <ul>
+          <li>Duration of page session (browser open, reload, restore)</li>
+          <li>Shared between pages with same origin</li>
+        </ul>
+      </li>
+      <li class="next">
+        <code>localStorage</code>
+        <ul>
+          <li>No automatic expiration</li>
+        </ul>
+      </li>
+      <li class="next">
+        Access to <code>Storage</code> interface
+        <ul>
+          <li>Key-value pairs</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="extended-wasm">
+    <h2>
+      <a href="https://developer.mozilla.org/en-US/docs/WebAssembly">WebAssembly</a> for low-level code execution
+    </h2>
+    <ul>
+      <li class="next">
+        Assembly-like language
+        <ul>
+          <li>Languages can target it for compilation</li>
+          <li>C/C++, Rust, Python, &mldr;</li>
+        </ul>
+      </li>
+      <li class="next">
+        Aims for better performance
+        <ul>
+          <li>Nearing native performance</li>
+        </ul>
+      </li>
+      <li class="next">
+        Interaction with JavaScript
+        <ul>
+          <li>Causes overhead when lots of data has to be translated</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="extended-webgl">
+    <h2>
+      <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebGL_API">WebGL</a> exposes GPU access
+    </h2>
+    <ul>
+      <li class="next">
+        Aims for optimizing interactive graphics
+        <ul>
+          <li>Usage within the <code>&lt;canvas&gt;</code> tag</li>
+        </ul>
+      </li>
+      <li class="next">
+        API closely conforms to OpenGL
+        <ul>
+          <li>OpenGL ES 2.0 for Embedded Systems</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="toc slide" id="extended-extensions">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Browsers</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#extended">Extended Browser Capabilities</a>
+        <ul>
+          <li><a href="#extended-first">Browser APIs</a></li>
+          <li class="current"><a href="#extended-extensions">Browser Extensions</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="extended-extensions-now">
+    <h2>
+      Beyond browser APIs with extensions
+    </h2>
+    <ul>
+      <li class="next">
+        Browser APIs are limited
+        <ul>
+          <li>Solve a specific problem by design</li>
+          <li>Standardized across browsers</li>
+        </ul>
+      </li>
+      <li class="next">
+        Browser extensions allow full browser manipulation
+        <ul>
+          <li>Few limitations</li>
+          <li>Manual installation of users</li>
+          <li>Ad blockers, password managers, time tracking, &mldr;</li>
+          <li>Less common with powerful browser APIs</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="extended-toolbars">
+    <figure class="cover height">
+      <img src="images/toolbars.webp"
+           alt="[Toolbars in browsers.]">
+        <figcaption>
+          ©2016 <a href="https://medium.com/@shailin_dhar/malicious-vs-legitimate-toolbar-extension-traffic-ddd6ee0750fc">Shailin Dhar</a>
+        </figcaption>
+    </figure>
+    <footer>
+      <p>Toolbars in browsers.</p>
+    </footer>
   </div>
 
   <div class="toc slide" id="recap">
@@ -2949,10 +3125,6 @@
       <li><a href="#interactivity">Interactivity with JavaScript</a></li>
       <li><a href="#extended">Extended Browser Capabilities</a></li>
     </ul>
-  </div>
-
-  <div class="slide" id="quote">
-    TODO: end with quote?
   </div>
 
   <footer>
