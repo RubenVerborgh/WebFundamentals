@@ -980,7 +980,7 @@
         </ul>
       </li>
       <li class="next">
-        Steps between entering a link to an interactive page
+        From clicking on a link towards an interactive page
         <ul>
           <li>Navigation and the network stack</li>
           <li>Parsing and rendering</li>
@@ -1009,16 +1009,16 @@
     </h2>
     <ul>
       <li class="next">
-        Need for IPC
-        <ul>
-          <li>Inter Process Communication</li>
-        </ul>
-      </li>
-      <li class="next">
         Sandboxing
         <ul>
           <li>Better security</li>
           <li>An unresponsive process can be killed and recreated</li>
+        </ul>
+      </li>
+      <li class="next">
+        Need for IPC
+        <ul>
+          <li>Inter Process Communication</li>
         </ul>
       </li>
       <li class="next">
@@ -1058,7 +1058,8 @@
       <li class="next">
         Separate render processes per site
         <ul>
-          <li><code>http://foo.ex.com</code> and <code>http://bar.ex.com</code> in same site <code>http://ex.com</code></li>
+          <li>Site: scope of second-level domain in DNS (<code>ex.com</code>)</li>
+          <li><code>http://foo.ex.com</code> and <code>http://bar.ex.com</code> in same site</li>
         </ul>
       </li>
       <li class="next">
@@ -1125,7 +1126,7 @@
     </ul>
   </div>
 
-  <div class="slide" id="navigation-overview-steps">
+  <div class="slide" id="navigation-overview-actions">
     <h2>
       Navigation triggers network thread
     </h2>
@@ -1144,7 +1145,7 @@
     </ul>
   </div>
   
-  <div class="slide" id="navigation-overview-steps">
+  <div class="slide" id="navigation-overview-requests">
     <h2>
       Network thread handles requests
     </h2>
@@ -1173,7 +1174,7 @@
     </ul>
   </div>
   
-  <div class="slide" id="navigation-overview-steps">
+  <div class="slide" id="navigation-overview-responses">
     <h2>
       Network thread handles responses
     </h2>
@@ -1229,11 +1230,11 @@
   
   <div class="slide" id="navigation-optimize-humans">
     <h2>
-      Front-end Performance Optimization: delivering smooth experience for humans
+      Front-end Performance: delivering smooth experience for humans
     </h2>
     <ul>
       <li class="next">
-        <a href="https://www.nngroup.com/books/usability-engineering/">Nielsen's guidelines for response times based on human perception</a>
+        <a href="https://www.nngroup.com/books/usability-engineering/">Nielsen's guidelines on human perception</a>
         <ul>
           <li>0.1 second – feels instantaneous</li>
           <li>1.0 second – limit for keeping user's flow of thought</li>
@@ -1343,55 +1344,6 @@
     </ul>
   </div>
   
-  <div class="slide" id="navigation-resource-waterfall-shortcomings">
-    <h2>
-      The Resource Waterfall tells only part of the story
-    </h2>
-    <ul>
-      <li class="next">
-        User experience also depends on other factors
-        <ul>
-          <li>User need and link click order</li>
-          <li>Browser cache</li>
-          <li>Intermediary caches</li>
-          <li>User's hardware</li>
-          <li>User's browser</li>
-          <li>Connectivity: wired, Wi-Fi, mobile, &mldr;</li>
-          <li>&mldr;</li>
-        </ul>
-      </li>
-      <li class="next"><a href="https://www.webpagetest.org/">WebPageTest</a> may give a more complete picture</li>
-    </ul>
-  </div>
-  
-  <div class="slide" id="navigation-resource-waterfall-overview">
-    <h2>
-      Metrics for human-perceived load speed
-    </h2>
-    <ul>
-      <li class="next">
-        <a href="https://web.dev/fcp/">FCP</a>: First Contentful Paint
-        <ul>
-          <li>Time until something is rendered</li>
-          <li>Blue line in Chrome's Resource Waterfall</li>
-        </ul>
-      </li>
-      <li class="next">
-        <a href="https://web.dev/lcp/">LCP</a>: Largest Contentful Paint
-        <ul>
-          <li>Time until rendering of largest image or text block</li>
-          <li>Red line in Chrome's Resource Waterfall</li>
-        </ul>
-      </li>
-      <li class="next">
-        <em><a href="https://web.dev/metrics/">And more!</a></em>
-        <ul>
-          <li>Relevant metrics depend on your type of Web Application</li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-  
   <div class="slide" id="navigation-browser-optimization">
     <h2>
       Browsers schedule requests to optimize navigation
@@ -1438,6 +1390,27 @@
     </ul>
   </div>
   
+  <div class="slide" id="navigation-resource-waterfall-shortcomings">
+    <h2>
+      The Resource Waterfall tells only part of the story
+    </h2>
+    <ul>
+      <li class="next">
+        User experience also depends on other factors
+        <ul>
+          <li>User need and link click order</li>
+          <li>Browser cache</li>
+          <li>Intermediary caches</li>
+          <li>User's hardware</li>
+          <li>User's browser</li>
+          <li>Connectivity: wired, Wi-Fi, mobile, &mldr;</li>
+          <li>&mldr;</li>
+        </ul>
+      </li>
+      <li class="next"><a href="https://www.webpagetest.org/">WebPageTest</a> may give a more complete picture</li>
+    </ul>
+  </div>
+  
   <div class="toc slide" id="navigation-networkstack">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
@@ -1464,7 +1437,7 @@
     </h2>
     <ul>
       <li class="next">
-        Web developers can make requests using APIs
+        Request can be afforded in different ways
         <ul>
           <li>HTML</li>
           <li>Fetch</li>
@@ -1486,21 +1459,21 @@
       Five network layers
     </h2>
     <dl>
-      <dt>Physical</dt> <dd>Cables, radio waves, &mldr;</dd>
-      <dt>Data</dt> <dd>Ethernet, Wi-Fi, Mobile, &mldr;</dd>
-      <dt>Network</dt> <dd>IP</dd>
-      <dt>Transport</dt> <dd>TCP, UDP, &mldr;</dd>
       <dt>Application</dt> <dd>HTTP, SMTP, &mldr;</dd>
+      <dt>Transport</dt> <dd>TCP, UDP, &mldr;</dd>
+      <dt>Network</dt> <dd>IP</dd>
+      <dt>Data</dt> <dd>Ethernet, Wi-Fi, Mobile, &mldr;</dd>
+      <dt>Physical</dt> <dd>Cables, radio waves, &mldr;</dd>
     </dl>
   </div>
   
-  <div class="slide" id="navigation-understanding-network">
+  <div class="slide" id="navigation-network-stack-speed">
     <h2>
       Layers contribute to <em>speed</em>
     </h2>
     <dl>
       <dt>Latency</dt> <dd>Time between sending and receiving packet</dd>
-      <dt>Bandwith</dt> <dd>Throughput of a communication path</dd>
+      <dt>Bandwith</dt> <dd>Maximum amount of data that can pass</dd>
     </dl>
     <ul>
       <li class="next">
@@ -1624,7 +1597,7 @@
       <li class="next">
         Variable latency
         <ul>
-          <li>If latency is too high &rarr; protocol with lower overhead (UDP)</li>
+          <li>If latency is too high &rarr; transport protocol with lower overhead (UDP)</li>
         </ul>
       </li>
       <li class="next">
@@ -1636,7 +1609,7 @@
       </li>
     </ul>
   </div>
-  
+
   <div class="slide" id="navigation-mobile-wifi-differences">
     <h2>
       Differences between mobile and Wi-Fi
@@ -1654,31 +1627,6 @@
         <ul>
           <li>Data transfer over Wi-Fi is more battery-friendly</li>
           <li>Idle connections are more efficient over mobile networks</li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-  
-  <div class="slide" id="navigation-mobile-latencies">
-    <h2>
-      Anticipate high latencies in mobile networks
-    </h2>
-    <ul>
-      <li class="next">
-        Radio goes to low-power state when idle
-        <ul>
-          <li>High latency (100-1000ms) to reestablish connection</li>
-        </ul>
-      </li>
-      <li class="next">
-        Impact on scheduling requests
-        <ul>
-          <li>Request in bursts (carriers prioritize bursty flows)</li>
-          <li>Prefer push over polling</li>
-          <li>Defer non-critical requests until radio is active</li>
-          <li>Anticipate user needs and pre-fetch</li>
-          <li>Avoid progressive loading</li>
-          <li>&mldr;</li>
         </ul>
       </li>
     </ul>
@@ -1707,6 +1655,31 @@
         <ul>
           <li>Execute requests in background</li>
           <li>Enable interactions even if offline (<code>localStorage</code>)</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="navigation-mobile-latencies">
+    <h2>
+      Anticipate high latencies in mobile networks
+    </h2>
+    <ul>
+      <li class="next">
+        Radio goes to low-power state when idle
+        <ul>
+          <li>High latency (100-1000ms) to reestablish connection</li>
+        </ul>
+      </li>
+      <li class="next">
+        Impact on scheduling requests
+        <ul>
+          <li>Request in bursts (carriers prioritize bursty flows)</li>
+          <li>Prefer push over polling</li>
+          <li>Defer non-critical requests until radio is active</li>
+          <li>Anticipate user needs and pre-fetch</li>
+          <li>Avoid progressive loading</li>
+          <li>&mldr;</li>
         </ul>
       </li>
     </ul>
@@ -1984,6 +1957,34 @@
     </ul>
   </div>
   
+  <div class="slide" id="crp-metrics">
+    <h2>
+      Metrics for human-perceived load speed
+    </h2>
+    <ul>
+      <li class="next">
+        <a href="https://web.dev/fcp/">FCP</a>: First Contentful Paint
+        <ul>
+          <li>Time until something is rendered</li>
+          <li>Blue line in Chrome's Resource Waterfall</li>
+        </ul>
+      </li>
+      <li class="next">
+        <a href="https://web.dev/lcp/">LCP</a>: Largest Contentful Paint
+        <ul>
+          <li>Time until rendering of largest image or text block</li>
+          <li>Red line in Chrome's Resource Waterfall</li>
+        </ul>
+      </li>
+      <li class="next">
+        <em><a href="https://web.dev/metrics/">And more!</a></em>
+        <ul>
+          <li>Relevant metrics depend on your type of Web Application</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
   <div class="toc slide" id="crp-first">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
@@ -2226,8 +2227,8 @@
         <ul>
           <li>Nodes with <code>display: none</code> are omitted</li>
           <li>Non-renderable notes are omitted, e.g. <code>&lt;meta&gt;</code></li>
-          <li>Screen size is not considered yet at this step!</li>
           <li><code>visibility: hidden</code> considered, which occupy space.</li>
+          <li>Screen size is not considered yet at this step!</li>
         </ul>
       </li>
     </ul>
@@ -2433,7 +2434,7 @@
     </ul>
   </div>
   
-  <div class="slide" id="crp-compositing">
+  <!--div class="slide" id="crp-compositing">
     <h2>
       Compositing happens in a separate thread
     </h2>
@@ -2458,7 +2459,7 @@
         </ul>
       </li>
     </ul>
-  </div>
+  </div-->
   
   <div class="slide" id="crp-rendered">
     <figure class="cover height">
@@ -2590,7 +2591,7 @@
         </ul>
       </li>
       <li class="next">
-        Langage proposals go through <a href="https://tc39.es/process-document/">5-stage process</a>
+        Language proposals go through <a href="https://tc39.es/process-document/">5-stage process</a>
         <ul>
           <li>Implemented by engines in stage 3~4 &rarr; available to public</li>
         </ul>
