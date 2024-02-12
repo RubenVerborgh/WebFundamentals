@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Web Fundamentals</title>
+  <title>Web Development</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
@@ -12,10 +12,14 @@
   <header class="caption">
     <h1>
       <a class="series" href="#title">Web Fundamentals</a><br>
-      <a class="module" href="#title">The <em>Web Fundamentals</em> course</a>
+      <a class="module" href="#title">Web Development</a>
     </h1>
     <p>
       <a href="https://ruben.verborgh.org/">Ruben Verborgh</a>,
+      <a href="https://www.ugent.be/">Ghent University</a> – <a href="https://www.imec.be/">imec</a>
+    </p>
+    <p>
+      <a href="https://www.rubensworks.net/">Ruben Taelman</a>,
       <a href="https://www.ugent.be/">Ghent University</a> – <a href="https://www.imec.be/">imec</a>
     </p>
     <ul class="links">
@@ -24,24 +28,13 @@
     </ul>
   </header>
 
-  <nav>
-    <h2><a href="./">Web Fundamentals</a></h2>
-    <ol>
-      <li><a href="./birds-eye-view/">A Bird’s-Eye View of the Web</a></li>
-      <li><a href="./architecture/">Web Architecture &amp; Technologies</a></li>
-      <li><a href="./web-apis/">Web APIs</a></li>
-      <li><a href="./semantic-web/">The Semantic Web &amp; Linked Data</a></li>
-      <li><a href="./linked-data-publishing/">Linked Data Publishing</a></li>
-      <li><a href="./decentralization/">Re-decentralizing the Web</a></li>
-    </ol>
-  </nav>
-
   <div class="title slide" id="title">
     <h2>
       <a class="series" href="#title">Web Fundamentals</a><br>
       <a class="module" href="#title">Welcome to the Web</a>
     </h2>
     <p class="author"><a href="https://ruben.verborgh.org/">Ruben Verborgh</a></p>
+    <p class="author"><a href="https://www.rubensworks.net/">Ruben Taelman</a></p>
     <p class="affiliation">
       <a href="https://www.ugent.be/"><img  class="ugent"  src="_shared/images/logos/ugent.svg"  alt="Ghent University"></a>
       <a href="https://www.imec.be/"><img class="imec" src="_shared/images/logos/imec.svg" alt="imec"></a>
@@ -53,29 +46,14 @@
     </p>
   </div>
 
-  <div class="slide" id="index">
+  <div class="slide" id="ruben-verborgh">
     <h2>
-      <em>Web Fundamentals</em> contains 6 topics<br>
-      for the <em><a href="https://studiegids.ugent.be/2019/EN/studiefiches/C003779.pdf">Web Development</a></em> class.
-    </h2>
-    <ol class="tight">
-      <li><a href="birds-eye-view/">A Bird’s-Eye View of the Web</a></li>
-      <li><a href="architecture/">Web Architecture &amp; Technologies</a></li>
-      <li><a href="web-apis/">Web APIs</a></li>
-      <li><a href="semantic-web/">The Semantic Web &amp; Linked Data</a></li>
-      <li><a href="linked-data-publishing/">Linked Data Publishing</a></li>
-      <li><a href="decentralization/">Re-decentralizing the Web</a></li>
-    </ol>
-  </div>
-
-  <div class="slide" id="ruben">
-    <h2>
-      I’m Ruben Verborgh, researcher and<br>
+      👋 I’m Ruben Verborgh, researcher and<br>
       professor of decentralized Web tech.
     </h2>
     <ul>
       <li class="next">
-        I’m a researcher at
+        I’m a senior researcher at:
         <ul>
           <li>
             <a href="https://knows.idlab.ugent.be/">KNoWS</a>,
@@ -92,7 +70,7 @@
         </ul>
       </li>
       <li class="next">
-        I also work for industry:
+        I’m a also a decentralized Web consultant:
         <ul>
           <li>
             <a href="https://inrupt.com/">Inrupt</a>,
@@ -111,10 +89,39 @@
     </ul>
   </div>
 
+  <div class="slide" id="ruben-taelman">
+    <h2>
+      👋 I’m Ruben Taelman, researcher<br>
+      on Web-based query technology.
+    </h2>
+    <ul>
+      <li class="next">
+        I’m a senior researcher at:
+        <ul>
+          <li>
+            <a href="https://knows.idlab.ugent.be/">KNoWS</a>,
+            <a href="https://idlab.technology/">IDLab</a>,
+            <a href="https://www.ugent.be/">Ghent University</a> –
+            <a href="https://www.imec.be/">imec</a>
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        My goal is to make data accessible for everyone<br>
+        through intelligent infrastructure and algorithms<br>
+        for data publication and retrieval.
+      </li>
+      <li class="next">
+        Read more about me
+        <a href="https://www.rubensworks.net/">on my website</a>.
+      </li>
+    </ul>
+  </div>
+
   <div class="slide" id="opinion">
     <h2>
       These slides do not only include the truth,
-      they also include my personal opinion.
+      they also include personal opinions.
     </h2>
     <ul>
       <li class="next">
@@ -129,7 +136,7 @@
       <li class="next">
         Always know which is which.
         <ul>
-          <li>You are free to reproduce my opinion (with arguments),</li>
+          <li>You are free to reproduce opinions (with arguments),</li>
           <li>or state one of your own (with arguments).</li>
         </ul>
       </li>
@@ -173,27 +180,6 @@
     </ul>
   </div>
 
-  <div class="slide" id="participate">
-    <h2>
-      The more you participate,<br>
-      the more you’ll learn.
-    </h2>
-    <ul>
-      <li>
-        Think along, speak up,<br>
-        don’t hesitate to prove me wrong.
-        <ul>
-          <li class="next opinion">I’m especially happy to discuss opinions.</li>
-        </ul>
-      </li>
-      <li class="next">
-        Without further ado, let’s start<br>
-        with an <a href="birds-eye-view/">overview of the Web</a>
-        (and the course).
-      </li>
-    </ul>
-  </div>
-
   <div class="slide" id="thesis-students">
     <h2>
       Does the Web pique your curiosity?<br>
@@ -216,8 +202,29 @@
         </ul>
       </li>
       <li class="next">
-        I wish you the best in your future endeavours,<br>
+        We wish you the best in your future endeavours,<br>
         on the Web or elsewhere!
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="participate">
+    <h2>
+      The more you participate,<br>
+      the more you’ll learn.
+    </h2>
+    <ul>
+      <li>
+        Think along, speak up,<br>
+        don’t hesitate to prove me wrong.
+        <ul>
+          <li class="next opinion">We’re especially happy to discuss opinions.</li>
+        </ul>
+      </li>
+      <li class="next">
+        Without further ado, let’s start<br>
+        with an <a href="birds-eye-view/">overview of the Web</a>
+        (and the course).
       </li>
     </ul>
   </div>
