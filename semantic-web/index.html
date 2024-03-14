@@ -1374,7 +1374,7 @@ rdfs:Class <strong>rdfs:subClassOf</strong> rdfs:Resource.
     </ul>
     <pre><code><span class="comment"># <a href="#rdfs-label">rdf, rdfs, and foaf prefixes</a> omitted for brevity</span>
 foaf:img <strong>rdfs:domain</strong> foaf:Person.
-foaf:img <strong>rdfs:domain</strong> foaf:Resource.
+foaf:img <strong>rdfs:domain</strong> rdfs:Resource.
 rdf:type <strong>rdfs:domain</strong> rdfs:Resource.
 
 <strong>rdfs:domain</strong> <strong>rdfs:domain</strong> rdf:Property.
@@ -1396,7 +1396,7 @@ rdf:type <strong>rdfs:domain</strong> rdfs:Resource.
     </ul>
     <pre><code><span class="comment"># <a href="#rdfs-label">rdf, rdfs, and foaf prefixes</a> omitted for brevity</span>
 foaf:img <strong>rdfs:range</strong> foaf:Image.
-foaf:img <strong>rdfs:range</strong> foaf:Resource.
+foaf:img <strong>rdfs:range</strong> rdfs:Resource.
 rdf:type <strong>rdfs:range</strong> rdfs:Class.
 rdf:type <strong>rdfs:range</strong> rdfs:Resource.
 
@@ -1610,7 +1610,7 @@ rdfs:domain <strong>rdfs:subPropertyOf</strong> rdfs:seeAlso.
         <ul>
           <li class="next"><code>ex:TimBL <strong>foaf:made</strong> dbr:World_Wide_Web.</code></li>
           <li class="next"><code>dbr:World_Wide_Web <strong>foaf:maker</strong> ex:TimBL.</code></li>
-          <li class="next"><code>foaf:made <strong>owl:inverseOf</strong> foaf:maker</code></li>
+          <li class="next"><code>foaf:made <strong>owl:inverseOf</strong> foaf:maker.</code></li>
         </ul>
       </li>
       <li class="next">
