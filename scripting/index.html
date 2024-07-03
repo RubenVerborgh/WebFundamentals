@@ -479,6 +479,192 @@ const dog = new Dog('samson');</code></li>
     </ul>
   </div>
   
+  <div class="slide" id="runtime-model-type-coercion-why">
+    <h2>
+      Type Coercion implicitly converts values to the expected type
+    </h2>
+    <ul>
+      <li class="next">
+        Initially, JavaScript had no exceptions support
+        <ul>
+          <li>Function input: coerced to expected type (string &rarr; number)</li>
+          <li>Function output: error value if something fails (<code>NaN</code>)</li>
+          <li>Applies to older JavaScript features: <code>==</code>, <code>+</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        Modern JavaScript features do not coerce
+        <ul>
+          <li>They can throw exceptions instead</li>
+          <li>E.g., <code>in</code>, <code>===</code></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-type-coercion-wtfjs">
+    <figure class="cover height">
+      <img src="images/wtfjs.webp"
+           alt="[Non-strict equality operator is not transitive.]">
+        <figcaption>
+          ©2022 <a href="https://github.com/denysdovhan/wtfjs">https://github.com/denysdovhan/wtfjs</a>
+        </figcaption>
+    </figure>
+    <footer>
+      <p>Non-strict equality operator is not transitive.</p>
+    </footer>
+  </div>
+  
+  <div class="slide" id="runtime-model-type-coercion-weirdjs">
+    <figure class="cover height">
+      <img src="images/javascriptweird.jpg"
+           alt="[Plus operator also experiences strange behaviour.]">
+        <figcaption>
+          ©2019 <a href="https://dev.to/neutrino2211/avoiding-weird-javascript-behaviour-true--true--2-but-true--1-pn9">Mainasara Al-amin Tsowa</a>
+        </figcaption>
+    </figure>
+    <footer>
+      <p>Plus operator also experiences strange behaviour.</p>
+    </footer>
+  </div>
+  
+  <div class="slide" id="runtime-model-type-coercion-toprimitive">
+    <h2>
+      Internal <code>ToPrimitive()</code> function is used for many coercion algorithms
+    </h2>
+    <ul>
+      <li class="next">
+        Accepts values of any type, and a <em>hint</em>
+        <ul>
+          <li>Hint indicates the preferred type: string, number, or default</li>
+        </ul>
+      </li>
+      <li class="next">
+        Features that prefer numbers
+        <ul>
+          <li><code>&lt;</code>, <code>&gt;</code>, <code>-</code>, <code>BigInt</code>, &hellip;</li>
+        </ul>
+      </li>
+      <li class="next">
+        Features that prefer strings
+        <ul>
+          <li><code>toString</code>, <code>[]</code>, &hellip;</li>
+        </ul>
+      </li>
+      <li class="next">
+        Features that are neutral
+        <ul>
+          <li><code>==</code>, <code>+</code>, , <code>new Date()</code>, &hellip;</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-type-coercion-toprimitive-approach">
+    <h2>
+      <code>ToPrimitive()</code> uses a fall-through approach
+    </h2>
+    <ul>
+      <li class="next">
+        Five checks
+        <ol>
+          <li>Return if a primitive</li>
+          <li>Invoke optional <code>Symbol.toPrimitive</code> method</li>
+          <li>Invoke <code>toString</code> or <code>valueOf</code> if string hint</li>
+          <li>Invoke <code>valueOf</code> or <code>toString</code> otherwise</li>
+          <li>Throw <code>TypeError</code></li>
+        </ol>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-type-coercion-toprimitive-example-1">
+    <h2>
+      Example: Applying <code>+</code>
+    </h2>
+    <ul>
+      <li class="next">
+        <code>ToPrimitive()</code> is applied on both arguments of <code>+</code>
+        <ul>
+            <li><code>const obj = { valueOf: () => 1 }<br \>
+    console.log("a" + obj);</code></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-type-coercion-toprimitive-example-2">
+    <h2>
+      Example: Applying <code>+</code>
+    </h2>
+    <ul>
+      <li class="next">
+        <code>ToPrimitive("a")</code>
+        <ol>
+          <li>Already is a primitive, return as-is</li>
+        </ol>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-type-coercion-toprimitive-example-3">
+    <h2>
+      Example: Applying <code>+</code>
+    </h2>
+    <ul>
+      <li class="next">
+        <code>ToPrimitive({ valueOf: () => 1 })</code>
+        <ol>
+          <li>Not a primitive</li>
+          <li>No <code>Symbol.toPrimitive</code> method</li>
+          <li>No string hint</li>
+          <li>Invoke <code>valueOf</code> &rarr; <code>1</code></li>
+        </ol>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-type-coercion-toprimitive-example-4">
+    <h2>
+      Example: Applying <code>+</code>
+    </h2>
+    <ul>
+      <li class="next">
+        <code>+</code> operation can be applied
+        <ul>
+            <li><code>"a" + 1 = "a1"</code></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-type-coercion-avoid">
+    <h2>
+      Avoid Type Coercion when possible
+    </h2>
+    <ul>
+      <li class="next">
+        Use features that don't apply Type Coercion
+        <ul>
+          <li><code>==</code> &rarr; <code>===</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        Explicitly cast values to types
+        <ul>
+          <li><s><code>"25" + 1</code></s></li>
+          <li><code>Number("25") + 1</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        Explicitly check types in your own functions
+        <ul>
+          <li>Throw <code>TypeError</code></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
   <div class="toc slide" id="runtime-model-event-loop">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
