@@ -684,6 +684,238 @@ const dog = new Dog('samson');</code></li>
     </ul>
   </div>
   
+  <div class="slide" id="runtime-model-event-loop-overview">
+    <h2>
+      Event-based runtime model
+    </h2>
+    <ul>
+      <li class="next">
+        Designed for handling events
+        <ul>
+          <li>User interactions</li>
+          <li>Network requests</li>
+          <li>&mldr;</li>
+        </ul>
+      </li>
+      <li class="next">
+        JavaScript is single-threaded
+        <ul>
+          <li>Events are handled in sequence via the event loop</li>
+          <li>Callbacks for asynchronous operations (I/O, timers, &mldr;)</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-event-loop-callbacks">
+    <h2>
+      Callback functions for (a)synchronous completion
+    </h2>
+    <ul>
+      <li class="next">
+        Two types
+        <ul>
+          <li>Synchronous: <code>array.forEach(<strong>element => &mldr;</strong>)</code></li>
+          <li>Asynchronous: <code>setTimeout(<strong>() => &mldr;</strong>, 10)</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        Asynchronous callbacks are invoked later
+        <ul>
+          <li>Added as tasks on a queue</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-event-loop-macrotask-queue">
+    <h2>
+      Engines process the <em>macrotask queue</em>
+    </h2>
+    <ul>
+      <li class="next">
+        Macrotask queue contains tasks
+        <ul>
+          <li>Registered <code>'click'</code> handler after user clicks</li>
+          <li>Callback after scheduled <code>setTimeout</code> is due</li>
+          <li>Executing a loaded <code>&lt;script src="..."&gt;</code></li>
+          <li>The next file chunk was read</li>
+          <li>&mldr;</li>
+        </ul>
+      </li>
+      <li class="next">
+        Engine processes tasks in the macrotask queue
+        <ul>
+          <li>In FIFO order</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-event-loop-macrotask-queue-figure">
+    <figure class="cover width">
+      <img src="images/macrotasks.svg"
+           alt="[Example of the Macrotask queue.]">
+      <figcaption>
+        ©2023 <a href="https://javascript.info/event-loop">Ilya Kantor</a>
+      </figcaption>
+    </figure>
+    <footer>
+      <p>Example of the Macrotask queue.</p>
+    </footer>
+  </div>
+  
+  <div class="slide" id="runtime-model-event-loop-js-stack-heap-queue">
+    <figure class="cover height">
+      <img src="images/js-stack-heap-queue.svg"
+           alt="[Stack, Heap, and Queue.]">
+      <figcaption>
+        ©2023 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Event_loop">MDN</a>
+      </figcaption>
+    </figure>
+    <footer>
+      <p>Stack, Heap, and Queue.</p>
+    </footer>
+  </div>
+  
+  <!--
+      - Special type of async callback: microtask (promises!)
+      - Async/await is just as syntactic sugar
+  -->
+  
+  <div class="slide" id="runtime-model-event-loop-promises">
+    <h2>
+      Promises hold results of async operations
+    </h2>
+    <ul>
+      <li class="next">
+        Datastructure with resolve and reject callbacks
+        <ul>
+          <li><code>const p = new Promise((resolve, reject) => {<br \>
+&nbsp;&nbsp;slowAsyncOperation(resolve);<br \>
+&nbsp;&nbsp;setTimeout(() => reject(&mldr;), 1000);<br \>
+});<br \><br \>
+p.then(v => console.log(v))<br \>
+&nbsp;.catch(e => console.error(e));</code></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-event-loop-asyncawait">
+    <h2>
+      <code>async</code>/<code>await</code>: syntactic sugar for promises
+    </h2>
+    <ul>
+      <li class="next">
+        Without <code>async</code>/<code>await</code>
+        <ul>
+          <li><code style="font-size: 1em; line-height: 1em; display: block;">function handle() {<br \>
+&nbsp;&nbsp;p.then(v => console.log(v))<br \>
+&nbsp;&nbsp;&nbsp;.catch(e => console.error(e));<br \>
+}</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        With <code>async</code>/<code>await</code>
+        <ul>
+          <li><code style="font-size: 1em; line-height: 1em; display: block;">async function handle() {<br \>
+&nbsp;&nbsp;try {<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;console.log(await p);<br \>
+&nbsp;&nbsp;} catch (e) {<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;console.error(e);<br \>
+&nbsp;&nbsp;}<br \>
+}</code></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-event-loop-promise-handled">
+    <h2>
+      Promises always handled asynchronously
+    </h2>
+    <ul>
+      <li class="next">
+        Callbacks are added to a separate <em>microtask queue</em>
+        <ul>
+          <li><code>.then()</code>, <code>.catch()</code>, <code>.finally()</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        Enables prioritization of tasks
+        <ul>
+          <li>Macrotasks are less urgent</li>
+          <li>Microtasks are more urgent</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-event-loop-microtask-queue">
+    <h2>
+      <em>Micro</em>tasks run before <em>macro</em>tasks
+    </h2>
+    <ul>
+      <li class="next">
+        Microtask queue contains tasks
+        <ul>
+          <li>Handling of <em>Promises</em> and <code>await</code></li>
+          <li>Scheduled via <code>queueMicrotask</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        Engine processes tasks in the microtask queue
+        <ul>
+          <li>Fully processed after each macrotask</li>
+          <li>In FIFO order</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-event-loop-task-queue-scheduling">
+    <h2>
+      Task scheduling impacts performance
+    </h2>
+    <ul>
+      <li class="next">
+        Run-to-completion
+        <ul>
+          <li>Tasks are processed completely before going to next</li>
+          <li>Makes reasoning about program easier</li>
+          <li>Long-running tasks block later tasks (avoid them!)</li>
+        </ul>
+      </li>
+      <li class="next">
+        Rendering pipeline invoked in-between macrotasks
+        <ul>
+          <li>Not in-between microtasks</li>
+        </ul>
+      </li>
+      <li class="next">
+        Tasks block interaction
+        <ul>
+          <li><code>setTimeout</code>, <code>setInterval</code>, <code>requestAnimationFrame</code></li>
+          <li>Web Workers run in separate thread (no DOM access)</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="runtime-model-event-loop-microtask-queue-figure">
+    <figure class="cover height">
+      <img src="images/microtasks.svg"
+           alt="[Example of the Macrotask and Microtask queues.]">
+      <figcaption>
+        ©2023 <a href="https://javascript.info/event-loop">Ilya Kantor</a>
+      </figcaption>
+    </figure>
+    <footer>
+      <p>Example of the Macrotask and Microtask queues.</p>
+    </footer>
+  </div>
+  
   <div class="toc slide" id="runtime-model-advanced">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
