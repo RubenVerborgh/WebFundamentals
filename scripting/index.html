@@ -935,6 +935,237 @@ p.then(v => console.log(v))<br \>
     </ul>
   </div>
   
+  <div class="slide" id="runtime-model-advanced-iterators">
+    <h2>
+      Iterables and iterators
+    </h2>
+    <ul>
+      <li class="next">
+        Objects can be made <em>iterable</em>
+        <ul>
+          <li>Implementing the <code>[Symbol.iterator]</code> method</li>
+          <li>Invoked by <code>for&mldr;of</code>, spread operator, &mldr;</li>
+        </ul>
+      </li>
+      <li class="next">
+        <code>[Symbol.iterator]</code> returns an iterator
+        <ul>
+          <li><code>next()</code>: returns <code>{ value }</code> or <code>{ done: true }</code></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-advanced-generators">
+    <h2>
+      Generators provide syntactic sugar to create iterators
+    </h2>
+    <ul>
+      <li class="next">
+        Generator functions produce generator objects
+        <ul>
+          <li>Stateful: Generator objects can be suspended and resumed</li>
+          <li><code>function* myGenerator() {<br \>
+&nbsp;yield 1;<br \>
+&nbsp;yield 2;<br \>
+&nbsp;yield 3;<br \>
+}</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        Generator objects are iterable
+        <ul>
+          <li>They implement <code>[Symbol.iterator]</code></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-advanced-asynciterators">
+    <h2>
+      Async iterators are iterators returning promises
+    </h2>
+    <ul>
+      <li class="next">
+        Objects can be made <em>async iterable</em>
+        <ul>
+          <li>Implementing the <code>[Symbol.asyncIterator]</code> method</li>
+          <li>Invoked by <code>for await&mldr;of</code></li>
+          <li>Useful when iterating over async elements</li>
+          <li>E.g., <code>ReadableStream</code> contains chunks of HTTP body</li>
+        </ul>
+      </li>
+      <li class="next">
+        <code>[Symbol.asyncIterator]</code> returns an async iterator
+        <ul>
+          <li><code>next()</code>: returns promise to <code>{ value }</code> or <code>{ done: true }</code></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-advanced-asyncgenerators">
+    <h2>
+      Async generators provide syntactic sugar to create async iterators
+    </h2>
+    <ul>
+      <li class="next">
+        Generator functions produce generator objects
+        <ul>
+          <li>Stateful: Generator objects can be suspended and resumed</li>
+          <li><code>async function* myGenerator() {<br \>
+&nbsp;yield await promise1;<br \>
+&nbsp;yield await promise2;<br \>
+&nbsp;yield await promise3;<br \>
+}</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        Async generator objects are async iterable
+        <ul>
+          <li>They implement <code>[Symbol.asyncIterator]</code></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-advanced-metaprogramming">
+    <h2>
+      Metaprogramming: writing a program that can process itself
+    </h2>
+    <img src="images/ouroboros.png"
+         alt="[Ouroboros]"
+         style="float: right; width: 110px"\>
+    <ul>
+      <li class="next">
+        Types of metaprogramming
+        <ol>
+          <li>
+              <strong>Introspection</strong>: Read-access to program structure
+              <ul>
+                  <li>E.g. <code>Object.keys()</code></li>
+              </ul>
+          </li>
+          <li>
+              <strong>Self-modification</strong>: Changing the program structure
+              <ul>
+                  <li>Dynamically modifying object fields and methods</li>
+              </ul>
+          </li>
+          <li>
+              <strong>Introspection</strong>: Redefine semantics of language operations
+              <ul>
+                  <li>Proxies</li>
+              </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-advanced-proxies">
+    <h2>
+      Proxies can intercept and modify object operations
+    </h2>
+    <ul>
+      <li class="next">
+        Wrapper over a target object
+        <ul>
+          <li><code>const proxy = new Proxy(target, handler);</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        Handler provides <em>traps</em> for operations
+        <ul>
+          <li><strong>Trap</strong>: overrides the behaviour of an operation</li>
+          <li>Getters, setters, delete, &mldr;</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-advanced-parallelism">
+    <h2>
+      Building blocks for parallelism
+    </h2>
+    <ul>
+      <li class="next">
+        Safe communication beyond a single event loop
+        <ul>
+          <li>Web Workers, Worker Threads, WebAssembly, WebGL, &mldr;</li>
+        </ul>
+      </li>
+      <li class="next">
+        <code>Atomics</code>: Utilities for thread-safe atomic operations
+        <ul>
+          <li>Add, exchange, lock, &mldr;</li>
+        </ul>
+      </li>
+      <li class="next">
+        <code>SharedArrayBuffer</code>: Binary data buffer
+        <ul>
+          <li>Can be safely shared and sliced across threads</li>
+        </ul>
+      </li>
+      <li class="next">
+        Transferable objects
+        <ul>
+          <li>Transfer objects to other contexts, no sharing</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-advanced-typedarray">
+    <h2>
+      Typed Arrays: Low-level binary arrays
+    </h2>
+    <ul>
+      <li class="next">
+        Regular arrays can contain all value types
+        <ul>
+          <li>Different than array types of languages like C and Java</li>
+        </ul>
+      </li>
+      <li class="next">
+        Typed arrays can only contain specific values
+        <ul>
+          <li><strong><code>Int8Array</code></strong>: Signed bytes</li>
+          <li><strong><code>UInt8Array</code></strong>: Unsigned bytes</li>
+          <li><strong><code>Int16Array</code></strong>: Signed 16-bit short integers</li>
+          <li>&mldr;</li>
+        </ul>
+      </li>
+      <li class="next">
+        Useful when low-level access is required
+        <ul>
+          <li>WebAssembly, WebGL, &mldr;</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-advanced-typedarray-memory">
+    <h2>
+      Typed Arrays require specific memory allocation
+    </h2>
+    <ul>
+      <li class="next">
+        Size must be specified through constructor
+        <ul>
+          <li>Number of elements or copy of another typed array</li>
+        </ul>
+      </li>
+      <li class="next">
+        All Typed Arrays operate on an <code>ArrayBuffer</code>
+        <ul>
+          <li>Created internally or passed through constructor</li>
+          <li><code>ArrayBuffer</code>s are <em>transferable</em></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
   <div class="toc slide" id="runtime-environments">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
