@@ -1198,6 +1198,187 @@ p.then(v => console.log(v))<br \>
     </ul>
   </div>
   
+  <div class="slide" id="runtime-environments-nodejs-history">
+    <img src="images/nodejs-logo.svg"
+         alt="[Logo of Node.js.]"
+         style="float: right; width: 250px"\>
+    <h2>
+      Run JavaScript Everywhere
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+          2009: Environment for event-based Web servers
+          <ul>
+              <li>Alternative to sequential servers that do not scale well to many concurrent connections</li>
+          </ul>
+        </li>
+        <li class="next">
+          Major release every six months
+          <ul>
+              <li><strong>Odd versions</strong>: Limited maintenance</li>
+              <li><strong>Even versions</strong>: LTS 18 months + maintenance 12 months</li>
+              <li>&rarr; Target even releases during development for stability</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-nodejs-philisophy">
+    <h2>
+      The Node.js principles
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Small core
+            <ul>
+                <li>Node.js API as small as possible, rest delegated to userland</li>
+            </ul>
+        </li>
+        <li class="next">
+            Small reusable modules
+            <ul>
+                <li>Small in scope and size; <em>Don't Repeat Yourself (DRY)</em></li>
+            </ul>
+        </li>
+        <li class="next">
+            Small surface area
+            <ul>
+                <li>No access to internals, only a specific entry point</li>
+            </ul>
+        </li>
+        <li class="next">
+            Simplicity and pragmatism
+            <ul>
+                <li><em>Keep It Simple, Stupid (KISS)</em></li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-nodejs-architecture">
+    <h2>
+      Node.js is based on the V8 engine
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            <strong>V8</strong>: JavaScript execution engine designed for Chrome
+            <ul>
+                <li>Highly performant execution of JavaScript</li>
+            </ul>
+        </li>
+        <li class="next">
+            <strong>libuv</strong>: I/O engine of Node.js
+            <ul>
+                <li>Abstracts I/O access across operating systems</li>
+            </ul>
+        </li>
+        <li class="next">
+            <strong>Node.JS API</strong>: Core JavaScript library
+            <ul>
+                <li>Dedicated APIs: Streams, child process, &mldr;</li>
+                <li>Excludes browser-specific APIs: DOM, <code>window</code>, &mldr;</li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-nodejs-reactor">
+    <h2>
+      Reactor pattern for handling I/O
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Callback-based &amp; asynchronous
+            <ul>
+                <li>Invoke operation on a resource using a <em>handler</em></li>
+                <li>Handler is invoked through event loop on completion</li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-nodejs-reactor-figure">
+    <figure class="cover height">
+      <img src="images/reactor-pattern.jpg"
+           alt="[Asynchronous I/O using the reactor pattern in Node.js.]">
+      <figcaption>
+        ©2020 <a href="https://www.nodejsdesignpatterns.com/">Node.js Design Patterns</a>
+      </figcaption>
+    </figure>
+    <footer>
+      <p>Asynchronous I/O using the reactor pattern in Node.js.</p>
+    </footer>
+  </div>
+  
+  <div class="slide" id="runtime-environments-nodejs-event-loop">
+    <h2>
+      Node.js implements the event loop as multiple sequential phases
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Macrotasks
+            <ul>
+                <li><strong>Poll</strong>: I/O-related callbacks</li>
+                <li><strong>Check</strong>: <code>setImmediate</code></li>
+                <li><strong>Close</strong>: <code>EventEmitter</code> <code>"close"</code> events</li>
+                <li><strong>Timers</strong>: <code>setTimeout</code> and <code>setInterval</code></li>
+                <li><strong>Pending</strong>: System events, such as errors in sockets</li>
+            </ul>
+        </li>
+        <li class="next">
+            Microtasks
+            <ul>
+                <li><strong>Node.js</strong>: <code>process.nextTick</code></li>
+                <li><strong>V8</strong>: Promises and <code>queueMicrotask</code></li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-nodejs-alternatives">
+    <h2>
+      Node.js is the most popular environment, but alternatives exist
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Deno
+            <img src="images/deno-logo.svg"
+                 alt="[Logo of Deno.]"
+                 style="float: right; width: 150px"\>
+            <ul>
+                <li>By creator of Node.js to avoid its flaws</li>
+                <li>Importing modules through URLs</li>
+                <li>More secure (opt-in flags)</li>
+                <li>Runs TypeScript directly</li>
+            </ul>
+        </li>
+        <li class="next">
+            Bun
+            <img src="images/bun-logo.svg"
+                 alt="[Logo of Bun.]"
+                 style="float: right; width: 150px"\>
+            <ul>
+                <li>Runs on JavaScriptCore instead of V8</li>
+                <li>Faster and more memory-friendly</li>
+                <li>Not fully (yet) with Node.js</li>
+                <li>Runs TypeScript directly</li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
   <div class="toc slide" id="runtime-environments-package-managers">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
