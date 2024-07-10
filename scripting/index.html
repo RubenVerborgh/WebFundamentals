@@ -1188,8 +1188,8 @@ p.then(v => console.log(v))<br \>
         <a href="#runtime-environments">Runtime Environments</a>
         <ul>
           <li class="current"><a href="#runtime-environments-nodejs">Node.js</a></li>
-          <li><a href="#runtime-environments-package-managers">Package Managers</a></li>
           <li><a href="#runtime-environments-modules">Modules</a></li>
+          <li><a href="#runtime-environments-package-managers">Package Managers</a></li>
           <li><a href="#runtime-environments-events">Event Emitters and Streams</a></li>
           <li><a href="#runtime-environments-optimizing">Optimizing for JIT Compilers</a></li>
           <li><a href="#runtime-environments-wasm">WebAssembly</a></li>
@@ -1379,26 +1379,6 @@ p.then(v => console.log(v))<br \>
     </div>
   </div>
   
-  <div class="toc slide" id="runtime-environments-package-managers">
-    <h2>
-      <a class="series" href="../">Web Fundamentals</a><br>
-      <a class="module" href="#title">Web Scripting</a>
-    </h2>
-    <ul>
-      <li class="current">
-        <a href="#runtime-environments">Runtime Environments</a>
-        <ul>
-          <li><a href="#runtime-environments-nodejs">Node.js</a></li>
-          <li class="current"><a href="#runtime-environments-package-managers">Package Managers</a></li>
-          <li><a href="#runtime-environments-modules">Modules</a></li>
-          <li><a href="#runtime-environments-events">Event Emitters and Streams</a></li>
-          <li><a href="#runtime-environments-optimizing">Optimizing for JIT Compilers</a></li>
-          <li><a href="#runtime-environments-wasm">WebAssembly</a></li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-  
   <div class="toc slide" id="runtime-environments-modules">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
@@ -1409,8 +1389,238 @@ p.then(v => console.log(v))<br \>
         <a href="#runtime-environments">Runtime Environments</a>
         <ul>
           <li><a href="#runtime-environments-nodejs">Node.js</a></li>
-          <li><a href="#runtime-environments-package-managers">Package Managers</a></li>
           <li class="current"><a href="#runtime-environments-modules">Modules</a></li>
+          <li><a href="#runtime-environments-package-managers">Package Managers</a></li>
+          <li><a href="#runtime-environments-events">Event Emitters and Streams</a></li>
+          <li><a href="#runtime-environments-optimizing">Optimizing for JIT Compilers</a></li>
+          <li><a href="#runtime-environments-wasm">WebAssembly</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-environments-modules-motivation">
+    <h2>
+      Splitting up code into <em>modules</em>
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            All code in a single file is unsustainable
+            <ul>
+                <li>Code can be split into modules</li>
+            </ul>
+        </li>
+        <li class="next">
+            Reducing complexity during development
+            <ul>
+                <li>Focus on smaller parts of code</li>
+                <li>Avoid conflicts when working in teams</li>
+            </ul>
+        </li>
+        <li class="next">
+            Reusability
+            <ul>
+                <li>Generic modules can be reused across projects</li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-modules-approaches">
+    <h2>
+      Node.js supports two types of modules
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            CommonJS (CJS)
+            <ul>
+                <li>Introduced by Node.js</li>
+            </ul>
+        </li>
+        <li class="next">
+            ECMAScript Modules (ESM)
+            <ul>
+                <li>Standardized later in ECMAScript</li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-modules-cjs">
+    <h2>
+      CommonJS: Node.js's original modules
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Modules expose functionality using <code>exports</code>
+            <ul>
+                <li>Any kind of object: class, constants, objects, &mldr;</li>
+            </ul>
+        </li>
+        <li class="next">
+            Modules can be imported using <code>require()</code>
+            <ul>
+                <li>Path to a file or directory</li>
+                <li>Invokes Node.js's module resolution algorithm</li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-modules-cjs-resolution">
+    <h2>
+      Module resolution in CommonJS
+    </h2>
+    <div>
+      <code>const imported = require(mod);</code><br \><br \>
+      <ol>
+        <li class="next">
+            <code>mod</code> is the name of a core Node.js module &rarr; load
+        </li>
+        <li class="next">
+            <code>mod</code> starts with <code>/</code>, <code>./</code>, or <code>../</code>
+            <ul>
+                <li>Directory: load <code>main</code> from <code>package.json</code> or <code>index.js</code></li>
+                <li>File: load with fallback to <code>.js</code>, <code>.json</code>, or <code>.node</code> extensions</li>
+            </ul>
+        </li>
+        <li class="next">
+            Look for directory in <code>./node_modules</code> matching <code>mod</code>
+            <ul>
+                <li>Traverse parent directories until root is reached</li>
+            </ul>
+        </li>
+      </ol>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-modules-cjs-resolution-examples">
+    <h2>
+      Examples of module resolution in CommonJS
+    </h2>
+    <dl>
+      <dt><code>require('url')</code></dt>
+      <dd>Node.js URL core module</dd>
+      <dt><code>require('./file')</code></dt>
+      <dd><code>./file.js</code></dd>
+      <dt><code>require('pad')</code></dt>
+      <dd><code>./node_modules/pad/index.js</code></dd>
+    </dl>
+  </div>
+  
+  <div class="slide" id="runtime-environments-modules-esm">
+    <h2>
+      ECMAScript modules: Native JavaScript modules
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Modules expose functionality using <code>export</code> statements
+            <ul>
+                <li>Any kind of object: class, constants, objects, &mldr;</li>
+            </ul>
+        </li>
+        <li class="next">
+            Modules can be imported using <code>import</code> statements
+            <ul>
+                <li>Path to a file or directory, <strong>or a URL</strong></li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-modules-esm-cjs">
+    <h2>
+      Differences between CJS and ESM
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            CJS loads synchronous, ESM asynchronous
+            <ul>
+                <li>ESM can load remote files</li>
+            </ul>
+        </li>
+        <li class="next">
+            ESM imports must be specified <em>with</em> extensions
+            <ul>
+                <li>CJS allows file paths without extensions</li>
+            </ul>
+        </li>
+        <li class="next">
+            ESM allows named and default exports per file
+            <ul>
+                <li>CJS only allows one type per file</li>
+            </ul>
+        </li>
+        <li class="next">
+            Browser support
+            <ul>
+                <li>ESM can run in Node.js and browsers</li>
+                <li>CJS must be <em>bundled</em> before it can run in browsers</li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-modules-esm-cjs-practise">
+    <h2>
+      CJS and ESM in practise
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Dual packaging
+            <ul>
+                <li>Distribution with both ESM (<code>*.mjs</code>) and CJS (<code>*.cjs</code>) files</li>
+                <li>Dual packaging hazard: loading separate of same package</li>
+                <li>&rarr; <code>instanceof</code> checks can differ for exported classes</li>
+            </ul>
+        </li>
+        <li class="next">
+            CJS/ESM hell
+            <ul>
+                <li>Some libraries or tooling only support CJS or ESM</li>
+                <li>As of Node 22: ESM loading with <code>require()</code></li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-modules-esm-cjs-popularity">
+    <figure class="cover height">
+      <img src="images/npm-esm-cjs.svg"
+           alt="[CJS is still more popular on npm, but declining.]">
+      <figcaption>
+        ©2024 <a href="https://github.com/wooorm/npm-esm-vs-cjs">https://github.com/wooorm/</a>
+      </figcaption>
+    </figure>
+    <footer>
+      <p>CJS is still more popular on npm, but declining.</p>
+    </footer>
+  </div>
+  
+  <div class="toc slide" id="runtime-environments-package-managers">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Scripting</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#runtime-environments">Runtime Environments</a>
+        <ul>
+          <li><a href="#runtime-environments-nodejs">Node.js</a></li>
+          <li><a href="#runtime-environments-modules">Modules</a></li>
+          <li class="current"><a href="#runtime-environments-package-managers">Package Managers</a></li>
           <li><a href="#runtime-environments-events">Event Emitters and Streams</a></li>
           <li><a href="#runtime-environments-optimizing">Optimizing for JIT Compilers</a></li>
           <li><a href="#runtime-environments-wasm">WebAssembly</a></li>
@@ -1429,8 +1639,8 @@ p.then(v => console.log(v))<br \>
         <a href="#runtime-environments">Runtime Environments</a>
         <ul>
           <li><a href="#runtime-environments-nodejs">Node.js</a></li>
-          <li><a href="#runtime-environments-package-managers">Package Managers</a></li>
           <li><a href="#runtime-environments-modules">Modules</a></li>
+          <li><a href="#runtime-environments-package-managers">Package Managers</a></li>
           <li class="current"><a href="#runtime-environments-events">Event Emitters and Streams</a></li>
           <li><a href="#runtime-environments-optimizing">Optimizing for JIT Compilers</a></li>
           <li><a href="#runtime-environments-wasm">WebAssembly</a></li>
@@ -1449,8 +1659,8 @@ p.then(v => console.log(v))<br \>
         <a href="#runtime-environments">Runtime Environments</a>
         <ul>
           <li><a href="#runtime-environments-nodejs">Node.js</a></li>
-          <li><a href="#runtime-environments-package-managers">Package Managers</a></li>
           <li><a href="#runtime-environments-modules">Modules</a></li>
+          <li><a href="#runtime-environments-package-managers">Package Managers</a></li>
           <li><a href="#runtime-environments-events">Event Emitters and Streams</a></li>
           <li class="current"><a href="#runtime-environments-optimizing">Optimizing for JIT Compilers</a></li>
           <li><a href="#runtime-environments-wasm">WebAssembly</a></li>
@@ -1469,8 +1679,8 @@ p.then(v => console.log(v))<br \>
         <a href="#runtime-environments">Runtime Environments</a>
         <ul>
           <li><a href="#runtime-environments-nodejs">Node.js</a></li>
-          <li><a href="#runtime-environments-package-managers">Package Managers</a></li>
           <li><a href="#runtime-environments-modules">Modules</a></li>
+          <li><a href="#runtime-environments-package-managers">Package Managers</a></li>
           <li><a href="#runtime-environments-events">Event Emitters and Streams</a></li>
           <li><a href="#runtime-environments-optimizing">Optimizing for JIT Compilers</a></li>
           <li class="current"><a href="#runtime-environments-wasm">WebAssembly</a></li>
