@@ -1629,6 +1629,361 @@ p.then(v => console.log(v))<br \>
     </ul>
   </div>
   
+  <div class="slide" id="runtime-environments-package-managers-motivation">
+    <h2>
+      A package managers helps managing JavaScript modules
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Collection of tools
+            <ul>
+                <li>to install, upgrade, configure, and remove packages</li>
+            </ul>
+        </li>
+        <li class="next">
+            Packages are distributions of software and data
+            <ul>
+                <li>Contains JavaScript modules and supporting files</li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-package-managers-npm">
+    <img src="images/npm-logo.svg"
+         alt="[Logo of npm.]"
+         style="float: right; width: 180px"\>
+    <h2>
+      A package manager for Node.js
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            npm registry
+            <ul>
+                <li>Millions of public JavaScript packages</li>
+                <li>Open: anyone can deploy and consume</li>
+            </ul>
+        </li>
+        <li class="next">
+            Command-line tool to manage packages using <code>package.json</code>
+            <ul>
+                <li>Metadata: package name, author, &mldr;</li>
+                <li>Dependencies on other packages</li>
+                <li>Files to be shipped with the package</li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-package-managers-npm-node">
+    <h2>
+      Node.js was created before npm
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Developers had to manually add modules to <code>node_modules/</code>
+            <ul>
+                <li>npm was created independently to make this less tedious</li>
+                <li>npm is now installed together with Node.js installations</li>
+            </ul>
+        </li>
+        <li class="next">
+            The Node.js runtime is not aware of npm
+            <ul>
+                <li>npm populates <code>node_modules/</code></li>
+                <li>Node.js loads modules from <code>node_modules/</code></li>
+                <li>&rarr; alternative package managers can be used!</li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-package-managers-alternatives">
+    <h2>
+      npm is the most popular package managers, but alternatives exist
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Yarn
+            <img src="images/yarn-logo.svg"
+                 alt="[Logo of Yarn.]"
+                 style="float: right; width: 150px"\>
+            <ul>
+                <li>Initiated by Meta and Google (now independent)</li>
+                <li>Solves performance issues with large projects</li>
+                <li>Consistency and security</li>
+            </ul>
+        </li>
+        <li class="next">
+            pnpm
+            <img src="images/pnpm-logo.svg"
+                 alt="[Logo of pnpm.]"
+                 style="float: right; width: 150px"\>
+            <ul>
+                <li>Hard-links packages to a global store</li>
+                <li>Reduces disk space across installations</li>
+            </ul>
+        </li>
+        <li class="next">
+            &rarr; Both use npm's <code>package.json</code>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-package-managers-semver">
+    <h2>
+      npm packages follow <a href="https://semver.org/"><em>Semantic Versioning (SemVer)</em></a>
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            <code>"dependencies"</code> entry in <code>packages.json</code> supports version ranges syntax
+            <ul>
+                <li>Major range: <code>~1.0.4</code> or <code>1.0.x</code> or <code>1.0</code></li>
+                <li>Minor range: <code>^1.0.4</code> or <code>1.x</code> or <code>1</code> <strong>&rarr; default in npm</strong></li>
+                <li>Patch range: <code>x</code> or <code>*</code></li>
+            </ul>
+        </li>
+        <li class="next">
+            Example:
+            <ul>
+                <li>"dependencies": {<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;"my_dep": "^1.0.0",<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;"another_dep": "~2.2.0"<br \>
+}</li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-package-managers-semver-reasons">
+    <h2>
+      SemVer is useful for man and machine
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Developers using on another library
+            <ul>
+                <li>Detect type of change without having to go through changelog or commit history</li>
+            </ul>
+        </li>
+        <li class="next">
+            Dependency resolution
+            <ul>
+                <li>Deduplication of installed dependencies with compatible version ranges</li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-package-managers-semver-ranges">
+    <h2>
+      Dependencies can be defined using SemVer ranges
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Developers using on another library
+            <ul>
+                <li>Detect type of change without having to go through changelog or commit history</li>
+            </ul>
+        </li>
+        <li class="next">
+            Dependency resolution
+            <ul>
+                <li>Deduplication of installed dependencies with compatible version ranges</li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-package-managers-installing">
+    <h2>
+      Installing dependencies with a package manager
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            <code>npm install</code> fetches dependencies of a package
+            <ul>
+                <li>This includes all transitive dependencies</li>
+            </ul>
+        </li>
+        <li class="next">
+            Dependency resolution algorithms
+            <ul>
+                <li>Determine precise versions for version ranges</li>
+                <li>Determine the install location of the dependency</li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-package-managers-dependency-resolution-naive">
+    <h2>
+      A naive dependency resolution algorithm: nested <code>node_modules/</code>
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Each dependency has its own <code>node_modules/</code> in which dependencies are installed
+            <ul>
+                <li>Pro: Code isolation and no chance of semver conflicts</li>
+                <li>Con: Deep trees and chance of repeated installations</li>
+            </ul>
+        </li>
+        <li class="next">
+            Example:
+            <ul>
+                <li><code style="font-size: 0.70em; line-height: 1em; display: block;">dep1/<br \>
+&nbsp;&nbsp;node_modules/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;common_dep1/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;common_dep2/<br \>
+dep2/<br \>
+&nbsp;&nbsp;node_modules/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;common_dep1/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;uncommon_dep1/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node_modules/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;common_dep2/<br \>
+</code></li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-package-managers-dependency-resolution-naive-node">
+    <figure class="cover height">
+      <img src="images/node_modules_heavy.png"
+           alt="[Node modules are the heaviest objects in the universe.]">
+    </figure>
+    <footer>
+      <p>Nested dependency resolution leads to heavy disk usage, which was still used in npm version 2</p>
+    </footer>
+  </div>
+  
+  <div class="slide" id="runtime-environments-package-managers-dependency-resolution-dedupe">
+    <h2>
+      Dependency resolution with <em>deduping</em>
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Dependencies are deduplicated by hoisting them to highest possible <code>node_modules/</code>
+            <ul>
+                <li>Only if they are compatible with the SemVer range</li>
+            </ul>
+        </li>
+        <li class="next">
+            Example:
+            <ul>
+                <li>
+                    <code style="font-size: 0.70em; line-height: 1em; display: block; float: left">dep1/<br \>
+&nbsp;&nbsp;node_modules/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;common_dep1/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;common_dep2/<br \>
+dep2/<br \>
+&nbsp;&nbsp;node_modules/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;common_dep1/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;uncommon_dep1/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node_modules/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;common_dep2/<br \>
+</code>
+<div style="float: left; height: 100px; padding: 50px; font-size: 3em">&rarr;</div>
+                    <code style="font-size: 0.70em; line-height: 1em; display: block">dep1/<br \>
+common_dep1/<br \>
+common_dep2/<br \>
+dep2/<br \>
+uncommon_dep1/<br \>
+</code></li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-package-managers-dependency-resolution-dedupe">
+    <h2>
+      Dependencies that are incompatible with the SemVer range are not hoisted
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Example:
+            <ul>
+                <li>
+                    <code style="font-size: 0.70em; line-height: 1em; display: block; float: left">dep1/<br \>
+&nbsp;&nbsp;node_modules/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;common_dep1/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;common_dep2/ # ^2.0.0<br \>
+dep2/<br \>
+&nbsp;&nbsp;node_modules/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;common_dep1/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;uncommon_dep1/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node_modules/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;common_dep2/ # ^1.0.0<br \>
+</code>
+<div style="float: left; height: 100px; padding: 50px; font-size: 3em">&rarr;</div>
+                    <code style="font-size: 0.70em; line-height: 1em; display: block">dep1/<br \>
+common_dep1/<br \>
+common_dep2/<br \>
+dep2/<br \></
+uncommon_dep1/<br \>
+&nbsp;&nbsp;node_modules/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;common_dep2/<br \>
+</code></li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-package-managers-dependency-resolution-determinism">
+    <h2>
+      The order in which dependencies are installed determines matters
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Dependencies are hoisted in order of installation
+            <ul>
+                <li>A different install order can lead to different tree structures</li>
+            </ul>
+        </li>
+        <li class="next">
+            Re-ordering package tree can reduce size
+            <ul>
+                <li><code>npm dedupe</code> attempts to reduce duplication</li>
+            </ul>
+        </li>
+        <li class="next">
+            <code>package-lock.json</code> guarantees determinism
+            <ul>
+                <li>Locks the tree and versions in semantic ranges</li>
+                <li>Useful for collaborative projects</li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <!--
+      - security?
+      -->
+  
   <div class="toc slide" id="runtime-environments-events">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
