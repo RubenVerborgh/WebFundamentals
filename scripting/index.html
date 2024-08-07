@@ -2387,6 +2387,85 @@ readStream.on('end', () => console.log('Done!'));</code></li>
     </ul>
   </div>
   
+  <div class="slide" id="development-linter-intro">
+    <h2>
+      Linters analyze code to find and fix potential problems
+    </h2>
+    <ul>
+      <li class="next">
+        Static analysis
+        <ul>
+          <li>No execution of the code</li>
+          <li>Analysis on the abstract syntax tree (AST) after parsing</li>
+        </ul>
+      </li>
+      <li class="next">
+        Configurable through rules
+        <ul>
+          <li>Each rule defines a potential problem</li>
+        </ul>
+      </li>
+      <li class="next">
+        Some rules can be automatically fixed
+        <ul>
+          <li>Transforming the AST and writing back to the original file</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="development-linter-examples">
+    <img src="images/eslint-logo.svg"
+         alt="[Logo of ESLint.]"
+         style="float: right; width: 250px"\>
+    <h2>
+      Examples of rules for ESLint
+    </h2>
+    <ul>
+      <li class="next">
+        <a href="https://eslint.org/">ESLint</a>
+        <ul>
+          <li>Popular open-source linter for JavaScript</li>
+        </ul>
+      </li>
+      <li class="next">
+        <code>no-unused-vars</code>
+        <ul>
+          <li>Reports variables that are defined but are not used</li>
+        </ul>
+      </li>
+      <li class="next">
+        <code>no-undefs</code>
+        <ul>
+          <li>Reports code that uses undeclared variables</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="development-linter-types">
+    <h2>
+      Categories of linter rules
+    </h2>
+    <ul>
+      <li class="next">
+        Code quality
+        <ul>
+          <li>Unused variables</li>
+          <li>Usage of undeclared variables</li>
+        </ul>
+      </li>
+      <li class="next">
+        Formatting
+        <ul>
+          <li>Tabs or spaces</li>
+          <li>Keyword spacing</li>
+          <li>Dedicated formatters exist, such as <strong><a href="https://prettier.io/">Prettier</a></strong></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
   <div class="toc slide" id="development-testing">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
