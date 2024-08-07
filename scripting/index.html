@@ -1980,10 +1980,6 @@ uncommon_dep1/<br \>
     </div>
   </div>
   
-  <!--
-      - security?
-      -->
-  
   <div class="toc slide" id="runtime-environments-events">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
@@ -1999,6 +1995,183 @@ uncommon_dep1/<br \>
           <li class="current"><a href="#runtime-environments-events">Event Emitters and Streams</a></li>
           <li><a href="#runtime-environments-optimizing">Optimizing for JIT Compilers</a></li>
           <li><a href="#runtime-environments-wasm">WebAssembly</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="runtime-environments-events-observers">
+    <h2>
+      From callbacks to EventEmitters
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Callbacks have limitations
+            <ul>
+                <li>Responsible for a single type of event</li>
+                <li>Can only notify a single observer</li>
+            </ul>
+        </li>
+        <li class="next">
+            EventEmitters follow the <em>Observer</em> pattern
+            <ul>
+                <li>Can handle multiple types of events</li>
+                <li>Accepts registrations of multiple listeners per event</li>
+                <li>API:
+                    <ul>
+                        <li><code>on(event, listener)</code>, <code>once(event, listener)</code></li>
+                        <li><code>emit(event, ...args)</code></li>
+                        <li><code>removeListener(event, listener)</code></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-modules-events-eventemitter-overview">
+    <figure class="cover height">
+      <img src="images/eventemitter.webp"
+           alt="[EventEmitter enables observation on multiple events.]">
+      <figcaption>
+        ©2020 <a href="https://www.nodejsdesignpatterns.com/">Node.js Design Patterns</a>
+      </figcaption>
+    </figure>
+    <footer>
+      <p>EventEmitter enables observation on multiple events.</p>
+    </footer>
+  </div>
+  
+  <div class="slide" id="runtime-environments-events-error-handling">
+    <h2>
+      Conventions for asynchronous error handling in Node.js
+    </h2>
+    <p>Errors can not be handled in callbacks and EventEmitters using try-catch.</p>
+    <div>
+      <ul>
+        <li class="next">
+            Optional first error argument in callbacks
+            <ul>
+                <li><code style="font-size: 0.70em; line-height: 1em; display: block; margin-top: 5px; margin-bottom: -15px">readFile('foo.txt', 'utf8', (err, data) => {<br \>
+&nbsp;&nbsp;if (err) {<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;// Handle error<br \>
+&nbsp;&nbsp;} else {<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;// Handle data<br \>
+&nbsp;&nbsp;}<br \>
+});
+</code></li>
+            </ul>
+        </li>
+        <li class="next">
+            <code>'error'</code> events in EventEmitters
+            <ul>
+                <li><code style="font-size: 0.70em; line-height: 1em; display: block; margin-top: 5px">myEmitter.on('error', (err) => {<br \>
+&nbsp;&nbsp;// Handle error<br \>
+});
+</code></li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-events-streams">
+    <h2>
+      Streams are EventEmitters for processing asynchronous data streams
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Alternative to processing data after buffering
+            <ul>
+                <li><strong>Memory efficient</strong>: Processing data in chunks</li>
+                <li><strong>Time efficient</strong>: Earlier of processing chunks</li>
+                <li><strong>Composable</strong>: Streams can be piped to each other</li>
+            </ul>
+        </li>
+        <li class="next">
+            Different types of streams
+            <ul>
+                <li><code>Writable</code>: Stream to write to <em>(e.g. file on disk)</em></li>
+                <li><code>Readable</code>: Stream to read from<em> (e.g. file on disk)</em></li>
+                <li><code>Duplex</code>: Implements <code>Writable</code> and <code>Readable</code> <em>(e.g. sockets)</em></li>
+                <li><code>Transform</code>: <code>Duplex</code> that can modify data chunks <em>(e.g. gzip)</em></li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-events-streams-example">
+    <h2>
+      Reading files using streams
+    </h2>
+    <ul>
+      <li class="next">
+        Using the <code>fs</code> API from Node.js
+        <ul>
+          <li><br \><code style="font-size: 0.75em; line-height: 1em; display: block;">import * as fs from 'node:fs';<br \>
+<br \>
+const readStream = fs.createReadStream('foo.txt');<br \>
+readStream.on('data', (chunk) => console.log(chunk));<br \>
+readStream.on('error', (err) => console.error(err));<br \>
+readStream.on('end', () => console.log('Done!'));</code></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="runtime-environments-events-readablestreams">
+    <h2>
+      Node.js Streams preceded the Web Streams API (for browsers)
+    </h2>
+    <ul>
+      <li class="next">
+        Many projects still work with Node.js Streams
+        <ul>
+          <li>Even when used in browsers</li>
+        </ul>
+      </li>
+      <li class="next">
+        Web Streams API was inspired by Node.js Streams
+        <ul>
+          <li>Improvements based on lessons learned</li>
+          <li>Strictly different API</li>
+          <li>Streams can be converted to each other</li>
+          <li>Node.js support since 16.x</li>
+        </ul>
+      </li>
+      <li class="next">
+        <span class="opinion">Web Streams will replace Node.js Streams</span>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-environments-events-streams-concepts">
+    <h2>
+      Concepts in Node.js and Web Streams
+    </h2>
+    <ul>
+      <li class="next">
+        Piping
+        <ul>
+          <li>Chaining streams to each other</li>
+        </ul>
+      </li>
+      <li class="next">
+        Backpressure
+        <ul>
+          <li>Stream in pipeline notify others to pause sending chunks</li>
+          <li>Avoids buildup of large buffers within pipelines</li>
+          <li><em>High water mark</em>: maximum desired buffer size</li>
+        </ul>
+      </li>
+      <li class="next">
+        Teeing
+        <ul>
+          <li>Splitting a stream into two identical copies</li>
         </ul>
       </li>
     </ul>
