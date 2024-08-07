@@ -2324,6 +2324,50 @@ readStream.on('end', () => console.log('Done!'));</code></li>
       <li class="current"><a href="#development">Development Process</a></li>
     </ul>
   </div>
+
+  <div class="slide" id="development-intro">
+    <h2>
+      Development in JavaScript differs from other languages
+    </h2>
+    <ul>
+      <li class="next">
+        Different possible target environments
+        <ul>
+          <li>Web browsers</li>
+          <li>Server-side runtime environments (Node.js, Deno, &mldr;)</li>
+        </ul>
+      </li>
+      <li class="next">
+        Fast evolution of new language features
+        <ul>
+          <li>But not all environments immediately support new features</li>
+        </ul>
+      </li>
+      <li class="next">
+        Dynamic nature of JS is useful for fast prototyping
+        <ul>
+          <li>Can cause difficulties for larger projects</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="development-steps">
+    <h2>
+      Most JavaScript projects incorporate multiple development processes
+    </h2>
+    <ul>
+      <li class="next">
+        Steps to be run by the developer or a <em>Continuous Integration (CI)</em> service:
+        <ul>
+          <li><strong>Linting</strong>: Static analysis of code</li>
+          <li><strong>Testing</strong>: Automated checking of code to validate behaviour</li>
+          <li><strong>Transpiling</strong>: Converting between languages or versions</li>
+          <li><strong>Bundling</strong>: Combining and preparing code for the browser</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
   
   <div class="toc slide" id="development-linting">
     <h2>
@@ -2335,7 +2379,7 @@ readStream.on('end', () => console.log('Done!'));</code></li>
         <a href="#development">Development Process</a>
         <ul>
           <li class="current"><a href="#development-linting">Linting</a></li>
-          <li><a href="#development-testing">Unit Testing</a></li>
+          <li><a href="#development-testing">Testing</a></li>
           <li><a href="#development-transpiling">Transpiling</a></li>
           <li><a href="#development-bundling">Bundling</a></li>
         </ul>
@@ -2353,7 +2397,7 @@ readStream.on('end', () => console.log('Done!'));</code></li>
         <a href="#development">Development Process</a>
         <ul>
           <li><a href="#development-linting">Linting</a></li>
-          <li class="current"><a href="#development-testing">Unit Testing</a></li>
+          <li class="current"><a href="#development-testing">Testing</a></li>
           <li><a href="#development-transpiling">Transpiling</a></li>
           <li><a href="#development-bundling">Bundling</a></li>
         </ul>
@@ -2371,7 +2415,7 @@ readStream.on('end', () => console.log('Done!'));</code></li>
         <a href="#development">Development Process</a>
         <ul>
           <li><a href="#development-linting">Linting</a></li>
-          <li><a href="#development-testing">Unit Testing</a></li>
+          <li><a href="#development-testing">Testing</a></li>
           <li class="current"><a href="#development-transpiling">Transpiling</a></li>
           <li><a href="#development-bundling">Bundling</a></li>
         </ul>
@@ -2389,7 +2433,7 @@ readStream.on('end', () => console.log('Done!'));</code></li>
         <a href="#development">Development Process</a>
         <ul>
           <li><a href="#development-linting">Linting</a></li>
-          <li><a href="#development-testing">Unit Testing</a></li>
+          <li><a href="#development-testing">Testing</a></li>
           <li><a href="#development-transpiling">Transpiling</a></li>
           <li class="current"><a href="#development-bundling">Bundling</a></li>
         </ul>
