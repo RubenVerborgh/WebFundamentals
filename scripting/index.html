@@ -2580,6 +2580,116 @@ readStream.on('end', () => console.log('Done!'));</code></li>
     </ul>
   </div>
   
+  <div class="slide" id="development-transpiling">
+    <h2>
+      Transpilers make code compatible with different JavaScript versions
+    </h2>
+    <ul>
+      <li class="next">
+        JavaScript-to-JavaScript transpilers
+        <ul>
+          <li>Converts across different ECMAScript versions</li>
+          <li>E.g. Babel</li>
+        </ul>
+      </li>
+      <li class="next">
+        Something-to-JavaScript transpilers
+        <ul>
+          <li>Converts another high-level language into JavaScript</li>
+          <li>E.g. TypeScript</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="development-transpiling-babel">
+    <img src="images/babel-logo.svg"
+         alt="[Logo of Babel.]"
+         style="float: right; width: 200px"\>
+    <h2>
+      Babel makes modern JavaScript backwards-compatible
+    </h2>
+    <ul>
+      <li class="next">
+        Older browsers or runtime environments may not support all modern ECMAScript features
+        <ul>
+          <li>Code conversion pipeline</li>
+        </ul>
+      </li>
+      <li class="next">
+        Code transformation
+        <ul>
+          <li>Modern syntax to old syntax (e.g. await &rarr; promises)</li>
+        </ul>
+      </li>
+      <li class="next">
+        Polyfills
+        <ul>
+          <li>Defines missing classes and APIs if they are missing</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="development-transpiling-typescript">
+    <img src="images/typescript-logo.svg"
+         alt="[Logo of TypeScript.]"
+         style="float: right; width: 125px"\>
+    <h2>
+      TypeScript is a superset of JavaScript with type definitions
+    </h2>
+    <ul>
+      <li class="next">
+        JavaScript is not strictly typed
+        <ul>
+          <li>Developers to consult documentation when using a library</li>
+          <li>Can cause difficulties for larger projects</li>
+        </ul>
+      </li>
+      <li class="next">
+        TypeScript adds typings syntax
+        <ul>
+          <li>Add types for variables, class, parameters, &mldr;</li>
+        </ul>
+      </li>
+      <li class="next">
+        Highly popular
+        <ul>
+          <li><a href="https://www.libhunt.com/index">Recently became more popular than JavaScript</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="development-transpiling-typescript-tsc">
+    <h2>
+      <code>tsc</code> is the TypeScript compiler
+    </h2>
+    <ul>
+      <li class="next">
+        <code>tsc</code> transpiles TypeScript into JavaScript
+        <ul>
+          <li>Includes type-checking</li>
+          <li>Output JavaScript on specific ECMAScript version (like Babel)</li>
+        </ul>
+      </li>
+      <li class="next">
+        Highly configurable in strictness
+        <ul>
+          <li>Require types for all function arguments?</li>
+          <li>Require strict null checks?</li>
+        </ul>
+      </li>
+      <li class="next">
+        Runtime environments natively support TypeScript
+        <ul>
+          <li>Deno and Bun</li>
+          <li>Node.js experimentally since version 22</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
   <div class="toc slide" id="development-bundling">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
