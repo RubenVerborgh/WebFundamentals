@@ -2366,6 +2366,13 @@ readStream.on('end', () => console.log('Done!'));</code></li>
           <li><strong>Bundling</strong>: Combining and preparing code for the browser</li>
         </ul>
       </li>
+      <li class="next">
+        Package managers (e.g. npm) provide tools to simplify running these steps
+        <ul>
+          <li>Running <code>"scripts"</code> in <code>package.json</code> using <code>npm run</code></li>
+          <li><code>npm run test</code>, <code>npm run build</code></li>
+        </ul>
+      </li>
     </ul>
   </div>
   
@@ -2466,6 +2473,16 @@ readStream.on('end', () => console.log('Done!'));</code></li>
     </ul>
   </div>
   
+  <div class="slide" id="development-linter-example" style="background-color: black;">
+    <figure class="cover width">
+      <img src="images/linter-output.png"
+           alt="[Linters report on problems per file.]">
+    </figure>
+    <footer>
+      <p>Linters report on problems per file.</p>
+    </footer>
+  </div>
+  
   <div class="toc slide" id="development-testing">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
@@ -2482,6 +2499,67 @@ readStream.on('end', () => console.log('Done!'));</code></li>
         </ul>
       </li>
     </ul>
+  </div>
+  
+  <div class="slide" id="development-testing-intro">
+    <h2>
+      Increasing confidence in code through automated testing
+    </h2>
+    <ul>
+      <li class="next">
+        Fully automated
+        <ul>
+          <li>Implemented as code or configuration</li>
+          <li>Executed at some frequency or on every change/version</li>
+        </ul>
+      </li>
+      <li class="next">
+        Different target levels of testing
+        <ul>
+          <li><strong>Unit</strong>: Small and isolated pieces of code</li>
+          <li><strong>Integration</strong>: Multiple components that are wired together</li>
+          <li><strong>System</strong>: The full system</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="development-testing-coverage">
+    <h2>
+      Measuring tested domain as <em>code coverage</em>
+    </h2>
+    <ul>
+      <li class="next">
+        Metric that indicates how much of the code is tested
+        <ul>
+          <li>Full coverage does not imply correctness</li>
+        </ul>
+      </li>
+      <li class="next">
+        Different types of coverage criteria:
+        <ul>
+          <li><strong>Function</strong>: considers executed functions</li>
+          <li><strong>Line</strong>: considers passed lines</li>
+          <li><strong>Branch</strong>: considers all possible control branches (e.g. if-else)</li>
+        </ul>
+      </li>
+      <li class="next">
+        Projects can configure coverage thresholds
+        <ul>
+          <li><span class="opinion">All thresholds except for 100% or 0% are arbitrary</span></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="development-testing-coverage-example">
+    <figure class="cover height">
+      <img src="images/coverage-report.png"
+           alt="[Coverage reports show details of missed lines and branches.]">
+    </figure>
+    <footer>
+      <p>Coverage reports show details of missed lines and branches.</p>
+    </footer>
   </div>
   
   <div class="toc slide" id="development-transpiling">
