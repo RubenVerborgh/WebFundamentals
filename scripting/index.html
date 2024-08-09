@@ -104,6 +104,12 @@
             <li>Syntax, functions, classes, error handling, &hellip;</li>
         </ul>
       </li>
+      <li class="next">
+        WebAssembly enables alternative languages to be executed in Web pages
+        <ul>
+            <li>Not in scope for this lecture</li>
+        </ul>
+      </li>
     </ul>
   </div>
 
@@ -1192,7 +1198,6 @@ p.then(v => console.log(v))<br \>
           <li><a href="#runtime-environments-package-managers">Package Managers</a></li>
           <li><a href="#runtime-environments-events">Event Emitters and Streams</a></li>
           <li><a href="#runtime-environments-optimizing">Optimizing for JIT Compilers</a></li>
-          <li><a href="#runtime-environments-wasm">WebAssembly</a></li>
         </ul>
       </li>
     </ul>
@@ -1393,7 +1398,6 @@ p.then(v => console.log(v))<br \>
           <li><a href="#runtime-environments-package-managers">Package Managers</a></li>
           <li><a href="#runtime-environments-events">Event Emitters and Streams</a></li>
           <li><a href="#runtime-environments-optimizing">Optimizing for JIT Compilers</a></li>
-          <li><a href="#runtime-environments-wasm">WebAssembly</a></li>
         </ul>
       </li>
     </ul>
@@ -1623,7 +1627,6 @@ p.then(v => console.log(v))<br \>
           <li class="current"><a href="#runtime-environments-package-managers">Package Managers</a></li>
           <li><a href="#runtime-environments-events">Event Emitters and Streams</a></li>
           <li><a href="#runtime-environments-optimizing">Optimizing for JIT Compilers</a></li>
-          <li><a href="#runtime-environments-wasm">WebAssembly</a></li>
         </ul>
       </li>
     </ul>
@@ -1994,7 +1997,6 @@ uncommon_dep1/<br \>
           <li><a href="#runtime-environments-package-managers">Package Managers</a></li>
           <li class="current"><a href="#runtime-environments-events">Event Emitters and Streams</a></li>
           <li><a href="#runtime-environments-optimizing">Optimizing for JIT Compilers</a></li>
-          <li><a href="#runtime-environments-wasm">WebAssembly</a></li>
         </ul>
       </li>
     </ul>
@@ -2191,7 +2193,6 @@ readStream.on('end', () => console.log('Done!'));</code></li>
           <li><a href="#runtime-environments-package-managers">Package Managers</a></li>
           <li><a href="#runtime-environments-events">Event Emitters and Streams</a></li>
           <li class="current"><a href="#runtime-environments-optimizing">Optimizing for JIT Compilers</a></li>
-          <li><a href="#runtime-environments-wasm">WebAssembly</a></li>
         </ul>
       </li>
     </ul>
@@ -2307,7 +2308,28 @@ readStream.on('end', () => console.log('Done!'));</code></li>
           <li><a href="#runtime-environments-package-managers">Package Managers</a></li>
           <li><a href="#runtime-environments-events">Event Emitters and Streams</a></li>
           <li><a href="#runtime-environments-optimizing">Optimizing for JIT Compilers</a></li>
-          <li class="current"><a href="#runtime-environments-wasm">WebAssembly</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-environments-wasm-motivation">
+    <h2>
+      Optimizers are speculative
+    </h2>
+    <ul>
+      <li class="next">
+        Optimizers first try the fast path
+        <ul>
+          <li>If it fails, fallback to unoptimized code</li>
+          <li>Fail-path has penalty of being extra slow</li>
+        </ul>
+      </li>
+      <li class="next">
+        Optimizers work well if your code is C-like
+        <ul>
+          <li>Datatypes for specific fields are constant</li>
+          <li>Objects have no dynamically changing properties</li>
         </ul>
       </li>
     </ul>
