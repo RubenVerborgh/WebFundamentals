@@ -7,8 +7,26 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
   <link rel="stylesheet" href="../_shared/styles/shower-ruben.css">
   <link rel="stylesheet" href="../_shared/styles/web-fundamentals.css">
+  <link rel="stylesheet" href="./highlight.min.css">
+  <script src="./highlight.min.js" defer="true"></script>
+  <script src="./highlight-javascript.min.js" defer="true"></script>
+  <style type="text/css">
+      pre.code-snippet {
+          margin-top: 0px;
+          margin-bottom: 0em;
+          margin-left: 2em;
+      }
+      pre.code-snippet code {
+          letter-spacing: -.5px;
+          padding: 0;
+          padding-bottom: 0.1em;
+          margin-left: -50px;
+          line-height: 1em;
+      }
+  </style>
 </head>
 <body class="shower list">
+  <script>window.onload = () => hljs.highlightAll();</script>
   <header class="caption">
     <h1>
       <a class="series" href="../">Web Fundamentals</a><br>
@@ -164,15 +182,15 @@
       <li class="next">
         Objects have properties
         <ul>
-          <li><code>dog.name = "Samson";</code></li>
+          <li><pre class="code-snippet"><code class="language-javascript">dog.name = "Samson";</code></pre></li>
         </ul>
       </li>
       <li class="next">
         Object have methods
         <ul>
           <li>Methods are object properties with function values</li>
-          <li><code>dog.bark = () => console.log("Woof!")</code></li>
-          <li><code>dog.bark()</code></li>
+          <li><pre class="code-snippet"><code class="language-javascript">dog.bark = () => console.log("Woof!");
+dog.bark();</code></pre></li>
         </ul>
       </li>
       <li class="next">
@@ -255,7 +273,7 @@
         </ul>
       </li>
     </ul>
-    <code class="next" style="font-size: 0.75em">Object.defineProperty(dog, "name", { value: "Laika" });</code>
+    <pre class="code-snippet"><code class="language-javascript">Object.defineProperty(dog, "name", { value: "Laika" });</code></pre>
   </div>
   
   <div class="slide" id="runtime-model-object-properties-property-descriptors-accessor">
@@ -278,7 +296,7 @@
         </ul>
       </li>
     </ul>
-     <code class="next" style="font-size: 0.75em">Object.defineProperty(dog, "name", { get: () => "Laika" });</code>
+    <pre class="code-snippet"><code class="language-javascript">Object.defineProperty(dog, "name", { get: () => "Laika" });</code></pre>
   </div>
   
   <div class="slide" id="runtime-model-object-properties-property-descriptors-common">
@@ -312,7 +330,7 @@
       <li class="next">
         Normal assignment is less verbose
         <ul>
-          <li><code>dog.name = "Samson";</code></li>
+          <li><pre class="code-snippet"><code class="language-javascript">dog.name = "Samson";</code></pre></li>
           <li>Property descriptors are defined implicitly</li>
           <li><code>write</code>, <code>configurable</code>, and <code>enumerable</code> default to <code>true</code></li>
         </ul>
@@ -379,22 +397,22 @@
       <li class="next">
         Prototypes are plain objects
         <ul>
-          <li><br \><code style="font-size: 0.75em; line-height: 1em; display: block;">const Animal = {<br \>
-&nbsp;&nbsp;live: function() {<br \>
-&nbsp;&nbsp;&nbsp;&nbsp;// 'this' refers to object instance<br \>
-&nbsp;&nbsp;&nbsp;&nbsp;console.log('I am ' + this.name);<br \>
-&nbsp;&nbsp;},<br \>
-};<br \>
-const Mammal = {<br \>
-&nbsp;&nbsp;walk: function() {<br \>
-&nbsp;&nbsp;&nbsp;&nbsp;console.log('I am walking');<br \>
-&nbsp;&nbsp;}<br \>
-};<br \>
-const Dog = {<br \>
-&nbsp;&nbsp;bark: function() {<br \>
-&nbsp;&nbsp;&nbsp;&nbsp;console.log('I am barking');<br \>
-&nbsp;&nbsp;}<br \>
-};</code></li>
+          <li><pre class="code-snippet"><code class="language-javascript">const Animal = {
+&nbsp;&nbsp;live: function() {
+&nbsp;&nbsp;&nbsp;&nbsp;// 'this' refers to object instance
+&nbsp;&nbsp;&nbsp;&nbsp;console.log('I am ' + this.name);
+&nbsp;&nbsp;},
+};
+const Mammal = {
+&nbsp;&nbsp;walk: function() {
+&nbsp;&nbsp;&nbsp;&nbsp;console.log('I am walking');
+&nbsp;&nbsp;}
+};
+const Dog = {
+&nbsp;&nbsp;bark: function() {
+&nbsp;&nbsp;&nbsp;&nbsp;console.log('I am barking');
+&nbsp;&nbsp;}
+};</code></pre></li>
         </ul>
       </li>
     </ul>
@@ -408,13 +426,13 @@ const Dog = {<br \>
       <li class="next">
         All Mammals are Animals
         <ul>
-          <li><code>Object.setPrototypeOf(Mammal, Animal);</code></li>
+          <li><pre class="code-snippet"><code class="language-javascript">Object.setPrototypeOf(Mammal, Animal);</code></pre></li>
         </ul>
       </li>
       <li class="next">
         All Dogs are Mammals
         <ul>
-          <li><code>Object.setPrototypeOf(Dog, Mammal);</code></li>
+          <li><pre class="code-snippet"><code class="language-javascript">Object.setPrototypeOf(Dog, Mammal);</code></pre></li>
         </ul>
       </li>
     </ul>
@@ -428,14 +446,14 @@ const Dog = {<br \>
       <li class="next">
         Create a new Dog instance
         <ul>
-          <li><code>const dog = Object.create(Dog);</code></li>
-          <li><code>dog.name = 'Samson';</code></li>
+          <li><pre class="code-snippet"><code class="language-javascript">const dog = Object.create(Dog);
+dog.name = 'Samson';</code></pre></li>
         </ul>
       </li>
       <li class="next">
         Properties and methods from the whole prototype chain can be used
         <ul>
-          <li><code>dog.live(); // Prints 'I am Samson'</code></li>
+          <li><pre class="code-snippet"><code class="language-javascript">dog.live(); // Prints 'I am Samson'</code></pre></li>
         </ul>
       </li>
     </ul>
@@ -449,12 +467,12 @@ const Dog = {<br \>
       <li class="next">
         <code>class</code>-based syntax is less verbose
         <ul>
-          <li><code>class Dog extends Mammal {<br \>
-&nbsp;&nbsp;constructor(name) {<br \>
-&nbsp;&nbsp;&nbsp;&nbsp;this.name = name;<br \>
-&nbsp;&nbsp;}<br \>
-}<br \>
-const dog = new Dog('samson');</code></li>
+          <li><pre class="code-snippet"><code class="language-javascript">class Dog extends Mammal {
+&nbsp;&nbsp;constructor(name) {
+&nbsp;&nbsp;&nbsp;&nbsp;this.name = name;
+&nbsp;&nbsp;}
+}
+const dog = new Dog('samson');</code></pre></li>
         </ul>
       </li>
       <li class="next">
@@ -592,8 +610,8 @@ const dog = new Dog('samson');</code></li>
       <li class="next">
         <code>ToPrimitive()</code> is applied on both arguments of <code>+</code>
         <ul>
-            <li><code>const obj = { valueOf: () => 1 }<br \>
-    console.log("a" + obj);</code></li>
+            <li><pre class="code-snippet"><code class="language-javascript">const obj = { valueOf: () => 1 }<br \>
+console.log("a" + obj);</code></pre></li>
         </ul>
       </li>
     </ul>
@@ -638,7 +656,7 @@ const dog = new Dog('samson');</code></li>
       <li class="next">
         <code>+</code> operation can be applied
         <ul>
-            <li><code>"a" + 1 = "a1"</code></li>
+            <li><pre class="code-snippet"><code class="language-javascript">"a" + 1 = "a1";</code></pre></li>
         </ul>
       </li>
     </ul>
@@ -797,12 +815,13 @@ const dog = new Dog('samson');</code></li>
       <li class="next">
         Datastructure with resolve and reject callbacks
         <ul>
-          <li><code>const p = new Promise((resolve, reject) => {<br \>
-&nbsp;&nbsp;slowAsyncOperation(resolve);<br \>
-&nbsp;&nbsp;setTimeout(() => reject(&mldr;), 1000);<br \>
-});<br \><br \>
-p.then(v => console.log(v))<br \>
-&nbsp;.catch(e => console.error(e));</code></li>
+          <li><pre class="code-snippet"><code class="language-javascript">const p = new Promise((resolve, reject) => {
+&nbsp;&nbsp;slowAsyncOperation(resolve);
+&nbsp;&nbsp;setTimeout(() => reject(&mldr;), 1000);
+});
+
+p.then(v => console.log(v))
+&nbsp;.catch(e => console.error(e));</code></pre></li>
         </ul>
       </li>
     </ul>
@@ -816,22 +835,22 @@ p.then(v => console.log(v))<br \>
       <li class="next">
         Without <code>async</code>/<code>await</code>
         <ul>
-          <li><code style="font-size: 1em; line-height: 1em; display: block;">function handle() {<br \>
-&nbsp;&nbsp;p.then(v => console.log(v))<br \>
-&nbsp;&nbsp;&nbsp;.catch(e => console.error(e));<br \>
-}</code></li>
+          <li><pre class="code-snippet"><code class="language-javascript">function handle() {
+&nbsp;&nbsp;p.then(v => console.log(v))
+&nbsp;&nbsp;&nbsp;.catch(e => console.error(e));
+}</code></pre></li>
         </ul>
       </li>
       <li class="next">
         With <code>async</code>/<code>await</code>
         <ul>
-          <li><code style="font-size: 1em; line-height: 1em; display: block;">async function handle() {<br \>
-&nbsp;&nbsp;try {<br \>
-&nbsp;&nbsp;&nbsp;&nbsp;console.log(await p);<br \>
-&nbsp;&nbsp;} catch (e) {<br \>
-&nbsp;&nbsp;&nbsp;&nbsp;console.error(e);<br \>
-&nbsp;&nbsp;}<br \>
-}</code></li>
+          <li><pre class="code-snippet"><code class="language-javascript">async function handle() {
+&nbsp;&nbsp;try {
+&nbsp;&nbsp;&nbsp;&nbsp;console.log(await p);
+&nbsp;&nbsp;} catch (e) {
+&nbsp;&nbsp;&nbsp;&nbsp;console.error(e);
+&nbsp;&nbsp;}
+}</code></pre></li>
         </ul>
       </li>
     </ul>
@@ -971,11 +990,11 @@ p.then(v => console.log(v))<br \>
         Generator functions produce generator objects
         <ul>
           <li>Stateful: Generator objects can be suspended and resumed</li>
-          <li><code>function* myGenerator() {<br \>
-&nbsp;yield 1;<br \>
-&nbsp;yield 2;<br \>
-&nbsp;yield 3;<br \>
-}</code></li>
+          <li><pre class="code-snippet"><code class="language-javascript">function* myGenerator() {
+&nbsp;yield 1;
+&nbsp;yield 2;
+&nbsp;yield 3;
+}</code></pre></li>
         </ul>
       </li>
       <li class="next">
@@ -1019,11 +1038,11 @@ p.then(v => console.log(v))<br \>
         Generator functions produce generator objects
         <ul>
           <li>Stateful: Generator objects can be suspended and resumed</li>
-          <li><code>async function* myGenerator() {<br \>
-&nbsp;yield await promise1;<br \>
-&nbsp;yield await promise2;<br \>
-&nbsp;yield await promise3;<br \>
-}</code></li>
+          <li><pre class="code-snippet"><code class="language-javascript">async function* myGenerator() {
+&nbsp;yield await promise1;
+&nbsp;yield await promise2;
+&nbsp;yield await promise3;
+}</code></pre></li>
         </ul>
       </li>
       <li class="next">
@@ -1077,7 +1096,7 @@ p.then(v => console.log(v))<br \>
       <li class="next">
         Wrapper over a target object
         <ul>
-          <li><code>const proxy = new Proxy(target, handler);</code></li>
+          <li><pre class="code-snippet"><code class="language-javascript">const proxy = new Proxy(target, handler);</code></pre></li>
         </ul>
       </li>
       <li class="next">
@@ -2056,23 +2075,23 @@ uncommon_dep1/<br \>
         <li class="next">
             Optional first error argument in callbacks
             <ul>
-                <li><code style="font-size: 0.70em; line-height: 1em; display: block; margin-top: 5px; margin-bottom: -15px">readFile('foo.txt', 'utf8', (err, data) => {<br \>
+                <li><pre class="code-snippet"><code class="language-javascript" style="font-size: 0.75em">readFile('foo.txt', 'utf8', (err, data) => {<br \>
 &nbsp;&nbsp;if (err) {<br \>
 &nbsp;&nbsp;&nbsp;&nbsp;// Handle error<br \>
 &nbsp;&nbsp;} else {<br \>
 &nbsp;&nbsp;&nbsp;&nbsp;// Handle data<br \>
 &nbsp;&nbsp;}<br \>
 });
-</code></li>
+</code></pre></li>
             </ul>
         </li>
         <li class="next">
             <code>'error'</code> events in EventEmitters
             <ul>
-                <li><code style="font-size: 0.70em; line-height: 1em; display: block; margin-top: 5px">myEmitter.on('error', (err) => {<br \>
+                <li><pre class="code-snippet"><code class="language-javascript" style="font-size: 0.75em">myEmitter.on('error', (err) => {<br \>
 &nbsp;&nbsp;// Handle error<br \>
 });
-</code></li>
+</code></pre></li>
             </ul>
         </li>
       </ul>
@@ -2114,12 +2133,12 @@ uncommon_dep1/<br \>
       <li class="next">
         Using the <code>fs</code> API from Node.js
         <ul>
-          <li><br \><code style="font-size: 0.75em; line-height: 1em; display: block;">import * as fs from 'node:fs';<br \>
+          <li><pre class="code-snippet"><code class="language-javascript">import * as fs from 'node:fs';<br \>
 <br \>
 const readStream = fs.createReadStream('foo.txt');<br \>
 readStream.on('data', (chunk) => console.log(chunk));<br \>
 readStream.on('error', (err) => console.error(err));<br \>
-readStream.on('end', () => console.log('Done!'));</code></li>
+readStream.on('end', () => console.log('Done!'));</code></pre></li>
         </ul>
       </li>
     </ul>
