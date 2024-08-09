@@ -261,7 +261,7 @@ dog.bark();</code></pre></li>
       <li class="next">
         Value
         <ul>
-          <li>If this property is included when enumerating properties</li>
+          <li>The value of this property</li>
           <li>Default: <code>value: undefined</code></li>
         </ul>
       </li>
@@ -2292,47 +2292,6 @@ readStream.on('end', () => console.log('Done!'));</code></pre></li>
   </div>
   
   <div class="slide" id="runtime-environments-optimizing-v8-speculative">
-    <h2>
-      Optimizers are speculative
-    </h2>
-    <ul>
-      <li class="next">
-        Optimizers first try the fast path
-        <ul>
-          <li>If it fails, fallback to unoptimized code</li>
-          <li>Fail-path has penalty of being extra slow</li>
-        </ul>
-      </li>
-      <li class="next">
-        Optimizers work well if your code is C-like
-        <ul>
-          <li>Datatypes for specific fields are constant</li>
-          <li>Objects have no dynamically changing properties</li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-  
-  <div class="toc slide" id="runtime-environments-wasm">
-    <h2>
-      <a class="series" href="../">Web Fundamentals</a><br>
-      <a class="module" href="#title">Web Scripting</a>
-    </h2>
-    <ul>
-      <li class="current">
-        <a href="#runtime-environments">Runtime Environments</a>
-        <ul>
-          <li><a href="#runtime-environments-nodejs">Node.js</a></li>
-          <li><a href="#runtime-environments-modules">Modules</a></li>
-          <li><a href="#runtime-environments-package-managers">Package Managers</a></li>
-          <li><a href="#runtime-environments-events">Event Emitters and Streams</a></li>
-          <li><a href="#runtime-environments-optimizing">Optimizing for JIT Compilers</a></li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-  
-  <div class="slide" id="runtime-environments-wasm-motivation">
     <h2>
       Optimizers are speculative
     </h2>
