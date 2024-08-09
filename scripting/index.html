@@ -2707,6 +2707,144 @@ readStream.on('end', () => console.log('Done!'));</code></li>
       </li>
     </ul>
   </div>
+  
+  <div class="slide" id="development-bundling-motivation">
+    <h2>
+      Towards cross-platform JavaScript
+    </h2>
+    <ul>
+      <li class="next">
+        Different APIs in browser and server
+        <ul>
+          <li>Browser-specific: DOM, &mldr;</li>
+          <li>Server runtime environment: <code>fs</code> in Node.js for file I/O, &mldr;</li>
+        </ul>
+      </li>
+      <li class="next">
+        Different approaches to modules
+        <ul>
+          <li>Runtime environments support CJS and ESM</li>
+          <li>Modern browsers only support ESM</li>
+          <li>Older browsers don't support modules</li>
+        </ul>
+      </li>
+      <li class="next">
+        Differences in optimization concerns
+        <ul>
+          <li>Split code across many (server) or few (browser) modules</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="development-bundling-overview">
+    <h2>
+      Bundlers enable cross-platform JavaScript
+    </h2>
+    <ul>
+      <li class="next">
+        Different APIs in browser and server
+        <ul>
+          <li>Transpilers such as Babel, polyfills</li>
+        </ul>
+      </li>
+      <li class="next">
+        Different approaches to modules
+        <ul>
+          <li>Creating browser-ready <em>bundles</em> of projects</li>
+        </ul>
+      </li>
+      <li class="next">
+        Differences in optimization concerns
+        <ul>
+          <li>Reducing the number of files within bundles</li>
+          <li>Optional optimization steps: <em>minification</em></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="development-bundling-webpack">
+    <figure class="cover width">
+      <img src="images/webpack.png"
+           alt="[Webpack is a bundler that bundles JavaScript and other assets.]">
+    </figure>
+    <footer>
+      <p>Webpack is a bundler that bundles JavaScript and other assets.</p>
+    </footer>
+  </div>
+  
+  <div class="slide" id="development-bundling-dependencies">
+    <h2>
+      Bundlers work in two steps
+    </h2>
+    <ul>
+      <li class="next">
+        Dependency resolution
+        <ul>
+          <li>Create a dependency graph of all modules</li>
+          <li>
+              <em>Tree-shaking</em> removes unused modules
+              <ul>
+                  <li>Does not work for dynamic imports</li>
+              </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        Packing
+        <ul>
+          <li>Convert dependency graph into browser-executable bundle</li>
+          <li>Other assets can be includes: HTML, CSS, &mldr;</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="development-bundling-optional">
+    <h2>
+      Making smaller bundles for production
+    </h2>
+    <ul>
+      <li class="next">
+        Minification
+        <ul>
+          <li>Removing unnecessary whitespaces and comments</li>
+          <li>Convention to use <code>.min.js</code> as extension</li>
+        </ul>
+      </li>
+      <li class="next">
+        Uglification
+        <ul>
+          <li>Minification + Shortening variable and function names</li>
+        </ul>
+      </li>
+      <li class="next">
+        Source maps link minified to original code
+        <ul>
+          <li>Modern browsers understand sourcemaps</li>
+          <li>Convention to use <code>.min.js.map</code> as extension</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="development-bundling-minify-example">
+    <figure class="cover height">
+      <img src="images/minify.png"
+           alt="[Minified code is difficult to read without source maps.]">
+    </figure>
+    <footer>
+      <p>Minified code is difficult to read without source maps.</p>
+    </footer>
+  </div>
+  
+  <!--
+      - Cross-platform code, small differences, mainly regarding modules -> bundling
+      - Bundling process overview, and give example tools
+      - Illustration showing bundling
+      - Bundling process in detail: dep resolution (+tree-shaking), packing, minification
+  -->
 
   <div class="toc slide" id="recap">
     <h2>
