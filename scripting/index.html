@@ -836,8 +836,9 @@ p.then(v => console.log(v))
         Without <code>async</code>/<code>await</code>
         <ul>
           <li><pre class="code-snippet"><code class="language-javascript">function handle() {
-&nbsp;&nbsp;p.then(v => console.log(v))
-&nbsp;&nbsp;&nbsp;.catch(e => console.error(e));
+  p1.then(v1 => p2.then(v2 => console.log(v1 + v2))
+           .catch(e => console.error(e));)
+   .catch(e => console.error(e));
 }</code></pre></li>
         </ul>
       </li>
@@ -845,11 +846,11 @@ p.then(v => console.log(v))
         With <code>async</code>/<code>await</code>
         <ul>
           <li><pre class="code-snippet"><code class="language-javascript">async function handle() {
-&nbsp;&nbsp;try {
-&nbsp;&nbsp;&nbsp;&nbsp;console.log(await p);
-&nbsp;&nbsp;} catch (e) {
-&nbsp;&nbsp;&nbsp;&nbsp;console.error(e);
-&nbsp;&nbsp;}
+  try {
+    console.log(await p1 + await p2);
+  } catch (e) {
+    console.error(e);
+  }
 }</code></pre></li>
         </ul>
       </li>
