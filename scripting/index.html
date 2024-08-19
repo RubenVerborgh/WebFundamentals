@@ -168,7 +168,9 @@
           <li><a href="#runtime-model-object-inheritance">Object Inheritance</a></li>
           <li><a href="#runtime-model-type-coercion">Type Coercion</a></li>
           <li><a href="#runtime-model-event-loop">Event Loop</a></li>
-          <li><a href="#runtime-model-advanced">Advanced Concepts</a></li>
+          <li><a href="#runtime-model-iterators">Iterators</a></li>
+          <li><a href="#runtime-model-metaprogramming">Metaprogramming</a></li>
+          <li><a href="#runtime-model-parallelism">Parallelism</a></li>
         </ul>
       </li>
     </ul>
@@ -351,7 +353,9 @@ dog.bark();</code></pre></li>
           <li class="current"><a href="#runtime-model-object-inheritance">Object Inheritance</a></li>
           <li><a href="#runtime-model-type-coercion">Type Coercion</a></li>
           <li><a href="#runtime-model-event-loop">Event Loop</a></li>
-          <li><a href="#runtime-model-advanced">Advanced Concepts</a></li>
+          <li><a href="#runtime-model-iterators">Iterators</a></li>
+          <li><a href="#runtime-model-metaprogramming">Metaprogramming</a></li>
+          <li><a href="#runtime-model-parallelism">Parallelism</a></li>
         </ul>
       </li>
     </ul>
@@ -497,7 +501,9 @@ const dog = new Dog('samson');</code></pre></li>
           <li><a href="#runtime-model-object-inheritance">Object Inheritance</a></li>
           <li class="current"><a href="#runtime-model-type-coercion">Type Coercion</a></li>
           <li><a href="#runtime-model-event-loop">Event Loop</a></li>
-          <li><a href="#runtime-model-advanced">Advanced Concepts</a></li>
+          <li><a href="#runtime-model-iterators">Iterators</a></li>
+          <li><a href="#runtime-model-metaprogramming">Metaprogramming</a></li>
+          <li><a href="#runtime-model-parallelism">Parallelism</a></li>
         </ul>
       </li>
     </ul>
@@ -702,7 +708,9 @@ console.log("a" + obj);</code></pre></li>
           <li><a href="#runtime-model-object-inheritance">Object Inheritance</a></li>
           <li><a href="#runtime-model-type-coercion">Type Coercion</a></li>
           <li class="current"><a href="#runtime-model-event-loop">Event Loop</a></li>
-          <li><a href="#runtime-model-advanced">Advanced Concepts</a></li>
+          <li><a href="#runtime-model-iterators">Iterators</a></li>
+          <li><a href="#runtime-model-metaprogramming">Metaprogramming</a></li>
+          <li><a href="#runtime-model-parallelism">Parallelism</a></li>
         </ul>
       </li>
     </ul>
@@ -942,7 +950,7 @@ p.then(v => console.log(v))
     </footer>
   </div>
   
-  <div class="toc slide" id="runtime-model-advanced">
+  <div class="toc slide" id="runtime-model-iterators">
     <h2>
       <a class="series" href="../">Web Fundamentals</a><br>
       <a class="module" href="#title">Web Scripting</a>
@@ -955,13 +963,15 @@ p.then(v => console.log(v))
           <li><a href="#runtime-model-object-inheritance">Object Inheritance</a></li>
           <li><a href="#runtime-model-type-coercion">Type Coercion</a></li>
           <li><a href="#runtime-model-event-loop">Event Loop</a></li>
-          <li class="current"><a href="#runtime-model-advanced">Advanced Concepts</a></li>
+          <li class="current"><a href="#runtime-model-iterators">Iterators</a></li>
+          <li><a href="#runtime-model-metaprogramming">Metaprogramming</a></li>
+          <li><a href="#runtime-model-parallelism">Parallelism</a></li>
         </ul>
       </li>
     </ul>
   </div>
   
-  <div class="slide" id="runtime-model-advanced-iterators">
+  <div class="slide" id="runtime-model-iterators-intro">
     <h2>
       Iterables and iterators
     </h2>
@@ -982,7 +992,7 @@ p.then(v => console.log(v))
     </ul>
   </div>
   
-  <div class="slide" id="runtime-model-advanced-generators">
+  <div class="slide" id="runtime-model-iterators-generators">
     <h2>
       Generators provide syntactic sugar to create iterators
     </h2>
@@ -1007,7 +1017,7 @@ p.then(v => console.log(v))
     </ul>
   </div>
   
-  <div class="slide" id="runtime-model-advanced-asynciterators">
+  <div class="slide" id="runtime-model-iterators-asynciterators">
     <h2>
       Async iterators are iterators returning promises
     </h2>
@@ -1030,7 +1040,7 @@ p.then(v => console.log(v))
     </ul>
   </div>
   
-  <div class="slide" id="runtime-model-advanced-asyncgenerators">
+  <div class="slide" id="runtime-model-iterators-asyncgenerators">
     <h2>
       Async generators provide syntactic sugar to create async iterators
     </h2>
@@ -1055,7 +1065,28 @@ p.then(v => console.log(v))
     </ul>
   </div>
   
-  <div class="slide" id="runtime-model-advanced-metaprogramming">
+  <div class="toc slide" id="runtime-model-metaprogramming">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Scripting</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#runtime-model">Runtime Model</a>
+        <ul>
+          <li><a href="#runtime-model-object-properties">Object Properties</a></li>
+          <li><a href="#runtime-model-object-inheritance">Object Inheritance</a></li>
+          <li><a href="#runtime-model-type-coercion">Type Coercion</a></li>
+          <li><a href="#runtime-model-event-loop">Event Loop</a></li>
+          <li><a href="#runtime-model-iterators">Iterators</a></li>
+          <li class="current"><a href="#runtime-model-metaprogramming">Metaprogramming</a></li>
+          <li><a href="#runtime-model-parallelism">Parallelism</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-metaprogramming-intro">
     <h2>
       Metaprogramming: writing a program that can process itself
     </h2>
@@ -1089,7 +1120,7 @@ p.then(v => console.log(v))
     </ul>
   </div>
   
-  <div class="slide" id="runtime-model-advanced-proxies">
+  <div class="slide" id="runtime-model-metaprogramming-proxies">
     <h2>
       Proxies can intercept and modify object operations
     </h2>
@@ -1110,7 +1141,28 @@ p.then(v => console.log(v))
     </ul>
   </div>
   
-  <div class="slide" id="runtime-model-advanced-parallelism">
+  <div class="toc slide" id="runtime-model-parallelism">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Scripting</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#runtime-model">Runtime Model</a>
+        <ul>
+          <li><a href="#runtime-model-object-properties">Object Properties</a></li>
+          <li><a href="#runtime-model-object-inheritance">Object Inheritance</a></li>
+          <li><a href="#runtime-model-type-coercion">Type Coercion</a></li>
+          <li><a href="#runtime-model-event-loop">Event Loop</a></li>
+          <li><a href="#runtime-model-iterators">Iterators</a></li>
+          <li><a href="#runtime-model-metaprogramming">Metaprogramming</a></li>
+          <li class="current"><a href="#runtime-model-parallelism">Parallelism</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-parallelism-intro">
     <h2>
       Building blocks for parallelism
     </h2>
@@ -1142,7 +1194,7 @@ p.then(v => console.log(v))
     </ul>
   </div>
   
-  <div class="slide" id="runtime-model-advanced-typedarray">
+  <div class="slide" id="runtime-model-parallelism-typedarray">
     <h2>
       Typed Arrays: Low-level binary arrays
     </h2>
@@ -1171,7 +1223,7 @@ p.then(v => console.log(v))
     </ul>
   </div>
   
-  <div class="slide" id="runtime-model-advanced-typedarray-memory">
+  <div class="slide" id="runtime-model-parallelism-typedarray-memory">
     <h2>
       Typed Arrays require specific memory allocation
     </h2>
