@@ -1533,7 +1533,7 @@ p.then(v => console.log(v))
     <div>
       <ul>
         <li class="next">
-            Modules expose functionality using <code>exports</code>
+            Modules expose functionality using <code>module.exports</code>
             <ul>
                 <li>Any kind of object: class, constants, objects, &mldr;</li>
             </ul>
@@ -1820,20 +1820,24 @@ p.then(v => console.log(v))
     <div>
       <ul>
         <li class="next">
-            <code>"dependencies"</code> entry in <code>packages.json</code> supports version ranges syntax
+            Versions represent types of changes across releases
             <ul>
-                <li>Major range: <code>~1.0.4</code> or <code>1.0.x</code> or <code>1.0</code></li>
-                <li>Minor range: <code>^1.0.4</code> or <code>1.x</code> or <code>1</code> <strong>&rarr; default in npm</strong></li>
-                <li>Patch range: <code>x</code> or <code>*</code></li>
+                <li>MAJOR.MINOR.PATCH</li>
             </ul>
         </li>
         <li class="next">
-            Example:
+            Meaning when version components increment
             <ul>
-                <li>"dependencies": {<br \>
-&nbsp;&nbsp;&nbsp;&nbsp;"my_dep": "^1.0.0",<br \>
-&nbsp;&nbsp;&nbsp;&nbsp;"another_dep": "~2.2.0"<br \>
-}</li>
+                <li>Major: Incompatible API changes</li>
+                <li>Minor: Added functionality (backwards-compatible)</li>
+                <li>Patch: Bug fix (backwards-compatible)</li>
+            </ul>
+        </li>
+        <li class="next">
+            Examples
+            <ul>
+                <li>1.0.0 &rarr; 1.0.1: A bug was fixed</li>
+                <li>1.0.0 &rarr; 2.0.0: A breaking change occurred</li>
             </ul>
         </li>
       </ul>
@@ -1862,22 +1866,27 @@ p.then(v => console.log(v))
     </div>
   </div>
   
-  <div class="slide" id="runtime-environments-package-managers-semver-ranges">
+  <div class="slide" id="runtime-environments-package-managers-semver-deps">
     <h2>
       Dependencies can be defined using SemVer ranges
     </h2>
     <div>
       <ul>
         <li class="next">
-            Developers using on another library
+            <code>"dependencies"</code> entry in <code>packages.json</code> understand SemVer ranges
             <ul>
-                <li>Detect type of change without having to go through changelog or commit history</li>
+                <li>Major range: <code>x</code> or <code>*</code></li>
+                <li>Minor range: <code>^1.0.4</code> or <code>1.x</code> or <code>1</code> <strong>&rarr; default in npm</strong></li>
+                <li>Patch range: <code>~1.0.4</code> or <code>1.0.x</code> or <code>1.0</code></li>
             </ul>
         </li>
         <li class="next">
-            Dependency resolution
+            Example:
             <ul>
-                <li>Deduplication of installed dependencies with compatible version ranges</li>
+                <li>"dependencies": {<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;"my_dep": "^1.0.0",<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;"another_dep": "~2.2.0"<br \>
+}</li>
             </ul>
         </li>
       </ul>
@@ -2203,18 +2212,18 @@ readStream.on('end', () => console.log('Done!'));</code></pre></li>
     </h2>
     <ul>
       <li class="next">
-        Many projects still work with Node.js Streams
-        <ul>
-          <li>Even when used in browsers</li>
-        </ul>
-      </li>
-      <li class="next">
         Web Streams API was inspired by Node.js Streams
         <ul>
           <li>Improvements based on lessons learned</li>
           <li>Strictly different API</li>
           <li>Streams can be converted to each other</li>
           <li>Node.js support since 16.x</li>
+        </ul>
+      </li>
+      <li class="next">
+        Many projects still work with Node.js Streams
+        <ul>
+          <li>Even when used in browsers</li>
         </ul>
       </li>
       <li class="next">
