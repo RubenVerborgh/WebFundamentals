@@ -16,7 +16,7 @@ Please read and accept the [contributor agreement](https://github.com/RubenVerbo
 ## Finding your way around
 This repository contains:
 - **1 introductory slidedeck** ([`index.html`](https://github.com/RubenVerborgh/WebFundamentals/blob/gh-pages/index.html) in the [root folder](https://github.com/RubenVerborgh/WebFundamentals/))
-- **5 lecture slidedecks** (`index.html` files in subfolders such as [`architecture`](https://github.com/RubenVerborgh/WebFundamentals/tree/gh-pages/architecture))
+- **7 lecture slidedecks** (`index.html` files in subfolders such as [`architecture`](https://github.com/RubenVerborgh/WebFundamentals/tree/gh-pages/architecture))
 - **shared [`images`](https://github.com/RubenVerborgh/WebFundamentals/tree/gh-pages/_shared/images), [`styles`](https://github.com/RubenVerborgh/WebFundamentals/tree/gh-pages/_shared/styles), [`fonts`](https://github.com/RubenVerborgh/WebFundamentals/tree/gh-pages/_shared/fonts), and [`scripts`](https://github.com/RubenVerborgh/WebFundamentals/tree/gh-pages/_shared/scripts)**
 - **`images` per lecture** (`images` folders in subfolders such as [`architecture`](https://github.com/RubenVerborgh/WebFundamentals/tree/gh-pages/architecture))
 - **auxiliary files** in the [root folder](https://github.com/RubenVerborgh/WebFundamentals/)
