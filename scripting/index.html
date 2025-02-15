@@ -1,0 +1,2961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Web Scripting</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <link rel="stylesheet" href="../_shared/styles/shower-ruben.css">
+  <link rel="stylesheet" href="../_shared/styles/web-fundamentals.css">
+  <link rel="stylesheet" href="./highlight.min.css">
+  <script src="./highlight.min.js" defer="true"></script>
+  <script src="./highlight-javascript.min.js" defer="true"></script>
+  <style type="text/css">
+      pre.code-snippet {
+          margin-top: 0px;
+          margin-bottom: 0em;
+          margin-left: 2em;
+      }
+      pre.code-snippet code {
+          letter-spacing: -.5px;
+          padding: 0;
+          padding-bottom: 0.1em;
+          margin-left: -50px;
+          line-height: 1em;
+      }
+  </style>
+</head>
+<body class="shower list">
+  <script>window.onload = () => hljs.highlightAll();</script>
+  <header class="caption">
+    <h1>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Scripting</a>
+    </h1>
+    <p>
+      <a href="https://www.rubensworks.net/">Ruben Taelman</a>,
+      <a href="https://www.ugent.be/">Ghent University</a> – <a href="https://www.imec.be/">imec</a>
+    </p>
+    <ul class="links">
+      <li>Videos: <a href="https://www.youtube.com/watch?v=VJpISTUuM8c&list=PLNeQLfosX2dhluSIruqE1dyaneA14_INw">YouTube</a> or <a href="https://cloud.ilabt.imec.be/index.php/s/s7MSWZQ9NYXGNiC">raw files</a></li>
+      <li class="prev">Previous topic: <a href="../birds-eye-view/">A Bird’s-Eye View of the Web</a></li>
+      <li class="next">Next topic: <a href="../web-apis/">Web APIs</a></li>
+    </ul>
+  </header>
+
+  <div class="title slide" id="title">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Scripting</a>
+    </h2>
+    <p class="author"><a href="https://www.rubensworks.net/">Ruben Taelman</a></p>
+    <p class="affiliation">
+      <a href="https://www.ugent.be/"><img  class="ugent"  src="../_shared/images/logos/ugent.svg"  alt="Ghent University"></a>
+      <a href="https://www.imec.be/"><img class="imec" src="../_shared/images/logos/imec.svg" alt="imec"></a>
+      <a href="https://idlab.technology/"><img class="idlab" src="../_shared/images/logos/idlab.svg" alt="IDLab"></a>
+    </p>
+    <p class="license">
+      <a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="../_shared/images/cc-by.svg" /></a>
+      Except where otherwise noted, the content of these slides is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+    </p>
+  </div>
+  
+  <div class="slide" id="intro-scripting-first">
+    <h2>
+      JavaScript, the programming language
+    </h2>
+    <img src="images/js-logo.png"
+         alt="[Logo of JavaScript.]"
+         style="float: right; width: 150px"\>
+    <div>
+      <ul>
+        <li class="next">
+          Created for making Web pages dynamic
+          <ul>
+              <li>By Netscape in 1995</li>
+          </ul>
+        </li>
+        <li class="next">
+            Popular first-class programming language
+            <ul>
+                <li>Full Stack JavaScript: use JavaScript <em>everywhere</em></li>
+            </ul>
+        </li>
+        <li class="next">
+          Quick to develop in
+          <ul>
+              <li>Dynamically typed</li><!-- Monkey patching -->
+              <li>Just in Time compiled</li>
+              <li>Object-Oriented and Functional</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="intro-scripting-quote">
+    <h2>
+      JavaScript has <em>good</em> and <em>bad</em> parts
+    </h2>
+    <blockquote>
+      <p>
+        In JavaScript, there is a beautiful, elegant, highly expressive language that is buried under a steaming pile of good intentions and blunders.
+      </p>
+      <cite><a href="https://www.oreilly.com/library/view/javascript-the-good/9780596517748/">Douglas Crockford (2008). “JavaScript: The Good Parts: The Good Parts”, p.2, "O'Reilly Media, Inc." </a></cite>
+    </blockquote>
+  </div>
+  
+  <div class="slide" id="intro-scripting-focus">
+    <h2>
+      Effectively using JavaScript
+    </h2>
+    <ul>
+      <li class="next">
+        Focus on how JavaScript works
+        <ul>
+            <li>Understand what (not) to use when</li>
+        </ul>
+      </li>
+      <li class="next">
+        We assume basic knowledge of JavaScript
+        <ul>
+            <li>Syntax, functions, classes, error handling, &hellip;</li>
+        </ul>
+      </li>
+      <li class="next">
+        WebAssembly enables alternative languages to be executed in Web pages
+        <ul>
+            <li>Not in scope for this lecture</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="toc slide" id="index">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Scripting</a>
+    </h2>
+    <ul>
+      <li><a href="#runtime-model">Runtime Model</a></li>
+      <li><a href="#runtime-environments">Runtime Environments</a></li>
+      <li><a href="#development">Development Process</a></li>
+    </ul>
+  </div>
+  
+  <div class="toc slide" id="runtime-model">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Scripting</a>
+    </h2>
+    <ul>
+      <li class="current"><a href="#runtime-model">Runtime Model</a></li>
+      <li><a href="#runtime-environments">Runtime Environments</a></li>
+      <li><a href="#development">Development Process</a></li>
+    </ul>
+  </div>
+  
+  <div class="toc slide" id="runtime-model-object-properties">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Scripting</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#runtime-model">Runtime Model</a>
+        <ul>
+          <li class="current"><a href="#runtime-model-object-properties">Object Properties</a></li>
+          <li><a href="#runtime-model-object-inheritance">Object Inheritance</a></li>
+          <li><a href="#runtime-model-type-coercion">Type Coercion</a></li>
+          <li><a href="#runtime-model-event-loop">Event Loop</a></li>
+          <li><a href="#runtime-model-iterators">Iterators</a></li>
+          <li><a href="#runtime-model-metaprogramming">Metaprogramming</a></li>
+          <li><a href="#runtime-model-parallelism">Parallelism</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-object-properties-objects">
+    <h2>
+      Objects represent things
+    </h2>
+    <ul>
+      <li class="next">
+        Objects have properties
+        <ul>
+          <li><pre class="code-snippet"><code class="language-javascript">dog.name = "Samson";</code></pre></li>
+        </ul>
+      </li>
+      <li class="next">
+        Object have methods
+        <ul>
+          <li>Methods are object properties with function values</li>
+          <li><pre class="code-snippet"><code class="language-javascript">dog.bark = () => console.log("Woof!");
+dog.bark();</code></pre></li>
+        </ul>
+      </li>
+      <li class="next">
+        Object instantiation
+        <ul>
+          <li><code>{}</code> or <code>new Object()</code></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-object-properties-object-elements">
+    <h2>
+      Objects have <em>properties</em> and <em>internal slots</em>
+    </h2>
+    <ul>
+      <li class="next">
+        Properties
+        <ul>
+          <li>Accessible key-value mappings</li>
+        </ul>
+      </li>
+      <li class="next">
+        Internal slots
+        <ul>
+          <li>Inaccessible object properties defined by ECMAScript</li>
+          <li>ECMAScripts denotes them with <code>[[SlotName]]</code></li>
+          <li>
+              Examples:
+              <ul>
+                <li><code>[[Prototype]]</code>: Prototype of object</li>
+                <li><code>[[Extensible]]</code>: If properties can be added to object</li>
+                <li><code>[[PrivateFieldValues]]</code>: List of private class fields</li>
+              </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-object-properties-property-descriptors">
+    <h2>
+      Property descriptors encode attributes of properties
+    </h2>
+    <ul>
+      <li class="next">
+        Object properties can be added or modified with <code>Object.defineProperty()</code>
+        <ul>
+          <li>Uses the ECMAScript internal method <code>[[DefineOwnProperty]]</code></li>
+          <li>Can be read with <code>Object.getOwnPropertyDescriptor()</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        Two disjoint types of property descriptors
+        <ul>
+          <li>Data descriptor: property with value</li>
+          <li>Accessor descriptor: property with getter-setter functions</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-object-properties-property-descriptors-data">
+    <h2>
+      Data descriptors encode attributes of value-based properties
+    </h2>
+    <ul>
+      <li class="next">
+        Value
+        <ul>
+          <li>The value of this property</li>
+          <li>Default: <code>value: undefined</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        Writability
+        <ul>
+          <li>If this property can be changed through assignment</li>
+          <li>Default: <code>writable: false</code></li>
+        </ul>
+      </li>
+    </ul>
+    <pre class="code-snippet"><code class="language-javascript">Object.defineProperty(dog, "name", { value: "Laika" });</code></pre>
+  </div>
+  
+  <div class="slide" id="runtime-model-object-properties-property-descriptors-accessor">
+    <h2>
+      Accessor descriptors encode attributes of getter-setter-based properties
+    </h2>
+    <ul>
+      <li class="next">
+        Getter
+        <ul>
+          <li>Function that returns the value of a property</li>
+          <li>Default: <code>get: undefined</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        Setter
+        <ul>
+          <li>Function that is invoked with an assigned property value</li>
+          <li>Default: <code>set: undefined</code></li>
+        </ul>
+      </li>
+    </ul>
+    <pre class="code-snippet"><code class="language-javascript">Object.defineProperty(dog, "name", { get: () => "Laika" });</code></pre>
+  </div>
+  
+  <div class="slide" id="runtime-model-object-properties-property-descriptors-common">
+    <h2>
+      Common attributes for data and accessor descriptors
+    </h2>
+    <ul>
+      <li class="next">
+        Configurability
+        <ul>
+          <li>If attributes of this property can be changed</li>
+          <li>Default: <code>configurable: false</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        Enumerability
+        <ul>
+          <li>If this property is included when enumerating properties</li>
+          <li>E.g.: <code>for&hellip;in</code>, <code>Object.keys</code></li>
+          <li>Default: <code>enumerable: false</code></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-object-properties-property-descriptors-implicit">
+    <h2>
+      Property descriptors allow fine-grained control
+    </h2>
+    <ul>
+      <li class="next">
+        Normal assignment is less verbose
+        <ul>
+          <li><pre class="code-snippet"><code class="language-javascript">dog.name = "Samson";</code></pre></li>
+          <li>Property descriptors are defined implicitly</li>
+          <li><code>write</code>, <code>configurable</code>, and <code>enumerable</code> default to <code>true</code></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="toc slide" id="runtime-model-object-inheritance">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Scripting</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#runtime-model">Runtime Model</a>
+        <ul>
+          <li><a href="#runtime-model-object-properties">Object Properties</a></li>
+          <li class="current"><a href="#runtime-model-object-inheritance">Object Inheritance</a></li>
+          <li><a href="#runtime-model-type-coercion">Type Coercion</a></li>
+          <li><a href="#runtime-model-event-loop">Event Loop</a></li>
+          <li><a href="#runtime-model-iterators">Iterators</a></li>
+          <li><a href="#runtime-model-metaprogramming">Metaprogramming</a></li>
+          <li><a href="#runtime-model-parallelism">Parallelism</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-object-inheritance-prototypes">
+    <h2>
+      Prototype-based inheritance
+    </h2>
+    <ul>
+      <li class="next">
+        Before ECMAScript had classes, inheritance was done using prototypes
+        <ul>
+          <li>Classes are <em>syntactical sugar</em> on prototypes (since ES2015)</li>
+          <li>Prototypes may be used directly, but are less convenient</li>
+        </ul>
+      </li>
+      <li class="next">
+        <code>[[Prototype]]</code> points to object parent
+        <ul>
+          <li>Property access propagates through prototype chain.</li>
+          <li>Manipulate with <code>Object.getPrototypeOf()</code> and <code>Object.setPrototypeOf()</code></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-object-inheritance-prototype-chain">
+    <figure class="cover height">
+      <img src="images/prototype-chain.jpeg"
+           alt="[Property access propagates through property chain.]">
+    </figure>
+    <footer>
+      <p>Prototype chain represent inheritance hierarchy</p>
+    </footer>
+  </div>
+
+  <div class="slide" id="runtime-model-object-inheritance-manual-prototypes">
+    <h2>
+      Creating prototypes manually
+    </h2>
+    <ul>
+      <li class="next">
+        Prototypes are plain objects
+        <ul>
+          <li><pre class="code-snippet"><code class="language-javascript">const Animal = {
+&nbsp;&nbsp;live: function() {
+&nbsp;&nbsp;&nbsp;&nbsp;// 'this' refers to object instance
+&nbsp;&nbsp;&nbsp;&nbsp;console.log('I am ' + this.name);
+&nbsp;&nbsp;},
+};
+const Mammal = {
+&nbsp;&nbsp;walk: function() {
+&nbsp;&nbsp;&nbsp;&nbsp;console.log('I am walking');
+&nbsp;&nbsp;}
+};
+const Dog = {
+&nbsp;&nbsp;bark: function() {
+&nbsp;&nbsp;&nbsp;&nbsp;console.log('I am barking');
+&nbsp;&nbsp;}
+};</code></pre></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-object-inheritance-manual-prototypes-set">
+    <h2>
+      Defining prototype chain manually
+    </h2>
+    <ul>
+      <li class="next">
+        All Mammals are Animals
+        <ul>
+          <li><pre class="code-snippet"><code class="language-javascript">Object.setPrototypeOf(Mammal, Animal);</code></pre></li>
+        </ul>
+      </li>
+      <li class="next">
+        All Dogs are Mammals
+        <ul>
+          <li><pre class="code-snippet"><code class="language-javascript">Object.setPrototypeOf(Dog, Mammal);</code></pre></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-object-inheritance-manual-prototypes-instantiate">
+    <h2>
+      Instantiating a prototype
+    </h2>
+    <ul>
+      <li class="next">
+        Create a new Dog instance
+        <ul>
+          <li><pre class="code-snippet"><code class="language-javascript">const dog = Object.create(Dog);
+dog.name = 'Samson';</code></pre></li>
+        </ul>
+      </li>
+      <li class="next">
+        Properties and methods from the whole prototype chain can be used
+        <ul>
+          <li><pre class="code-snippet"><code class="language-javascript">dog.live(); // Prints 'I am Samson'</code></pre></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-object-protypes-avoid">
+    <h2>
+      Avoid defining prototypes manually!
+    </h2>
+    <ul>
+      <li class="next">
+        <code>class</code>-based syntax is less verbose
+        <ul>
+          <li><pre class="code-snippet"><code class="language-javascript">class Dog extends Mammal {
+&nbsp;&nbsp;constructor(name) {
+&nbsp;&nbsp;&nbsp;&nbsp;this.name = name;
+&nbsp;&nbsp;}
+}
+const dog = new Dog('samson');</code></pre></li>
+        </ul>
+      </li>
+      <li class="next">
+        <code>Object.setPrototypeOf</code> is slow
+        <ul>
+          <li>JavaScript engines do not optimize for it</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="toc slide" id="runtime-model-type-coercion">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Scripting</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#runtime-model">Runtime Model</a>
+        <ul>
+          <li><a href="#runtime-model-object-properties">Object Properties</a></li>
+          <li><a href="#runtime-model-object-inheritance">Object Inheritance</a></li>
+          <li class="current"><a href="#runtime-model-type-coercion">Type Coercion</a></li>
+          <li><a href="#runtime-model-event-loop">Event Loop</a></li>
+          <li><a href="#runtime-model-iterators">Iterators</a></li>
+          <li><a href="#runtime-model-metaprogramming">Metaprogramming</a></li>
+          <li><a href="#runtime-model-parallelism">Parallelism</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-type-coercion-why">
+    <h2>
+      Type Coercion implicitly converts values to the expected type
+    </h2>
+    <ul>
+      <li class="next">
+        Initially, JavaScript had no exceptions support
+        <ul>
+          <li>Function input: coerced to expected type (string &rarr; number)</li>
+          <li>Function output: error value if something fails (<code>NaN</code>)</li>
+          <li>Applies to older JavaScript features: <code>==</code>, <code>+</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        Modern JavaScript features do not coerce
+        <ul>
+          <li>They can throw exceptions instead</li>
+          <li>E.g., <code>in</code>, <code>===</code></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-type-coercion-wtfjs">
+    <figure class="cover height">
+      <img src="images/wtfjs.webp"
+           alt="[Non-strict equality operator is not transitive.]">
+        <figcaption>
+          ©2022 <a href="https://github.com/denysdovhan/wtfjs">https://github.com/denysdovhan/wtfjs</a>
+        </figcaption>
+    </figure>
+    <footer>
+      <p>Non-strict equality operator is not transitive.</p>
+    </footer>
+  </div>
+  
+  <div class="slide" id="runtime-model-type-coercion-weirdjs">
+    <figure class="cover height">
+      <img src="images/javascriptweird.jpg"
+           alt="[Plus operator also experiences strange behaviour.]">
+        <figcaption>
+          ©2019 <a href="https://dev.to/neutrino2211/avoiding-weird-javascript-behaviour-true--true--2-but-true--1-pn9">Mainasara Al-amin Tsowa</a>
+        </figcaption>
+    </figure>
+    <footer>
+      <p>Plus operator also experiences strange behaviour.</p>
+    </footer>
+  </div>
+  
+  <div class="slide" id="runtime-model-type-coercion-toprimitive">
+    <h2>
+      Internal <code>ToPrimitive()</code> function is used for many coercion algorithms
+    </h2>
+    <ul>
+      <li class="next">
+        Accepts values of any type, and a <em>hint</em>
+        <ul>
+          <li>Hint indicates the preferred type: string, number, or default</li>
+        </ul>
+      </li>
+      <li class="next">
+        Features that prefer numbers
+        <ul>
+          <li><code>&lt;</code>, <code>&gt;</code>, <code>-</code>, <code>BigInt</code>, &hellip;</li>
+        </ul>
+      </li>
+      <li class="next">
+        Features that prefer strings
+        <ul>
+          <li><code>toString</code>, <code>[]</code>, &hellip;</li>
+        </ul>
+      </li>
+      <li class="next">
+        Features that are neutral
+        <ul>
+          <li><code>==</code>, <code>+</code>, , <code>new Date()</code>, &hellip;</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-type-coercion-toprimitive-approach">
+    <h2>
+      <code>ToPrimitive()</code> uses a fall-through approach
+    </h2>
+    <ul>
+      <li class="next">
+        Five checks
+        <ol>
+          <li>Return if a primitive</li>
+          <li>Invoke optional <code>Symbol.toPrimitive</code> method</li>
+          <li>Invoke <code>toString</code> or <code>valueOf</code> if string hint</li>
+          <li>Invoke <code>valueOf</code> or <code>toString</code> otherwise</li>
+          <li>Throw <code>TypeError</code></li>
+        </ol>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-type-coercion-toprimitive-example-1">
+    <h2>
+      Example: Applying <code>+</code>
+    </h2>
+    <ul>
+      <li class="next">
+        <code>ToPrimitive()</code> is applied on both arguments of <code>+</code>
+        <ul>
+            <li><pre class="code-snippet"><code class="language-javascript">const obj = { valueOf: () => 1 }<br \>
+console.log("a" + obj);</code></pre></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-type-coercion-toprimitive-example-2">
+    <h2>
+      Example: Applying <code>+</code>
+    </h2>
+    <ul>
+      <li class="next">
+        <code>ToPrimitive("a")</code>
+        <ol>
+          <li>Already is a primitive, return as-is</li>
+        </ol>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-type-coercion-toprimitive-example-3">
+    <h2>
+      Example: Applying <code>+</code>
+    </h2>
+    <ul>
+      <li class="next">
+        <code>ToPrimitive({ valueOf: () => 1 })</code>
+        <ol>
+          <li>Not a primitive</li>
+          <li>No <code>Symbol.toPrimitive</code> method</li>
+          <li>No string hint</li>
+          <li>Invoke <code>valueOf</code> &rarr; <code>1</code></li>
+        </ol>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-type-coercion-toprimitive-example-4">
+    <h2>
+      Example: Applying <code>+</code>
+    </h2>
+    <ul>
+      <li class="next">
+        <code>+</code> operation can be applied
+        <ul>
+            <li><pre class="code-snippet"><code class="language-javascript">"a" + 1 = "a1";</code></pre></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-type-coercion-avoid">
+    <h2>
+      Avoid Type Coercion when possible
+    </h2>
+    <ul>
+      <li class="next">
+        Use features that don't apply Type Coercion
+        <ul>
+          <li><code>==</code> &rarr; <code>===</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        Explicitly cast values to types
+        <ul>
+          <li><s><code>"25" + 1</code></s></li>
+          <li><code>Number("25") + 1</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        Explicitly check types in your own functions
+        <ul>
+          <li>Throw <code>TypeError</code></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="toc slide" id="runtime-model-event-loop">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Scripting</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#runtime-model">Runtime Model</a>
+        <ul>
+          <li><a href="#runtime-model-object-properties">Object Properties</a></li>
+          <li><a href="#runtime-model-object-inheritance">Object Inheritance</a></li>
+          <li><a href="#runtime-model-type-coercion">Type Coercion</a></li>
+          <li class="current"><a href="#runtime-model-event-loop">Event Loop</a></li>
+          <li><a href="#runtime-model-iterators">Iterators</a></li>
+          <li><a href="#runtime-model-metaprogramming">Metaprogramming</a></li>
+          <li><a href="#runtime-model-parallelism">Parallelism</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-event-loop-overview">
+    <h2>
+      Event-based runtime model
+    </h2>
+    <ul>
+      <li class="next">
+        Designed for handling events
+        <ul>
+          <li>User interactions</li>
+          <li>Network requests</li>
+          <li>&mldr;</li>
+        </ul>
+      </li>
+      <li class="next">
+        JavaScript is single-threaded
+        <ul>
+          <li>Events are handled in sequence via the event loop</li>
+          <li>Callbacks for asynchronous operations (I/O, timers, &mldr;)</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-event-loop-callbacks">
+    <h2>
+      Callback functions for (a)synchronous completion
+    </h2>
+    <ul>
+      <li class="next">
+        Two types
+        <ul>
+          <li>Synchronous: <code>array.forEach(<strong>element => &mldr;</strong>)</code></li>
+          <li>Asynchronous: <code>setTimeout(<strong>() => &mldr;</strong>, 10)</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        Asynchronous callbacks are invoked later
+        <ul>
+          <li>Added as tasks on a queue</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-event-loop-macrotask-queue">
+    <h2>
+      Engines process the <em>macrotask queue</em>
+    </h2>
+    <ul>
+      <li class="next">
+        Macrotask queue contains tasks
+        <ul>
+          <li>Registered <code>'click'</code> handler after user clicks</li>
+          <li>Callback after scheduled <code>setTimeout</code> is due</li>
+          <li>Executing a loaded <code>&lt;script src="..."&gt;</code></li>
+          <li>The next file chunk was read</li>
+          <li>&mldr;</li>
+        </ul>
+      </li>
+      <li class="next">
+        Engine processes tasks in the macrotask queue
+        <ul>
+          <li>In FIFO order</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-event-loop-macrotask-queue-figure">
+    <figure class="cover width">
+      <img src="images/macrotasks.svg"
+           alt="[Example of the Macrotask queue.]">
+      <figcaption>
+        ©2023 <a href="https://javascript.info/event-loop">Ilya Kantor</a>
+      </figcaption>
+    </figure>
+    <footer>
+      <p>Example of the Macrotask queue.</p>
+    </footer>
+  </div>
+  
+  <div class="slide" id="runtime-model-event-loop-js-stack-heap-queue">
+    <figure class="cover height">
+      <img src="images/js-stack-heap-queue.svg"
+           alt="[Stack, Heap, and Queue.]">
+      <figcaption>
+        ©2023 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Event_loop">MDN</a>
+      </figcaption>
+    </figure>
+    <footer>
+      <p>Stack, Heap, and Queue.</p>
+    </footer>
+  </div>
+  
+  <!--
+      - Special type of async callback: microtask (promises!)
+      - Async/await is just as syntactic sugar
+  -->
+  
+  <div class="slide" id="runtime-model-event-loop-promises">
+    <h2>
+      Promises hold results of async operations
+    </h2>
+    <ul>
+      <li class="next">
+        Datastructure with resolve and reject callbacks
+        <ul>
+          <li><pre class="code-snippet"><code class="language-javascript">const p = new Promise((resolve, reject) => {
+&nbsp;&nbsp;slowAsyncOperation(resolve);
+&nbsp;&nbsp;setTimeout(() => reject(&mldr;), 1000);
+});
+
+p.then(v => console.log(v))
+&nbsp;.catch(e => console.error(e));</code></pre></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-event-loop-asyncawait">
+    <h2>
+      <code>async</code>/<code>await</code>: syntactic sugar for promises
+    </h2>
+    <ul>
+      <li class="next">
+        Without <code>async</code>/<code>await</code>
+        <ul>
+          <li><pre class="code-snippet"><code class="language-javascript">function handle() {
+  p1.then(v1 => p2.then(v2 => console.log(v1 + v2))
+           .catch(e => console.error(e));)
+   .catch(e => console.error(e));
+}</code></pre></li>
+        </ul>
+      </li>
+      <li class="next">
+        With <code>async</code>/<code>await</code>
+        <ul>
+          <li><pre class="code-snippet"><code class="language-javascript">async function handle() {
+  try {
+    console.log(await p1 + await p2);
+  } catch (e) {
+    console.error(e);
+  }
+}</code></pre></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-event-loop-promise-handled">
+    <h2>
+      Promises always handled asynchronously
+    </h2>
+    <ul>
+      <li class="next">
+        Callbacks are added to a separate <em>microtask queue</em>
+        <ul>
+          <li><code>.then()</code>, <code>.catch()</code>, <code>.finally()</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        Enables prioritization of tasks
+        <ul>
+          <li>Macrotasks are less urgent</li>
+          <li>Microtasks are more urgent</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-event-loop-microtask-queue">
+    <h2>
+      <em>Micro</em>tasks run before <em>macro</em>tasks
+    </h2>
+    <ul>
+      <li class="next">
+        Microtask queue contains tasks
+        <ul>
+          <li>Handling of <em>Promises</em> and <code>await</code></li>
+          <li>Scheduled via <code>queueMicrotask</code></li>
+        </ul>
+      </li>
+      <li class="next">
+        Engine processes tasks in the microtask queue
+        <ul>
+          <li>Fully processed after each macrotask</li>
+          <li>In FIFO order</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-event-loop-task-queue-scheduling">
+    <h2>
+      Task scheduling impacts performance
+    </h2>
+    <ul>
+      <li class="next">
+        Run-to-completion
+        <ul>
+          <li>Tasks are processed completely before going to next</li>
+          <li>Makes reasoning about program easier</li>
+          <li>Long-running tasks block later tasks (avoid them!)</li>
+        </ul>
+      </li>
+      <li class="next">
+        Rendering pipeline invoked in-between macrotasks
+        <ul>
+          <li>Not in-between microtasks</li>
+        </ul>
+      </li>
+      <li class="next">
+        Tasks block interaction
+        <ul>
+          <li><code>setTimeout</code>, <code>setInterval</code>, <code>requestAnimationFrame</code></li>
+          <li>Web Workers run in separate thread (no DOM access)</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="runtime-model-event-loop-microtask-queue-figure">
+    <figure class="cover height">
+      <img src="images/microtasks.svg"
+           alt="[Example of the Macrotask and Microtask queues.]">
+      <figcaption>
+        ©2023 <a href="https://javascript.info/event-loop">Ilya Kantor</a>
+      </figcaption>
+    </figure>
+    <footer>
+      <p>Example of the Macrotask and Microtask queues.</p>
+    </footer>
+  </div>
+  
+  <div class="toc slide" id="runtime-model-iterators">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Scripting</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#runtime-model">Runtime Model</a>
+        <ul>
+          <li><a href="#runtime-model-object-properties">Object Properties</a></li>
+          <li><a href="#runtime-model-object-inheritance">Object Inheritance</a></li>
+          <li><a href="#runtime-model-type-coercion">Type Coercion</a></li>
+          <li><a href="#runtime-model-event-loop">Event Loop</a></li>
+          <li class="current"><a href="#runtime-model-iterators">Iterators</a></li>
+          <li><a href="#runtime-model-metaprogramming">Metaprogramming</a></li>
+          <li><a href="#runtime-model-parallelism">Parallelism</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-iterators-intro">
+    <h2>
+      Iterables and iterators
+    </h2>
+    <ul>
+      <li class="next">
+        Objects can be made <em>iterable</em>
+        <ul>
+          <li>Implementing the <code>[Symbol.iterator]</code> method</li>
+          <li>Invoked by <code>for&mldr;of</code>, spread operator, &mldr;</li>
+        </ul>
+      </li>
+      <li class="next">
+        <code>[Symbol.iterator]</code> returns an iterator
+        <ul>
+          <li><code>next()</code>: returns <code>{ value }</code> or <code>{ done: true }</code></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-iterators-generators">
+    <h2>
+      Generators provide syntactic sugar to create iterators
+    </h2>
+    <ul>
+      <li class="next">
+        Generator functions produce generator objects
+        <ul>
+          <li>Stateful: Generator objects can be suspended and resumed</li>
+          <li><pre class="code-snippet"><code class="language-javascript">function* myGenerator() {
+&nbsp;yield 1;
+&nbsp;yield 2;
+&nbsp;yield 3;
+}</code></pre></li>
+        </ul>
+      </li>
+      <li class="next">
+        Generator objects are iterable
+        <ul>
+          <li>They implement <code>[Symbol.iterator]</code></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-iterators-asynciterators">
+    <h2>
+      Async iterators are iterators returning promises
+    </h2>
+    <ul>
+      <li class="next">
+        Objects can be made <em>async iterable</em>
+        <ul>
+          <li>Implementing the <code>[Symbol.asyncIterator]</code> method</li>
+          <li>Invoked by <code>for await&mldr;of</code></li>
+          <li>Useful when iterating over async elements</li>
+          <li>E.g., <code>ReadableStream</code> contains chunks of HTTP body</li>
+        </ul>
+      </li>
+      <li class="next">
+        <code>[Symbol.asyncIterator]</code> returns an async iterator
+        <ul>
+          <li><code>next()</code>: returns promise to <code>{ value }</code> or <code>{ done: true }</code></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-iterators-asyncgenerators">
+    <h2>
+      Async generators provide syntactic sugar to create async iterators
+    </h2>
+    <ul>
+      <li class="next">
+        Generator functions produce generator objects
+        <ul>
+          <li>Stateful: Generator objects can be suspended and resumed</li>
+          <li><pre class="code-snippet"><code class="language-javascript">async function* myGenerator() {
+&nbsp;yield await promise1;
+&nbsp;yield await promise2;
+&nbsp;yield await promise3;
+}</code></pre></li>
+        </ul>
+      </li>
+      <li class="next">
+        Async generator objects are async iterable
+        <ul>
+          <li>They implement <code>[Symbol.asyncIterator]</code></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="toc slide" id="runtime-model-metaprogramming">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Scripting</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#runtime-model">Runtime Model</a>
+        <ul>
+          <li><a href="#runtime-model-object-properties">Object Properties</a></li>
+          <li><a href="#runtime-model-object-inheritance">Object Inheritance</a></li>
+          <li><a href="#runtime-model-type-coercion">Type Coercion</a></li>
+          <li><a href="#runtime-model-event-loop">Event Loop</a></li>
+          <li><a href="#runtime-model-iterators">Iterators</a></li>
+          <li class="current"><a href="#runtime-model-metaprogramming">Metaprogramming</a></li>
+          <li><a href="#runtime-model-parallelism">Parallelism</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-metaprogramming-intro">
+    <h2>
+      Metaprogramming: writing a program that can process itself
+    </h2>
+    <img src="images/ouroboros.png"
+         alt="[Ouroboros]"
+         style="float: right; width: 110px"\>
+    <ul>
+      <li class="next">
+        Types of metaprogramming
+        <ol>
+          <li>
+              <strong>Introspection</strong>: Read-access to program structure
+              <ul>
+                  <li>E.g. <code>Object.keys()</code></li>
+              </ul>
+          </li>
+          <li>
+              <strong>Self-modification</strong>: Changing the program structure
+              <ul>
+                  <li>Dynamically modifying object fields and methods</li>
+              </ul>
+          </li>
+          <li>
+              <strong>Intercession</strong>: Redefine semantics of language operations
+              <ul>
+                  <li>Proxies</li>
+              </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-metaprogramming-proxies">
+    <h2>
+      Proxies can intercept and modify object operations
+    </h2>
+    <ul>
+      <li class="next">
+        Wrapper over a target object
+        <ul>
+          <li><pre class="code-snippet"><code class="language-javascript">const proxy = new Proxy(target, handler);</code></pre></li>
+        </ul>
+      </li>
+      <li class="next">
+        Handler provides <em>traps</em> for operations
+        <ul>
+          <li><strong>Trap</strong>: overrides the behaviour of an operation</li>
+          <li>Getters, setters, delete, &mldr;</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="toc slide" id="runtime-model-parallelism">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Scripting</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#runtime-model">Runtime Model</a>
+        <ul>
+          <li><a href="#runtime-model-object-properties">Object Properties</a></li>
+          <li><a href="#runtime-model-object-inheritance">Object Inheritance</a></li>
+          <li><a href="#runtime-model-type-coercion">Type Coercion</a></li>
+          <li><a href="#runtime-model-event-loop">Event Loop</a></li>
+          <li><a href="#runtime-model-iterators">Iterators</a></li>
+          <li><a href="#runtime-model-metaprogramming">Metaprogramming</a></li>
+          <li class="current"><a href="#runtime-model-parallelism">Parallelism</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-parallelism-intro">
+    <h2>
+      Building blocks for parallelism
+    </h2>
+    <ul>
+      <li class="next">
+        Safe communication beyond a single event loop
+        <ul>
+          <li>Web Workers, Worker Threads, WebAssembly, WebGL, &mldr;</li>
+        </ul>
+      </li>
+      <li class="next">
+        <code>Atomics</code>: Utilities for thread-safe atomic operations
+        <ul>
+          <li>Add, exchange, lock, &mldr;</li>
+        </ul>
+      </li>
+      <li class="next">
+        <code>SharedArrayBuffer</code>: Binary data buffer
+        <ul>
+          <li>Can be safely shared and sliced across threads</li>
+        </ul>
+      </li>
+      <li class="next">
+        Transferable objects
+        <ul>
+          <li>Transfer objects to other contexts, no sharing</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-parallelism-typedarray">
+    <h2>
+      Typed Arrays: Low-level binary arrays
+    </h2>
+    <ul>
+      <li class="next">
+        Regular arrays can contain all value types
+        <ul>
+          <li>Different than array types of languages like C and Java</li>
+        </ul>
+      </li>
+      <li class="next">
+        Typed arrays can only contain specific values
+        <ul>
+          <li><strong><code>Int8Array</code></strong>: Signed bytes</li>
+          <li><strong><code>UInt8Array</code></strong>: Unsigned bytes</li>
+          <li><strong><code>Int16Array</code></strong>: Signed 16-bit short integers</li>
+          <li>&mldr;</li>
+        </ul>
+      </li>
+      <li class="next">
+        Useful when low-level access is required
+        <ul>
+          <li>WebAssembly, WebGL, &mldr;</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-model-parallelism-typedarray-memory">
+    <h2>
+      Typed Arrays require specific memory allocation
+    </h2>
+    <ul>
+      <li class="next">
+        Size must be specified through constructor
+        <ul>
+          <li>Number of elements or copy of another typed array</li>
+        </ul>
+      </li>
+      <li class="next">
+        All Typed Arrays operate on an <code>ArrayBuffer</code>
+        <ul>
+          <li>Created internally or passed through constructor</li>
+          <li><code>ArrayBuffer</code>s are <em>transferable</em></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="toc slide" id="runtime-environments">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Scripting</a>
+    </h2>
+    <ul>
+      <li><a href="#runtime-model">Runtime Model</a></li>
+      <li class="current"><a href="#runtime-environments">Runtime Environments</a></li>
+      <li><a href="#development">Development Process</a></li>
+    </ul>
+  </div>
+  
+  <div class="toc slide" id="runtime-environments-nodejs">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Scripting</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#runtime-environments">Runtime Environments</a>
+        <ul>
+          <li class="current"><a href="#runtime-environments-nodejs">Node.js</a></li>
+          <li><a href="#runtime-environments-modules">Modules</a></li>
+          <li><a href="#runtime-environments-package-managers">Package Managers</a></li>
+          <li><a href="#runtime-environments-events">Event Emitters and Streams</a></li>
+          <li><a href="#runtime-environments-optimizing">Optimizing for JIT Compilers</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-environments-nodejs-history">
+    <img src="images/nodejs-logo.svg"
+         alt="[Logo of Node.js.]"
+         style="float: right; width: 250px"\>
+    <h2>
+      Run JavaScript Everywhere
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+          2009: Environment for event-based Web servers
+          <ul>
+              <li>Alternative to sequential servers that do not scale well to many concurrent connections</li>
+          </ul>
+        </li>
+        <li class="next">
+          Major release every six months
+          <ul>
+              <li><strong>Odd versions</strong>: Limited maintenance</li>
+              <li><strong>Even versions</strong>: LTS 18 months + maintenance 12 months</li>
+              <li>&rarr; Target even releases during development for stability</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-nodejs-philisophy">
+    <h2>
+      The Node.js principles
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Small core
+            <ul>
+                <li>Node.js API as small as possible, rest delegated to userland</li>
+            </ul>
+        </li>
+        <li class="next">
+            Small reusable modules
+            <ul>
+                <li>Small in scope and size; <em>Don't Repeat Yourself (DRY)</em></li>
+            </ul>
+        </li>
+        <li class="next">
+            Small surface area
+            <ul>
+                <li>No access to internals, only a specific entry point</li>
+            </ul>
+        </li>
+        <li class="next">
+            Simplicity and pragmatism
+            <ul>
+                <li><em>Keep It Simple, Stupid (KISS)</em></li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-nodejs-architecture">
+    <h2>
+      Node.js is based on the V8 engine
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            <strong>V8</strong>: JavaScript execution engine designed for Chrome
+            <ul>
+                <li>Highly performant execution of JavaScript</li>
+            </ul>
+        </li>
+        <li class="next">
+            <strong>libuv</strong>: I/O engine of Node.js
+            <ul>
+                <li>Abstracts I/O access across operating systems</li>
+            </ul>
+        </li>
+        <li class="next">
+            <strong>Node.JS API</strong>: Core JavaScript library
+            <ul>
+                <li>Dedicated APIs: Streams, child process, &mldr;</li>
+                <li>Excludes browser-specific APIs: DOM, <code>window</code>, &mldr;</li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-nodejs-reactor">
+    <h2>
+      Reactor pattern for handling I/O
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Callback-based &amp; asynchronous
+            <ul>
+                <li>Invoke operation on a resource using a <em>handler</em></li>
+                <li>Handler is invoked through event loop on completion</li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-nodejs-reactor-figure">
+    <figure class="cover height">
+      <img src="images/reactor-pattern.jpg"
+           alt="[Asynchronous I/O using the reactor pattern in Node.js.]">
+      <figcaption>
+        ©2020 <a href="https://www.nodejsdesignpatterns.com/">Node.js Design Patterns</a>
+      </figcaption>
+    </figure>
+    <footer>
+      <p>Asynchronous I/O using the reactor pattern in Node.js.</p>
+    </footer>
+  </div>
+  
+  <div class="slide" id="runtime-environments-nodejs-event-loop">
+    <h2>
+      Node.js implements the event loop as multiple sequential phases
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Macrotasks
+            <ul>
+                <li><strong>Poll</strong>: I/O-related callbacks</li>
+                <li><strong>Check</strong>: <code>setImmediate</code></li>
+                <li><strong>Close</strong>: <code>EventEmitter</code> <code>"close"</code> events</li>
+                <li><strong>Timers</strong>: <code>setTimeout</code> and <code>setInterval</code></li>
+                <li><strong>Pending</strong>: System events, such as errors in sockets</li>
+            </ul>
+        </li>
+        <li class="next">
+            Microtasks
+            <ul>
+                <li><strong>Node.js</strong>: <code>process.nextTick</code></li>
+                <li><strong>V8</strong>: Promises and <code>queueMicrotask</code></li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-nodejs-alternatives">
+    <h2>
+      Node.js is the most popular environment, but alternatives exist
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Deno
+            <img src="images/deno-logo.svg"
+                 alt="[Logo of Deno.]"
+                 style="float: right; width: 150px"\>
+            <ul>
+                <li>By creator of Node.js to avoid its flaws</li>
+                <li>Importing modules through URLs</li>
+                <li>More secure (opt-in flags)</li>
+                <li>Runs TypeScript directly</li>
+            </ul>
+        </li>
+        <li class="next">
+            Bun
+            <img src="images/bun-logo.svg"
+                 alt="[Logo of Bun.]"
+                 style="float: right; width: 150px"\>
+            <ul>
+                <li>Runs on JavaScriptCore instead of V8</li>
+                <li>Faster and more memory-friendly</li>
+                <li>Not fully (yet) with Node.js</li>
+                <li>Runs TypeScript directly</li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="toc slide" id="runtime-environments-modules">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Scripting</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#runtime-environments">Runtime Environments</a>
+        <ul>
+          <li><a href="#runtime-environments-nodejs">Node.js</a></li>
+          <li class="current"><a href="#runtime-environments-modules">Modules</a></li>
+          <li><a href="#runtime-environments-package-managers">Package Managers</a></li>
+          <li><a href="#runtime-environments-events">Event Emitters and Streams</a></li>
+          <li><a href="#runtime-environments-optimizing">Optimizing for JIT Compilers</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-environments-modules-motivation">
+    <h2>
+      Splitting up code into <em>modules</em>
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            All code in a single file is unsustainable
+            <ul>
+                <li>Code can be split into modules</li>
+            </ul>
+        </li>
+        <li class="next">
+            Reducing complexity during development
+            <ul>
+                <li>Focus on smaller parts of code</li>
+                <li>Avoid conflicts when working in teams</li>
+            </ul>
+        </li>
+        <li class="next">
+            Reusability
+            <ul>
+                <li>Generic modules can be reused across projects</li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-modules-approaches">
+    <h2>
+      Node.js supports two types of modules
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            CommonJS (CJS)
+            <ul>
+                <li>Introduced by Node.js</li>
+            </ul>
+        </li>
+        <li class="next">
+            ECMAScript Modules (ESM)
+            <ul>
+                <li>Standardized later in ECMAScript</li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-modules-cjs">
+    <h2>
+      CommonJS: Node.js's original modules
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Modules expose functionality using <code>module.exports</code>
+            <ul>
+                <li>Any kind of object: class, constants, objects, &mldr;</li>
+            </ul>
+        </li>
+        <li class="next">
+            Modules can be imported using <code>require()</code>
+            <ul>
+                <li>Path to a file or directory</li>
+                <li>Invokes Node.js's module resolution algorithm</li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-modules-cjs-resolution">
+    <h2>
+      Module resolution in CommonJS
+    </h2>
+    <div>
+      <code>const imported = require(mod);</code><br \><br \>
+      <ol>
+        <li class="next">
+            <code>mod</code> is the name of a core Node.js module &rarr; load
+        </li>
+        <li class="next">
+            <code>mod</code> starts with <code>/</code>, <code>./</code>, or <code>../</code>
+            <ul>
+                <li>Directory: load <code>main</code> from <code>package.json</code> or <code>index.js</code></li>
+                <li>File: load with fallback to <code>.js</code>, <code>.json</code>, or <code>.node</code> extensions</li>
+            </ul>
+        </li>
+        <li class="next">
+            Look for directory in <code>./node_modules</code> matching <code>mod</code>
+            <ul>
+                <li>Traverse parent directories until root is reached</li>
+            </ul>
+        </li>
+      </ol>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-modules-cjs-resolution-examples">
+    <h2>
+      Examples of module resolution in CommonJS
+    </h2>
+    <dl>
+      <dt><code>require('url')</code></dt>
+      <dd>Node.js URL core module</dd>
+      <dt><code>require('./file')</code></dt>
+      <dd><code>./file.js</code></dd>
+      <dt><code>require('pad')</code></dt>
+      <dd><code>./node_modules/pad/index.js</code></dd>
+    </dl>
+  </div>
+  
+  <div class="slide" id="runtime-environments-modules-esm">
+    <h2>
+      ECMAScript modules: Native JavaScript modules
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Modules expose functionality using <code>export</code> statements
+            <ul>
+                <li>Any kind of object: class, constants, objects, &mldr;</li>
+            </ul>
+        </li>
+        <li class="next">
+            Modules can be imported using <code>import</code> statements
+            <ul>
+                <li>Path to a file or directory, <strong>or a URL</strong></li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-modules-esm-cjs">
+    <h2>
+      Differences between CJS and ESM
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            CJS loads synchronous, ESM asynchronous
+            <ul>
+                <li>ESM can load remote files</li>
+            </ul>
+        </li>
+        <li class="next">
+            ESM imports must be specified <em>with</em> extensions
+            <ul>
+                <li>CJS allows file paths without extensions</li>
+            </ul>
+        </li>
+        <li class="next">
+            ESM allows named and default exports per file
+            <ul>
+                <li>CJS only allows one type per file</li>
+            </ul>
+        </li>
+        <li class="next">
+            Browser support
+            <ul>
+                <li>ESM can run in Node.js and browsers</li>
+                <li>CJS must be <em>bundled</em> before it can run in browsers</li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-modules-esm-cjs-practise">
+    <h2>
+      CJS and ESM in practise
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Dual packaging
+            <ul>
+                <li>Distribution with both ESM (<code>*.mjs</code>) and CJS (<code>*.cjs</code>) files</li>
+                <li>Dual packaging hazard: loading separate of same package</li>
+                <li>&rarr; <code>instanceof</code> checks can differ for exported classes</li>
+            </ul>
+        </li>
+        <li class="next">
+            CJS/ESM hell
+            <ul>
+                <li>Some libraries or tooling only support CJS or ESM</li>
+                <li>As of Node 22: ESM loading with <code>require()</code></li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-modules-esm-cjs-popularity">
+    <figure class="cover height">
+      <img src="images/npm-esm-cjs.svg"
+           alt="[CJS is still more popular on npm, but declining.]">
+      <figcaption>
+        ©2024 <a href="https://github.com/wooorm/npm-esm-vs-cjs">https://github.com/wooorm/</a>
+      </figcaption>
+    </figure>
+    <footer>
+      <p>CJS is still more popular on npm, but declining.</p>
+    </footer>
+  </div>
+  
+  <div class="toc slide" id="runtime-environments-package-managers">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Scripting</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#runtime-environments">Runtime Environments</a>
+        <ul>
+          <li><a href="#runtime-environments-nodejs">Node.js</a></li>
+          <li><a href="#runtime-environments-modules">Modules</a></li>
+          <li class="current"><a href="#runtime-environments-package-managers">Package Managers</a></li>
+          <li><a href="#runtime-environments-events">Event Emitters and Streams</a></li>
+          <li><a href="#runtime-environments-optimizing">Optimizing for JIT Compilers</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-environments-package-managers-motivation">
+    <h2>
+      A package managers helps managing collections of JavaScript modules
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Collection of tools
+            <ul>
+                <li>to install, upgrade, configure, and remove packages</li>
+            </ul>
+        </li>
+        <li class="next">
+            Packages are distributions of software and data
+            <ul>
+                <li>Contains JavaScript modules and supporting files</li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-package-managers-npm">
+    <img src="images/npm-logo.svg"
+         alt="[Logo of npm.]"
+         style="float: right; width: 180px"\>
+    <h2>
+      A package manager for Node.js
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            npm registry
+            <ul>
+                <li>Millions of public JavaScript packages</li>
+                <li>Open: anyone can deploy and consume</li>
+            </ul>
+        </li>
+        <li class="next">
+            Command-line tool to manage packages using <code>package.json</code>
+            <ul>
+                <li>Metadata: package name, author, &mldr;</li>
+                <li>Dependencies on other packages</li>
+                <li>Files to be shipped with the package</li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-package-managers-npm-node">
+    <h2>
+      Node.js was created before npm
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Developers had to manually add modules to <code>node_modules/</code>
+            <ul>
+                <li>npm was created independently to make this less tedious</li>
+                <li>npm is now installed together with Node.js installations</li>
+            </ul>
+        </li>
+        <li class="next">
+            The Node.js runtime is not aware of npm
+            <ul>
+                <li>npm populates <code>node_modules/</code></li>
+                <li>Node.js loads modules from <code>node_modules/</code></li>
+                <li>&rarr; alternative package managers can be used!</li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-package-managers-alternatives">
+    <h2>
+      npm is the most popular package managers, but alternatives exist
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Yarn
+            <img src="images/yarn-logo.svg"
+                 alt="[Logo of Yarn.]"
+                 style="float: right; width: 150px"\>
+            <ul>
+                <li>Initiated by Meta and Google (now independent)</li>
+                <li>Solves performance issues with large projects</li>
+                <li>Consistency and security</li>
+            </ul>
+        </li>
+        <li class="next">
+            pnpm
+            <img src="images/pnpm-logo.svg"
+                 alt="[Logo of pnpm.]"
+                 style="float: right; width: 150px"\>
+            <ul>
+                <li>Hard-links packages to a global store</li>
+                <li>Reduces disk space across installations</li>
+            </ul>
+        </li>
+        <li class="next">
+            &rarr; Both use npm's <code>package.json</code>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-package-managers-semver">
+    <h2>
+      npm packages follow <a href="https://semver.org/"><em>Semantic Versioning (SemVer)</em></a>
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Versions represent types of changes across releases
+            <ul>
+                <li>MAJOR.MINOR.PATCH</li>
+            </ul>
+        </li>
+        <li class="next">
+            Meaning when version components increment
+            <ul>
+                <li>Major: Incompatible API changes</li>
+                <li>Minor: Added functionality (backwards-compatible)</li>
+                <li>Patch: Bug fix (backwards-compatible)</li>
+            </ul>
+        </li>
+        <li class="next">
+            Examples
+            <ul>
+                <li>1.0.0 &rarr; 1.0.1: A bug was fixed</li>
+                <li>1.0.0 &rarr; 2.0.0: A breaking change occurred</li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-package-managers-semver-reasons">
+    <h2>
+      SemVer is useful for man and machine
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Developers using on another library
+            <ul>
+                <li>Detect type of change without having to go through changelog or commit history</li>
+            </ul>
+        </li>
+        <li class="next">
+            Dependency resolution
+            <ul>
+                <li>Deduplication of installed dependencies with compatible version ranges</li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-package-managers-semver-deps">
+    <h2>
+      Dependencies can be defined using SemVer ranges
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            <code>"dependencies"</code> entry in <code>packages.json</code> understand SemVer ranges
+            <ul>
+                <li>Major range: <code>x</code> or <code>*</code></li>
+                <li>Minor range: <code>^1.0.4</code> or <code>1.x</code> or <code>1</code> <strong>&rarr; default in npm</strong></li>
+                <li>Patch range: <code>~1.0.4</code> or <code>1.0.x</code> or <code>1.0</code></li>
+            </ul>
+        </li>
+        <li class="next">
+            Example:
+            <ul>
+                <li>"dependencies": {<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;"my_dep": "^1.0.0",<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;"another_dep": "~2.2.0"<br \>
+}</li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-package-managers-installing">
+    <h2>
+      Installing dependencies with a package manager
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            <code>npm install</code> fetches dependencies of a package
+            <ul>
+                <li>This includes all transitive dependencies</li>
+            </ul>
+        </li>
+        <li class="next">
+            Dependency resolution algorithms
+            <ul>
+                <li>Determine precise versions for version ranges</li>
+                <li>Determine the install location of the dependency</li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-package-managers-dependency-resolution-naive">
+    <h2>
+      A naive dependency resolution algorithm: nested <code>node_modules/</code>
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Each dependency has its own <code>node_modules/</code> in which dependencies are installed
+            <ul>
+                <li>Pro: Code isolation and no chance of semver conflicts</li>
+                <li>Con: Deep trees and chance of repeated installations</li>
+            </ul>
+        </li>
+        <li class="next">
+            Example:
+            <ul>
+                <li><code style="font-size: 0.70em; line-height: 1em; display: block;">dep1/<br \>
+&nbsp;&nbsp;node_modules/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;common_dep1/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;common_dep2/<br \>
+dep2/<br \>
+&nbsp;&nbsp;node_modules/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;common_dep1/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;uncommon_dep1/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node_modules/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;common_dep2/<br \>
+</code></li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-package-managers-dependency-resolution-naive-node">
+    <figure class="cover height">
+      <img src="images/node_modules_heavy.png"
+           alt="[Node modules are the heaviest objects in the universe.]">
+    </figure>
+    <footer>
+      <p>Nested dependency resolution leads to heavy disk usage, which was still used in npm version 2</p>
+    </footer>
+  </div>
+  
+  <div class="slide" id="runtime-environments-package-managers-dependency-resolution-dedupe">
+    <h2>
+      Dependency resolution with <em>deduping</em>
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Dependencies are deduplicated by hoisting them to highest possible <code>node_modules/</code>
+            <ul>
+                <li>Only if they are compatible with the SemVer range</li>
+            </ul>
+        </li>
+        <li class="next">
+            Example:
+            <ul>
+                <li>
+                    <code style="font-size: 0.70em; line-height: 1em; display: block; float: left">dep1/<br \>
+&nbsp;&nbsp;node_modules/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;common_dep1/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;common_dep2/<br \>
+dep2/<br \>
+&nbsp;&nbsp;node_modules/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;common_dep1/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;uncommon_dep1/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node_modules/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;common_dep2/<br \>
+</code>
+<div style="float: left; height: 100px; padding: 50px; font-size: 3em">&rarr;</div>
+                    <code style="font-size: 0.70em; line-height: 1em; display: block">dep1/<br \>
+common_dep1/<br \>
+common_dep2/<br \>
+dep2/<br \>
+uncommon_dep1/<br \>
+</code></li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-package-managers-dependency-resolution-dedupe">
+    <h2>
+      Dependencies that are incompatible with the SemVer range are not hoisted
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Example:
+            <ul>
+                <li>
+                    <code style="font-size: 0.70em; line-height: 1em; display: block; float: left">dep1/<br \>
+&nbsp;&nbsp;node_modules/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;common_dep1/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;common_dep2/ # ^2.0.0<br \>
+dep2/<br \>
+&nbsp;&nbsp;node_modules/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;common_dep1/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;uncommon_dep1/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node_modules/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;common_dep2/ # ^1.0.0<br \>
+</code>
+<div style="float: left; height: 100px; padding: 50px; font-size: 3em">&rarr;</div>
+                    <code style="font-size: 0.70em; line-height: 1em; display: block">dep1/<br \>
+common_dep1/<br \>
+common_dep2/<br \>
+dep2/<br \></
+uncommon_dep1/<br \>
+&nbsp;&nbsp;node_modules/<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;common_dep2/<br \>
+</code></li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-package-managers-dependency-resolution-determinism">
+    <h2>
+      The order in which dependencies are installed determines matters
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Dependencies are hoisted in order of installation
+            <ul>
+                <li>A different install order can lead to different tree structures</li>
+            </ul>
+        </li>
+        <li class="next">
+            Re-ordering package tree can reduce size
+            <ul>
+                <li><code>npm dedupe</code> attempts to reduce duplication</li>
+            </ul>
+        </li>
+        <li class="next">
+            <code>package-lock.json</code> guarantees determinism
+            <ul>
+                <li>Locks the tree and versions in semantic ranges</li>
+                <li>Useful for collaborative projects</li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="toc slide" id="runtime-environments-events">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Scripting</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#runtime-environments">Runtime Environments</a>
+        <ul>
+          <li><a href="#runtime-environments-nodejs">Node.js</a></li>
+          <li><a href="#runtime-environments-modules">Modules</a></li>
+          <li><a href="#runtime-environments-package-managers">Package Managers</a></li>
+          <li class="current"><a href="#runtime-environments-events">Event Emitters and Streams</a></li>
+          <li><a href="#runtime-environments-optimizing">Optimizing for JIT Compilers</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="runtime-environments-events-observers">
+    <h2>
+      From callbacks to EventEmitters
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Callbacks have limitations
+            <ul>
+                <li>Responsible for a single type of event</li>
+                <li>Can only notify a single observer</li>
+            </ul>
+        </li>
+        <li class="next">
+            EventEmitters follow the <em>Observer</em> pattern
+            <ul>
+                <li>Can handle multiple types of events</li>
+                <li>Accepts registrations of multiple listeners per event</li>
+                <li>API:
+                    <ul>
+                        <li><code>on(event, listener)</code>, <code>once(event, listener)</code></li>
+                        <li><code>emit(event, ...args)</code></li>
+                        <li><code>removeListener(event, listener)</code></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-modules-events-eventemitter-overview">
+    <figure class="cover height">
+      <img src="images/eventemitter.webp"
+           alt="[EventEmitter enables observation on multiple events.]">
+      <figcaption>
+        ©2020 <a href="https://www.nodejsdesignpatterns.com/">Node.js Design Patterns</a>
+      </figcaption>
+    </figure>
+    <footer>
+      <p>EventEmitter enables observation on multiple events.</p>
+    </footer>
+  </div>
+  
+  <div class="slide" id="runtime-environments-events-error-handling">
+    <h2>
+      Conventions for asynchronous error handling in Node.js
+    </h2>
+    <p>Errors can not be handled in callbacks and EventEmitters using try-catch.</p>
+    <div>
+      <ul>
+        <li class="next">
+            Optional first error argument in callbacks
+            <ul>
+                <li><pre class="code-snippet"><code class="language-javascript" style="font-size: 0.75em">readFile('foo.txt', 'utf8', (err, data) => {<br \>
+&nbsp;&nbsp;if (err) {<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;// Handle error<br \>
+&nbsp;&nbsp;} else {<br \>
+&nbsp;&nbsp;&nbsp;&nbsp;// Handle data<br \>
+&nbsp;&nbsp;}<br \>
+});
+</code></pre></li>
+            </ul>
+        </li>
+        <li class="next">
+            <code>'error'</code> events in EventEmitters
+            <ul>
+                <li><pre class="code-snippet"><code class="language-javascript" style="font-size: 0.75em">myEmitter.on('error', (err) => {<br \>
+&nbsp;&nbsp;// Handle error<br \>
+});
+</code></pre></li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-events-streams">
+    <h2>
+      Streams are EventEmitters for processing asynchronous data streams
+    </h2>
+    <div>
+      <ul>
+        <li class="next">
+            Alternative to processing data after buffering
+            <ul>
+                <li><strong>Memory efficient</strong>: Processing data in chunks</li>
+                <li><strong>Time efficient</strong>: Earlier of processing chunks</li>
+                <li><strong>Composable</strong>: Streams can be piped to each other</li>
+            </ul>
+        </li>
+        <li class="next">
+            Different types of streams
+            <ul>
+                <li><code>Writable</code>: Stream to write to <em>(e.g. file on disk)</em></li>
+                <li><code>Readable</code>: Stream to read from<em> (e.g. file on disk)</em></li>
+                <li><code>Duplex</code>: Implements <code>Writable</code> and <code>Readable</code> <em>(e.g. sockets)</em></li>
+                <li><code>Transform</code>: <code>Duplex</code> that can modify data chunks <em>(e.g. gzip)</em></li>
+            </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="slide" id="runtime-environments-events-streams-example">
+    <h2>
+      Reading files using streams
+    </h2>
+    <ul>
+      <li class="next">
+        Using the <code>fs</code> API from Node.js
+        <ul>
+          <li><pre class="code-snippet"><code class="language-javascript">import * as fs from 'node:fs';<br \>
+<br \>
+const readStream = fs.createReadStream('foo.txt');<br \>
+readStream.on('data', (chunk) => console.log(chunk));<br \>
+readStream.on('error', (err) => console.error(err));<br \>
+readStream.on('end', () => console.log('Done!'));</code></pre></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="runtime-environments-events-readablestreams">
+    <h2>
+      Node.js Streams preceded the Web Streams API (for browsers)
+    </h2>
+    <ul>
+      <li class="next">
+        Web Streams API was inspired by Node.js Streams
+        <ul>
+          <li>Improvements based on lessons learned</li>
+          <li>Strictly different API</li>
+          <li>Streams can be converted to each other</li>
+          <li>Node.js support since 16.x</li>
+        </ul>
+      </li>
+      <li class="next">
+        Many projects still work with Node.js Streams
+        <ul>
+          <li>Even when used in browsers</li>
+        </ul>
+      </li>
+      <li class="next">
+        <span class="opinion">Web Streams will replace Node.js Streams</span>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-environments-events-streams-concepts">
+    <h2>
+      Concepts in Node.js and Web Streams
+    </h2>
+    <ul>
+      <li class="next">
+        Piping
+        <ul>
+          <li>Chaining streams to each other</li>
+        </ul>
+      </li>
+      <li class="next">
+        Backpressure
+        <ul>
+          <li>Stream in pipeline notify others to pause sending chunks</li>
+          <li>Avoids buildup of large buffers within pipelines</li>
+          <li><em>High water mark</em>: maximum desired buffer size</li>
+        </ul>
+      </li>
+      <li class="next">
+        Teeing
+        <ul>
+          <li>Splitting a stream into two identical copies</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="toc slide" id="runtime-environments-optimizing">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Scripting</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#runtime-environments">Runtime Environments</a>
+        <ul>
+          <li><a href="#runtime-environments-nodejs">Node.js</a></li>
+          <li><a href="#runtime-environments-modules">Modules</a></li>
+          <li><a href="#runtime-environments-package-managers">Package Managers</a></li>
+          <li><a href="#runtime-environments-events">Event Emitters and Streams</a></li>
+          <li class="current"><a href="#runtime-environments-optimizing">Optimizing for JIT Compilers</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-environments-optimizing-intro">
+    <h2>
+      JS engines use just-in-time (JIT) compilation
+    </h2>
+    <ul>
+      <li class="next">
+        A good basic understanding of them is important
+        <ul>
+          <li>Can help optimizing your JavaScript code</li>
+        </ul>
+      </li>
+      <li class="next">
+        We will look at the V8 engine
+        <ul>
+          <li>Most modern engines work similarly</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-environments-optimizing-v8-compilers">
+    <h2>
+      V8 has multiple types of compilers
+    </h2>
+    <ul>
+      <li class="next">
+        <strong>Ignition</strong> is a JIT compiler
+        <ul>
+          <li>Compiles JavaScript to bytecode</li>
+          <li>Interpreted execution of bytecode</li>
+        </ul>
+      </li>
+      <li class="next">
+        <strong>Turbofan</strong> is an optimizing compiler
+        <ul>
+          <li>Runs in the background during execution</li>
+          <li>Identifies and optimizes hot code</li>
+          <li class="next">
+            Preceded by:
+            <ul>
+              <li><strong>Sparkplug</strong>: No optimizations (short-lived)</li>
+              <li><strong>Maglev</strong>: Few optimizations (after Sparkplug)</li>
+            </ul>
+          </li>
+          <li>&rarr; Execution becomes gradually faster at runtime</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-environments-optimizing-v8-structure">
+    <h2>
+      Optimizing compilers learn shape and structure of running code
+    </h2>
+    <ul>
+      <li class="next">
+        JavaScript numbers are 64-bit floating point values
+        <ul>
+          <li>V8 identifies Small Integers (SMI)</li>
+          <li>SMIs can be stored in 32 bits (e.g. array indices)</li>
+          <li>Saves memory and improves performance</li>
+        </ul>
+      </li>
+      <li class="next">
+        JavaScript can have dynamic structures
+        <ul>
+          <li>V8 identifies common structures among objects</li>
+          <li>Creates hidden classes in C structs</li>
+          <li>Not for objects in <em>dictionary mode</em>: many properties, dynamically changing properties</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="runtime-environments-optimizing-v8-speculative">
+    <h2>
+      Optimizers are speculative
+    </h2>
+    <ul>
+      <li class="next">
+        Optimizers first try the fast path
+        <ul>
+          <li>If it fails, fallback to unoptimized code</li>
+          <li>Fail-path has penalty of being extra slow</li>
+        </ul>
+      </li>
+      <li class="next">
+        Optimizers work well if your code is C-like
+        <ul>
+          <li>Datatypes for specific fields are constant</li>
+          <li>Objects have no dynamically changing properties</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="toc slide" id="development">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Scripting</a>
+    </h2>
+    <ul>
+      <li><a href="#runtime-model">Runtime Model</a></li>
+      <li><a href="#runtime-environments">Runtime Environments</a></li>
+      <li class="current"><a href="#development">Development Process</a></li>
+    </ul>
+  </div>
+
+  <div class="slide" id="development-intro">
+    <h2>
+      Development in JavaScript differs from other languages
+    </h2>
+    <ul>
+      <li class="next">
+        Different possible target environments
+        <ul>
+          <li>Web browsers</li>
+          <li>Server-side runtime environments (Node.js, Deno, &mldr;)</li>
+        </ul>
+      </li>
+      <li class="next">
+        Fast evolution of new language features
+        <ul>
+          <li>But not all environments immediately support new features</li>
+        </ul>
+      </li>
+      <li class="next">
+        Dynamic nature of JS is useful for fast prototyping
+        <ul>
+          <li>Can cause difficulties for larger projects</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="development-steps">
+    <h2>
+      Most JavaScript projects incorporate multiple development processes
+    </h2>
+    <ul>
+      <li class="next">
+        Steps to be run by the developer or a <em>Continuous Integration (CI)</em> service:
+        <ul>
+          <li><strong>Linting</strong>: Static analysis of code</li>
+          <li><strong>Testing</strong>: Automated checking of code to validate behaviour</li>
+          <li><strong>Transpiling</strong>: Converting between languages or versions</li>
+          <li><strong>Bundling</strong>: Combining and preparing code for the browser</li>
+        </ul>
+      </li>
+      <li class="next">
+        Package managers (e.g. npm) provide tools to simplify running these steps
+        <ul>
+          <li>Running <code>"scripts"</code> in <code>package.json</code> using <code>npm run</code></li>
+          <li><code>npm run test</code>, <code>npm run build</code></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="toc slide" id="development-linting">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Scripting</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#development">Development Process</a>
+        <ul>
+          <li class="current"><a href="#development-linting">Linting</a></li>
+          <li><a href="#development-testing">Testing</a></li>
+          <li><a href="#development-transpiling">Transpiling</a></li>
+          <li><a href="#development-bundling">Bundling</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="development-linter-intro">
+    <h2>
+      Linters analyze code to find and fix potential problems
+    </h2>
+    <ul>
+      <li class="next">
+        Static analysis
+        <ul>
+          <li>No execution of the code</li>
+          <li>Analysis on the abstract syntax tree (AST) after parsing</li>
+        </ul>
+      </li>
+      <li class="next">
+        Configurable through rules
+        <ul>
+          <li>Each rule defines a potential problem or style preference</li>
+        </ul>
+      </li>
+      <li class="next">
+        Some rules can be automatically fixed
+        <ul>
+          <li>Transforming the AST and writing back to the original file</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="development-linter-examples">
+    <img src="images/eslint-logo.svg"
+         alt="[Logo of ESLint.]"
+         style="float: right; width: 250px"\>
+    <h2>
+      Examples of rules for ESLint
+    </h2>
+    <ul>
+      <li class="next">
+        <a href="https://eslint.org/">ESLint</a>
+        <ul>
+          <li>Popular open-source linter for JavaScript</li>
+        </ul>
+      </li>
+      <li class="next">
+        <code>no-unused-vars</code>
+        <ul>
+          <li>Reports variables that are defined but are not used</li>
+        </ul>
+      </li>
+      <li class="next">
+        <code>no-undefs</code>
+        <ul>
+          <li>Reports code that uses undeclared variables</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="development-linter-types">
+    <h2>
+      Categories of linter rules
+    </h2>
+    <ul>
+      <li class="next">
+        Code quality
+        <ul>
+          <li>Unused variables</li>
+          <li>Usage of undeclared variables</li>
+        </ul>
+      </li>
+      <li class="next">
+        Formatting
+        <ul>
+          <li>Tabs or spaces</li>
+          <li>Keyword spacing</li>
+          <li>Dedicated formatters exist, such as <strong><a href="https://prettier.io/">Prettier</a></strong></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="development-linter-example" style="background-color: black;">
+    <figure class="cover width">
+      <img src="images/linter-output.png"
+           alt="[Linters report on problems per file.]">
+    </figure>
+    <footer>
+      <p>Linters report on problems per file.</p>
+    </footer>
+  </div>
+  
+  <div class="toc slide" id="development-testing">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Scripting</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#development">Development Process</a>
+        <ul>
+          <li><a href="#development-linting">Linting</a></li>
+          <li class="current"><a href="#development-testing">Testing</a></li>
+          <li><a href="#development-transpiling">Transpiling</a></li>
+          <li><a href="#development-bundling">Bundling</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="development-testing-intro">
+    <h2>
+      Increasing confidence in code through automated testing
+    </h2>
+    <ul>
+      <li class="next">
+        Fully automated
+        <ul>
+          <li>Implemented as code or configuration</li>
+          <li>Executed at some frequency or on every change/version</li>
+        </ul>
+      </li>
+      <li class="next">
+        Different target levels of testing
+        <ul>
+          <li><strong>Unit</strong>: Small and isolated pieces of code</li>
+          <li><strong>Integration</strong>: Multiple components that are wired together</li>
+          <li><strong>System</strong>: The full system</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="development-testing-coverage">
+    <h2>
+      Measuring tested domain as <em>code coverage</em>
+    </h2>
+    <ul>
+      <li class="next">
+        Metric that indicates how much of the code is tested
+        <ul>
+          <li>Full coverage does not imply correctness</li>
+        </ul>
+      </li>
+      <li class="next">
+        Different types of coverage criteria:
+        <ul>
+          <li><strong>Function</strong>: considers executed functions</li>
+          <li><strong>Line</strong>: considers passed lines</li>
+          <li><strong>Branch</strong>: considers all possible control branches (e.g. if-else)</li>
+        </ul>
+      </li>
+      <li class="next">
+        Projects can configure coverage thresholds
+        <ul>
+          <li><span class="opinion">All thresholds except for 100% or 0% are arbitrary</span></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="development-testing-examples">
+    <img src="images/jest-logo.svg"
+         alt="[Logo of Jest.]"
+         style="float: right; width: 200px"\>
+    <h2>
+      <a href="https://jestjs.io/">Jest</a> is a popular testing framework for JavaScript
+    </h2>
+    <ul>
+      <li class="next">
+        Zero configuration
+        <ul>
+          <li>Requires minimal configuration</li>
+          <li>Very configurable and extensible when needed</li>
+        </ul>
+      </li>
+      <li class="next">
+        Supports many different types of projects
+        <ul>
+          <li>Node.js, TypeScript, React, &mldr;</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="development-testing-coverage-example">
+    <figure class="cover height">
+      <img src="images/coverage-report.png"
+           alt="[Coverage reports show details of missed lines and branches.]">
+    </figure>
+    <footer>
+      <p>Coverage reports show details of missed lines and branches.</p>
+    </footer>
+  </div>
+  
+  <div class="toc slide" id="development-transpiling">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Scripting</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#development">Development Process</a>
+        <ul>
+          <li><a href="#development-linting">Linting</a></li>
+          <li><a href="#development-testing">Testing</a></li>
+          <li class="current"><a href="#development-transpiling">Transpiling</a></li>
+          <li><a href="#development-bundling">Bundling</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="development-transpiling">
+    <h2>
+      Transpilers make code compatible with different JavaScript versions
+    </h2>
+    <ul>
+      <li class="next">
+        JavaScript-to-JavaScript transpilers
+        <ul>
+          <li>Converts across different ECMAScript versions</li>
+          <li>E.g. Babel</li>
+        </ul>
+      </li>
+      <li class="next">
+        Something-to-JavaScript transpilers
+        <ul>
+          <li>Converts another high-level language into JavaScript</li>
+          <li>E.g. TypeScript</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="development-transpiling-babel">
+    <img src="images/babel-logo.svg"
+         alt="[Logo of Babel.]"
+         style="float: right; width: 200px"\>
+    <h2>
+      Babel makes modern JavaScript backwards-compatible
+    </h2>
+    <ul>
+      <li class="next">
+        Older browsers or runtime environments may not support all modern ECMAScript features
+        <ul>
+          <li>Code conversion pipeline</li>
+        </ul>
+      </li>
+      <li class="next">
+        Code transformation
+        <ul>
+          <li>Modern syntax to old syntax (e.g. await &rarr; promises)</li>
+        </ul>
+      </li>
+      <li class="next">
+        Polyfills
+        <ul>
+          <li>Defines missing classes and APIs if they are missing</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="development-transpiling-typescript">
+    <img src="images/typescript-logo.svg"
+         alt="[Logo of TypeScript.]"
+         style="float: right; width: 125px"\>
+    <h2>
+      TypeScript is a superset of JavaScript with type definitions
+    </h2>
+    <ul>
+      <li class="next">
+        JavaScript is not strictly typed
+        <ul>
+          <li>Developers to consult documentation when using a library</li>
+          <li>Can cause difficulties for larger projects</li>
+        </ul>
+      </li>
+      <li class="next">
+        TypeScript adds typings syntax
+        <ul>
+          <li>Add types for variables, class, parameters, &mldr;</li>
+        </ul>
+      </li>
+      <li class="next">
+        Highly popular
+        <ul>
+          <li><a href="https://www.libhunt.com/index">Recently became more popular than JavaScript</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="development-transpiling-typescript-tsc">
+    <h2>
+      <code>tsc</code> is the TypeScript compiler
+    </h2>
+    <ul>
+      <li class="next">
+        <code>tsc</code> transpiles TypeScript into JavaScript
+        <ul>
+          <li>Includes type-checking</li>
+          <li>Output JavaScript on specific ECMAScript version (like Babel)</li>
+        </ul>
+      </li>
+      <li class="next">
+        Highly configurable in strictness
+        <ul>
+          <li>Require types for all function arguments?</li>
+          <li>Require strict null checks?</li>
+        </ul>
+      </li>
+      <li class="next">
+        Runtime environments natively support TypeScript
+        <ul>
+          <li>Deno and Bun</li>
+          <li>Node.js experimentally since version 22</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="toc slide" id="development-bundling">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Scripting</a>
+    </h2>
+    <ul>
+      <li class="current">
+        <a href="#development">Development Process</a>
+        <ul>
+          <li><a href="#development-linting">Linting</a></li>
+          <li><a href="#development-testing">Testing</a></li>
+          <li><a href="#development-transpiling">Transpiling</a></li>
+          <li class="current"><a href="#development-bundling">Bundling</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="development-bundling-motivation">
+    <h2>
+      Towards cross-platform JavaScript
+    </h2>
+    <ul>
+      <li class="next">
+        Different APIs in browser and server
+        <ul>
+          <li>Browser-specific: DOM, &mldr;</li>
+          <li>Server runtime environment: <code>fs</code> in Node.js for file I/O, &mldr;</li>
+        </ul>
+      </li>
+      <li class="next">
+        Different approaches to modules
+        <ul>
+          <li>Runtime environments support CJS and ESM</li>
+          <li>Modern browsers only support ESM</li>
+          <li>Older browsers don't support modules</li>
+        </ul>
+      </li>
+      <li class="next">
+        Differences in optimization concerns
+        <ul>
+          <li>Split code across many (server) or few (browser) modules</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="slide" id="development-bundling-overview">
+    <h2>
+      Bundlers enable cross-platform JavaScript
+    </h2>
+    <ul>
+      <li class="next">
+        Different APIs in browser and server
+        <ul>
+          <li>Transpilers such as Babel, polyfills</li>
+        </ul>
+      </li>
+      <li class="next">
+        Different approaches to modules
+        <ul>
+          <li>Creating browser-ready <em>bundles</em> of projects</li>
+        </ul>
+      </li>
+      <li class="next">
+        Differences in optimization concerns
+        <ul>
+          <li>Reducing the number of files within bundles</li>
+          <li>Optional optimization steps: <em>minification</em></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="development-bundling-webpack">
+    <figure class="cover width">
+      <img src="images/webpack.png"
+           alt="[Webpack is a bundler that bundles JavaScript and other assets.]">
+    </figure>
+    <footer>
+      <p>Webpack is a bundler that bundles JavaScript and other assets.</p>
+    </footer>
+  </div>
+  
+  <div class="slide" id="development-bundling-dependencies">
+    <h2>
+      Bundlers work in two steps
+    </h2>
+    <ul>
+      <li class="next">
+        Dependency resolution
+        <ul>
+          <li>Create a dependency graph of all modules</li>
+          <li>
+              <em>Tree-shaking</em> removes unused modules
+              <ul>
+                  <li>Does not work for dynamic imports</li>
+              </ul>
+          </li>
+        </ul>
+      </li>
+      <li class="next">
+        Packing
+        <ul>
+          <li>Convert dependency graph into browser-executable bundle</li>
+          <li>Other assets can be includes: HTML, CSS, &mldr;</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="development-bundling-optional">
+    <h2>
+      Making smaller bundles for production
+    </h2>
+    <ul>
+      <li class="next">
+        Minification
+        <ul>
+          <li>Removing unnecessary whitespaces and comments</li>
+          <li>Convention to use <code>.min.js</code> as extension</li>
+        </ul>
+      </li>
+      <li class="next">
+        Uglification
+        <ul>
+          <li>Minification + Shortening variable and function names</li>
+        </ul>
+      </li>
+      <li class="next">
+        Source maps link minified to original code
+        <ul>
+          <li>Modern browsers understand sourcemaps</li>
+          <li>Convention to use <code>.min.js.map</code> as extension</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="slide" id="development-bundling-minify-example">
+    <figure class="cover height">
+      <img src="images/minify.png"
+           alt="[Minified code is difficult to read without source maps.]">
+    </figure>
+    <footer>
+      <p>Minified code is difficult to read without source maps.</p>
+    </footer>
+  </div>
+  
+  <!--
+      - Cross-platform code, small differences, mainly regarding modules -> bundling
+      - Bundling process overview, and give example tools
+      - Illustration showing bundling
+      - Bundling process in detail: dep resolution (+tree-shaking), packing, minification
+  -->
+
+  <div class="toc slide" id="recap">
+    <h2>
+      <a class="series" href="../">Web Fundamentals</a><br>
+      <a class="module" href="#title">Web Scripting</a>
+    </h2>
+    <ul>
+      <li><a href="#runtime-model">Runtime Model</a></li>
+      <li><a href="#runtime-environments">Runtime Environments</a></li>
+      <li><a href="#development">Development Process</a></li>
+    </ul>
+  </div>
+
+  <footer>
+    <p class="badge"><a href="https://github.com/RubenVerborgh/WebFundamentals">View on GitHub</a></p>
+    <p class="license">
+      <a rel="license" href="https://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" src="../_shared/images/cc-by-small.svg" /></a>
+      Except where otherwise noted, the content of these slides is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+    </p>
+  </footer>
+  <script src="../_shared/scripts/shower.min.js"></script>
+  <script src="../_shared/scripts/enhancements.js"></script>
+  <script async src="//platform.twitter.com/widgets.js"></script>
+  <script>ga=function(){ga.q.push(arguments)};ga.q=[['create','UA-6142365-12','auto'],['require','autotrack'],['send','pageview']];ga.l=1*new Date</script>
+  <script async src="//www.google-analytics.com/analytics.js"></script>
+  <script async src="../_shared/scripts/autotrack.js"></script>
+</body>
+</html>
