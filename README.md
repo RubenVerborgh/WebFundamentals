@@ -1,4 +1,4 @@
-# Web Fundamentals
+# Web Fundamentals 2016–2026
 [![DOI](https://zenodo.org/badge/49000057.svg)](https://zenodo.org/badge/latestdoi/49000057)
 
 This repository contains the slides for the [Web Fundamentals](http://rubenverborgh.github.io/WebFundamentals/) module
